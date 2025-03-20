@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\6000.0.39f1-x86_64\Editor\Unity.exe
 -name
 AssetImportWorker5
 -projectPath
-C:/Users/sandy/final project
+C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
 -logFile
 Logs/AssetImportWorker5.log
 -srvPort
-54430
+50958
 -job-worker-count
 9
 -background-job-worker-count
 8
 -gc-helper-count
 1
-Successfully changed project path to: C:/Users/sandy/final project
-C:/Users/sandy/final project
+Successfully changed project path to: C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
+C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -59,14 +59,14 @@ C:/Users/sandy/final project
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [30272]  Target information:
+Player connection [23212]  Target information:
 
-Player connection [30272]  * "[IP] 140.123.3.79 [Port] 0 [Flags] 2 [Guid] 3114509252 [EditorId] 3114509252 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [23212]  * "[IP] 140.123.3.230 [Port] 0 [Flags] 2 [Guid] 844362869 [EditorId] 844362869 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [30272]  * "[IP] 192.168.167.199 [Port] 0 [Flags] 2 [Guid] 3114509252 [EditorId] 3114509252 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [23212]  * "[IP] 192.168.65.199 [Port] 0 [Flags] 2 [Guid] 844362869 [EditorId] 844362869 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [30272] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [30272] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [23212] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23212] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -78,11 +78,11 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 9.64 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.68 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.39f1 (15ea7ed0b100)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/sandy/final project/Assets
+[Subsystems] Discovering subsystems at path C:/Users/sandy/Desktop/game-by-insomniac-studio/final project/Assets
 GfxDevice: creating device client; kGfxThreadingModeNonThreaded
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -94,43 +94,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56204
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56968
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003737 seconds.
-- Loaded All Assemblies, in  0.322 seconds
+Registered in 0.004182 seconds.
+- Loaded All Assemblies, in  0.631 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.244 seconds
-Domain Reload Profiling: 565ms
-	BeginReloadAssembly (122ms)
+- Finished resetting the current domain, in  0.535 seconds
+Domain Reload Profiling: 1163ms
+	BeginReloadAssembly (228ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (26ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (45ms)
-	LoadAllAssembliesAndSetupDomain (119ms)
-		LoadAssemblies (119ms)
+	RebuildCommonClasses (80ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (63ms)
+	LoadAllAssembliesAndSetupDomain (239ms)
+		LoadAssemblies (224ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (117ms)
-			TypeCache.Refresh (115ms)
-				TypeCache.ScanAssembly (105ms)
+		AnalyzeDomain (235ms)
+			TypeCache.Refresh (233ms)
+				TypeCache.ScanAssembly (212ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (245ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (536ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (208ms)
+		SetupLoadedEditorAssemblies (477ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (21ms)
-			SetLoadedEditorAssemblies (4ms)
-			BeforeProcessingInitializeOnLoad (38ms)
-			ProcessInitializeOnLoadAttributes (106ms)
-			ProcessInitializeOnLoadMethodAttributes (40ms)
+			InitializePlatformSupportModulesInManaged (42ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (79ms)
+			ProcessInitializeOnLoadAttributes (260ms)
+			ProcessInitializeOnLoadMethodAttributes (90ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -139,50 +139,194 @@ Domain Reload Profiling: 565ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.746 seconds
-Refreshing native plugins compatible for Editor in 0.97 ms, found 4 plugins.
+- Loaded All Assemblies, in  2.241 seconds
+Refreshing native plugins compatible for Editor in 3.84 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.593 seconds
-Domain Reload Profiling: 1336ms
-	BeginReloadAssembly (126ms)
+- Finished resetting the current domain, in  2.261 seconds
+Domain Reload Profiling: 4492ms
+	BeginReloadAssembly (426ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (14ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (23ms)
-	RebuildCommonClasses (26ms)
-	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (29ms)
-	LoadAllAssembliesAndSetupDomain (551ms)
-		LoadAssemblies (431ms)
+		CreateAndSetChildDomain (59ms)
+	RebuildCommonClasses (96ms)
+	RebuildNativeTypeToScriptingClass (27ms)
+	initialDomainReloadingComplete (100ms)
+	LoadAllAssembliesAndSetupDomain (1581ms)
+		LoadAssemblies (931ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (195ms)
-			TypeCache.Refresh (141ms)
-				TypeCache.ScanAssembly (129ms)
-			BuildScriptInfoCaches (42ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (593ms)
+		AnalyzeDomain (911ms)
+			TypeCache.Refresh (610ms)
+				TypeCache.ScanAssembly (570ms)
+			BuildScriptInfoCaches (222ms)
+			ResolveRequiredComponents (58ms)
+	FinalizeReload (2262ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (457ms)
+		SetupLoadedEditorAssemblies (1842ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (2ms)
-			SetLoadedEditorAssemblies (2ms)
-			BeforeProcessingInitializeOnLoad (76ms)
-			ProcessInitializeOnLoadAttributes (273ms)
-			ProcessInitializeOnLoadMethodAttributes (99ms)
-			AfterProcessingInitializeOnLoad (5ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (12ms)
+			BeforeProcessingInitializeOnLoad (371ms)
+			ProcessInitializeOnLoadAttributes (1126ms)
+			ProcessInitializeOnLoadMethodAttributes (319ms)
+			AfterProcessingInitializeOnLoad (7ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (4ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 1.30 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (12ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 5.86 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 220 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6613 unused Assets / (7.2 MB). Loaded Objects now: 7272.
-Memory consumption went from 184.8 MB to 177.6 MB.
-Total: 9.032900 ms (FindLiveObjects: 0.485200 ms CreateObjectMapping: 0.293800 ms MarkObjects: 3.876300 ms  DeleteObjects: 4.376700 ms)
+Unloading 221 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6615 unused Assets / (7.5 MB). Loaded Objects now: 7256.
+Memory consumption went from 180.0 MB to 172.5 MB.
+Total: 23.787400 ms (FindLiveObjects: 2.357600 ms CreateObjectMapping: 0.826500 ms MarkObjects: 13.161100 ms  DeleteObjects: 7.438300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 472645.541361 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_120.asset
+  artifactKey: Guid(9eca3fbcf5b114e47be9ee3f36a1843d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_120.asset using Guid(9eca3fbcf5b114e47be9ee3f36a1843d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0948248a44d01ed89c239501dc416ec9') in 0.2280249 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_160.asset
+  artifactKey: Guid(8d7bf055ed274674fbc7ec72c2ef4385) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_160.asset using Guid(8d7bf055ed274674fbc7ec72c2ef4385) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd3b3d01950252fae23f13b95f7bf90a0') in 0.033473 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_145.asset
+  artifactKey: Guid(cd6fb6799790db044891677b50214ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_145.asset using Guid(cd6fb6799790db044891677b50214ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5de47e9c92fd0f1b25d49b6057c1dcfa') in 0.0124198 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_218.asset
+  artifactKey: Guid(ae59a161152f1c845ac717d039d98898) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_218.asset using Guid(ae59a161152f1c845ac717d039d98898) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '085bbbd636c45b669c44a3c599245106') in 0.0285631 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_215.asset
+  artifactKey: Guid(f4180a31ff61fef4f99703d8d7cb0f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_215.asset using Guid(f4180a31ff61fef4f99703d8d7cb0f88) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd6b098371d3fa59b3280781983315e07') in 0.0126716 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_196.asset
+  artifactKey: Guid(54b22eb69d9080c4f866b9346c4ccc19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_196.asset using Guid(54b22eb69d9080c4f866b9346c4ccc19) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '131449909d16a6763de31eeec50032c5') in 0.0302481 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_137.asset
+  artifactKey: Guid(42c064523cdace14191efa9a41f926f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_137.asset using Guid(42c064523cdace14191efa9a41f926f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0b4cc6c567b6f7c4c1ee35bf8d2e7529') in 0.0292493 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_248.asset
+  artifactKey: Guid(28f846c8d1ec784419a6cb8b2b81ede4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_248.asset using Guid(28f846c8d1ec784419a6cb8b2b81ede4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '856481133ef3aabb0bc06fb54ae5fe5e') in 0.0306249 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_255.asset
+  artifactKey: Guid(146150ccd4a0b584eab1efece958b6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_255.asset using Guid(146150ccd4a0b584eab1efece958b6f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a8dbcce8adac948714dd0fbebbae042') in 0.0337336 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_286.asset
+  artifactKey: Guid(99e1f851b422c1944a6a53a6a60401e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_286.asset using Guid(99e1f851b422c1944a6a53a6a60401e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b6eab5af72273a7421d3ab55e5c47603') in 0.031687 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_151.asset
+  artifactKey: Guid(a6273cf0d48d11347b2219f57fe6147d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_151.asset using Guid(a6273cf0d48d11347b2219f57fe6147d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d933e77aa7e6e146472310a72d8eb43') in 0.0303738 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_109.asset
+  artifactKey: Guid(a3e0c47e08a6dc74b8317bea4786e2fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_109.asset using Guid(a3e0c47e08a6dc74b8317bea4786e2fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b8e343f931ed0014c4246026c5b45995') in 0.0148985 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_134.asset
+  artifactKey: Guid(5963794bb41996a45ad1af7c54d88b4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_134.asset using Guid(5963794bb41996a45ad1af7c54d88b4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f4a124a9a344044f6ef03620bd439164') in 0.0311382 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_119.asset
+  artifactKey: Guid(49b340b3a84449e4cb1bf60670437bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_119.asset using Guid(49b340b3a84449e4cb1bf60670437bbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1490fc48358e6153ad42dcc31d396e24') in 0.0327681 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_157.asset
+  artifactKey: Guid(81d03a12d6a062446bed56f121f49eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_157.asset using Guid(81d03a12d6a062446bed56f121f49eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f5957466f439398adaeaee0a12ae14af') in 0.0327084 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_154.asset
+  artifactKey: Guid(2cacf027f599d88438744fd01290b2e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_154.asset using Guid(2cacf027f599d88438744fd01290b2e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4ea1fef00fbf1450f8a57a32497748d0') in 0.0306639 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_158.asset
+  artifactKey: Guid(93ddb2e9850c65a41a5a8689bb8b631f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_158.asset using Guid(93ddb2e9850c65a41a5a8689bb8b631f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81c0f9b1d1af6896f388413e8224f815') in 0.0316989 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_82.asset
+  artifactKey: Guid(ba2d8f4730e240b478e9ba3b4af22043) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny RPG Forest/Artwork/Environment/testmap/tileset_82.asset using Guid(ba2d8f4730e240b478e9ba3b4af22043) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec3355d2c5634bf3ae7196625115178a') in 0.0316726 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
