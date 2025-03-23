@@ -6819,7 +6819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1931813666}
-  speed: 50
+  speed: 5
 --- !u!61 &1931813665
 BoxCollider2D:
   m_ObjectHideFlags: 0
