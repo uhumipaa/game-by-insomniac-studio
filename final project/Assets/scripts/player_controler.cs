@@ -25,5 +25,9 @@ public class player_controler : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(movehorizontal * speed, movevetical * speed);
         }
+        else
+        {
+            rb.linearVelocity = Vector2.zero; // 停止移動時歸零速度
+        }
     }
 }
