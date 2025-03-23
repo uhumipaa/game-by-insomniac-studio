@@ -7,13 +7,22 @@ public class player_controler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // 確保 Animator 不會影響 Scale
+        if (GetComponent<Animator>() != null)
+        {
+            GetComponent<Animator>().applyRootMotion = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
+    }
+    void LateUpdate()
+    {
+        // 強制固定角色大小
+        transform.localScale = new Vector3(1, 1, 1);
     }
     private void Move()
     {
