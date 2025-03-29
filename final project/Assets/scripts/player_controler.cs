@@ -3,10 +3,12 @@ using UnityEngine;
 public class player_controler : MonoBehaviour
 {
     public Rigidbody2D rb;
+    Animator ani;
     public float speed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ani = GetComponent<Animator>();
         // 確保 Animator 不會影響 Scale
         if (GetComponent<Animator>() != null)
         {
@@ -33,10 +35,14 @@ public class player_controler : MonoBehaviour
         if (movehorizontal != 0||movevetical!=0)
         {
             rb.linearVelocity = new Vector2(movehorizontal * speed, movevetical * speed);
+            ani.SetFloat("vertical", movevetical);
+            ani.SetFloat("horizontal", movehorizontal);
+            ani.SetBool("walk", true);
         }
         else
         {
             rb.linearVelocity = Vector2.zero; // 停止移動時歸零速度
+            ani.SetBool("walk", false);
         }
     }
 }
