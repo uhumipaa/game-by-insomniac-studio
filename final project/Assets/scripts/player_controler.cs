@@ -23,8 +23,11 @@ public class player_controler : MonoBehaviour
     }
     void LateUpdate()
     {
-        // 強制固定角色大小
-        transform.localScale = new Vector3(1, 1, 1);
+        // ➤ 這裡改為根據移動方向翻轉角色
+        if (rb.linearVelocityX > 0)
+            transform.localScale = new Vector3(1, 1, 1);  // 向右
+        else if (rb.linearVelocityX < 0)
+            transform.localScale = new Vector3(-1, 1, 1); // 向左
     }
     private void Move()
     {
@@ -36,7 +39,7 @@ public class player_controler : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(movehorizontal * speed, movevetical * speed);
             ani.SetFloat("vertical", movevetical);
-            ani.SetFloat("horizontal", movehorizontal);
+            ani.SetFloat("horizontal", Mathf.Abs(movehorizontal));
             ani.SetBool("walk", true);
         }
         else
