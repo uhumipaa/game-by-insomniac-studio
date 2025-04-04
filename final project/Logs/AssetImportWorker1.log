@@ -15,7 +15,7 @@ C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-62993
+57490
 -job-worker-count
 9
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29992]  Target information:
+Player connection [39008]  Target information:
 
-Player connection [29992]  * "[IP] 192.168.175.199 [Port] 0 [Flags] 2 [Guid] 3129833870 [EditorId] 3129833870 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [39008]  * "[IP] 192.168.175.199 [Port] 0 [Flags] 2 [Guid] 2606296670 [EditorId] 2606296670 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29992] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [29992] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [39008] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [39008] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 328.63 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.31 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.39f1 (15ea7ed0b100)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Resources/UnitySubsystems
@@ -92,43 +92,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56504
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003769 seconds.
-- Loaded All Assemblies, in  4.821 seconds
+Registered in 0.005637 seconds.
+- Loaded All Assemblies, in  1.186 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.517 seconds
-Domain Reload Profiling: 5336ms
-	BeginReloadAssembly (975ms)
+- Finished resetting the current domain, in  1.171 seconds
+Domain Reload Profiling: 2353ms
+	BeginReloadAssembly (442ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (801ms)
-	RebuildNativeTypeToScriptingClass (20ms)
-	initialDomainReloadingComplete (70ms)
-	LoadAllAssembliesAndSetupDomain (2953ms)
-		LoadAssemblies (970ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (118ms)
+	RebuildNativeTypeToScriptingClass (34ms)
+	initialDomainReloadingComplete (140ms)
+	LoadAllAssembliesAndSetupDomain (446ms)
+		LoadAssemblies (434ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (2949ms)
-			TypeCache.Refresh (2946ms)
-				TypeCache.ScanAssembly (2045ms)
-			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (518ms)
+		AnalyzeDomain (437ms)
+			TypeCache.Refresh (433ms)
+				TypeCache.ScanAssembly (397ms)
+			BuildScriptInfoCaches (1ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (1173ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (452ms)
+		SetupLoadedEditorAssemblies (1028ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (49ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (83ms)
-			ProcessInitializeOnLoadAttributes (198ms)
-			ProcessInitializeOnLoadMethodAttributes (115ms)
+			InitializePlatformSupportModulesInManaged (88ms)
+			SetLoadedEditorAssemblies (15ms)
+			BeforeProcessingInitializeOnLoad (293ms)
+			ProcessInitializeOnLoadAttributes (485ms)
+			ProcessInitializeOnLoadMethodAttributes (147ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -140,11 +140,11 @@ Import Worker Mode flag is 0x00
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  5.014 seconds
+- Loaded All Assemblies, in  2.422 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 1.37 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.37 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Package Manager log level set to [2]
@@ -152,81 +152,248 @@ Package Manager log level set to [2]
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.808 seconds
-Domain Reload Profiling: 7818ms
-	BeginReloadAssembly (196ms)
+- Finished resetting the current domain, in  2.526 seconds
+Domain Reload Profiling: 4935ms
+	BeginReloadAssembly (494ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (20ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
-	RebuildCommonClasses (42ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (42ms)
-	LoadAllAssembliesAndSetupDomain (4718ms)
-		LoadAssemblies (4086ms)
+		CreateAndSetChildDomain (73ms)
+	RebuildCommonClasses (111ms)
+	RebuildNativeTypeToScriptingClass (31ms)
+	initialDomainReloadingComplete (128ms)
+	LoadAllAssembliesAndSetupDomain (1644ms)
+		LoadAssemblies (1047ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (756ms)
-			TypeCache.Refresh (601ms)
-				TypeCache.ScanAssembly (415ms)
-			BuildScriptInfoCaches (127ms)
-			ResolveRequiredComponents (23ms)
-	FinalizeReload (2809ms)
+		AnalyzeDomain (891ms)
+			TypeCache.Refresh (626ms)
+				TypeCache.ScanAssembly (578ms)
+			BuildScriptInfoCaches (228ms)
+			ResolveRequiredComponents (29ms)
+	FinalizeReload (2527ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1566ms)
+		SetupLoadedEditorAssemblies (2045ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (147ms)
-			ProcessInitializeOnLoadAttributes (452ms)
-			ProcessInitializeOnLoadMethodAttributes (955ms)
-			AfterProcessingInitializeOnLoad (4ms)
-			EditorAssembliesLoaded (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (12ms)
+			BeforeProcessingInitializeOnLoad (408ms)
+			ProcessInitializeOnLoadAttributes (1263ms)
+			ProcessInitializeOnLoadMethodAttributes (343ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 3.17 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (16ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 3.79 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 223 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7007 unused Assets / (7.6 MB). Loaded Objects now: 7648.
-Memory consumption went from 184.1 MB to 176.5 MB.
-Total: 19.496700 ms (FindLiveObjects: 2.561900 ms CreateObjectMapping: 1.217800 ms MarkObjects: 8.774900 ms  DeleteObjects: 6.940300 ms)
+Unloading 7007 unused Assets / (6.9 MB). Loaded Objects now: 7648.
+Memory consumption went from 185.8 MB to 178.9 MB.
+Total: 23.581400 ms (FindLiveObjects: 1.256800 ms CreateObjectMapping: 1.044200 ms MarkObjects: 12.495600 ms  DeleteObjects: 8.782000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 607799.534680 seconds.
-  path: Assets/Animation/player.controller
-  artifactKey: Guid(0923a1d3bf3e28b46980468f2028acb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/player.controller using Guid(0923a1d3bf3e28b46980468f2028acb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ab61075ab29014c46fb5ad7a087b610') in 0.1698177 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
+  Time since last request: 614104.870878 seconds.
+  path: Assets/Palette/Farm_map.prefab
+  artifactKey: Guid(58f7acebf09ca3c4dab224f41b6711bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Palette/Farm_map.prefab using Guid(58f7acebf09ca3c4dab224f41b6711bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf3409d95a212d8e7b3f621d45c84166') in 1.3986355 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
 
 ========================================================================
 Received Import Request.
-  Time since last request: 87.630442 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-2.png
-  artifactKey: Guid(becb8a6873c144b738fc9cc5fceece35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-2.png using Guid(becb8a6873c144b738fc9cc5fceece35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '15650d255036831ff486522a22a72d1d') in 0.1433172 seconds
+  Time since last request: 635.656814 seconds.
+  path: Assets/Tiles/Summer Tile_1.asset
+  artifactKey: Guid(82a31d5aa58d38245804422a0d0bfb00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_1.asset using Guid(82a31d5aa58d38245804422a0d0bfb00) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dd319d175f811e4b04120b29f6f54817') in 0.0511576 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-6.png
-  artifactKey: Guid(280d5eb6ec4ee40a3922d520ee42863d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-6.png using Guid(280d5eb6ec4ee40a3922d520ee42863d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8598b1c31985b574d9e34998fe64d772') in 0.0266072 seconds
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tiles/Summer Tile_31.asset
+  artifactKey: Guid(e0ee8e61ef2b5064a9e54392ea07f309) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_31.asset using Guid(e0ee8e61ef2b5064a9e54392ea07f309) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a87bb93f706187269edfcedf7912c27b') in 0.0190906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tiles/Summer Tile_42.asset
+  artifactKey: Guid(c41d83a472ac8664ab394e79880d5136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_42.asset using Guid(c41d83a472ac8664ab394e79880d5136) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8585b00cd10eccfdc76364cc9d2dcb7b') in 0.0151243 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Tiles/Summer Tile_9.asset
+  artifactKey: Guid(eb49007b8789a3943a340e0c35cea46a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_9.asset using Guid(eb49007b8789a3943a340e0c35cea46a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '55a0cf81eab10ea7d7cb0715c1e32a39') in 0.0190219 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000024 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-4.png
-  artifactKey: Guid(82de06744ccd74b2cb215461eafffad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-4.png using Guid(82de06744ccd74b2cb215461eafffad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8ac3dd326f1b33f2517bdf9e8f450d38') in 0.0240482 seconds
+  path: Assets/Tiles/Summer Tile_7.asset
+  artifactKey: Guid(aa23f544bac385f44b2e88af6fb7a7ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_7.asset using Guid(aa23f544bac385f44b2e88af6fb7a7ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71dbfe9794cc5d6bdd91fbb1a5f8b2b7') in 0.0179518 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Tiles/Summer Tile_24.asset
+  artifactKey: Guid(a8ce574c121735e409fcedcd565a1be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_24.asset using Guid(a8ce574c121735e409fcedcd565a1be2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bf65801cf0b538686bb63a69d4b0f94f') in 0.0184172 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Tiles/Summer Tile_43.asset
+  artifactKey: Guid(3d1fb1a36f4f01349835a9af11415f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_43.asset using Guid(3d1fb1a36f4f01349835a9af11415f6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e917084e61ab8cfe828a09ac9fbe2f68') in 0.0170945 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tiles/Summer Tile_14.asset
+  artifactKey: Guid(e9d62d24456bd8641a9b8ae50991a2f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_14.asset using Guid(e9d62d24456bd8641a9b8ae50991a2f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c05dd309d452cdbc2c1bba111432cc9f') in 0.0175921 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tiles/Summer Tile_23.asset
+  artifactKey: Guid(d7624f9e086696c43bf8e8e2598cb6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_23.asset using Guid(d7624f9e086696c43bf8e8e2598cb6ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0a45f6f31bcdde8d0f92a97d9127a247') in 0.0153868 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Tiles/Summer Tile_6.asset
+  artifactKey: Guid(0707d05de9dea4142b6588208c443c16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_6.asset using Guid(0707d05de9dea4142b6588208c443c16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '006f3664a0a7f9dd8e38ad95334736e9') in 0.0199385 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Tiles/Summer Tile_44.asset
+  artifactKey: Guid(7d801681c2eae78428178e0ca97945ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_44.asset using Guid(7d801681c2eae78428178e0ca97945ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd0b623f753e3d8d6c21020eb8b9c6745') in 0.0175281 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tiles/Summer Tile_8.asset
+  artifactKey: Guid(3d5ff4ba6e2445440a35863a6e972c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_8.asset using Guid(3d5ff4ba6e2445440a35863a6e972c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9e2aab90a027a604758b68381e26bc9') in 0.0254952 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiles/Summer Tile_33.asset
+  artifactKey: Guid(c6b2af16ba7212e4da5eda1d2f6082df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_33.asset using Guid(c6b2af16ba7212e4da5eda1d2f6082df) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bca265ac39551d56a61bded0fcab48aa') in 0.0196074 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Summer Tile_34.asset
+  artifactKey: Guid(65ea7f74eba046e4a8ffd781883c0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_34.asset using Guid(65ea7f74eba046e4a8ffd781883c0b63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '96474d31a72712140901494f9d2809b8') in 0.0155955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Summer Tile_11.asset
+  artifactKey: Guid(f7339aad4ddac5f409d656c651cd6ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_11.asset using Guid(f7339aad4ddac5f409d656c651cd6ef1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd6a276527e5b67cf968e7c9b29d3edff') in 0.0180028 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiles/Summer Tile_39.asset
+  artifactKey: Guid(c23bb8d35958495499c3e1e1a9822952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_39.asset using Guid(c23bb8d35958495499c3e1e1a9822952) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3f7e95f0a5e4c7120a79e6d364c6ef5a') in 0.0211897 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Tiles/Summer Tile_18.asset
+  artifactKey: Guid(0857fdfa67fcf8a4fb2c5f5e05837260) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_18.asset using Guid(0857fdfa67fcf8a4fb2c5f5e05837260) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '576ace0cb074008669c9647dae7305ff') in 0.0202242 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Tiles/Summer Tile_47.asset
+  artifactKey: Guid(d80a4a23b6fd036419b0c7019bef4839) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_47.asset using Guid(d80a4a23b6fd036419b0c7019bef4839) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8940437023dd3bb6b2eda621b8ecfd30') in 0.0197052 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Summer Tile_22.asset
+  artifactKey: Guid(7f6ea3db9b648214fbd461a2eef56c1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_22.asset using Guid(7f6ea3db9b648214fbd461a2eef56c1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fcf80e8610d4907b44c89af921bb602a') in 0.0178714 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Tiles/Summer Tile_16.asset
+  artifactKey: Guid(ad250f2f2536d14429c8981d044ce271) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_16.asset using Guid(ad250f2f2536d14429c8981d044ce271) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7a97d136be1232b26b936a7c325cbf9') in 0.0209434 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Tiles/Summer Tile_5.asset
+  artifactKey: Guid(a67e0a2f201d8f447a96ca8be5d3b6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_5.asset using Guid(a67e0a2f201d8f447a96ca8be5d3b6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ac5ec89b5b372f34820a8b4985c53dde') in 0.0169474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Tiles/Summer Tile_2.asset
+  artifactKey: Guid(cc9c8b583a373c3408ba33c359f76830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_2.asset using Guid(cc9c8b583a373c3408ba33c359f76830) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7ee6cb6bd53e1d77aab8a4d1756c6954') in 0.0156429 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Summer Tile_19.asset
+  artifactKey: Guid(ae11ba59b2d538345a1b23afd3896bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_19.asset using Guid(ae11ba59b2d538345a1b23afd3896bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '16c4790911415a4c503f4e439e125c21') in 0.0185547 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Tiles/Summer Tile_36.asset
+  artifactKey: Guid(d0f3fd218dfde13458358726ab5074f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Summer Tile_36.asset using Guid(d0f3fd218dfde13458358726ab5074f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a086eb2d28007e3b96f00e98b28bc2b7') in 0.0157592 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
 AssetImportWorker is now disconnected from the server
 Process exiting
 Exiting without the bug reporter. Application will terminate with return code 0
