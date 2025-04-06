@@ -29,6 +29,11 @@ public class player_controler : MonoBehaviour
         else if (rb.linearVelocityX < 0)
             transform.localScale = new Vector3(-1, 1, 1); // 向左
     }
+
+    private void OnTriggerStay2D(Collider2D coll)
+    {
+        
+    }
     private void Move()
     {
         float movehorizontal;

@@ -1,0 +1,22 @@
+# === Unity 特有目錄 ===
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+# === Unity 檔案類型 ===
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+
+# === 系統垃圾檔案 ===
+.DS_Store
+Thumbs.db
+*.log

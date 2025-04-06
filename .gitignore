@@ -75,3 +75,15 @@ crashlytics-build.properties
 
 final project/Library/
 final project/Packages/PackageCache/
+final project/Logs/AssetImportWorker2-prev.log
+final project/Logs/AssetImportWorker2.log
+final project/Logs/AssetImportWorker2-prev.log
+final project/Logs/shadercompiler-AssetImportWorker0-0.log
+final project/Logs/shadercompiler-AssetImportWorker1-0.log
+final project/Logs/shadercompiler-AssetImportWorker2-0.log
+*.log
+*.log
+*.log
+*.log
+*.log
+final project/Logs/AssetImportWorker1.log
