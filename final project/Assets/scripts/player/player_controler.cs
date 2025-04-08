@@ -20,6 +20,10 @@ public class player_controler : MonoBehaviour
     void Update()
     {
         Move();
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            
+        }
     }
     void LateUpdate()
     {

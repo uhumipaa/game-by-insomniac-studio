@@ -15,7 +15,7 @@ C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-62993
+50571
 -job-worker-count
 9
 -background-job-worker-count
@@ -59,12 +59,12 @@ C:/Users/sandy/Desktop/game-by-insomniac-studio/final project
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [29992]  Target information:
+Player connection [13484]  Target information:
 
-Player connection [29992]  * "[IP] 192.168.175.199 [Port] 0 [Flags] 2 [Guid] 3129833870 [EditorId] 3129833870 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [13484]  * "[IP] 192.168.175.199 [Port] 0 [Flags] 2 [Guid] 594388704 [EditorId] 594388704 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-9A11LLP7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [29992] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [29992] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13484] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [13484] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 9
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -76,7 +76,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 328.63 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 4.49 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.39f1 (15ea7ed0b100)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Resources/UnitySubsystems
@@ -92,43 +92,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56380
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56620
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.39f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.003769 seconds.
-- Loaded All Assemblies, in  4.821 seconds
+Registered in 0.004846 seconds.
+- Loaded All Assemblies, in  0.915 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.517 seconds
-Domain Reload Profiling: 5336ms
-	BeginReloadAssembly (975ms)
+- Finished resetting the current domain, in  0.905 seconds
+Domain Reload Profiling: 1817ms
+	BeginReloadAssembly (293ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (801ms)
-	RebuildNativeTypeToScriptingClass (20ms)
-	initialDomainReloadingComplete (70ms)
-	LoadAllAssembliesAndSetupDomain (2953ms)
-		LoadAssemblies (970ms)
+	RebuildCommonClasses (93ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (114ms)
+	LoadAllAssembliesAndSetupDomain (386ms)
+		LoadAssemblies (290ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (2949ms)
-			TypeCache.Refresh (2946ms)
-				TypeCache.ScanAssembly (2045ms)
+		AnalyzeDomain (381ms)
+			TypeCache.Refresh (377ms)
+				TypeCache.ScanAssembly (348ms)
 			BuildScriptInfoCaches (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (518ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (906ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (452ms)
+		SetupLoadedEditorAssemblies (787ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (49ms)
-			SetLoadedEditorAssemblies (6ms)
-			BeforeProcessingInitializeOnLoad (83ms)
-			ProcessInitializeOnLoadAttributes (198ms)
-			ProcessInitializeOnLoadMethodAttributes (115ms)
+			InitializePlatformSupportModulesInManaged (70ms)
+			SetLoadedEditorAssemblies (12ms)
+			BeforeProcessingInitializeOnLoad (164ms)
+			ProcessInitializeOnLoadAttributes (407ms)
+			ProcessInitializeOnLoadMethodAttributes (133ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -140,11 +140,11 @@ Import Worker Mode flag is 0x00
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  5.014 seconds
+- Loaded All Assemblies, in  2.195 seconds
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
 'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
-Refreshing native plugins compatible for Editor in 1.37 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 2.26 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
 Package Manager log level set to [2]
@@ -152,81 +152,432 @@ Package Manager log level set to [2]
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.808 seconds
-Domain Reload Profiling: 7818ms
-	BeginReloadAssembly (196ms)
+- Finished resetting the current domain, in  2.087 seconds
+Domain Reload Profiling: 4274ms
+	BeginReloadAssembly (439ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (16ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (28ms)
-	RebuildCommonClasses (42ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (42ms)
-	LoadAllAssembliesAndSetupDomain (4718ms)
-		LoadAssemblies (4086ms)
+		CreateAndSetChildDomain (62ms)
+	RebuildCommonClasses (91ms)
+	RebuildNativeTypeToScriptingClass (29ms)
+	initialDomainReloadingComplete (92ms)
+	LoadAllAssembliesAndSetupDomain (1535ms)
+		LoadAssemblies (983ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (756ms)
-			TypeCache.Refresh (601ms)
-				TypeCache.ScanAssembly (415ms)
-			BuildScriptInfoCaches (127ms)
-			ResolveRequiredComponents (23ms)
-	FinalizeReload (2809ms)
+		AnalyzeDomain (825ms)
+			TypeCache.Refresh (592ms)
+				TypeCache.ScanAssembly (549ms)
+			BuildScriptInfoCaches (186ms)
+			ResolveRequiredComponents (38ms)
+	FinalizeReload (2088ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1566ms)
+		SetupLoadedEditorAssemblies (1702ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
-			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (147ms)
-			ProcessInitializeOnLoadAttributes (452ms)
-			ProcessInitializeOnLoadMethodAttributes (955ms)
-			AfterProcessingInitializeOnLoad (4ms)
-			EditorAssembliesLoaded (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (11ms)
+			BeforeProcessingInitializeOnLoad (305ms)
+			ProcessInitializeOnLoadAttributes (1069ms)
+			ProcessInitializeOnLoadMethodAttributes (302ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 3.17 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (17ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 3.47 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 223 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 7007 unused Assets / (7.6 MB). Loaded Objects now: 7648.
-Memory consumption went from 184.1 MB to 176.5 MB.
-Total: 19.496700 ms (FindLiveObjects: 2.561900 ms CreateObjectMapping: 1.217800 ms MarkObjects: 8.774900 ms  DeleteObjects: 6.940300 ms)
+Unloading 7017 unused Assets / (7.3 MB). Loaded Objects now: 7658.
+Memory consumption went from 184.5 MB to 177.3 MB.
+Total: 21.778000 ms (FindLiveObjects: 3.196900 ms CreateObjectMapping: 0.680200 ms MarkObjects: 11.146800 ms  DeleteObjects: 6.751700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 607799.534680 seconds.
-  path: Assets/Animation/player.controller
-  artifactKey: Guid(0923a1d3bf3e28b46980468f2028acb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animation/player.controller using Guid(0923a1d3bf3e28b46980468f2028acb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ab61075ab29014c46fb5ad7a087b610') in 0.1698177 seconds
-Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 16
+  Time since last request: 114608.739603 seconds.
+  path: Assets/Tiles/green_0.asset
+  artifactKey: Guid(96d96846250036949b7288094f3edf7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/green_0.asset using Guid(96d96846250036949b7288094f3edf7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '990550a8abb80ea8121d10b5c697877c') in 0.1890914 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
-  Time since last request: 87.630442 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-2.png
-  artifactKey: Guid(becb8a6873c144b738fc9cc5fceece35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-2.png using Guid(becb8a6873c144b738fc9cc5fceece35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '15650d255036831ff486522a22a72d1d') in 0.1433172 seconds
+  Time since last request: 0.000037 seconds.
+  path: Assets/Tiles/Spring Tile_13.asset
+  artifactKey: Guid(64521e036ffc3f54fac6f52ca413c99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_13.asset using Guid(64521e036ffc3f54fac6f52ca413c99a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '664d1a8dbd0e583f57f1fac0595ed49b') in 0.0378498 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tiles/Spring Tile_34.asset
+  artifactKey: Guid(5fe52de791334e2478e8f77780c82739) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_34.asset using Guid(5fe52de791334e2478e8f77780c82739) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c251cf13059b54b9c0bca0732d51018a') in 0.023756 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Tiles/Spring Tile_47.asset
+  artifactKey: Guid(28ac48a6fa0e53a42956c1ca0735d1be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_47.asset using Guid(28ac48a6fa0e53a42956c1ca0735d1be) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fe8fc1072f4f3d1f27ca514255df6be7') in 0.0238265 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Tiles/Spring Tile_14.asset
+  artifactKey: Guid(a66dcd6713eac8245808ab1ff2e69dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_14.asset using Guid(a66dcd6713eac8245808ab1ff2e69dfb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '49a14bb5033146de6f86dca30687b92a') in 0.0248924 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000023 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-6.png
-  artifactKey: Guid(280d5eb6ec4ee40a3922d520ee42863d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-6.png using Guid(280d5eb6ec4ee40a3922d520ee42863d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8598b1c31985b574d9e34998fe64d772') in 0.0266072 seconds
+  path: Assets/Tiles/Spring Tile_16.asset
+  artifactKey: Guid(5f826483e31a5f7418e1e9aebd3957b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_16.asset using Guid(5f826483e31a5f7418e1e9aebd3957b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '594d337cd68f1488060a314818539e70') in 0.0244315 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tiles/Spring Tile_25.asset
+  artifactKey: Guid(ada9990469c0b0f4db42072a762982fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_25.asset using Guid(ada9990469c0b0f4db42072a762982fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7fa81894e2504868f0e8b9626578e2e8') in 0.0255592 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tiles/Spring Tile_27.asset
+  artifactKey: Guid(de0b29be16160bc48a1f5af37a886dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_27.asset using Guid(de0b29be16160bc48a1f5af37a886dde) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '919ad728241eeb217bd24052876313a3') in 0.0304378 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000024 seconds.
-  path: Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-4.png
-  artifactKey: Guid(82de06744ccd74b2cb215461eafffad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tiny RPG Forest/Artwork/sprites/hero/walk/hero-walk-side/hero-walk-side-4.png using Guid(82de06744ccd74b2cb215461eafffad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8ac3dd326f1b33f2517bdf9e8f450d38') in 0.0240482 seconds
+  path: Assets/Tiles/Spring Tile_54.asset
+  artifactKey: Guid(9b098ac83a6add149ac449c7b6bd4f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_54.asset using Guid(9b098ac83a6add149ac449c7b6bd4f41) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bec6f21a17dfcf33df34e517e9140fa5') in 0.0257692 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Tiles/Spring Tile_65.asset
+  artifactKey: Guid(564693051504f684c917d5f6e51bb6fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_65.asset using Guid(564693051504f684c917d5f6e51bb6fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a4ab7d0c9d75db257a3ae477f0d2d31b') in 0.0282612 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Tiles/Spring Tile_64.asset
+  artifactKey: Guid(6287de3be258608418a31771bf5120c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_64.asset using Guid(6287de3be258608418a31771bf5120c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9e3d2059c4efb3510c34ec54619edc70') in 0.0251644 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tiles/Spring Tile_46.asset
+  artifactKey: Guid(bc39bdc70e0340b48ac570f4c6710c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_46.asset using Guid(bc39bdc70e0340b48ac570f4c6710c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7da4098d606ff17fb431a9a8189838a3') in 0.0283789 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Spring Tile_63.asset
+  artifactKey: Guid(5a60289ba011ab9418294e74a30d1cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_63.asset using Guid(5a60289ba011ab9418294e74a30d1cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d84627a036178eeb3d7f19d012a6c5c') in 0.0343283 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Tiles/Spring Tile_71.asset
+  artifactKey: Guid(34ca6965f97d5dd45a9d3cdbde54770a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_71.asset using Guid(34ca6965f97d5dd45a9d3cdbde54770a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '45a6a66b2d083ccd1e27178be3021981') in 0.0240036 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tiles/Spring Tile_59.asset
+  artifactKey: Guid(eb98dbbc3aeda22449eabb989f969861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_59.asset using Guid(eb98dbbc3aeda22449eabb989f969861) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '62035efbc3e860798ced79da46082128') in 0.0354515 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Tiles/Spring Tile_1.asset
+  artifactKey: Guid(52e74c8dbcd58084b8062307ae95b35d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_1.asset using Guid(52e74c8dbcd58084b8062307ae95b35d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd45175c526441e896a2d7396b86aa29') in 0.042979 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Tiles/Spring Tile_67.asset
+  artifactKey: Guid(70f194c05be31784f8888590e3dd05c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_67.asset using Guid(70f194c05be31784f8888590e3dd05c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1d9c1b3aa638e69e9a5c6557edf0f2b') in 0.0415437 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tiles/Spring Tile_8.asset
+  artifactKey: Guid(8ed631738b9784d4689a6b3f7a2291e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_8.asset using Guid(8ed631738b9784d4689a6b3f7a2291e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8c40ecbc4f528c1d0269520575f86fa8') in 0.029296 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Tiles/Spring Tile_10.asset
+  artifactKey: Guid(6f7bc540e90ea4e42984e0f4d1162ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_10.asset using Guid(6f7bc540e90ea4e42984e0f4d1162ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c2a0990d47e28a84106d3b78fef5d560') in 0.0313987 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tiles/Spring Tile_15.asset
+  artifactKey: Guid(68d9ad7c929da894c8683d23b463ce16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_15.asset using Guid(68d9ad7c929da894c8683d23b463ce16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e76e046435faf0fe34a9b5a0cea905b') in 0.0295479 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Tiles/Spring Tile_26.asset
+  artifactKey: Guid(717cb4220da0e24419a55692d2c64664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_26.asset using Guid(717cb4220da0e24419a55692d2c64664) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7926f7a4316603e7b3c9bceb08b67518') in 0.0261172 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tiles/Spring Tile_70.asset
+  artifactKey: Guid(6c900e05b88de0744b7201c7a88dd375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_70.asset using Guid(6c900e05b88de0744b7201c7a88dd375) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '786f708d31df8b3efae6872e6350b528') in 0.0260751 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Tiles/Spring Tile_12.asset
+  artifactKey: Guid(bbdeaae70a00daf4299e632ffea3c0d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_12.asset using Guid(bbdeaae70a00daf4299e632ffea3c0d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8585268d66def23433094fdf464d6305') in 0.0284607 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Tiles/Spring Tile_5.asset
+  artifactKey: Guid(0c85a7cb9fa2b084a907c711dbaeb446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_5.asset using Guid(0c85a7cb9fa2b084a907c711dbaeb446) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d772f3f57976463f49ca0614f6dbd6a') in 0.0324919 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tiles/Spring Tile_61.asset
+  artifactKey: Guid(d0be31347c328fd43a32139c44a46af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_61.asset using Guid(d0be31347c328fd43a32139c44a46af7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '333041f4338b3c0cc3307eeb9c50f2a2') in 0.02497 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tiles/Spring Tile_57.asset
+  artifactKey: Guid(1c8dcba5cb2e0dd4b835e330827a93d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_57.asset using Guid(1c8dcba5cb2e0dd4b835e330827a93d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '717fbd4d6e7b95f9122e9e66c19a1292') in 0.0283625 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Tiles/Spring Tile_68.asset
+  artifactKey: Guid(7be08b149bc80a34ca92a007f54d8c63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_68.asset using Guid(7be08b149bc80a34ca92a007f54d8c63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7c4f91753e942848b0928fc269c333c3') in 0.0272197 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Tiles/Spring Tile_35.asset
+  artifactKey: Guid(37c00e97a3e7da643a89795fbd4bdb37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_35.asset using Guid(37c00e97a3e7da643a89795fbd4bdb37) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9538cfe114da9f4cd60308c2d1921420') in 0.0286146 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Tiles/Spring Tile_2.asset
+  artifactKey: Guid(8ae25a931ec2f8742a7ba89421cdd292) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_2.asset using Guid(8ae25a931ec2f8742a7ba89421cdd292) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '57a026ef70290afd6f49872368e11d4b') in 0.0308373 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Tiles/Spring Tile_53.asset
+  artifactKey: Guid(8b7f90381c6b5214d979bcbd1674a8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_53.asset using Guid(8b7f90381c6b5214d979bcbd1674a8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '93238ef9d26e6b6b692d644e3e825e51') in 0.0266757 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Tiles/Spring Tile_69.asset
+  artifactKey: Guid(026d530c53db88742b6e084bb0bce934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_69.asset using Guid(026d530c53db88742b6e084bb0bce934) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fba9516ee809f4fea667d58357d85f61') in 0.0261111 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Tiles/Spring Tile_39.asset
+  artifactKey: Guid(d5d0aa5c31563e14580024e3ee13171d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_39.asset using Guid(d5d0aa5c31563e14580024e3ee13171d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '05a57434464cc89fd622ea020983e179') in 0.0295813 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Tiles/Spring Tile_44.asset
+  artifactKey: Guid(1864878f45ef9234c97b144d5a6d875c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_44.asset using Guid(1864878f45ef9234c97b144d5a6d875c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a3873caa26096c8cd4bc5b3485e6b5fa') in 0.0257303 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Tiles/Spring Tile_49.asset
+  artifactKey: Guid(6003cc1591e3c2141823c9416fcb1a4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_49.asset using Guid(6003cc1591e3c2141823c9416fcb1a4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cdfbbb3501989b6a75e0af7d7c5333c2') in 0.024971 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Tiles/Spring Tile_9.asset
+  artifactKey: Guid(c2cd1054e8fe804488c83ecce30f5979) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_9.asset using Guid(c2cd1054e8fe804488c83ecce30f5979) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7d49d68885ac89deff0f3ec287fd239f') in 0.0244238 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tiles/Spring Tile_48.asset
+  artifactKey: Guid(a90df07b74e52af4789e6a4fc10dafea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_48.asset using Guid(a90df07b74e52af4789e6a4fc10dafea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35d3d2e36aa45edd7ee12f12afd255fa') in 0.0248063 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tiles/Spring Tile_76.asset
+  artifactKey: Guid(60e33516911f5cc4885147e0b11a1ce5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_76.asset using Guid(60e33516911f5cc4885147e0b11a1ce5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '106bcbfd156d81d0e67d9663364e7a51') in 0.0257592 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Tiles/Spring Tile_80.asset
+  artifactKey: Guid(510206bee009f7f4cba023b0aa508aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_80.asset using Guid(510206bee009f7f4cba023b0aa508aad) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '89a0699853c5263e641c79a542621474') in 0.0258765 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Tiles/Spring Tile_30.asset
+  artifactKey: Guid(ecc9591d4f5dc00418d078833b0a84d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_30.asset using Guid(ecc9591d4f5dc00418d078833b0a84d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '838a24e0ad0169295e6958cfdb57385c') in 0.0260437 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Tiles/Spring Tile_7.asset
+  artifactKey: Guid(44e64732a13f75342ac070da883b6c8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_7.asset using Guid(44e64732a13f75342ac070da883b6c8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3aff3d5346d841b2ac0063c4f45b7e5a') in 0.0440151 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tiles/Spring Tile_31.asset
+  artifactKey: Guid(b65015e1d0373da4086898b24b27d1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_31.asset using Guid(b65015e1d0373da4086898b24b27d1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5ca60669d8a9db2d04ea86b731b01897') in 0.0475632 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Tiles/Spring Tile_36.asset
+  artifactKey: Guid(83b2f7a7914c10b409b70d38a9ee79b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_36.asset using Guid(83b2f7a7914c10b409b70d38a9ee79b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd6270c36ada91ea1578e352d485bb21') in 0.0261164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tiles/Spring Tile_22.asset
+  artifactKey: Guid(c0c83ef4ad9224244a1c94f4ae6ce1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_22.asset using Guid(c0c83ef4ad9224244a1c94f4ae6ce1aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54d2ef601abecedd415eced8ad5d0877') in 0.0317183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tiles/Spring Tile_51.asset
+  artifactKey: Guid(bef3f4477557fc44fb58803b24412a00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_51.asset using Guid(bef3f4477557fc44fb58803b24412a00) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1c88db4b4d192d1a668e1489b3d1de31') in 0.0314571 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Tiles/Spring Tile_55.asset
+  artifactKey: Guid(208a4f314a45858408fc6b91ccaaaac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_55.asset using Guid(208a4f314a45858408fc6b91ccaaaac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f4d02f316e574d3dd08e10713326212d') in 0.0275279 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Tiles/Spring Tile_78.asset
+  artifactKey: Guid(eb168259ba4e05c49aa58bd09005171d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_78.asset using Guid(eb168259ba4e05c49aa58bd09005171d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '09d296962f9eccb2cdff66779ad97c61') in 0.0243685 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Tiles/Spring Tile_24.asset
+  artifactKey: Guid(d7d8e01021836ff41a91f78841f6afba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_24.asset using Guid(d7d8e01021836ff41a91f78841f6afba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e492dad3f94b5a39f4d7752f5c47b79e') in 0.0276182 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Tiles/Spring Tile_42.asset
+  artifactKey: Guid(62c87627f0feb75428040f5017c9c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Spring Tile_42.asset using Guid(62c87627f0feb75428040f5017c9c1d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d01f1b776178d7bb7831f5e818af6f6') in 0.0317079 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
 AssetImportWorker is now disconnected from the server
 Process exiting
 Exiting without the bug reporter. Application will terminate with return code 0
