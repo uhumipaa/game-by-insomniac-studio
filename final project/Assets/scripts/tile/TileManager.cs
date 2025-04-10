@@ -13,7 +13,22 @@ public class TileManager : MonoBehaviour
         foreach(var position in InteractableMap.cellBounds.allPositionsWithin)
         {
             InteractableMap.SetTile(position, hiddenInteractableTile);
+        }   
+    }
+
+    public bool IsInteractable(Vector3Int position)
+    {
+        TileBase tile = InteractableMap.GetTile(position);
+
+        if(tile != null)
+        {
+            Debug.Log("Tile Name: " + tile.name);  // 輸出 Tile 的名稱來確認
+            if(tile.name == "Interactable")
+            {
+                return true;
+            }
         }
-        
+
+        return false;
     }
 }

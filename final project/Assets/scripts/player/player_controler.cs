@@ -4,6 +4,7 @@ public class player_controler : MonoBehaviour
 {
     private slash slash;
     public Rigidbody2D rb;
+    public TileManager tileManager;
     Animator ani;
     private Player_Property property;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,11 +27,19 @@ public class player_controler : MonoBehaviour
         {
             attack();
         }
+
         Move();
-        if(Input.GetKeyDown(KeyCode.Space))
+        
+        //待查
+        /*if(Input.GetMouseButtonDown(1)) //右鍵
         {
-            
-        }
+            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0) ;
+            //tileManager = GetComponent<TileManager>();
+            if(tileManager.IsInteractable(position))
+            {
+                Debug.Log("Tile is interactable");
+            }
+        }*/
     }
     void LateUpdate()
     {
