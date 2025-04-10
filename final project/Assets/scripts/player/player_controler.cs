@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class player_controler : MonoBehaviour
 {
+    private slash slash;
     public Rigidbody2D rb;
     Animator ani;
-    public float speed;
+    private Player_Property property;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        property = GetComponent<Player_Property>();
+        slash = transform.Find("Slash_Hitbox").GetComponent<slash>();
         ani = GetComponent<Animator>();
         // 確保 Animator 不會影響 Scale
         if (GetComponent<Animator>() != null)
@@ -19,6 +22,10 @@ public class player_controler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            attack();
+        }
         Move();
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -34,8 +41,9 @@ public class player_controler : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1); // 向左
     }
 
-    private void OnTriggerStay2D(Collider2D coll)
+    void attack()
     {
+        slash.enable_hitbox(property.attack_time);
         
     }
     private void Move()
@@ -46,7 +54,7 @@ public class player_controler : MonoBehaviour
         movevetical = Input.GetAxis("Vertical");
         if (movehorizontal != 0||movevetical!=0)
         {
-            rb.linearVelocity = new Vector2(movehorizontal * speed, movevetical * speed);
+            rb.linearVelocity = new Vector2(movehorizontal * property.speed, movevetical * property.speed);
             ani.SetFloat("vertical", movevetical);
             ani.SetFloat("horizontal", Mathf.Abs(movehorizontal));
             ani.SetBool("walk", true);

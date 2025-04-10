@@ -6,8 +6,10 @@ public class Player_Property : MonoBehaviour
     
     public int max_health;
     public int current_health;
-    public float atk;
+    public int atk;
     public int def;
+    public float attack_time;
+    public float speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     

@@ -41,7 +41,7 @@ public class tako_control : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("enemy"))
-        {
+        {   
             Debug.Log("¸I¨ì¡G" + collision.name);
             property = collision.GetComponent<enemy_property>();
             property.takedamage(damage);
