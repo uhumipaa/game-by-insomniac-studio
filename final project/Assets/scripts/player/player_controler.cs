@@ -6,7 +6,9 @@ public class player_controler : MonoBehaviour
     public Rigidbody2D rb;
     public TileManager tileManager;
     Animator ani;
+    private dash Dash;
     private Player_Property property;
+    private Vector3 lastFacing = Vector3.one;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +20,7 @@ public class player_controler : MonoBehaviour
         {
             GetComponent<Animator>().applyRootMotion = false;
         }
+        Dash = GetComponent<dash>();
     }
 
     // Update is called once per frame
@@ -28,8 +31,16 @@ public class player_controler : MonoBehaviour
             attack();
         }
 
-        Move();
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            On_dash();
+        }
+        if (!Dash.dashing)
+        {
+            
+        }
         
+
         //待查
         /*if(Input.GetMouseButtonDown(1)) //右鍵
         {
@@ -41,15 +52,40 @@ public class player_controler : MonoBehaviour
             }
         }*/
     }
+        
     void LateUpdate()
     {
-        // ➤ 這裡改為根據移動方向翻轉角色
-        if (rb.linearVelocityX > 0)
-            transform.localScale = new Vector3(1, 1, 1);  // 向右
-        else if (rb.linearVelocityX < 0)
-            transform.localScale = new Vector3(-1, 1, 1); // 向左
-    }
+        if (!Dash.dashing)
+        {
+            Move();
 
+            // ➤ 這裡改為根據移動方向翻轉角色
+            if (rb.linearVelocityX > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                lastFacing = transform.localScale;
+            }// 向右
+            else if (rb.linearVelocityX < 0) { 
+                transform.localScale = new Vector3(-1, 1, 1); // 向左
+                lastFacing = transform.localScale;
+            }
+        }
+        else
+        {
+            if(rb.linearVelocityX != 0)
+            {
+                transform.localScale = lastFacing;
+            }
+        }
+    }
+    void On_dash()
+    {
+        Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        if (inputDir != Vector2.zero)
+        {
+            Dash.setdireaction(inputDir);
+        }
+    }
     void attack()
     {
         slash.enable_hitbox(property.attack_time);
@@ -65,7 +101,7 @@ public class player_controler : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(movehorizontal * property.speed, movevetical * property.speed);
             ani.SetFloat("vertical", movevetical);
-            ani.SetFloat("horizontal", Mathf.Abs(movehorizontal));
+            ani.SetFloat("horizontal", movehorizontal);
             ani.SetBool("walk", true);
         }
         else
