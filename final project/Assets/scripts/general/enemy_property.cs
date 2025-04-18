@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using DG.Tweening;
 public class enemy_property : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -7,6 +7,8 @@ public class enemy_property : MonoBehaviour
         public int max_health;
         public int current_health;
         public int def;
+
+        [SerializeField] private SpriteRenderer spriteRender;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -20,7 +22,8 @@ public class enemy_property : MonoBehaviour
             int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
             int actual_damage = Mathf.Max(damage - actual_def, 0);
             current_health -= actual_damage;
-            Debug.Log($"©Çª«¨ü¨ì {actual_damage} ¶Ë®`¡A¥Ø«e¦å¶q {current_health}");
+            Debug.Log($"ï¿½Çªï¿½ï¿½ï¿½ï¿½ï¿½ {actual_damage} ï¿½Ë®`ï¿½Aï¿½Ø«eï¿½ï¿½q {current_health}");
+            spriteRender.DOColor(Color.red, 0.2f).SetLoops(2, LoopType.Yoyo).ChangeStartValue(Color.white);//é¡è‰²å¾ç™½è‰²è®Šæˆç´…è‰²å†è®Šç‚ºç™½è‰²
             if (current_health < 0)
             {
                 die();
@@ -28,6 +31,6 @@ public class enemy_property : MonoBehaviour
         }
         void die()
         {
-            Debug.Log("¦º¤`¹G¹G");
+            Debug.Log("ï¿½ï¿½ï¿½`ï¿½Gï¿½G");
         }
     }

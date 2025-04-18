@@ -3336,6 +3336,12 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 10
+  spriteRender: {fileID: 271441555}
+--- !u!212 &271441555 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1756700868455327572, guid: 39c6452a4de4a09408619781325d824e, type: 3}
+  m_PrefabInstance: {fileID: 1585387933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &302783389
 GameObject:
   m_ObjectHideFlags: 0
