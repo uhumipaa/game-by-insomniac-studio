@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class player_trigger : MonoBehaviour
 {
-    public int numPotatoSeed = 0;
-    
+    public Inventory inventory;
+    private void Awake()
+    {
+        inventory = new Inventory(21);   
+    }
+
 }
