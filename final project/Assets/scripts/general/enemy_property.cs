@@ -44,5 +44,6 @@ public class enemy_property : MonoBehaviour
         void die()
         {
             Debug.Log("���`�G�G");
+            gameObject.SetActive(false);//將物體的標籤關掉
         }
     }
