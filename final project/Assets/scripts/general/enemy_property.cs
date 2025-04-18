@@ -1,5 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 public class enemy_property : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -9,12 +11,21 @@ public class enemy_property : MonoBehaviour
         public int def;
 
         [SerializeField] private SpriteRenderer spriteRender;
+        [SerializeField] private UnityEvent healthChanged;
+        [SerializeField] private healthbar healthbar;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
 
         void Start()
         {
             current_health = max_health;
+            healthbar.initial(); //血量條初始化
+        }
+
+        // 讓其他程式讀取目前的血量
+        public int ReadValue
+        {
+            get { return current_health; }
         }
 
         public void takedamage(int damage)
@@ -24,6 +35,7 @@ public class enemy_property : MonoBehaviour
             current_health -= actual_damage;
             Debug.Log($"�Ǫ����� {actual_damage} �ˮ`�A�ثe��q {current_health}");
             spriteRender.DOColor(Color.red, 0.2f).SetLoops(2, LoopType.Yoyo).ChangeStartValue(Color.white);//顏色從白色變成紅色再變為白色
+            healthChanged.Invoke();
             if (current_health < 0)
             {
                 die();
