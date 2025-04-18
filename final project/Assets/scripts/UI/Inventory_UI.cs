@@ -6,6 +6,11 @@ public class Inventory_UI : MonoBehaviour
     public GameObject inventoryPanel;
     //public Player player;
     public List<Slot_UI> slots = new List<Slot_UI>();
+    void Start()
+    {
+        // 一開始關閉背包 UI
+        inventoryPanel.SetActive(false);
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
