@@ -8,7 +8,7 @@ public class slash : MonoBehaviour
     private enemy_property enemy;
     private BoxCollider2D col;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         col = GetComponent<BoxCollider2D>();
         col.enabled = false;
@@ -27,7 +27,12 @@ public class slash : MonoBehaviour
         col.enabled = true;
         yield return new WaitForSeconds(t);
         col.enabled = false;
+<<<<<<< Updated upstream
         Debug.Log("ï¿½ï¿½ï¿½ï¿½");
+=======
+        Destroy(gameObject);
+        Debug.Log("Ãö³¬");
+>>>>>>> Stashed changes
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

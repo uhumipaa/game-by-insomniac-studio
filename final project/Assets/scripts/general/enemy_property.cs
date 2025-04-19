@@ -55,7 +55,12 @@ public class enemy_property : MonoBehaviour
         }
         void die()
         {
+<<<<<<< Updated upstream
             Debug.Log("ï¿½ï¿½ï¿½`ï¿½Gï¿½G");
             gameObject.SetActive(false);//å°‡ç‰©é«”çš„æ¨™ç±¤é—œæŽ‰
+=======
+            Destroy(gameObject);
+            Debug.Log("¦º¤`¹G¹G");
+>>>>>>> Stashed changes
         }
     }

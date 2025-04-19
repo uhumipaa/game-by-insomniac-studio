@@ -10,6 +10,7 @@ public class Player_Property : MonoBehaviour
     public int def;
     public float attack_time;
     public float speed;
+    public float attackrange;
 
     private Knockback knockback;
 

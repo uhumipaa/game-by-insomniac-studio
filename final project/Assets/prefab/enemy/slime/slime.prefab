@@ -8,6 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 7908426506085548301}
   - component: {fileID: 7206873896671180018}
   m_Layer: 12
@@ -222,6 +223,15 @@ GameObject:
   - component: {fileID: 7885453470461172818}
   - component: {fileID: 2033366489375096606}
   - component: {fileID: 1134598922017474711}
+=======
+  - component: {fileID: 5126594704914784929}
+  - component: {fileID: 1756700868455327572}
+  - component: {fileID: 376992174460546894}
+  - component: {fileID: 3554093631874117866}
+  - component: {fileID: 3887201909088353445}
+  - component: {fileID: 4948092188169428969}
+  - component: {fileID: 1681355347929102291}
+>>>>>>> Stashed changes
   m_Layer: 12
   m_Name: slime
   m_TagString: enemy
@@ -387,13 +397,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.45117188}
   m_Radius: 0.49414062
+<<<<<<< Updated upstream
 --- !u!114 &1134598922017474711
+=======
+--- !u!114 &1681355347929102291
+>>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 3548365237713620227}
+=======
+  m_GameObject: {fileID: 7611801143875218932}
+>>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c8a6e7dbc3f03b4a9b3ab23fcedd319, type: 3}
@@ -402,6 +420,7 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 10
+<<<<<<< Updated upstream
   spriteRender: {fileID: 4683129588610336675}
   healthChanged:
     m_PersistentCalls:
@@ -716,3 +735,5 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+=======
+>>>>>>> Stashed changes
