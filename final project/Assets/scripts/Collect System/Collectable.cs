@@ -7,6 +7,7 @@ public class Collectable : MonoBehaviour
     /*delete collectable from the screen*/
 
     public CollectableType type;
+    public Sprite icon;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +16,7 @@ public class Collectable : MonoBehaviour
 
         if (player)
         {
-            player.inventory.Add(type);
+            player.inventory.Add(this);
             Destroy(this.gameObject); // 銷毀物件
         }
     }

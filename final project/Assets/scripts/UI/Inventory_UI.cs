@@ -4,6 +4,7 @@ using UnityEngine;
 public class Inventory_UI : MonoBehaviour
 {
     public GameObject inventoryPanel;
+    public player_trigger player;
     //public Player player;
     public List<Slot_UI> slots = new List<Slot_UI>();
     void Start()
@@ -13,7 +14,7 @@ public class Inventory_UI : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if(Input.GetKeyDown(KeyCode.Tab)) //按tab鍵打開
         {
             ToggleInventory();
         }
@@ -24,7 +25,7 @@ public class Inventory_UI : MonoBehaviour
         if(!inventoryPanel.activeSelf)
         {
             inventoryPanel.SetActive(true);
-            //Setup();
+            Setup();
         }
         else
         {
@@ -32,13 +33,20 @@ public class Inventory_UI : MonoBehaviour
         }
     }
 
-    /*void Setup(){
+    void Setup(){
         if(slots.Count == player.inventory.slots.Count)
         {
             for(int i = 0; i < slots.Count; i++)
             {
-                if 
+                if(player.inventory.slots[i].type != CollectableType.NONE)
+                {
+                    slots[i].SetItem(player.inventory.slots[i]);
+                }
+                else
+                {
+                    slots[i].SetEmpty();
+                }
             }
         }
-    }*/
+    }
 }
