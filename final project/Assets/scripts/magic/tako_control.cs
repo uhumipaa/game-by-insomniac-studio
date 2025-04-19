@@ -17,7 +17,7 @@ public class tako_control : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         rb.gravityScale = 0f;
-        Debug.Log("³¹³½¿Nªì©l¤Æ§¹¦¨");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½lï¿½Æ§ï¿½ï¿½ï¿½");
         StartCoroutine(natural_exlposion(3f));
     }
 
@@ -29,22 +29,22 @@ public class tako_control : MonoBehaviour
     public void setdirection(Vector2 direction)
     {
         actul_direction = direction;
-        Debug.Log("³]©w³¹³½¿N¤è¦V¡G" + direction);
+        Debug.Log("ï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½Vï¿½G" + direction);
     }
     IEnumerator natural_exlposion(float delay)  
     {
         yield return new WaitForSeconds(delay);
         rb.linearVelocity = Vector2.zero;
         explosion();
-        Destroy(gameObject, 0.3f);
+        Destroy(gameObject, 0.6f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("enemy"))
         {   
-            Debug.Log("¸I¨ì¡G" + collision.name);
+            Debug.Log("ï¿½Iï¿½ï¿½G" + collision.name);
             property = collision.GetComponent<enemy_property>();
-            property.takedamage(damage);
+            property.takedamage(damage  , transform.position);
             rb.linearVelocity = Vector2.zero;
             explosion();
         }else if (collision.CompareTag("wall"))
@@ -56,6 +56,6 @@ public class tako_control : MonoBehaviour
     void explosion()
     {
         ani.SetBool("isexploed", true);
-        Destroy(gameObject, 0.3f);
+        Destroy(gameObject, 0.6f);
     }
 }

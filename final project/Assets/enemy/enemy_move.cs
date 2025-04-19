@@ -1,11 +1,15 @@
 using UnityEngine;
 
+
+
+
 public class enemy_move : MonoBehaviour
 {
     public float Speed;
     private Transform player;
     public Vector2 direction { get; private set; }
     private enemy_closeattack CloseAttack;
+    public bool canMove = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,11 +19,12 @@ public class enemy_move : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+     void Update()
     {
-        if (player == null || CloseAttack == null) return;
+        if (!canMove || player == null || CloseAttack == null) return;
+
         float distance = Vector2.Distance(transform.position, player.position);
-        if (distance >= CloseAttack.attack_range&&CloseAttack.attacking==false)
+        if (distance >= CloseAttack.attack_range && CloseAttack.attacking == false)
         {
             direction = (player.position - transform.position).normalized;
             transform.position = (Vector2)transform.position + (direction * Speed * Time.deltaTime);
@@ -30,4 +35,5 @@ public class enemy_move : MonoBehaviour
             direction = Vector2.zero;
         }
     }
+
 }

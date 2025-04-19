@@ -9,6 +9,8 @@ public class player_controler : MonoBehaviour
     private dash Dash;
     private Player_Property property;
     private Vector3 lastFacing = Vector3.one;
+    public bool canMove = true;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +28,7 @@ public class player_controler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove) return; //  防止擊退中還能操作
         if (Input.GetMouseButtonDown(0))
         {
             attack();
@@ -57,6 +60,7 @@ public class player_controler : MonoBehaviour
     {
         if (!Dash.dashing)
         {
+            if (!canMove) return;//擊退時暫停
             Move();
 
             // ➤ 這裡改為根據移動方向翻轉角色

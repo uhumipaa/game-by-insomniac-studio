@@ -23,11 +23,11 @@ public class slash : MonoBehaviour
     // Update is called once per frame
     public IEnumerator HitboxRoutine(float t)
     {
-        Debug.Log("¶}±Ò");
+        Debug.Log("ï¿½}ï¿½ï¿½");
         col.enabled = true;
         yield return new WaitForSeconds(t);
         col.enabled = false;
-        Debug.Log("Ãö³¬");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,7 +35,7 @@ public class slash : MonoBehaviour
         if (collision.CompareTag("enemy"))
         {
             enemy = collision.GetComponent<enemy_property>();
-            enemy.takedamage(player.atk);
+            enemy.takedamage(player.atk, plater_transform.position);
 
         }
     }

@@ -11,19 +11,30 @@ public class Player_Property : MonoBehaviour
     public float attack_time;
     public float speed;
 
+    private Knockback knockback;
+
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
     void Start()
     {
         current_health = max_health;
+        knockback = GetComponent<Knockback>();
     }
 
-    public void takedamage(int damage)
+    public void takedamage(int damage , Vector2 attackerPos)
     {
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def,0);
         current_health -= actual_damage;
-        Debug.Log($"ª±®a¨ü¨ì {actual_damage} ¶Ë®`¡A¥Ø«e¦å¶q {current_health}");
+        Debug.Log($"ï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ {actual_damage} ï¿½Ë®`ï¿½Aï¿½Ø«eï¿½ï¿½q {current_health}");
+        
+        // æ“Šé€€æ•ˆæžœ
+        if (knockback != null)
+        {
+            knockback.ApplyKnockback(attackerPos);
+        }
+        
         if (current_health < 0)
         {
             die();
@@ -31,6 +42,6 @@ public class Player_Property : MonoBehaviour
     }
     void die()
     {
-        Debug.Log("¦º¤`¹G¹G");
+        Debug.Log("ï¿½ï¿½ï¿½`ï¿½Gï¿½G");
     }
 }
