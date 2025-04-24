@@ -4,18 +4,21 @@ public class player_controler : MonoBehaviour
 {
     private slash slash;
     public Rigidbody2D rb;
+    public GameObject hitbox;
     public TileManager tileManager;
     Animator ani;
     private dash Dash;
     private Player_Property property;
     private Vector3 lastFacing = Vector3.one;
     public bool canMove = true;
-
+    private float lastattacktime;
+    bool attacking;
+    private enum direction { up, down, left, right }
+    private direction player_direaction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         property = GetComponent<Player_Property>();
-        slash = transform.Find("Slash_Hitbox").GetComponent<slash>();
         ani = GetComponent<Animator>();
         // 確保 Animator 不會影響 Scale
         if (GetComponent<Animator>() != null)
@@ -29,7 +32,11 @@ public class player_controler : MonoBehaviour
     void Update()
     {
         if (!canMove) return; //  防止擊退中還能操作
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time - lastattacktime > property.attack_time)
+        {
+            attacking = false;
+        }
+        if (Input.GetMouseButtonDown(0)&&!attacking)
         {
             attack();
         }
@@ -38,10 +45,7 @@ public class player_controler : MonoBehaviour
         {
             On_dash();
         }
-        if (!Dash.dashing)
-        {
-            
-        }
+
         
 
         //待查
@@ -92,8 +96,40 @@ public class player_controler : MonoBehaviour
     }
     void attack()
     {
-        slash.enable_hitbox(property.attack_time);
-        
+        attacking = true;
+        lastattacktime = Time.time;
+        Vector3 hitbox_spawn_point = transform.position;
+        float Rotationz = 0f;
+        switch (player_direaction)
+        {
+            case direction.up:
+                hitbox_spawn_point = transform.position + Vector3.up * property.attack_range;
+                Rotationz = 0f;
+                break;
+            case direction.down:
+                hitbox_spawn_point = transform.position + Vector3.down * property.attack_range*1.3f;
+                Rotationz = 180f;
+                break;
+            case direction.right:
+                hitbox_spawn_point = transform.position + Vector3.right * property.attack_range;
+                Rotationz = 90f;
+                break;
+            case direction.left:
+                hitbox_spawn_point = transform.position + Vector3.left * property.attack_range;
+                Rotationz = 90f;
+                break;
+        }
+        GameObject hit = Instantiate(hitbox, hitbox_spawn_point, Quaternion.Euler(0, 0, Rotationz), transform);
+        if (hit != null)
+        {
+            slash = hit.GetComponent<slash>();
+            slash.enable_hitbox(property.attack_time);
+        }
+        else
+        {
+            Debug.Log("abc");
+        }
+
     }
     private void Move()
     {
@@ -104,8 +140,24 @@ public class player_controler : MonoBehaviour
         if (movehorizontal != 0||movevetical!=0)
         {
             rb.linearVelocity = new Vector2(movehorizontal * property.speed, movevetical * property.speed);
-            ani.SetFloat("vertical", movevetical);
             ani.SetFloat("horizontal", movehorizontal);
+            if (movehorizontal > 0)
+            {
+                player_direaction = direction.right;
+            }
+            else if (movehorizontal < 0)
+            {
+                player_direaction = direction.left;
+            }
+            ani.SetFloat("vertical", movevetical);
+            if (movevetical > 0)
+            {
+                player_direaction = direction.up;
+            }
+            else if (movevetical < 0)
+            {
+                player_direaction = direction.down;
+            }
             ani.SetBool("walk", true);
         }
         else

@@ -8,6 +8,7 @@ public class Player_Property : MonoBehaviour
     public int current_health;
     public int atk;
     public int def;
+    public float attack_range;
     public float attack_time;
     public float speed;
 
