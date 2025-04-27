@@ -72,5 +72,5 @@ public class enemy_property : MonoBehaviour
             Debug.Log("GG");
             gameObject.SetActive(false);
             // Destroy(gameObject);
-        }
+         }
     }

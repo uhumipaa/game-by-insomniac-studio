@@ -3,7 +3,7 @@ using DG.Tweening;
 
 public class Knockback : MonoBehaviour
 {
-   public float knockbackDistance = 1.5f; // 擊退距離
+    public float knockbackDistance = 1.5f; // 擊退距離
     public float knockbackDuration = 0.2f; // 擊退時間
     private Tween currentTween;
 
