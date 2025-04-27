@@ -14,7 +14,7 @@ public class Inventory_UI : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab)) //按tab鍵打開
+        if(Input.GetKeyDown(KeyCode.Tab)) //按tab鍵打開(之後換成按鈕)
         {
             ToggleInventory();
         }
@@ -25,7 +25,7 @@ public class Inventory_UI : MonoBehaviour
         if(!inventoryPanel.activeSelf)
         {
             inventoryPanel.SetActive(true);
-            Setup();
+            Refresh();
         }
         else
         {
@@ -33,7 +33,7 @@ public class Inventory_UI : MonoBehaviour
         }
     }
 
-    void Setup(){
+    void Refresh(){
         if(slots.Count == player.inventory.slots.Count)
         {
             for(int i = 0; i < slots.Count; i++)
@@ -48,5 +48,12 @@ public class Inventory_UI : MonoBehaviour
                 }
             }
         }
+    }
+
+    //當X被按下
+    public void Remove(int slotID)
+    {
+        player.inventory.Remove(slotID);
+        Refresh();
     }
 }
