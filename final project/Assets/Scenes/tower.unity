@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 642045114}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.95, y: 14.16, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,11 +288,16 @@ MonoBehaviour:
   player: {fileID: 7440852206036009363, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
   transcircle: {fileID: 217994453200195246, guid: 20cdd62360ca4fc46baf610f5bfdec92, type: 3}
   mapPrefabs:
-  - {fileID: 7902365449654384748, guid: f1100b2ab1424e9499398ff91aba624d, type: 3}
-  - {fileID: 4639921818549950404, guid: 19dfa0a68e4c3544fa42c9aa93f82a41, type: 3}
-  - {fileID: 586989205178147178, guid: f71fa0efaf5be2642a0cc2315cfcb0c2, type: 3}
-  - {fileID: 7727581264074243748, guid: 54693b06c6bd9d34b9364a315aef4a81, type: 3}
+  - {fileID: 1186761169993429777, guid: ec2b64264843a894c92a371de72d4513, type: 3}
+  - {fileID: 7721357749720449120, guid: 160cb6b1e54771a418fa3a8ed3e12a53, type: 3}
+  - {fileID: 7756073020670817217, guid: 59e3f6bd6705a734aa5c61654846f8f0, type: 3}
+  - {fileID: 7204867269575870743, guid: 6ab7fc8ed41edf349a223cbfc07b8a19, type: 3}
   mapParent: {fileID: 1819465933}
+  floorDatas:
+  - {fileID: 11400000, guid: 8be7364cfe7f9dd4d8581567b0275e82, type: 2}
+  - {fileID: 11400000, guid: 8be7364cfe7f9dd4d8581567b0275e82, type: 2}
+  - {fileID: 11400000, guid: 8be7364cfe7f9dd4d8581567b0275e82, type: 2}
+  - {fileID: 11400000, guid: 8be7364cfe7f9dd4d8581567b0275e82, type: 2}
 --- !u!4 &1490032417
 Transform:
   m_ObjectHideFlags: 0

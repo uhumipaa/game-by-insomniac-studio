@@ -1,0 +1,34 @@
+# 把所有文字檔案設定為自動處理換行
+* text=auto
+
+# 針對 Unity 重要的檔案指定換行規則
+*.cs   text eol=lf
+*.shader text eol=lf
+*.compute text eol=lf
+*.cginc text eol=lf
+*.hlsl text eol=lf
+*.json text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.asmdef text eol=lf
+*.unity text eol=lf
+*.prefab text eol=lf
+*.mat text eol=lf
+*.meta text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.overrideController text eol=lf
+*.asset text eol=lf
+
+# 圖片和二進位檔案，Git 不要試圖改它們
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tga binary
+*.psd binary
+*.mp3 binary
+*.ogg binary
+*.wav binary
+*.fbx binary
+*.anim binary
+*.unitypackage binary

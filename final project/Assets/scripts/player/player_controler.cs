@@ -12,7 +12,7 @@ public class player_controler : MonoBehaviour
     private Vector3 lastFacing = Vector3.one;
     public bool canMove = true;
     private float lastattacktime;
-    bool attacking;
+    bool attacking; 
     private enum direction { up, down, left, right }
     private direction player_direaction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

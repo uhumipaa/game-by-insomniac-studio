@@ -42,9 +42,15 @@ public class tako_control : MonoBehaviour
     {
         if (collision.CompareTag("enemy"))
         {   
-            Debug.Log("�I��G" + collision.name);
-            property = collision.GetComponent<enemy_property>();
-            property.takedamage(damage  , transform.position);
+            if (collision != null)
+            {
+                property = collision.GetComponent<enemy_property>();
+                if (property != null)
+                {
+                    Debug.Log("gg" + collision.name);
+                    property.takedamage(damage, actul_direction);
+                }
+            }
             rb.linearVelocity = Vector2.zero;
             explosion();
         }else if (collision.CompareTag("wall"))

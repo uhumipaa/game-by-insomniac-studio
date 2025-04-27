@@ -7,6 +7,7 @@ public class Player_Property : MonoBehaviour
     public int max_health;
     public int current_health;
     public int atk;
+    public int magic_atk;
     public int def;
     public float attack_range;
     public float attack_time;
@@ -28,7 +29,7 @@ public class Player_Property : MonoBehaviour
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def,0);
         current_health -= actual_damage;
-        Debug.Log($"���a���� {actual_damage} �ˮ`�A�ثe��q {current_health}");
+        Debug.Log($"takedamage; {actual_damage} now health: {current_health}");
         
         // 擊退效果
         if (knockback != null)

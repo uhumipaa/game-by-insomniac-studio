@@ -288,7 +288,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -3785385192508942874, guid: ae87d3b954f5a1d4ab360911a3424976, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  canMove: 1
 --- !u!95 &7624157656253354013
 Animator:
   serializedVersion: 7
@@ -402,6 +403,7 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 10
+  atk: 0
   spriteRender: {fileID: 4683129588610336675}
   healthChanged:
     m_PersistentCalls:
