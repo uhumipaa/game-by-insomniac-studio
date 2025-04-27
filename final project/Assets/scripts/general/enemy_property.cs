@@ -63,13 +63,14 @@ public class enemy_property : MonoBehaviour
 
             if (current_health < 0)
             {
-            EnemyManager.instance.removeenemy(gameObject);
+            // EnemyManager.instance.removeenemy(gameObject);
             die();
             }
         }
         void die()
         {
             Debug.Log("GG");
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            // Destroy(gameObject);
         }
     }
