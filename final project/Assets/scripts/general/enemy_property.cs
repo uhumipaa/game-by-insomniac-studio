@@ -22,10 +22,15 @@ public class enemy_property : MonoBehaviour
 
     private void Awake()
     {
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.Addenemy(gameObject);
+            Debug.Log("ya");
+        }
         
     }
 
-    public void generaterandonstatus(EnemyData enemyData,int level)
+    public void generaterandomstatus(EnemyData enemyData,int level)
     {
         max_health = enemyData.baseHP + (enemyData.HPpara * level);
         atk = enemyData.baseatk + (enemyData.atkpara * level);
@@ -63,12 +68,18 @@ public class enemy_property : MonoBehaviour
 
             if (current_health < 0)
             {
-            // EnemyManager.instance.removeenemy(gameObject);
             die();
             }
         }
         void die()
         {
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.removeenemy(gameObject);
+        }
+        else {
+            Debug.Log("lol");
+        }            
             Debug.Log("GG");
             gameObject.SetActive(false);
             // Destroy(gameObject);

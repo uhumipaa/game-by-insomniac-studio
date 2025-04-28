@@ -5,13 +5,19 @@ public class EnemyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static EnemyManager instance; 
-    public GameObject[] enemyprefab;
-    private List<GameObject> now_enemy = new List<GameObject>();
+    public List<GameObject> now_enemy = new List<GameObject>();
     private Maploader maploader;
 
     void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // ¨¾¤î­«½Æ
+        }
         maploader = FindAnyObjectByType<Maploader>();
     }
 
@@ -22,9 +28,15 @@ public class EnemyManager : MonoBehaviour
 
     public void removeenemy(GameObject enemy)
     {
+        if (now_enemy == null)
+        {
+            Debug.LogWarning("now_enemy ¦Cªí¬O null¡I");
+            return;
+        }
         if (now_enemy.Contains(enemy))
         {
             now_enemy.Remove(enemy);
+            Debug.Log("enemycount:"+now_enemy.Count);
             check();
         }
         
@@ -38,6 +50,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void finishlayer()
     {
+        Debug.Log("yayaya");
         maploader.GetComponent<Maploader>().generate_tele();
     }
 

@@ -84,7 +84,7 @@ public class Maploader : MonoBehaviour
             }
             EnemyData monsterPrefab = Getrandomenemy(floorData);
             Vector2 spawnPos = getrandomposition(floorData);
-            Instantiate(monsterPrefab.enemyprefab, spawnPos, Quaternion.identity).GetComponent<enemy_property>()?.generaterandonstatus(monsterPrefab,level);
+            Instantiate(monsterPrefab.enemyprefab, spawnPos, Quaternion.identity).GetComponent<enemy_property>()?.generaterandomstatus(monsterPrefab,level);
             count++;
         }
     }
