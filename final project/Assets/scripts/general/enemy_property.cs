@@ -16,6 +16,7 @@ public class enemy_property : MonoBehaviour
         [SerializeField] private healthbar healthbar;
 
        private Knockback knockback;
+        private NanoMachine_Son nanoMachine; //加入無敵系統
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +43,7 @@ public class enemy_property : MonoBehaviour
             current_health = max_health;
              knockback = GetComponent<Knockback>();
             healthbar.initial(); //血量條初始化
+            nanoMachine = GetComponent<NanoMachine_Son>(); //抓無敵系統
         }
 
         // 讓其他程式讀取目前的血量
@@ -52,6 +54,12 @@ public class enemy_property : MonoBehaviour
 
         public void takedamage(int damage , Vector2 attackerPos)
         {
+            // ⭐ 如果正在無敵，就不受傷
+            if (nanoMachine != null && nanoMachine.IsInvincible())
+            {
+                return;
+            }
+
             int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
             int actual_damage = Mathf.Max(damage - actual_def, 0);
             current_health -= actual_damage;
@@ -66,6 +74,12 @@ public class enemy_property : MonoBehaviour
                 knockback.ApplyKnockback(attackerPos);
             }
 
+            //扣血後啟動無敵
+            if (nanoMachine != null)
+            {
+                nanoMachine.StartInvincibility();
+            }
+
             if (current_health < 0)
             {
             die();
@@ -73,12 +87,12 @@ public class enemy_property : MonoBehaviour
         }
         void die()
         {
-        if (EnemyManager.instance != null)
-        {
-            EnemyManager.instance.removeenemy(gameObject);
-        }
-        else {
-            Debug.Log("lol");
+            if (EnemyManager.instance != null)
+                {
+                    EnemyManager.instance.removeenemy(gameObject);
+                }
+            else {
+                Debug.Log("lol");
         }            
             Debug.Log("GG");
             gameObject.SetActive(false);

@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 2033366489375096606}
   - component: {fileID: 1134598922017474711}
   - component: {fileID: 4461629830198391005}
+  - component: {fileID: -1606029204898316246}
   m_Layer: 12
   m_Name: slime
   m_TagString: enemy
@@ -436,6 +437,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockbackDistance: 1.5
   knockbackDuration: 0.2
+--- !u!114 &-1606029204898316246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24e51c92d2879d4ab6c0093b15794d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibleDuration: 0.5
 --- !u!1 &4818089758913146581
 GameObject:
   m_ObjectHideFlags: 0
