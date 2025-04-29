@@ -65,7 +65,7 @@ public class bubbletracker : MonoBehaviour
         if (explosionEffect != null)
         {
             GameObject effect = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            Destroy(effect, 1f); // 一秒後銷毀特效
+            Destroy(effect, 0.25f); //銷毀特效
         }
         Destroy(gameObject); // 銷毀泡泡
     }
