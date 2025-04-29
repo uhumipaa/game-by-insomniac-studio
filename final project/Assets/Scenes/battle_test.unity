@@ -560,14 +560,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3744098051268600472, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6077018462706873402, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6188959621555072506, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: m_Camera
       value: 
@@ -575,10 +567,6 @@ PrefabInstance:
     - target: {fileID: 7440852206036009363, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: m_Name
       value: player_battle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8172419485668987432, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
