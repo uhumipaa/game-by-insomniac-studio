@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 1134598922017474711}
   - component: {fileID: 4461629830198391005}
   - component: {fileID: -1606029204898316246}
+  - component: {fileID: -8164130189725706051}
   m_Layer: 12
   m_Name: slime
   m_TagString: enemy
@@ -450,6 +451,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibleDuration: 0.5
+--- !u!114 &-8164130189725706051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127f4d7fb42c11344a99f3e0a789c632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 5979649110480244299, guid: f687b29ac5be38843b9f58417fa61abf, type: 3}
+  shootInterval: 3
 --- !u!1 &4818089758913146581
 GameObject:
   m_ObjectHideFlags: 0
