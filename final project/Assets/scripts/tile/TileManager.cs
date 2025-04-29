@@ -23,7 +23,7 @@ public class TileManager : MonoBehaviour
         if(tile != null)
         {
             Debug.Log("Tile Name: " + tile.name);  // 輸出 Tile 的名稱來確認
-            if(tile.name == "Interactable")
+            if(tile.name == "interable_visible")
             {
                 return true;
             }
