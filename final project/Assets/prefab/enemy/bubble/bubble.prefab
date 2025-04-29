@@ -107,7 +107,7 @@ MonoBehaviour:
   accelerateDistance: 2
   lifetime: 3
   explosionEffect: {fileID: 3950606024942990831, guid: 1bafcfeaafe03404a8f46e8fd807558a, type: 3}
-  damage: 10
+  damage: 20
 --- !u!58 &4008407709043710252
 CircleCollider2D:
   m_ObjectHideFlags: 0
