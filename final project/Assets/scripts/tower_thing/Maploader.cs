@@ -4,9 +4,11 @@ using UnityEngine;
 public class Maploader : MonoBehaviour
 {
     public GameObject player;
+    public GameObject chest;
     private GameObject player_instance;
     public GameObject transcircle;
     private GameObject transcircle_instance;
+    private GameObject chest_instance;
     private GameObject currentMap;
     public GameObject[] mapPrefabs;
     public Transform mapParent;
@@ -21,6 +23,16 @@ public class Maploader : MonoBehaviour
             Debug.Log("123");
         }
         transcircle_instance = Instantiate(transcircle, Telespawn.position, Quaternion.identity);
+    }
+
+    public void generate_chest()
+    {
+        Transform chestpawn = GameObject.Find("chest__spawn_point")?.transform;
+        if (chestpawn == null)
+        {
+            Debug.Log("123");
+        }
+        chest_instance = Instantiate(chest, chestpawn.position, Quaternion.identity);
     }
     void Generate_player()
     {
@@ -43,6 +55,10 @@ public class Maploader : MonoBehaviour
         if (transcircle_instance != null)
         {
             Destroy(transcircle_instance);
+        }
+        if (chest_instance != null)
+        {
+            Destroy(chest_instance);
         }
         currentMap = Instantiate(mapPrefabs[index], Vector3.zero, Quaternion.identity, mapParent);
         Generate_player();
