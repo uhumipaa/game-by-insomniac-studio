@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    public Collectable[] collectableItems;
+    public Item[] items;
 
     //建立dictionary (鍵(collectableType)對應物品)
-    private Dictionary<CollectableType, Collectable> collectableItemDict = new Dictionary<CollectableType, Collectable>();
+    private Dictionary<string, Item> nameToItemDict = new Dictionary<string, Item>();
     private void Awake()
     {
-        foreach(Collectable item in collectableItems)
+        foreach(Item item in items)
         {
             AddItem(item); //將item加入字典中
         }
     }
 
-    private void AddItem(Collectable item)
+    private void AddItem(Item item)
     {
         //如果還沒有這個item 就加進去
-        if(!collectableItemDict.ContainsKey(item.type)) 
+        if(!nameToItemDict.ContainsKey(item.data.itemName)) 
         {
-            collectableItemDict.Add(item.type, item);
+            nameToItemDict.Add(item.data.itemName, item);
         }
     }
 
-    public Collectable GetItemByType(CollectableType type)
+    public Item GetItemByName(string key)
     {
-        if(collectableItemDict.ContainsKey(type)) //傳入一個類型，若有這個類型，回傳對應的物品
+        if(nameToItemDict.ContainsKey(key)) //傳入一個類型，若有這個類型，回傳對應的物品
         {
-            return collectableItemDict[type];
+            return nameToItemDict[key];
         }
 
         return null;//沒有找到

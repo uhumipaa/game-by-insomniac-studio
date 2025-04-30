@@ -52,6 +52,7 @@ public class EnemyManager : MonoBehaviour
     {
         Debug.Log("yayaya");
         maploader.GetComponent<Maploader>().generate_tele();
+        maploader.GetComponent<Maploader>().generate_chest();
     }
 
     public void Startfight()

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public ItemManager itemManager;
-
+    public TileManager tileManager;
     private void Awake()
     {
         if(instance != null && instance != this) //如果有其他GameManager存在
@@ -20,10 +20,8 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(this.gameObject); //切換場景時 不會刪掉現在這個物件
 
-        itemManager = GetComponent<ItemManager>();
-
-
-        //tlieManager = GetComponent<TlieManager>();
+        itemManager = GetComponent<ItemManager>(); 
+        tileManager = GetComponent<TileManager>();
 
     }
 

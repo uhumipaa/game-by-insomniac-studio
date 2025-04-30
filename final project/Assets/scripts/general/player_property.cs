@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class Player_Property : MonoBehaviour
 {
     
@@ -15,6 +15,9 @@ public class Player_Property : MonoBehaviour
 
     private Knockback knockback;
     private SuperStarEffect SuperStarEffect; 
+    [SerializeField] private SpriteRenderer spriteRender;
+    [SerializeField] private UnityEvent healthChanged;
+    [SerializeField] private playerhealthbar healthbar;
 
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,8 +27,14 @@ public class Player_Property : MonoBehaviour
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能
+        healthbar.initial(); //血量條初始化
     }
 
+    // 讓其他程式讀取目前的血量
+    public int ReadValue
+    {
+        get { return current_health; }
+    }
     public void takedamage(int damage , Vector2 attackerPos)
     {
           // 判斷還是不是無敵
@@ -37,6 +46,7 @@ public class Player_Property : MonoBehaviour
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def,0);
         current_health -= actual_damage;
+        healthChanged.Invoke();
         Debug.Log($"takedamage; {actual_damage} now health: {current_health}");
         
         // 擊退效果
