@@ -15,6 +15,7 @@ public class player_controler : MonoBehaviour
     bool attacking; 
     private enum direction { up, down, left, right }
     private direction player_direaction;
+    public Transform sliderCanvas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -140,14 +141,17 @@ public class player_controler : MonoBehaviour
         if (movehorizontal != 0||movevetical!=0)
         {
             rb.linearVelocity = new Vector2(movehorizontal * property.speed, movevetical * property.speed);
+        
             ani.SetFloat("horizontal", movehorizontal);
             if (movehorizontal > 0)
             {
                 player_direaction = direction.right;
+                sliderCanvas.localScale = new Vector3(1, 1f, 1f);//控制血條方向
             }
             else if (movehorizontal < 0)
             {
                 player_direaction = direction.left;
+                sliderCanvas.localScale = new Vector3(-1, 1f, 1f);//控制血條方向
             }
             ani.SetFloat("vertical", movevetical);
             if (movevetical > 0)
