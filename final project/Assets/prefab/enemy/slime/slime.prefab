@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 4461629830198391005}
   - component: {fileID: -1606029204898316246}
   - component: {fileID: -8164130189725706051}
+  - component: {fileID: 1345292868052178229}
   m_Layer: 12
   m_Name: slime
   m_TagString: enemy
@@ -424,6 +425,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthbar: {fileID: 4226045618416883973}
+  playerstats: {fileID: 4044947140317877406, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+  stats: {fileID: 1345292868052178229}
 --- !u!114 &4461629830198391005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +468,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 5979649110480244299, guid: f687b29ac5be38843b9f58417fa61abf, type: 3}
   shootInterval: 3
+--- !u!114 &1345292868052178229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expReward: 30
 --- !u!1 &4818089758913146581
 GameObject:
   m_ObjectHideFlags: 0

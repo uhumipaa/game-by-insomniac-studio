@@ -15,8 +15,11 @@ public class enemy_property : MonoBehaviour
         [SerializeField] private UnityEvent healthChanged;
         [SerializeField] private healthbar healthbar;
 
-       private Knockback knockback;
+        private Knockback knockback;
         private NanoMachine_Son nanoMachine; //加入無敵系統
+        public PlayerStats playerstats;
+
+        public KillEnemyStats stats;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,7 +62,6 @@ public class enemy_property : MonoBehaviour
             {
                 return;
             }
-
             int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
             int actual_damage = Mathf.Max(damage - actual_def, 0);
             current_health -= actual_damage;
@@ -82,7 +84,8 @@ public class enemy_property : MonoBehaviour
 
             if (current_health < 0)
             {
-            die();
+                stats.kill();
+                die();
             }
         }
         void die()
