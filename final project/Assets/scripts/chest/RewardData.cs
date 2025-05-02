@@ -11,5 +11,6 @@ public abstract class RewardData : ScriptableObject
     public string rewardname;
     public string statement;
     public Rarity rarity;
+    public Sprite type;
     public abstract void ApplyReward(GameObject player);
 }
