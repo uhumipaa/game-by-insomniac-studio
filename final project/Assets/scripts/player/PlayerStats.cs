@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int level = 1;
-    public int currentExp = 0;
-    public int expToNextLevel;
+    public int level = 1; // 經驗等級
+    public int currentExp = 0; // 目前經驗
+    public int expToNextLevel; //到下一擊所需的經驗值
 
     [SerializeField]
-    private float expGrowthRate = 2f;  // 成長倍率
+    private float expGrowthRate = 2f;  // 經驗成長倍率
 
+    //初始化經驗值值
     void Start()
     {
         expToNextLevel = CalculateExpToNextLevel(level);
     }
 
+    //計算經驗和經驗等級
     public void GainExp(int amount)
     {
         currentExp += amount;
@@ -28,6 +30,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    //計算每個等級所需的經驗值
     private int CalculateExpToNextLevel(int level)
     {
         return Mathf.RoundToInt(expToNextLevel * Mathf.Pow(expGrowthRate, level - 1));

@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class KillEnemyStats : MonoBehaviour
 {
-    public int expReward = 30;
+    public int expReward = 30; // 擊殺經驗
 
     public void kill()
     {
-        // 取得場景中的 PlayerStats
         PlayerStats player = FindObjectOfType<PlayerStats>();
         if (player != null)
         {
