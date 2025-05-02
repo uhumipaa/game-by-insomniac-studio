@@ -4,10 +4,12 @@ public class ChestInteraction : MonoBehaviour
 {
     public GameObject interactionUI;
     private bool isPlayerIn = false;
-    private bool isOpened = false;
+    public bool isOpened = false;
+    private Chest_Controller controller;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        controller = GetComponent<Chest_Controller>();
         Debug.Log("aaa");
         interactionUI.SetActive(false);
     }
@@ -15,7 +17,7 @@ public class ChestInteraction : MonoBehaviour
     {
         if (isPlayerIn && !isOpened)
         {
-            if (Input.GetKeyDown(KeyCode.Space)){
+            if (Input.GetKeyDown(KeyCode.O)){
                 open();
                 isOpened = true;
             }
@@ -43,5 +45,6 @@ public class ChestInteraction : MonoBehaviour
     {
         interactionUI.SetActive(false);
         Debug.Log("open!");
+        controller.showreward();
     }
 }

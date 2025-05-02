@@ -14,18 +14,20 @@ public class Toolbar_UI : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Update 有在跑");
         CheckAlphaNumericKeys();
     }
 
     public void SelectSlot(int index)
     {
-        Debug.Log("嘗試選擇索引：" + index + "，目前欄位數：" + toolbarSlots.Count);
 
         if(toolbarSlots.Count == 10) //若有10個欄位時
         {
+            if(selectedSlot != null)
+            {
+                selectedSlot.SetHighlight(false); //把前一個highlight關掉
+            }
             selectedSlot = toolbarSlots[index];
-            Debug.Log("selected slot: " + selectedSlot.name);
+            selectedSlot.SetHighlight(true); //重新選定後打開highlight
         }
     }
 
