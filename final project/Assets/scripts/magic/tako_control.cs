@@ -11,6 +11,7 @@ public class tako_control : MonoBehaviour
     private Rigidbody2D rb;
     private Animator ani;   
     private enemy_property property;
+    private Transform attackerTransform;//紀錄釋放者位置
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +39,12 @@ public class tako_control : MonoBehaviour
         explosion();
         Destroy(gameObject, 0.6f);
     }
+    
+
+    public void SetAttacker(Transform attacker)
+    {
+        attackerTransform = attacker;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("enemy"))
@@ -48,7 +55,7 @@ public class tako_control : MonoBehaviour
                 if (property != null)
                 {
                     Debug.Log("gg" + collision.name);
-                    property.takedamage(damage, actul_direction);
+                    property.takedamage(damage, transform.position);
                 }
             }
             rb.linearVelocity = Vector2.zero;
