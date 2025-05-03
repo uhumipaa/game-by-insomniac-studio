@@ -5,8 +5,10 @@ public class Inventory_UI : MonoBehaviour
 {
     public GameObject inventoryPanel;
     public player_trigger player;
-    //public Player player;
     public List<Slot_UI> slots = new List<Slot_UI>();
+
+    private Slot_UI draggedSlot;
+
     void Start()
     {
         // 一開始關閉背包 UI
@@ -55,5 +57,26 @@ public class Inventory_UI : MonoBehaviour
     {
         player.inventory.Remove(slotID);
         Refresh();
+    }
+
+    public void SlotBeginDrag(Slot_UI slot)
+    {
+        draggedSlot = slot;
+        Debug.Log("Start Drag: " + draggedSlot.name);
+    }
+
+    public void SlotDrag()
+    {
+        Debug.Log("Dragging: " + draggedSlot.name);
+    }
+
+    public void SlotEndDrag()
+    {
+        Debug.Log("Done Dragging: " + draggedSlot.name);
+    }
+
+    public void SlotDrop(Slot_UI slot)
+    {
+        Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
     }
 }

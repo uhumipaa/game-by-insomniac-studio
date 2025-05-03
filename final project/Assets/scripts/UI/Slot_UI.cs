@@ -14,6 +14,8 @@ public class Slot_UI : MonoBehaviour
         if(slot != null)
         {
             itemIcon.sprite = slot.icon;
+            Debug.Log("設定圖片為：" + slot.icon?.name);
+
             itemIcon.color = new Color(1,1,1,1);
             quantityText.text = slot.count.ToString();
         }
