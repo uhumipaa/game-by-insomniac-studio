@@ -9,7 +9,9 @@ public class enemy_property : MonoBehaviour
         public int max_health;
         public int current_health;
         public int def;
-        public int atk; 
+        public int atk;
+        public float attack_range;
+        public float speed;
 
         [SerializeField] private SpriteRenderer spriteRender;
         [SerializeField] private UnityEvent healthChanged;
