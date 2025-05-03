@@ -6,7 +6,7 @@ public class KillEnemyStats : MonoBehaviour
 
     public void kill()
     {
-        PlayerStats player = FindObjectOfType<PlayerStats>();
+        PlayerStats player = FindFirstObjectByType<PlayerStats>();
         if (player != null)
         {
             player.GainExp(expReward);

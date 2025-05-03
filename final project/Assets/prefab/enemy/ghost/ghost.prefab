@@ -73,7 +73,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &546095260313043202
@@ -465,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 9033270406202045528}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.67, y: -0.87, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -516,7 +516,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 5287824136190618573, guid: 8c16b2d8b29528d4f9d0009d3386124d, type: 3}
+  m_Sprite: {fileID: 6985793827635034289, guid: 8c16b2d8b29528d4f9d0009d3386124d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -549,9 +549,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9033270406202045528}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ea961bfc610716f43a45717c97772f0a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3893007d61f1db846ae8d229f1c2dd1a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -609,12 +609,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.45117188}
-  m_Radius: 0.49414062
+  m_Offset: {x: 0.123665094, y: -0.5160943}
+  m_Radius: 1.040211
 --- !u!114 &1337603176295134124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,9 +717,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  directionChangeInterval: 4
-  invisibilityInterval: 3
-  invisibilityDuration: 1
+  directionChangeInterval: 3
+  invisibilityInterval: 4
+  invisibilityDuration: 2
   moveBounds:
     serializedVersion: 2
     x: -9
