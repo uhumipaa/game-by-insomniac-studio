@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class RandomMover2D : MonoBehaviour
+public class ghost : MonoBehaviour
 {
     public float moveSpeed = 2f;//速度
     public float directionChangeInterval = 2f;///何時改變方向
@@ -16,6 +17,7 @@ public class RandomMover2D : MonoBehaviour
     private bool isInvisible = false;
 
     private SpriteRenderer spriteRenderer;
+    private Slider HpSlider;
 
     void Start()
     {
@@ -102,9 +104,11 @@ public class RandomMover2D : MonoBehaviour
     //隱形或顯示
     void SetVisibility(bool visible)
     {
+        var HpSlider = GetComponentInChildren<Slider>(true);
         if (spriteRenderer != null)
         {
             spriteRenderer.enabled = visible;
+            HpSlider.gameObject.SetActive(visible);
         }
     }
 
