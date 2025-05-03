@@ -1,42 +1,51 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ghost : MonoBehaviour
 {
-    public float moveSpeed = 2f;//速度
-    public float directionChangeInterval = 2f;///何時改變方向
-    public float invisibilityInterval = 5f;//隱形間隔
-    public float invisibilityDuration = 1f;//隱形持續時間
+    public float moveSpeed = 2f; // 移動速度
+    public float directionChangeInterval = 2f; // 何時改變方向
+    public float invisibilityInterval = 5f; // 隱形間隔
+    public float invisibilityDuration = 1f; // 隱形持續時間
+    public Rect moveBounds = new Rect(-10, -5, 20, 10); // 活動範圍界線
 
-    public Rect moveBounds = new Rect(-10, -5, 20, 10);//界線
-
-    private Vector2 moveDirection;//目前移動方向
-    private float directionTimer;//何時換方向
-    private float invisibilityTimer;//何時隱形
-    private float invisibilityTimeRemaining;//隱形剩餘時間
-    private bool isInvisible = false;
+    private Vector2 moveDirection; // 目前移動方向
+    private float directionTimer; // 換方向間隔
+    private float invisibilityTimer; // 隱形間隔
+    private float invisibilityTimeRemaining; // 隱形剩餘時間
+    private bool isInvisible = false; // 是否正在隱形中
 
     private SpriteRenderer spriteRenderer;
-    private Slider HpSlider;
+    private Slider HpSlider; // 血條
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        ChooseNewDirection();
+        HpSlider = GetComponentInChildren<Slider>(true); // 找到子物件中的Slider
+        ChooseNewDirection(); // 初始隨機方向
         directionTimer = directionChangeInterval;
         invisibilityTimer = invisibilityInterval;
     }
 
     void Update()
     {
-        // 移動
+        //移動
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
-        // 碰到邊界就反彈
+        //翻轉角色面向移動方向
+        if (moveDirection.x != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = moveDirection.x > 0 ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x);
+            transform.localScale = scale;
+        }
+
+        //碰到邊界就反彈
         Vector3 pos = transform.position;
         Vector2 halfSize = GetHalfSize();
 
-        // 左或右邊界
+        //左或右邊界
         if (pos.x - halfSize.x < moveBounds.xMin || pos.x + halfSize.x > moveBounds.xMax)
         {
             moveDirection.x = -moveDirection.x;
@@ -44,7 +53,7 @@ public class ghost : MonoBehaviour
             transform.position = pos;
         }
 
-        // 上或下邊界
+        //上或下邊界
         if (pos.y - halfSize.y < moveBounds.yMin || pos.y + halfSize.y > moveBounds.yMax)
         {
             moveDirection.y = -moveDirection.y;
@@ -52,7 +61,7 @@ public class ghost : MonoBehaviour
             transform.position = pos;
         }
 
-        // 換方向
+        //換方向
         directionTimer -= Time.deltaTime;
         if (directionTimer <= 0f)
         {
@@ -60,12 +69,12 @@ public class ghost : MonoBehaviour
             directionTimer = directionChangeInterval;
         }
 
-        // 隱形
+        //隱形邏輯
         invisibilityTimer -= Time.deltaTime;
 
         if (!isInvisible && invisibilityTimer <= 0f)
         {
-            SetVisibility(false);
+            SetVisibility(false); // 淡出隱形
             isInvisible = true;
             invisibilityTimeRemaining = invisibilityDuration;
         }
@@ -75,7 +84,7 @@ public class ghost : MonoBehaviour
             invisibilityTimeRemaining -= Time.deltaTime;
             if (invisibilityTimeRemaining <= 0f)
             {
-                SetVisibility(true);
+                SetVisibility(true); // 淡入恢復可見
                 isInvisible = false;
                 invisibilityTimer = invisibilityInterval;
             }
@@ -85,34 +94,50 @@ public class ghost : MonoBehaviour
     //移動方向選擇
     void ChooseNewDirection()
     {
-        Vector2[] directions = new Vector2[]
-        {
-            Vector2.up,
-            Vector2.down,
-            Vector2.left,
-            Vector2.right,
-            (Vector2.up + Vector2.left).normalized,
-            (Vector2.up + Vector2.right).normalized,
-            (Vector2.down + Vector2.left).normalized,
-            (Vector2.down + Vector2.right).normalized
-        };
-
-        int index = Random.Range(0, directions.Length);
-        moveDirection = directions[index];
+        float angle = Random.Range(0f, 360f);
+        float rad = angle * Mathf.Deg2Rad;
+        moveDirection = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
     }
 
     //隱形或顯示
     void SetVisibility(bool visible)
     {
-        var HpSlider = GetComponentInChildren<Slider>(true);
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = visible;
-            HpSlider.gameObject.SetActive(visible);
-        }
+        StopAllCoroutines(); // 停止前一次透明動畫
+        StartCoroutine(FadeVisibility(visible));
     }
 
-    //界線計算
+    //透明度漸變
+    IEnumerator FadeVisibility(bool visible)
+    {
+        float duration = 0.5f; // 淡入淡出時間
+        float startAlpha = spriteRenderer.color.a;
+        float endAlpha = visible ? 1f : 0f;
+        float elapsed = 0f;
+
+        if (visible)
+            HpSlider.gameObject.SetActive(true); // 顯示血條
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float alpha = Mathf.Lerp(startAlpha, endAlpha, t);
+            Color color = spriteRenderer.color;
+            color.a = alpha;
+            spriteRenderer.color = color;
+            yield return null;
+        }
+
+        //確保完全透明或顯示
+        Color finalColor = spriteRenderer.color;
+        finalColor.a = endAlpha;
+        spriteRenderer.color = finalColor;
+
+        if (!visible)
+            HpSlider.gameObject.SetActive(false); // 隱藏血條
+    }
+
+    //取得 Sprite 尺寸（半徑）
     Vector2 GetHalfSize()
     {
         if (spriteRenderer == null)
