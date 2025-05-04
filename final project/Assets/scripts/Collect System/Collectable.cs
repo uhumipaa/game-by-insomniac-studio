@@ -8,6 +8,12 @@ public class Collectable : MonoBehaviour
     /*player walks into collectable*/
     /*add collectable to player*/
     /*delete collectable from the screen*/
+    public Rigidbody2D rb2D;
+
+    private void Awake()
+    {
+       rb2D = GetComponent<Rigidbody2D>();   
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

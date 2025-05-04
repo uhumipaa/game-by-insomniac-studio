@@ -9,11 +9,11 @@ public class Slot_UI : MonoBehaviour
 
     [SerializeField] private GameObject highlight;
 
-    public void SetItem(Inventory.Slot slot)
+    public void SetItem(Inventory.Slot slot, Item item)
     {
         if(slot != null)
         {
-            itemIcon.sprite = slot.icon;
+            itemIcon.sprite = item.data.icon;
             Debug.Log("設定圖片為：" + slot.icon?.name);
 
             itemIcon.color = new Color(1,1,1,1);

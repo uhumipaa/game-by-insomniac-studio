@@ -5,7 +5,7 @@ public class player_trigger : MonoBehaviour
     public Inventory inventory;
     private void Awake()
     {
-        Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
+        //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
         inventory = new Inventory(28);   
     }
 
@@ -20,5 +20,21 @@ public class player_trigger : MonoBehaviour
                 Debug.Log("Tile is interactable");
             }
         }
+    }
+
+    public void DropItem(Item item, Vector3 dropPosition)
+    {
+        /*Vector3 spawnLocation = transform.position; //物品掉落位置
+
+        float randX = Random.Range(-1f, 1f);
+        float randY = Random.Range(-1f, 1f);
+
+        Vector3 spawnOffset = new Vector3(randX, randY, 0f).normalized;*/
+
+        GameObject droppedGO = Instantiate(item.gameObject, dropPosition, Quaternion.identity);
+        Item droppedItem = droppedGO.GetComponent<Item>();
+
+        //droppedItem.rb2D.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
+        Debug.Log("掉落物品：" + droppedGO.name + " at " + dropPosition);
     }
 }

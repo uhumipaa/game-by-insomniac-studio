@@ -11,6 +11,8 @@ public class Inventory
         public int count;
         public int maxAllowed;
         public Sprite icon;
+        public ItemType type;
+        public Vector3 originalDropPosition; //原始掉落位置
 
         public Slot()
         {
@@ -31,8 +33,10 @@ public class Inventory
         public void AddItem(Item item)
         {
             this.itemName = item.data.itemName;
+            this.type = item.data.type;
             this.icon = item.data.icon;
-            count++; 
+            this.originalDropPosition = item.transform.position; // 記住撿起前的位置
+            this.count++; 
         }
 
         public void RemoveItem()
