@@ -17,7 +17,7 @@ public class Maploader : MonoBehaviour
 
     public void generate_tele()
     {
-        Transform Telespawn = GameObject.Find("trans__spawn_point")?.transform;
+        Transform Telespawn = GameObject.Find("trans_spawn_point")?.transform;
         if (Telespawn == null)
         {
             Debug.Log("123");
@@ -27,7 +27,7 @@ public class Maploader : MonoBehaviour
 
     public void generate_chest()
     {
-        Transform chestpawn = GameObject.Find("chest__spawn_point")?.transform;
+        Transform chestpawn = GameObject.Find("chest_spawn_point")?.transform;
         if (chestpawn == null)
         {
             Debug.Log("123");

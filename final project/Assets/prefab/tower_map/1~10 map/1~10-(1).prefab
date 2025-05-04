@@ -3227,7 +3227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6663777615448388181}
   m_Layer: 0
-  m_Name: chest__spawn_point
+  m_Name: chest_spawn_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4271,7 +4271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5654433689998282452}
   m_Layer: 0
-  m_Name: trans__spawn_point
+  m_Name: trans_spawn_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
