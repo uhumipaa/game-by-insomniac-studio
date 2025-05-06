@@ -17,6 +17,18 @@ public class Inventory_UI : MonoBehaviour
     private void Awake()
     {
         canvas = Object.FindFirstObjectByType<Canvas>();
+
+        // 只抓 Slots 子物件裡的 Slot_UI
+        Transform slotRoot = transform.Find("Background/Slots");
+        if (slotRoot != null)
+        {
+            slots = new List<Slot_UI>(slotRoot.GetComponentsInChildren<Slot_UI>());
+            Debug.Log($"已載入背包格數：{slots.Count}");
+        }
+        else
+        {
+            Debug.LogError("找不到 Slots 節點！請確認階層是否為 inventory/Background/Slots");
+        }
     }
     void Start()
     {
@@ -50,14 +62,18 @@ public class Inventory_UI : MonoBehaviour
         {
             for(int i = 0; i < slots.Count; i++)
             {
-                Item item = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[i].type);
+                //Debug.Log($"刷新 slot[{i}] 類型：{player.inventory.slots[i].type} 數量：{player.inventory.slots[i].count}");
 
-                if (item != null && player.inventory.slots[i].count > 0)
+                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(player.inventory.slots[i].type);
+
+                if (prefab != null && player.inventory.slots[i].count > 0)
                 {
-                    slots[i].SetItem(player.inventory.slots[i], item); // 把 item 傳進 UI slot
+                    Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
+                    slots[i].SetItem(player.inventory.slots[i], prefab.item); // 把 item 傳進 UI slot
                 }
                 else
                 {
+                    Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
                     slots[i].SetEmpty();
                 }
             }
@@ -65,32 +81,53 @@ public class Inventory_UI : MonoBehaviour
     }
 
     //當X被按下
-    public void Remove(int slotID)
+    /*public void ButtonRemove()
     {
-        Debug.Log($"使用中的 GameManager：{GameManager.instance.name}, itemManager 是否為 null？{GameManager.instance.itemManager == null}");
-
-        Debug.Log($"slot[{slotID}] 資訊 → type: {player.inventory.slots[slotID].type}, itemName: {player.inventory.slots[slotID].itemName}, count: {player.inventory.slots[slotID].count}");
-
-        Debug.Log("Remove() 被按下，slotID = " + slotID);
-        Debug.Log("欲移除物品名稱：" + player.inventory.slots[slotID].itemName);
-
-        Item itemToDrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[slotID].type);
+        Debug.Log("有點到 X 按鈕");
+        
+        Item itemToDrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[draggedSlot.slotID].type);
 
         if(itemToDrop == null)
         {
-            Debug.LogWarning($"找不到 itemToDrop，無法移除。類型為：{player.inventory.slots[slotID].type}");
+            Debug.LogWarning($"找不到 itemToDrop，無法移除。類型為：{player.inventory.slots[draggedSlot.slotID].type}");
             return;
         }   
 
 
         if(itemToDrop != null)
         {
-            Vector3 originalPos = player.inventory.slots[slotID].originalDropPosition;
+            Vector3 originalPos = player.inventory.slots[draggedSlot.slotID].originalDropPosition;
             player.DropItem(itemToDrop, originalPos);
-            player.inventory.Remove(slotID);
+            player.inventory.Remove(draggedSlot.slotID);
             Refresh();
         }
         
+        draggedSlot = null;
+    }*/
+
+    //拖曳
+    public void Remove()
+    {
+        var slot = player.inventory.slots[draggedSlot.slotID];
+
+        Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(slot.type);
+
+        if(prefab == null)
+        {
+            Debug.LogWarning($"找不到 itemToDrop，無法移除。類型為：{slot.type}");
+            return;
+        }   
+
+
+        if(prefab != null)
+        {
+            Vector3 originalPos = player.inventory.slots[draggedSlot.slotID].originalDropPosition;
+            player.DropItem(slot.type, originalPos);
+            player.inventory.Remove(draggedSlot.slotID);
+            Refresh();
+        }
+        
+        draggedSlot = null;
     }
 
     public void SlotBeginDrag(Slot_UI slot)

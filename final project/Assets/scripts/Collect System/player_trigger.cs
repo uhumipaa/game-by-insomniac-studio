@@ -22,19 +22,35 @@ public class player_trigger : MonoBehaviour
         }
     }
 
-    public void DropItem(Item item, Vector3 dropPosition)
+    public void DropItem(ItemType type, Vector3 position)
     {
         /*Vector3 spawnLocation = transform.position; //物品掉落位置
 
         float randX = Random.Range(-1f, 1f);
         float randY = Random.Range(-1f, 1f);
 
-        Vector3 spawnOffset = new Vector3(randX, randY, 0f).normalized;*/
+        Vector3 spawnOffset = new Vector3(randX, randY, 0f).normalized;
 
         GameObject droppedGO = Instantiate(item.gameObject, dropPosition, Quaternion.identity);
         Item droppedItem = droppedGO.GetComponent<Item>();
 
         //droppedItem.rb2D.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
-        Debug.Log("掉落物品：" + droppedGO.name + " at " + dropPosition);
+        Debug.Log("掉落物品：" + droppedGO.name + " at " + dropPosition);*/
+
+        var prefab = GameManager.instance.itemManager.GetCollectablePrefab(type);
+
+        if (prefab != null)
+        {
+            Collectable dropped = Instantiate(prefab, position, Quaternion.identity);
+
+            Vector2 randomDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            dropped.rb2D.AddForce(randomDir * 2f, ForceMode2D.Impulse);
+
+            Debug.Log($"丟出物品：{type} 在 {position}");
+        }
+        else
+        {
+            Debug.LogWarning("找不到對應 prefab：" + type);
+        }
     }
 }

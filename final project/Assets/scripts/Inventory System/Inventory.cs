@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 [System.Serializable]
@@ -48,6 +49,7 @@ public class Inventory
                 {
                     icon = null;
                     itemName = "";
+                    type = ItemType.NONE;
                 }
             }
         }

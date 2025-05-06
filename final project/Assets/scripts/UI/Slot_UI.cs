@@ -4,6 +4,7 @@ using TMPro;
 
 public class Slot_UI : MonoBehaviour
 {
+    public int slotID;
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
 
@@ -11,6 +12,7 @@ public class Slot_UI : MonoBehaviour
 
     public void SetItem(Inventory.Slot slot, Item item)
     {
+        Debug.Log($"SetItem() → icon: {item?.data?.icon?.name}, count: {slot.count}");
         if(slot != null)
         {
             itemIcon.sprite = item.data.icon;
