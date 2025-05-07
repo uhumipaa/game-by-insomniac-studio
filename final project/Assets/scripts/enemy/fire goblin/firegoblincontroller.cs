@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Rendering;
 public class firegoblincontroller : MonoBehaviour
 {
     private Transform player;
@@ -9,6 +10,8 @@ public class firegoblincontroller : MonoBehaviour
     public float attack_time;
     private enemy_property property;
     public float waitcd;
+    public GameObject[] hitbox;
+    private int hitbox_num=0;
     private bool isDoingCoroutine = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +40,7 @@ public class firegoblincontroller : MonoBehaviour
         }else if(attack&&!wait)
         {
             isDoingCoroutine = true;
-            StartCoroutine(Attackwithcd(attack_time));
+            Attackwithcd();
         }
         else 
         {
@@ -60,34 +63,50 @@ public class firegoblincontroller : MonoBehaviour
             attack = true;
         }
     }
-    IEnumerator Attackwithcd(float delay)
+    void Attackwithcd()
     {
         Debug.Log("attack");
-        if (transform.position.y <= player.position.y+0.1f&& transform.position.y <= player.position.y - 0.1f)
+        Vector2 diff = player.position - transform.position;
+        if (Mathf.Abs(diff.y) < 0.1f)
         {
             ani.SetFloat("horizontal", 1f);
-            ani.SetFloat("vetcal", 0f);
+            ani.SetFloat("vertical", 0f);
+            hitbox_num = 0;
         }
         else
         {
             ani.SetFloat("horizontal", 0f);
-            if (transform.position.y > player.position.y)
+            if (diff.y < 0)
             {
-                ani.SetFloat("vetical", -1f);
+                ani.SetFloat("vertical", -1f);
+                hitbox_num = 1;
             }
             else
             {
-                ani.SetFloat("vetical", 1f);
+                ani.SetFloat("vertical", 1f);
+                hitbox_num = 2;
             }
         }
-            ani.SetBool("attacking", true);
+        if (hitbox[hitbox_num].GetComponent<BoxCollider2D>().enabled) return;
+        ani.SetBool("attacking", true);
         ani.SetBool("running", false);
         ani.SetBool("waiting", false);
-        yield return new WaitForSeconds(delay);
-        if (Vector2.Distance(transform.position, player.position) < property.attack_range)
+    }
+    public void Enablehitbox()
+    {
+        if (hitbox[hitbox_num].GetComponent<BoxCollider2D>().enabled)
         {
-            player.GetComponent<Player_Property>()?.takedamage(property.atk, transform.position);
+            hitbox[hitbox_num].GetComponent<Hitbox_Controller>().Closecol();
         }
+        else
+        {
+            hitbox[hitbox_num].GetComponent<Hitbox_Controller>().Enablecol();
+        }
+            
+    }
+    public void Closehitbox()
+    {
+        hitbox[hitbox_num].GetComponent<Hitbox_Controller>().Closecol();
         ani.SetBool("attacking", false);
         ani.SetBool("waiting", true);
         wait = true;

@@ -28,7 +28,7 @@ AnimationClip:
       value: {fileID: -6788512504216807580, guid: 374c724e542a74042a8d763091a7a676, type: 3}
     - time: 0.25
       value: {fileID: -4146183439964304651, guid: 374c724e542a74042a8d763091a7a676, type: 3}
-    - time: 0.35
+    - time: 0.33
       value: {fileID: -4900098501004535040, guid: 374c724e542a74042a8d763091a7a676, type: 3}
     - time: 0.43
       value: {fileID: 552807240558472972, guid: 374c724e542a74042a8d763091a7a676, type: 3}
@@ -87,4 +87,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.33
+    functionName: Enablehitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: Closehitbox
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
