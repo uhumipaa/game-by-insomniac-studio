@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Enemy_close_Animation : MonoBehaviour,IEnemyAnimatorBehavior
 {
-    private Enemy_controller controller;
+    private Enemy_close_controller controller;
 
     void Awake()
     {
-        controller = GetComponent<Enemy_controller>();
+        controller = GetComponent<Enemy_close_controller>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void PlayAttack(Vector2 direction, Animator ani)
