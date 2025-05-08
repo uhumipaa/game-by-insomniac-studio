@@ -12,6 +12,7 @@ public class enemy_property : MonoBehaviour
         public int atk;
         public float attack_range;
         public float speed;
+        public float stuncd;
 
         [SerializeField] private SpriteRenderer spriteRender;
         [SerializeField] private UnityEvent healthChanged;

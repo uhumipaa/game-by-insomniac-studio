@@ -27,7 +27,7 @@ public class enemy_move : MonoBehaviour
         if (distance >= CloseAttack.attack_range && CloseAttack.attacking == false)
         {
             direction = (player.position - transform.position).normalized;
-            transform.position = (Vector2)transform.position + (direction * Speed * Time.deltaTime);
+            transform.position = (Vector2)transform.position + (direction *     Speed * Time.deltaTime);
             transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         }
         else
