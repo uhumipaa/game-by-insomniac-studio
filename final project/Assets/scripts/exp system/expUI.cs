@@ -11,7 +11,7 @@ public class expUI : MonoBehaviour
     //經驗條與等級文字更新
     void Update()
     {
-        levelText.text = "EXP: " + playerStats.level;
+        levelText.text = "" + playerStats.level;
         expSlider.maxValue = playerStats.expToNextLevel;
         expSlider.value = playerStats.currentExp;
     }

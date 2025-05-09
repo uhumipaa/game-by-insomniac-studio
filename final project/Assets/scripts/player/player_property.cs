@@ -46,7 +46,8 @@ public class Player_Property : MonoBehaviour
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def,0);
         current_health -= actual_damage;
-        healthChanged.Invoke();
+        // healthChanged.Invoke();
+        healthbar.UpdateUI();
         Debug.Log($"takedamage; {actual_damage} now health: {current_health}");
         
         // 擊退效果
