@@ -73,7 +73,7 @@ public class Inventory_UI : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
+                    //Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
                     slots[i].SetEmpty();
                 }
             }
@@ -139,13 +139,13 @@ public class Inventory_UI : MonoBehaviour
         draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
 
         MoveToMousePosition(draggedIcon.gameObject);
-        Debug.Log("Start Drag: " + draggedSlot.name);
+        //Debug.Log("Start Drag: " + draggedSlot.name);
     }
 
     public void SlotDrag()
     {
         MoveToMousePosition(draggedIcon.gameObject); //圖標可以跟著滑鼠連續移動
-        Debug.Log("Dragging: " + draggedSlot.name);
+        //Debug.Log("Dragging: " + draggedSlot.name);
     }
 
     public void SlotEndDrag()
@@ -153,12 +153,12 @@ public class Inventory_UI : MonoBehaviour
         Destroy(draggedIcon.gameObject); //鼠標放開，圖片消失
         draggedIcon = null;
 
-        Debug.Log("Done Dragging: " + draggedSlot.name);
+        //Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(Slot_UI slot)
     {
-        Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
+        //Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
     }
 
     private void MoveToMousePosition(GameObject toMove)
