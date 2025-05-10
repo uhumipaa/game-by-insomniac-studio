@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class ShopManagerScript : MonoBehaviour
 {
     public int[,] shopItems = new int[5,5];//the number of items
-    public float coins;
     public Text CoinsTXT;
     void Start()
     {
-        CoinsTXT.text = "      " + coins.ToString();
+        //設定UI TEXT
+        CoinManager.instance.RegisterCoinText(CoinsTXT);
 
         //set items' id
         shopItems[1, 1] = 1;
@@ -34,18 +34,21 @@ public class ShopManagerScript : MonoBehaviour
 
     public void Buy(){
 
+        Debug.Log("按鈕被點擊了");
+        
         GameObject ButtonRef = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
 
-        if (coins >= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID]){
+        //0510 add by bai
+        int itemID = ButtonRef.GetComponent<ButtonInfo>().ItemID;
+        int price = shopItems[2, itemID];
+        //end
 
-            coins -= shopItems[2, ButtonRef.GetComponent<ButtonInfo>().ItemID];
-            shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID]++;
-            CoinsTXT.text = "      " + coins.ToString();//CoinsTXT.text = " Coins: " + coins.ToString();
-            ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, ButtonRef.GetComponent<ButtonInfo>().ItemID].ToString();
-     
-
+        //0510 mod by bai
+        if (CoinManager.instance.SpendCoins(price)){
+            shopItems[3, itemID]++;
+            ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = shopItems[3, itemID].ToString();
         }
-
+        //end
 
     }
 }

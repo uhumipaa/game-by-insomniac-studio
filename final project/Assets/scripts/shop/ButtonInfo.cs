@@ -10,10 +10,17 @@ public class ButtonInfo : MonoBehaviour
     public Text PirceTxt;
     public Text QuantityTxt;
     public GameObject ShopManager;
-    // Update is called once per frame
+    
     void Update()
     {
-        PirceTxt.text = "Price: $" + ShopManager.GetComponent<ShopManagerScript>().shopItems[2, ItemID].ToString();
-        QuantityTxt.text = " " +  ShopManager.GetComponent<ShopManagerScript>().shopItems[3, ItemID].ToString();
+        if (ShopManager != null)
+    {
+        var shop = ShopManager.GetComponent<ShopManagerScript>();
+        if (shop != null)
+        {
+            PirceTxt.text = "Price: $" + shop.shopItems[2, ItemID].ToString();
+            QuantityTxt.text = " " + shop.shopItems[3, ItemID].ToString();
+        }
+    }
     }
 }

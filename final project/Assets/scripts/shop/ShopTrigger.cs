@@ -28,4 +28,8 @@ public class ShopTrigger : MonoBehaviour
             playerInRange = false;
         }
     }
+    public void BackToFarm()
+    { 
+        SceneManager.LoadScene("farm");
+    }
 }
