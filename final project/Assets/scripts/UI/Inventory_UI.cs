@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class Inventory_UI : MonoBehaviour
 {
+    public enum InventoryType { Inventory, Toolbar }
+    public InventoryType uiType;
     public GameObject inventoryPanel;
     public player_trigger player;
     public List<Slot_UI> slots = new List<Slot_UI>();
@@ -12,6 +15,7 @@ public class Inventory_UI : MonoBehaviour
 
     private Slot_UI draggedSlot;
     private Image draggedIcon;
+    private bool dragSingle;
     
 
     private void Awake()
@@ -23,37 +27,67 @@ public class Inventory_UI : MonoBehaviour
         if (slotRoot != null)
         {
             slots = new List<Slot_UI>(slotRoot.GetComponentsInChildren<Slot_UI>());
-            Debug.Log($"已載入背包格數：{slots.Count}");
+            //Debug.Log($"已載入背包格數：{slots.Count}");
         }
         else
         {
-            Debug.LogError("找不到 Slots 節點！請確認階層是否為 inventory/Background/Slots");
+            //Debug.LogError("找不到 Slots 節點！請確認階層是否為 inventory/Background/Slots");
         }
     }
-    void Start()
+    private void Start()
     {
-        // 一開始關閉背包 UI
-        inventoryPanel.SetActive(false);
+        //設置SLOT ID
+        SetupSlots();
+
+        if (uiType == InventoryType.Inventory)
+        {
+            inventoryPanel.SetActive(false); // 背包一開始隱藏
+        }
+        else if (uiType == InventoryType.Toolbar)
+        {
+            inventoryPanel.SetActive(true);  // 工具欄一開始顯示
+        }
+
+        //清空slot
+        Refresh();
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Tab)) //按tab鍵打開(之後換成按鈕)
+        //按tab鍵打開視窗(之後換成按鈕)
+        if(Input.GetKeyDown(KeyCode.Tab)) 
         {
             ToggleInventory();
+        }
+
+        //長按左邊shift拖曳一樣東西
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            dragSingle = true;
+        }
+        else
+        {
+            dragSingle = false;
         }
     }
 
     public void ToggleInventory()
     {
-        if(!inventoryPanel.activeSelf)
+        // 僅當這個 UI 是 Inventory 類型時才切換顯示
+        if (uiType != InventoryType.Inventory) return;
+
+        if(inventoryPanel != null)
         {
-            inventoryPanel.SetActive(true);
-            Refresh();
+            if(!inventoryPanel.activeSelf)
+            {
+                inventoryPanel.SetActive(true);
+                Refresh();
+            }
+            else
+            {
+                inventoryPanel.SetActive(false);
+            }
         }
-        else
-        {
-            inventoryPanel.SetActive(false);
-        }
+        
     }
 
     void Refresh(){
@@ -62,48 +96,49 @@ public class Inventory_UI : MonoBehaviour
         {
             for(int i = 0; i < slots.Count; i++)
             {
-                //Debug.Log($"刷新 slot[{i}] 類型：{player.inventory.slots[i].type} 數量：{player.inventory.slots[i].count}");
+                var sourceSlot = player.inventory.slots[i];
+                Debug.Log($"刷新 Slot[{i}] → {sourceSlot.itemName} x{sourceSlot.count}");
 
                 Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(player.inventory.slots[i].type);
 
+                /*if (prefab == null)
+                {
+                    Debug.LogWarning($"❌ 無法取得 prefab，slot[{i}] 的 type 是 {sourceSlot.type}");
+                }*/
+
                 if (prefab != null && player.inventory.slots[i].count > 0)
                 {
-                    Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
+                    //Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
                     slots[i].SetItem(player.inventory.slots[i], prefab.item); // 把 item 傳進 UI slot
                 }
                 else
                 {
-                    Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
+                    //Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
+                    slots[i].SetEmpty();
+                }
+            }
+        }
+        else if(slots.Count == player.toolbar.slots.Count)
+        {
+            for(int i = 0; i < slots.Count; i++)
+            {
+                //Debug.Log($"刷新 slot[{i}] 類型：{player.inventory.slots[i].type} 數量：{player.inventory.slots[i].count}");
+
+                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(player.toolbar.slots[i].type);
+
+                if (prefab != null && player.toolbar.slots[i].count > 0)
+                {
+                    //Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
+                    slots[i].SetItem(player.toolbar.slots[i], prefab.item); // 把 item 傳進 UI slot
+                }
+                else
+                {
+                    //Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
                     slots[i].SetEmpty();
                 }
             }
         }
     }
-
-    //當X被按下
-    /*public void ButtonRemove()
-    {
-        Debug.Log("有點到 X 按鈕");
-        
-        Item itemToDrop = GameManager.instance.itemManager.GetItemByType(player.inventory.slots[draggedSlot.slotID].type);
-
-        if(itemToDrop == null)
-        {
-            Debug.LogWarning($"找不到 itemToDrop，無法移除。類型為：{player.inventory.slots[draggedSlot.slotID].type}");
-            return;
-        }   
-
-
-        if(itemToDrop != null)
-        {
-            Vector3 originalPos = player.inventory.slots[draggedSlot.slotID].originalDropPosition;
-            player.DropItem(itemToDrop, originalPos);
-            player.inventory.Remove(draggedSlot.slotID);
-            Refresh();
-        }
-        
-        draggedSlot = null;
-    }*/
 
     //拖曳
     public void Remove()
@@ -118,12 +153,19 @@ public class Inventory_UI : MonoBehaviour
             return;
         }   
 
-
         if(prefab != null)
         {
-            Vector3 originalPos = player.inventory.slots[draggedSlot.slotID].originalDropPosition;
-            player.DropItem(slot.type, originalPos);
-            player.inventory.Remove(draggedSlot.slotID);
+            if(dragSingle)
+            {
+                player.DropItem(slot.type);
+                player.inventory.Remove(draggedSlot.slotID);
+            }
+            else
+            {
+                player.DropItem(slot.type, player.inventory.slots[draggedSlot.slotID].count);
+                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+            }
+            
             Refresh();
         }
         
@@ -139,13 +181,13 @@ public class Inventory_UI : MonoBehaviour
         draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
 
         MoveToMousePosition(draggedIcon.gameObject);
-        Debug.Log("Start Drag: " + draggedSlot.name);
+        //Debug.Log("Start Drag: " + draggedSlot.name);
     }
 
     public void SlotDrag()
     {
         MoveToMousePosition(draggedIcon.gameObject); //圖標可以跟著滑鼠連續移動
-        Debug.Log("Dragging: " + draggedSlot.name);
+        //Debug.Log("Dragging: " + draggedSlot.name);
     }
 
     public void SlotEndDrag()
@@ -153,12 +195,13 @@ public class Inventory_UI : MonoBehaviour
         Destroy(draggedIcon.gameObject); //鼠標放開，圖片消失
         draggedIcon = null;
 
-        Debug.Log("Done Dragging: " + draggedSlot.name);
+        //Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(Slot_UI slot)
     {
-        Debug.Log("Dropped " + draggedSlot.name + " on " + slot.name);
+        player.inventory.MoveSlot(draggedSlot.slotID, slot.slotID);
+        Refresh();
     }
 
     private void MoveToMousePosition(GameObject toMove)
@@ -168,6 +211,17 @@ public class Inventory_UI : MonoBehaviour
             Vector2 position;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, null, out position);
             toMove.transform.position = canvas.transform.TransformPoint(position);
+        }
+    }
+
+    void SetupSlots()
+    {
+        int counter = 0;
+
+        foreach(Slot_UI slot in slots)
+        {
+            slot.slotID = counter;
+            counter++;
         }
     }
 }

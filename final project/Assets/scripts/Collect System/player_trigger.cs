@@ -3,10 +3,12 @@ using UnityEngine;
 public class player_trigger : MonoBehaviour
 {
     public Inventory inventory;
+    public Inventory toolbar;
     private void Awake()
     {
         //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
-        inventory = new Inventory(28);   
+        inventory = new Inventory(28);  
+        toolbar = new Inventory(10); 
     }
 
     private void Update()
@@ -22,7 +24,8 @@ public class player_trigger : MonoBehaviour
         }
     }
 
-    public void DropItem(ItemType type, Vector3 position)
+    //掉落一件物品
+    public void DropItem(ItemType type)
     {
         /*Vector3 spawnLocation = transform.position; //物品掉落位置
 
@@ -41,31 +44,43 @@ public class player_trigger : MonoBehaviour
 
         if (prefab != null)
         {
-            Vector3 finalPosition = position;
-            const float avoidRadius = 0.8f; // 主角附近不要生成
-            int maxAttempts = 10;//最多嘗試10次
+            Vector3 playerPos = transform.position; // 主角位置
+            Vector3 finalPosition = playerPos;
+
+            float dropRadius = 5f;
+            int maxAttempts = 10;
+            LayerMask playerMask = LayerMask.GetMask("Player"); // 確保主角在這個 Layer
 
             for (int i = 0; i < maxAttempts; i++)
             {
-                float randX = Random.Range(-1f, 1f);
-                float randY = Random.Range(-1f, 1f);
+                float randX = Random.Range(-dropRadius, dropRadius);
+                float randY = Random.Range(-dropRadius, dropRadius);
                 Vector3 offset = new Vector3(randX, randY, 0f);
-                Vector3 tryPos = position + offset;
+                Vector3 tryPos = playerPos + offset;
 
-                if (Vector3.Distance(tryPos, position) > avoidRadius)
+                //避免離自己太近且不會生成在主角腳下
+                if (Vector3.Distance(tryPos, playerPos) > 2f && Physics2D.OverlapCircle(tryPos, 0.2f, playerMask) == null) 
                 {
                     finalPosition = tryPos;
                     break;
                 }
             }
-            //實例化物品
-            Collectable dropped = Instantiate(prefab, finalPosition, Quaternion.identity);
 
-            Debug.Log($"丟出物品：{type} 在 {finalPosition}");
+            Collectable dropped = Instantiate(prefab, finalPosition, Quaternion.identity);
+            Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");
         }
         else
         {
             Debug.LogWarning("找不到對應 prefab：" + type);
+        }
+    }
+
+    //掉落多件物品
+    public void DropItem(ItemType type, int numToDrop)
+    {
+        for(int i = 0; i < numToDrop; i++)
+        {
+            DropItem(type);
         }
     }
 }

@@ -31,7 +31,7 @@ public class ItemManager : MonoBehaviour
                 continue;
             }
 
-            Debug.Log($"✅ 註冊 type：{entry.type}, prefab：{entry.prefab.name}");
+            //Debug.Log($"✅ 註冊 type：{entry.type}, prefab：{entry.prefab.name}");
             AddItem(entry);
         }
     }
@@ -52,6 +52,8 @@ public class ItemManager : MonoBehaviour
         {
             return dict[type];
         }
+
+        //Debug.LogWarning($"❌ GetCollectablePrefab 找不到對應的 ItemType：{type}");
         return null;//沒有找到
         
     }
