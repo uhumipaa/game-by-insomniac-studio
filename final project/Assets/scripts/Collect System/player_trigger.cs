@@ -41,12 +41,27 @@ public class player_trigger : MonoBehaviour
 
         if (prefab != null)
         {
-            Collectable dropped = Instantiate(prefab, position, Quaternion.identity);
+            Vector3 finalPosition = position;
+            const float avoidRadius = 0.8f; // 主角附近不要生成
+            int maxAttempts = 10;//最多嘗試10次
 
-            Vector2 randomDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-            dropped.rb2D.AddForce(randomDir * 2f, ForceMode2D.Impulse);
+            for (int i = 0; i < maxAttempts; i++)
+            {
+                float randX = Random.Range(-1f, 1f);
+                float randY = Random.Range(-1f, 1f);
+                Vector3 offset = new Vector3(randX, randY, 0f);
+                Vector3 tryPos = position + offset;
 
-            Debug.Log($"丟出物品：{type} 在 {position}");
+                if (Vector3.Distance(tryPos, position) > avoidRadius)
+                {
+                    finalPosition = tryPos;
+                    break;
+                }
+            }
+            //實例化物品
+            Collectable dropped = Instantiate(prefab, finalPosition, Quaternion.identity);
+
+            Debug.Log($"丟出物品：{type} 在 {finalPosition}");
         }
         else
         {
