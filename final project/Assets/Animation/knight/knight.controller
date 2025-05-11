@@ -34,7 +34,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 6e0c2dc45fdf6834795ae5a9dd68dec4, type: 2}
+    m_Motion: {fileID: -4399273342987864829, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
     m_Threshold: 0
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -42,7 +42,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4dad5a01f65cddf409e1304b905f909e, type: 2}
+    m_Motion: {fileID: 8457827382905983551, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
     m_Threshold: 0.33333334
     m_Position: {x: 1, y: 0}
     m_TimeScale: 1
@@ -50,7 +50,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 866531b9c56231e45b21ba346860af8f, type: 2}
+    m_Motion: {fileID: -104761425158121660, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
     m_Threshold: 0.6666667
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -58,7 +58,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4dad5a01f65cddf409e1304b905f909e, type: 2}
+    m_Motion: {fileID: 8457827382905983551, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
     m_Threshold: 1
     m_Position: {x: -1, y: 0}
     m_TimeScale: 1
@@ -153,7 +153,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire goblin
+  m_Name: knight
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Blend
@@ -212,7 +212,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire goblin Idle
+  m_Name: knight Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -227,7 +227,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 404654b6ef14b2c489cac458a6809c9d, type: 2}
+  m_Motion: {fileID: -3100369314251171874, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -268,7 +268,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire attack
+  m_Name: knight attack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -295,7 +295,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: fire goblin Run
+  m_Name: knight Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -310,7 +310,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 69e899042e293574a8889bb59ac6a5fe, type: 2}
+  m_Motion: {fileID: 5522812681064789136, guid: dc2c1a4afd35a674f9050ab8dc27e715, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
