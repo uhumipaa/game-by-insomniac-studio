@@ -15,6 +15,8 @@ public class Enemy_throw_controller : MonoBehaviour
     private bool isstuned;
     private bool isinattackerange;
     private bool isattacking;
+    private float lastattackattacktime;
+    private bool canattack=true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +25,7 @@ public class Enemy_throw_controller : MonoBehaviour
         move = scripts[2] as IEnemyMoveBehavior;
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
-        player = FindAnyObjectByType<Player_Property>().transform;
+        player = FindAnyObjectByType<player_controler>().transform;
         property = GetComponent<enemy_property>();
     }
 
@@ -39,28 +41,51 @@ public class Enemy_throw_controller : MonoBehaviour
         isinattackerange = distance < property.attack_range ? true : false;
         move.Move(transform, player, rb, property.speed);
         animator.PlayMove(direaction, ani);
-        if (!isstuned)
+        if (!canattack)
         {
-            if (isinattackerange)
+           
+            if (isstuned)
             {
-                attack.Attack(transform, player, property.atk);
-                animator.PlayAttack(direaction, ani);
-                isattacking = true;
+                if (Time.time - lastattackattacktime > property.stuncd)
+                {
+                    isstuned = false;
+                    canattack = true;
+                }
+                else
+                {
+                    isstuned = true;
+                }
             }
         }
         else
         {
-            StartCoroutine(Stun(property.stuncd));
+            if (isinattackerange&&canattack)
+            {
+                attack.Attack(transform, player, property.atk);
+                animator.PlayAttack(direaction, ani);
+                isattacking = true;
+                canattack = false;
+            }
         }
     }
+    /*
         IEnumerator Stun(float cd)
         {
-            yield return new WaitForSecondsRealtime(cd);
+            Debug.Log("stunning");
+            yield return new WaitForSeconds(cd);
             isstuned = false;
+        
         }
+    */
         public void FinishAttack()
         {
+            Debug.Log("finishattack");
+            animator.PlayIdle(ani);
             isattacking = false;
-        }
+            isstuned = true;
+            lastattackattacktime = Time.time;
+            canattack = false;
+            //StartCoroutine(Stun(property.stuncd));
+    }
 }
     
