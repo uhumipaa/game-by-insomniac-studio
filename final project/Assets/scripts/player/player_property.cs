@@ -35,6 +35,22 @@ public class Player_Property : MonoBehaviour
     {
         get { return current_health; }
     }
+
+    // 經驗點數屬性加成
+    public void AtkAdd()
+    {
+        atk += 1;
+        magic_atk += 1;
+    }
+    public void DefAdd()
+    {
+        def += 1;
+    }
+    public void HPAdd()
+    {
+        max_health += 1;
+        current_health += 1;
+    }
     public void takedamage(int damage , Vector2 attackerPos)
     {
           // 判斷還是不是無敵
