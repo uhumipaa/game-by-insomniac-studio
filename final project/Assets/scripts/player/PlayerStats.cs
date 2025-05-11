@@ -6,8 +6,8 @@ public class PlayerStats : MonoBehaviour
     public int currentExp = 0; // 目前經驗
     public int expToNextLevel; //到下一擊所需的經驗值
 
-    [SerializeField]
-    private float expGrowthRate = 2f;  // 經驗成長倍率
+    [SerializeField] private float expGrowthRate = 2f;  // 經驗成長倍率
+    public ExpAddUI expAddUI;
 
     //初始化經驗值值
     void Start()
@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour
             level++;
             expToNextLevel = CalculateExpToNextLevel(level);
             Debug.Log($"升級了！目前等級：{level}");
+            expAddUI.addpoint();
         }
     }
 

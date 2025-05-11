@@ -18,6 +18,7 @@ public class Player_Property : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRender;
     [SerializeField] private UnityEvent healthChanged;
     [SerializeField] private playerhealthbar healthbar;
+    public ExpAddUI expAddUI;
 
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,18 +40,25 @@ public class Player_Property : MonoBehaviour
     // 經驗點數屬性加成
     public void AtkAdd()
     {
-        atk += 1;
-        magic_atk += 1;
+        if(expAddUI.minuspoint() >= 0) {
+            atk += 1;
+            magic_atk += 1;
+        }
     }
     public void DefAdd()
     {
-        def += 1;
+        if(expAddUI.minuspoint() >= 0) {
+            def += 1;
+        }
     }
     public void HPAdd()
     {
-        max_health += 1;
-        current_health += 1;
+        if(expAddUI.minuspoint() >= 0) {
+            max_health += 1;
+            current_health += 1;
+        }
     }
+    // 受傷
     public void takedamage(int damage , Vector2 attackerPos)
     {
           // 判斷還是不是無敵

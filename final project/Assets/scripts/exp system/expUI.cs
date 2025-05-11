@@ -8,6 +8,7 @@ public class expUI : MonoBehaviour
     public TextMeshProUGUI levelText;
     public Slider expSlider;
     
+    
     //經驗條與等級文字更新
     void Update()
     {
