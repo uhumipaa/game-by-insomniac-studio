@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonInfo : MonoBehaviour
 {
@@ -15,5 +16,10 @@ public class ButtonInfo : MonoBehaviour
     {
         PirceTxt.text = "Price: $" + ShopManager.GetComponent<ShopManagerScript>().shopItems[2, ItemID].ToString();
         QuantityTxt.text = " " +  ShopManager.GetComponent<ShopManagerScript>().shopItems[3, ItemID].ToString();
+    }
+
+    public void BackToFarm()
+    { 
+        SceneManager.LoadSceneAsync("farm");        
     }
 }
