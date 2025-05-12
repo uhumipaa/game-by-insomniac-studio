@@ -46,7 +46,7 @@ public class Collectable : MonoBehaviour
                 {
                     Debug.LogError("【錯誤】player.inventory 還是 null！");
                 }
-                player.inventory.Add(item);
+                player.inventory.Add("Backpack", item);
                 Destroy(this.gameObject);
             }    
         }

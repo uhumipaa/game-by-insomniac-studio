@@ -7,15 +7,13 @@ public class Inventory_UI : MonoBehaviour
 {
     public enum InventoryType { Inventory, Toolbar }
     public InventoryType uiType;
-    public GameObject inventoryPanel;
-    public player_trigger player;
+    public string inventoryName;
     public List<Slot_UI> slots = new List<Slot_UI>();
 
     [SerializeField] private Canvas canvas;
 
-    private Slot_UI draggedSlot;
-    private Image draggedIcon;
     private bool dragSingle;
+    private Inventory inventory;
     
 
     private void Awake()
@@ -36,100 +34,35 @@ public class Inventory_UI : MonoBehaviour
     }
     private void Start()
     {
+        inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
+
         //設置SLOT ID
         SetupSlots();
-
-        if (uiType == InventoryType.Inventory)
-        {
-            inventoryPanel.SetActive(false); // 背包一開始隱藏
-        }
-        else if (uiType == InventoryType.Toolbar)
-        {
-            inventoryPanel.SetActive(true);  // 工具欄一開始顯示
-        }
 
         //清空slot
         Refresh();
     }
-    void Update()
+   
+    public void Refresh()
     {
-        //按tab鍵打開視窗(之後換成按鈕)
-        if(Input.GetKeyDown(KeyCode.Tab)) 
-        {
-            ToggleInventory();
-        }
-
-        //長按左邊shift拖曳一樣東西
-        if(Input.GetKey(KeyCode.LeftShift))
-        {
-            dragSingle = true;
-        }
-        else
-        {
-            dragSingle = false;
-        }
-    }
-
-    public void ToggleInventory()
-    {
-        // 僅當這個 UI 是 Inventory 類型時才切換顯示
-        if (uiType != InventoryType.Inventory) return;
-
-        if(inventoryPanel != null)
-        {
-            if(!inventoryPanel.activeSelf)
-            {
-                inventoryPanel.SetActive(true);
-                Refresh();
-            }
-            else
-            {
-                inventoryPanel.SetActive(false);
-            }
-        }
-        
-    }
-
-    void Refresh(){
-
-        if(slots.Count == player.inventory.slots.Count)
+        if(slots.Count == inventory.slots.Count)
         {
             for(int i = 0; i < slots.Count; i++)
             {
-                var sourceSlot = player.inventory.slots[i];
+                var sourceSlot = inventory.slots[i];
                 Debug.Log($"刷新 Slot[{i}] → {sourceSlot.itemName} x{sourceSlot.count}");
 
-                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(player.inventory.slots[i].type);
+                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(inventory.slots[i].type);
 
                 /*if (prefab == null)
                 {
                     Debug.LogWarning($"❌ 無法取得 prefab，slot[{i}] 的 type 是 {sourceSlot.type}");
                 }*/
 
-                if (prefab != null && player.inventory.slots[i].count > 0)
+                if (prefab != null && inventory.slots[i].count > 0)
                 {
                     //Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
-                    slots[i].SetItem(player.inventory.slots[i], prefab.item); // 把 item 傳進 UI slot
-                }
-                else
-                {
-                    //Debug.Log($"❌ 跳過 slot[{i}]，prefab.item 為 null？count={player.inventory.slots[i].count}");
-                    slots[i].SetEmpty();
-                }
-            }
-        }
-        else if(slots.Count == player.toolbar.slots.Count)
-        {
-            for(int i = 0; i < slots.Count; i++)
-            {
-                //Debug.Log($"刷新 slot[{i}] 類型：{player.inventory.slots[i].type} 數量：{player.inventory.slots[i].count}");
-
-                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(player.toolbar.slots[i].type);
-
-                if (prefab != null && player.toolbar.slots[i].count > 0)
-                {
-                    //Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
-                    slots[i].SetItem(player.toolbar.slots[i], prefab.item); // 把 item 傳進 UI slot
+                    slots[i].SetItem(inventory.slots[i], prefab.item); // 把 item 傳進 UI slot
                 }
                 else
                 {
@@ -143,7 +76,7 @@ public class Inventory_UI : MonoBehaviour
     //拖曳
     public void Remove()
     {
-        var slot = player.inventory.slots[draggedSlot.slotID];
+        var slot = inventory.slots[UI_Manager.draggedSlot.slotID];
 
         Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(slot.type);
 
@@ -155,53 +88,63 @@ public class Inventory_UI : MonoBehaviour
 
         if(prefab != null)
         {
-            if(dragSingle)
+            if(UI_Manager.dragSingle)
             {
-                player.DropItem(slot.type);
-                player.inventory.Remove(draggedSlot.slotID);
+                GameManager.instance.player.DropItem(slot.type);
+                inventory.Remove(UI_Manager.draggedSlot.slotID);
             }
             else
             {
-                player.DropItem(slot.type, player.inventory.slots[draggedSlot.slotID].count);
-                player.inventory.Remove(draggedSlot.slotID, player.inventory.slots[draggedSlot.slotID].count);
+                GameManager.instance.player.DropItem(slot.type, inventory.slots[UI_Manager.draggedSlot.slotID].count);
+                inventory.Remove(UI_Manager.draggedSlot.slotID, inventory.slots[UI_Manager.draggedSlot.slotID].count);
             }
             
             Refresh();
         }
         
-        draggedSlot = null;
+        UI_Manager.draggedSlot = null;
     }
 
     public void SlotBeginDrag(Slot_UI slot)
     {
-        draggedSlot = slot;
-        draggedIcon = Instantiate(draggedSlot.itemIcon); //複製一個新icon
-        draggedIcon.transform.SetParent(canvas.transform);
-        draggedIcon.raycastTarget = false;
-        draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
+        UI_Manager.draggedSlot = slot;
+        UI_Manager.draggedIcon = Instantiate(UI_Manager.draggedSlot.itemIcon); //複製一個新icon
+        UI_Manager.draggedIcon.transform.SetParent(canvas.transform);
+        UI_Manager.draggedIcon.raycastTarget = false;
+        UI_Manager.draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
 
-        MoveToMousePosition(draggedIcon.gameObject);
+        MoveToMousePosition(UI_Manager.draggedIcon.gameObject);
         //Debug.Log("Start Drag: " + draggedSlot.name);
     }
 
     public void SlotDrag()
     {
-        MoveToMousePosition(draggedIcon.gameObject); //圖標可以跟著滑鼠連續移動
+        MoveToMousePosition(UI_Manager.draggedIcon.gameObject); //圖標可以跟著滑鼠連續移動
         //Debug.Log("Dragging: " + draggedSlot.name);
     }
 
     public void SlotEndDrag()
     {
-        Destroy(draggedIcon.gameObject); //鼠標放開，圖片消失
-        draggedIcon = null;
+        Destroy(UI_Manager.draggedIcon.gameObject); //鼠標放開，圖片消失
+        UI_Manager.draggedIcon = null;
 
         //Debug.Log("Done Dragging: " + draggedSlot.name);
     }
 
     public void SlotDrop(Slot_UI slot)
     {
-        player.inventory.MoveSlot(draggedSlot.slotID, slot.slotID);
-        Refresh();
+        if(UI_Manager.dragSingle)
+        {
+            UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory);    
+        }
+        else
+        {
+            UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory,
+                                                      UI_Manager.draggedSlot.inventory.slots[UI_Manager.draggedSlot.slotID].count); 
+        }
+
+        GameManager.instance.uiManager.RefreshAll();
+        
     }
 
     private void MoveToMousePosition(GameObject toMove)
@@ -222,6 +165,7 @@ public class Inventory_UI : MonoBehaviour
         {
             slot.slotID = counter;
             counter++;
+            slot.inventory = inventory;
         }
     }
 }

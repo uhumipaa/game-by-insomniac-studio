@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class player_trigger : MonoBehaviour
 {
-    public Inventory inventory;
-    public Inventory toolbar;
-    private void Awake()
+    public InventoryManager inventory;
+        private void Awake()
     {
         //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
-        inventory = new Inventory(28);  
-        toolbar = new Inventory(10); 
+        inventory = GetComponent<InventoryManager>();
+        GameManager.instance.player = this;
     }
 
     private void Update()

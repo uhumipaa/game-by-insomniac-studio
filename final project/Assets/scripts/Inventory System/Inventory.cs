@@ -131,15 +131,19 @@ public class Inventory
     }
 
     //在inventory視窗上的格子間挪動
-    public void MoveSlot(int fromIndex, int toIndex)
+    public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)  //預設移動1個
     {
         Slot fromSlot = slots[fromIndex];
-        Slot toSlot = slots[toIndex];
+        Slot toSlot = toInventory.slots[toIndex];
 
         if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName)) //如果格子為空或形態相符才可以挪
         {
-            toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.type, fromSlot.maxAllowed);
-            fromSlot.RemoveItem();
+            for(int i = 0; i < numToMove; i++)
+            {
+                toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.type, fromSlot.maxAllowed);
+                fromSlot.RemoveItem();
+            }
+            
         }
     }
 }
