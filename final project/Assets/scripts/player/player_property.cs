@@ -78,6 +78,7 @@ public class Player_Property : MonoBehaviour
         if (knockback != null)
         {
             knockback.ApplyKnockback(attackerPos);
+            Debug.Log("knockback");
         }
 
         // 在受傷後啟動無敵

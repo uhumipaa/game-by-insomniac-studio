@@ -39,11 +39,11 @@ public class Enemy_close_controller : MonoBehaviour
         }
         if (transform.position.x < player.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector2(1.7f, 1.7f);
         }
         else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector2(-1.7f, 1.7f);
         }
         if (canmove&&!isstuned)
         {
