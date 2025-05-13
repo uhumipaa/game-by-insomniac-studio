@@ -11,11 +11,9 @@ public class Enemy_close_controller : MonoBehaviour
     public IEnemyAttackBehavior attack;
     public IEnemyAnimatorBehavior animator;
     public IEnemyMoveBehavior move;
-    private bool isstuned;
-    private bool canmove=true;
-    private bool isinattackerange;
-    private bool isattacking;
-    
+    public bool isstuned;
+    public bool isattacking;
+    public float scale;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,62 +31,47 @@ public class Enemy_close_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isattacking==true)
+        if (isattacking || isstuned)
         {
             return;
         }
         if (transform.position.x < player.position.x)
         {
-            transform.localScale = new Vector2(1.7f, 1.7f);
+            transform.localScale = new Vector2(scale, scale);
         }
         else
         {
-            transform.localScale = new Vector2(-1.7f, 1.7f);
+            transform.localScale = new Vector2(-scale, scale);
         }
-        if (canmove&&!isstuned)
-        {
             float distance = Vector2.Distance(player.position, transform.position);
 
             if (distance < property.attack_range)
             {
                 rb.linearVelocity = Vector2.zero;
-                canmove = false;
-                isinattackerange = true;
-                return;
+                animator.PlayAttack((player.position - transform.position).normalized, ani);
+                attack.Attack(transform, player, property.atk);
+                isattacking = true;
             }
             else
             {
-                isinattackerange = false;
                 animator.PlayMove((player.position - transform.position).normalized, ani);
                 move.Move(transform, player, rb, property.speed);
             }
-        }
-        if (isinattackerange&&!isstuned)
-        {
-            animator.PlayAttack((player.position - transform.position).normalized, ani);
-            attack.Attack(transform, player, property.atk);
-            isattacking = true;
-            canmove = false;
-        }
-        if (isstuned)
-        {
-            Debug.Log("stuned");
-            animator.PlayIdle(ani);
-            StartCoroutine(Stun(property.stuncd));
-        }
 
-    }
+        }
     public void FinishAttack()
     {
+        animator.PlayIdle(ani);
         Debug.Log("finish2");
-        canmove = false;
         isattacking = false;
         isstuned = true;
+        StartCoroutine(Stun(property.stuncd));
     }
     IEnumerator Stun(float cd)
     {
+        Debug.Log("stuned");
         yield return new WaitForSecondsRealtime(cd);
+        Debug.Log("stuned");
         isstuned = false;
-        canmove = true;
     }
 }

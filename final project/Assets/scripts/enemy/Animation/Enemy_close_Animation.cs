@@ -53,6 +53,8 @@ public class Enemy_close_Animation : MonoBehaviour,IEnemyAnimatorBehavior
     public void NotifyAttackFinished(Animator ani)
     {
         Debug.Log("finish");
+        controller.isattacking = false;
+        controller.isstuned = true;
         controller.FinishAttack();
     }
 }

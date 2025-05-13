@@ -32,7 +32,7 @@ public class Enemy_throw_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isattacking)
+        if (isattacking||isstuned)
         {
             return;
         }
@@ -41,9 +41,9 @@ public class Enemy_throw_controller : MonoBehaviour
         isinattackerange = distance < property.attack_range ? true : false;
         move.Move(transform, player, rb, property.speed);
         animator.PlayMove(direaction, ani);
-        if (!canattack)
-        {
-           
+        //if (!canattack)
+        //{
+           /*
             if (isstuned)
             {
                 if (Time.time - lastattackattacktime > property.stuncd)
@@ -56,27 +56,28 @@ public class Enemy_throw_controller : MonoBehaviour
                     isstuned = true;
                 }
             }
-        }
-        else
-        {
-            if (isinattackerange&&canattack)
+            */
+        //}
+        //else
+        //{
+            if (isinattackerange)
             {
                 attack.Attack(transform, player, property.atk);
                 animator.PlayAttack(direaction, ani);
                 isattacking = true;
-                canattack = false;
+                //canattack = false;
             }
-        }
+        //}
     }
-    /*
+    
         IEnumerator Stun(float cd)
         {
             Debug.Log("stunning");
             yield return new WaitForSeconds(cd);
             isstuned = false;
+
         
         }
-    */
         public void FinishAttack()
         {
             Debug.Log("finishattack");
@@ -85,7 +86,7 @@ public class Enemy_throw_controller : MonoBehaviour
             isstuned = true;
             lastattackattacktime = Time.time;
             canattack = false;
-            //StartCoroutine(Stun(property.stuncd));
+            StartCoroutine(Stun(property.stuncd));
     }
 }
     
