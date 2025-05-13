@@ -3,22 +3,37 @@ using UnityEngine;
 public class player_trigger : MonoBehaviour
 {
     public InventoryManager inventory;
-        private void Awake()
+    private TileManager tileManager;
+    private void Awake()
     {
         //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
         inventory = GetComponent<InventoryManager>();
         GameManager.instance.player = this;
     }
 
+    private void Start()
+    {
+        tileManager = GameManager.instance.tileManager;   
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Backspace))
         {
-            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0);
-
-            if(GameManager.instance.tileManager.IsInteractable(position))
+            if(tileManager != null)
             {
-                Debug.Log("Tile is interactable");
+                Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0);
+
+                string tileName = tileManager.GetTileName(position);
+
+                if(!string.IsNullOrWhiteSpace(tileName))
+                {
+                    //toolbar選擇種子且在田裡 -> 可以種田
+                    if(tileName == "interable_visible" && inventory.toolbar.selectedSlot.itemName == "Potato seeds") 
+                    {
+                        Debug.Log("Plant the potato");
+                    }
+                }
             }
         }
     }

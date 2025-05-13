@@ -81,6 +81,7 @@ public class Inventory
     }
 
     public List<Slot> slots = new List<Slot>();
+    public Slot selectedSlot = null;
 
     public Inventory(int numSlots)
     {
@@ -144,6 +145,15 @@ public class Inventory
                 fromSlot.RemoveItem();
             }
             
+        }
+    }
+
+    //得到選擇的格子
+    public void SelectSlot(int index)
+    {
+        if(slots != null && slots.Count > 0)
+        {
+            selectedSlot = slots[index];
         }
     }
 }

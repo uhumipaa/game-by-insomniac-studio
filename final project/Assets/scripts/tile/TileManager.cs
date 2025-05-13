@@ -16,19 +16,17 @@ public class TileManager : MonoBehaviour
         }   
     }
 
-    public bool IsInteractable(Vector3Int position)
+    public string GetTileName(Vector3Int position)
     {
-        TileBase tile = InteractableMap.GetTile(position);
-
-        if(tile != null)
+        if(InteractableMap != null)
         {
-            Debug.Log("Tile Name: " + tile.name);  // 輸出 Tile 的名稱來確認
-            if(tile.name == "interable_visible")
+            TileBase tile = InteractableMap.GetTile(position);
+
+            if(tile != null)
             {
-                return true;
+                return tile.name;
             }
         }
-
-        return false;
+        return "";
     }
 }
