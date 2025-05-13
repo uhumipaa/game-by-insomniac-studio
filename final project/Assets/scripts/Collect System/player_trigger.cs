@@ -23,17 +23,27 @@ public class player_trigger : MonoBehaviour
             if(tileManager != null)
             {
                 Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0);
-
                 string tileName = tileManager.GetTileName(position);
+                var selectedSlot = inventory.toolbar.selectedSlot;
 
-                if(!string.IsNullOrWhiteSpace(tileName))
+                //判斷這塊地能不能種田
+                if (PlantManager.instance.TryPlant(position, tileName, selectedSlot))
                 {
-                    //toolbar選擇種子且在田裡 -> 可以種田
-                    if(tileName == "interable_visible" && inventory.toolbar.selectedSlot.itemName == "Potato seeds") 
-                    {
-                        Debug.Log("Plant the potato");
-                    }
-                }
+                    Debug.Log("種植成功！");
+                    GameManager.instance.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
+                }  
+            }
+        }
+
+        // 左鍵點田地
+        if (Input.GetMouseButtonDown(0)) 
+        {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int gridPos = tileManager.cropTilemap.WorldToCell(mouseWorldPos);
+
+            if (FarmManager.instance.TryGrowTile(gridPos))
+            {
+                Debug.Log("田地狀態推進！");
             }
         }
     }
@@ -41,19 +51,6 @@ public class player_trigger : MonoBehaviour
     //掉落一件物品
     public void DropItem(ItemType type)
     {
-        /*Vector3 spawnLocation = transform.position; //物品掉落位置
-
-        float randX = Random.Range(-1f, 1f);
-        float randY = Random.Range(-1f, 1f);
-
-        Vector3 spawnOffset = new Vector3(randX, randY, 0f).normalized;
-
-        GameObject droppedGO = Instantiate(item.gameObject, dropPosition, Quaternion.identity);
-        Item droppedItem = droppedGO.GetComponent<Item>();
-
-        //droppedItem.rb2D.AddForce(spawnOffset * 2f, ForceMode2D.Impulse);
-        Debug.Log("掉落物品：" + droppedGO.name + " at " + dropPosition);*/
-
         var prefab = GameManager.instance.itemManager.GetCollectablePrefab(type);
 
         if (prefab != null)

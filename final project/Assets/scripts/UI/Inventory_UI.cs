@@ -50,7 +50,7 @@ public class Inventory_UI : MonoBehaviour
             for(int i = 0; i < slots.Count; i++)
             {
                 var sourceSlot = inventory.slots[i];
-                Debug.Log($"刷新 Slot[{i}] → {sourceSlot.itemName} x{sourceSlot.count}");
+                //Debug.Log($"刷新 Slot[{i}] → {sourceSlot.itemName} x{sourceSlot.count}");
 
                 Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(inventory.slots[i].type);
 

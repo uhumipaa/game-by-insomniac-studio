@@ -5,8 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class TileManager : MonoBehaviour
 {
-    [SerializeField] private Tilemap InteractableMap;
+    [SerializeField] private Tilemap InteractableMap; //田地層(不會改變)
     [SerializeField] private Tile hiddenInteractableTile;
+    public Tilemap cropTilemap;   // 作物層
+
+    public TileBase sproutTile; //發芽
+    public TileBase matureTile; //成長
+    public TileBase readyToHarvestTile; //準備收成
 
     void Start()
     {
@@ -14,6 +19,11 @@ public class TileManager : MonoBehaviour
         {
             InteractableMap.SetTile(position, hiddenInteractableTile);
         }   
+    }
+
+    public void SetCropTile(Vector3Int position, TileBase tile)
+    {
+        cropTilemap.SetTile(position, tile);
     }
 
     public string GetTileName(Vector3Int position)

@@ -1,0 +1,42 @@
+using UnityEngine;
+
+public class PlantManager : MonoBehaviour
+{
+    public static PlantManager instance;
+    public TileManager tileManager;
+    public FarmManager farmManager;
+
+    private void Awake()
+    {
+        instance = this;
+        tileManager = GameManager.instance.tileManager;
+    }
+
+    public bool TryPlant(Vector3Int position, string tileName, Inventory.Slot selectedSlot)
+    {
+        //檢查是不是田地
+        if (tileName != "interable_visible") return false;
+
+        //檢查是否有選到種子
+        if (selectedSlot == null || string.IsNullOrEmpty(selectedSlot.itemName)) return false;
+        if (selectedSlot.itemName != "Potato seeds") return false;
+        if (selectedSlot.count <= 0) return false;
+
+        //判斷有沒有種作物
+        if (FarmManager.instance.HasFarmTile(position))
+        {
+            Debug.Log("這格已經種過了，不能重複種植！");
+            return false;
+        }   
+
+        //格子裡的種子數減一
+        selectedSlot.count--;
+
+        //種下種子後變成發芽狀態
+        tileManager.SetCropTile(position, tileManager.sproutTile);
+
+        // 記錄田地狀態
+        FarmManager.instance.AddFarmTile(position); 
+        return true;
+    }
+}

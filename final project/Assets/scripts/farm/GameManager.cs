@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
         { 
             Destroy(this.gameObject); //把現在這個GameManager刪掉
         }
-        else{
+        else
+        {
             instance = this;
         }
 
