@@ -13,7 +13,7 @@ public class KingHitbox : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 player = collision.GetComponent<Player_Property>();
-                player.takedamage(100,transform.position);
+                player.takedamage(player.atk,transform.position);
             }
         }
 }

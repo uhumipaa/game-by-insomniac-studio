@@ -4,123 +4,126 @@ using System.Collections;
 public class BossController : MonoBehaviour
 {
     [Header("目標 & 地圖範圍")]
-    public Transform player;                 // 玩家Transform
-    public Vector2 mapMinBounds;             // 地圖左下界限
-    public Vector2 mapMaxBounds;             // 地圖右上界限
+    public Transform player;
+    public Vector2 mapMinBounds;
+    public Vector2 mapMaxBounds;
 
     [Header("追逐設定")]
-    public float moveSpeed = 3f;             // 追逐速度
-    public float stopDistance = 2f;          // 與玩家保持距離 (不貼臉)
+    public float moveSpeed = 3f;
+    public float stopDistance = 2f;
 
     [Header("瞬移設定")]
-    public float teleportDistance = 3f;      // 瞬移時與玩家距離
-    public float teleportCooldown = 5f;      // 瞬移冷卻時間
-    public float teleportWarningTime = 1f;   // 警告標記顯示時間
-    public GameObject teleportWarningPrefab; // 瞬移警告Prefab (紅圈、特效等)
+    public float teleportCooldown = 5f;
+    public float teleportWarningTime = 1f;
+    public GameObject teleportWarningPrefab;
+
+    [Header("攻擊設定")]
+    public float attackRange = 2f;
+    public float attackCooldown = 2f;
+    public float attackDuration = 1f;
 
     [Header("攻擊動畫")]
-    public Animator animator;            // Boss Animator
-    public string attack1TriggerName = "Attack1";  // 攻擊動畫觸發器
+    public Animator animator;
+    public string attack1TriggerName = "Attack1";
     public string attack2TriggerName = "Attack2";
     public string attack3TriggerName = "Attack3";
-    public float attackDuration = 1f;    // 攻擊動畫持續時間
+    public string summonTriggerName = "Summon";
 
-    [Header("攻擊hitbox")]
+    [Header("攻擊Hitbox")]
     public Collider2D attackHitbox_1;
     public Collider2D attackHitbox_2;
     public Collider2D attackHitbox_3;
+    public Player_Property player_Property;
+
+    [Header("召喚騎士")]
+    public GameObject knightPrefab;
+    public Transform summonPoint;
 
     private float teleportTimer = 0f;
+    private float attackTimer = 0f;
     private bool isTeleporting = false;
-    private enum AttackType { attack1, attack2, attack3 }
+    private bool isAttacking = false;
+
+    private Vector3 lastPosition;
+
+    private enum AttackType { attack1, attack2, attack3, summon }
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        lastPosition = transform.position;
+    }
 
     void Update()
     {
+        if (player == null) return;
+
         teleportTimer += Time.deltaTime;
+        attackTimer += Time.deltaTime;
 
         if (!isTeleporting && teleportTimer >= teleportCooldown)
         {
-            // 到時間了，開始瞬移前的警告
             StartCoroutine(TeleportWithWarning());
             teleportTimer = 0f;
         }
-        else if (!isTeleporting)
+        else if (!isTeleporting && !isAttacking)
         {
-            // 追蹤玩家 (保持距離)
             ChasePlayer();
+
+            // 靠近自動攻擊
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            if (distanceToPlayer <= attackRange && attackTimer >= attackCooldown)
+            {
+                StartCoroutine(PerformAttack());
+                attackTimer = 0f;
+            }
         }
+
         FacePlayer();
+        UpdateMovementAnimation();
     }
 
-    /// <summary>
-    /// 讓Boss面對玩家 (2D左右翻轉)
-    /// </summary>
     void FacePlayer()
     {
         Vector3 toPlayer = player.position - transform.position;
-
-        // 如果玩家在右側 → scaleX 為正，左側則為負
         if (toPlayer.x > 0)
-        {
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
         else
-        {
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-        }
     }
 
-    /// <summary>
-    /// 追蹤玩家，但與玩家保持一定距離 (stopDistance)
-    /// </summary>
     void ChasePlayer()
     {
         Vector3 toPlayer = player.position - transform.position;
         float distance = toPlayer.magnitude;
 
-        // 只有超出停止距離時才移動
         if (distance > stopDistance)
         {
             Vector3 targetPosition = player.position;
-
-            // 限制目標位置不會超出地圖範圍
             targetPosition.x = Mathf.Clamp(targetPosition.x, mapMinBounds.x, mapMaxBounds.x);
             targetPosition.y = Mathf.Clamp(targetPosition.y, mapMinBounds.y, mapMaxBounds.y);
-            targetPosition.z = transform.position.z; // 保持Z軸 (2D場景)
+            targetPosition.z = transform.position.z;
 
-            // 慢慢接近目標位置
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
     }
 
-    /// <summary>
-    /// 瞬移前的警告流程 (先顯示警告，等待，再瞬移)
-    /// </summary>
-    IEnumerator TeleportWithWarning()
+    void UpdateMovementAnimation()
     {
-        isTeleporting = true;
+        Vector3 velocity = (transform.position - lastPosition) / Time.deltaTime;
+        float speed = velocity.magnitude;
 
-        // 計算瞬移的目標位置 (玩家背後)
-        Vector3 teleportTarget = GetTeleportToPlayerPosition();
+        animator.SetFloat("Move", speed);
 
-        // 生成警告標記
-        GameObject warning = Instantiate(teleportWarningPrefab, teleportTarget, Quaternion.identity);
+        lastPosition = transform.position;
+    }
 
-        // 等待警告時間 (這段期間可以做閃爍特效)
-        yield return new WaitForSeconds(teleportWarningTime);
+    IEnumerator PerformAttack()
+    {
+        isAttacking = true;  // ✅ 攻擊開始 → 停止移動
 
-        // 移除警告標記
-        Destroy(warning);
+        AttackType selectedAttack = (AttackType)Random.Range(0, 4);
 
-        // 瞬移到該位置
-        transform.position = teleportTarget;
-
-        Debug.Log("Boss瞬移到玩家並準備攻擊：" + teleportTarget);
-
-        // 隨機選擇攻擊方式
-        AttackType selectedAttack = (AttackType)Random.Range(0, 3);
-
-        // 撥放攻擊動畫
         if (animator != null)
         {
             switch (selectedAttack)
@@ -134,75 +137,98 @@ public class BossController : MonoBehaviour
                 case AttackType.attack3:
                     animator.SetTrigger(attack3TriggerName);
                     break;
+                case AttackType.summon:
+                    animator.SetTrigger(summonTriggerName);
+                    break;
             }
         }
 
+        yield return new WaitForSeconds(0.8f);
 
-        // 等待播放動畫
-         yield return new WaitForSeconds(0.8f);
+        if (selectedAttack == AttackType.summon)
+        {
+            yield return new WaitForSeconds(1.5f);
+            Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
+        }
+        else
+        {
+            EnableAttackHitbox(selectedAttack, true);
+            yield return new WaitForSeconds(attackDuration);
+            EnableAttackHitbox(selectedAttack, false);
+        }
 
-        // 攻擊期間啟動碰撞檢測 (用Enable Collider等方式)
-        EnableAttackHitbox(selectedAttack, true);
+        isAttacking = false;  // ✅ 攻擊結束 → 恢復移動
+    }
 
-        // 等待攻擊持續時間
-        yield return new WaitForSeconds(attackDuration);
+    IEnumerator TeleportWithWarning()
+    {
+        isTeleporting = true;
 
-        // 關閉攻擊Hitbox
-        EnableAttackHitbox(selectedAttack, false);
+        Vector3 teleportTarget = player.position;
+        teleportTarget.x = Mathf.Clamp(teleportTarget.x, mapMinBounds.x, mapMaxBounds.x);
+        teleportTarget.y = Mathf.Clamp(teleportTarget.y, mapMinBounds.y, mapMaxBounds.y);
+        teleportTarget.z = transform.position.z;
+
+        GameObject warning = Instantiate(teleportWarningPrefab, teleportTarget, Quaternion.identity);
+
+        yield return new WaitForSeconds(teleportWarningTime);
+
+        Destroy(warning);
+
+        transform.position = teleportTarget;
+
+        // ✅ 瞬移完冷卻歸0
+        attackTimer = attackCooldown;
+
+        // ✅ 瞬移完後也要更新lastPosition，不然動畫會卡
+        lastPosition = transform.position;
+
+        // ✅ 瞬移完馬上攻擊
+        StartCoroutine(PerformAttack());
 
         isTeleporting = false;
     }
 
-    /// <summary>
-    /// 瞬移到玩家當前位置 (限制邊界)
-    /// </summary>
-    Vector3 GetTeleportToPlayerPosition()
+    void EnableAttackHitbox(AttackType attackType, bool enable)
     {
-        Vector3 targetPosition = player.position;
-
-        // Clamp 限制瞬移後的位置不會超出地圖邊界
-        targetPosition.x = Mathf.Clamp(targetPosition.x, mapMinBounds.x, mapMaxBounds.x);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, mapMinBounds.y, mapMaxBounds.y);
-        targetPosition.z = transform.position.z; // 保持Z軸
-
-        return targetPosition;
+        switch (attackType)
+        {
+            case AttackType.attack1:
+                attackHitbox_1.enabled = enable;
+                break;
+            case AttackType.attack2:
+                attackHitbox_2.enabled = enable;
+                break;
+            case AttackType.attack3:
+                attackHitbox_3.enabled = enable;
+                break;
+        }
     }
 
-    /// <summary>
-    /// Gizmos：在Scene視窗顯示瞬移範圍與地圖邊界
-    /// </summary>
     void OnDrawGizmosSelected()
     {
         if (player != null)
         {
-            // 瞬移範圍顯示 (紅色半透明圓)
             Gizmos.color = new Color(1f, 0f, 0f, 0.3f);
-            Gizmos.DrawSphere(player.position, teleportDistance);
+            Gizmos.DrawSphere(player.position, attackRange);
 
-            // 地圖邊界顯示 (綠色框)
             Gizmos.color = Color.green;
             Vector3 center = (mapMinBounds + mapMaxBounds) / 2;
             Vector3 size = new Vector3(
                 mapMaxBounds.x - mapMinBounds.x,
                 mapMaxBounds.y - mapMinBounds.y,
-                0.1f // Z軸厚度 (2D)
+                0.1f
             );
             Gizmos.DrawWireCube(center, size);
         }
     }
-    void EnableAttackHitbox(AttackType attackType, bool enable)
-{
-    switch (attackType)
-    {
-        case AttackType.attack1:
-            attackHitbox_1.enabled = enable;
-            break;
-        case AttackType.attack2:
-            attackHitbox_2.enabled = enable;
-            break;
-        case AttackType.attack3:
-            attackHitbox_3.enabled = enable;
-            break;
-    }
-}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                player_Property = collision.GetComponent<Player_Property>();
+                player_Property.takedamage(player_Property.atk,transform.position);
+            }
+        }
 }
