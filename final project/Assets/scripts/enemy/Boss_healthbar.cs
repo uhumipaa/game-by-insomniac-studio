@@ -38,7 +38,7 @@ public class DualHealthBarImage : MonoBehaviour
         {
             backgroundBar.fillAmount = healthPercent;
         }
-        // 橘色的平滑效果交給 Update() 執行
+        // 橘色的平滑效果交給 UpdateUI() 執行
     }
 
     private void UpdateBackgroundBar()

@@ -94,7 +94,7 @@ public class enemy_property : MonoBehaviour
                 // 進入第二型態
                 Boss_King_Death.Invoke();
 
-                isBossKingPhase2 = true;  // ✅ 標記為第二型態
+                isBossKingPhase2 = true;  //標記為第二型態
 
                 // 進行強化
                 max_health *= 2;
@@ -107,7 +107,7 @@ public class enemy_property : MonoBehaviour
             }
             else
             {
-                // ✅ 第二型態時 → 直接死
+                //第二型態時直接死
                 die();
                 stats.kill();
             }
