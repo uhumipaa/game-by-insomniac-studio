@@ -4218,6 +4218,7 @@ MonoBehaviour:
   healthbar: {fileID: 304661064}
   playerstats: {fileID: 1577759775}
   stats: {fileID: 955242328}
+  isBossKingPhase2: 0
 --- !u!50 &955242330
 Rigidbody2D:
   serializedVersion: 5
@@ -7053,7 +7054,7 @@ GameObject:
   - component: {fileID: 1713663806}
   m_Layer: 0
   m_Name: King
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7166,26 +7167,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8757c8aa42b208248ada1958324fb767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   player: {fileID: 1577759811}
   mapMinBounds: {x: -20, y: -20}
   mapMaxBounds: {x: 20, y: 20}
-  moveSpeed: 1.5
-  stopDistance: 2
+  moveSpeedPhase1: 1
+  moveSpeedPhase2: 2
+  attackCooldownPhase1: 5
+  attackCooldownPhase2: 3
+  stopDistance: 3
+  attackRange: 3
+  attackDuration: 0.5
   teleportCooldown: 5
   teleportWarningTime: 1
   teleportWarningPrefab: {fileID: 3769720981065868404, guid: bda07a2fc2bc291459310707829fae52, type: 3}
-  attackRange: 2
-  attackCooldown: 3
-  attackDuration: 0.5
   animator: {fileID: 1713663801}
   attack1TriggerName: Attack1
   attack2TriggerName: Attack2
   attack3TriggerName: Attack3
   summonTriggerName: Summon
+  moveAnimPhase2Bool: Phase2Move
   attackHitbox_1: {fileID: 654282341}
   attackHitbox_2: {fileID: 1428165119}
   attackHitbox_3: {fileID: 1544717739}
-  player_Property: {fileID: 1577759798}
   knightPrefab: {fileID: 9033270406202045528, guid: 2bf344a8dcbdead4f8ef14220f33c6e6, type: 3}
   summonPoint: {fileID: 1713663803}
 --- !u!61 &1713663805
@@ -7273,6 +7277,7 @@ MonoBehaviour:
   healthbar: {fileID: 1418134099}
   playerstats: {fileID: 1577759775}
   stats: {fileID: 1713663806}
+  isBossKingPhase2: 0
 --- !u!1 &1722922189
 GameObject:
   m_ObjectHideFlags: 0

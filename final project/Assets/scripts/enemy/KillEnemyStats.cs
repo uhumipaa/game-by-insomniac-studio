@@ -11,7 +11,5 @@ public class KillEnemyStats : MonoBehaviour
         {
             player.GainExp(expReward);
         }
-
-        Destroy(gameObject);
     }
 }

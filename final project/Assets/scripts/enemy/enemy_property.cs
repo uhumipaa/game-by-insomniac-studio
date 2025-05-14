@@ -14,6 +14,8 @@ public class enemy_property : MonoBehaviour
         public float speed;
         public float stuncd;
 
+        public System.Action Boss_King_Death;
+
         [SerializeField] private SpriteRenderer spriteRender;
         [SerializeField] private UnityEvent healthChanged;
         [SerializeField] private healthbar healthbar;
@@ -21,8 +23,8 @@ public class enemy_property : MonoBehaviour
         private Knockback knockback;
         private NanoMachine_Son nanoMachine; //加入無敵系統
         public PlayerStats playerstats;
-
         public KillEnemyStats stats;
+        public bool isBossKingPhase2 = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -87,9 +89,29 @@ public class enemy_property : MonoBehaviour
 
             if (current_health < 0)
             {
-                stats.kill();
-                die();
+            if (!isBossKingPhase2 && Boss_King_Death != null)
+            {
+                // 進入第二型態
+                Boss_King_Death.Invoke();
+
+                isBossKingPhase2 = true;  // ✅ 標記為第二型態
+
+                // 進行強化
+                max_health *= 2;
+                current_health = max_health;
+
+                atk = Mathf.RoundToInt(atk * 1.5f);
+                def = Mathf.RoundToInt(def * 1.2f);
+
+                Debug.Log("Boss 進入第二型態");
             }
+            else
+            {
+                // ✅ 第二型態時 → 直接死
+                die();
+                stats.kill();
+            }
+        }
         }
         void die()
         {
@@ -99,9 +121,12 @@ public class enemy_property : MonoBehaviour
                 }
             else {
                 Debug.Log("lol");
-        }            
+        }
             Debug.Log("GG");
             gameObject.SetActive(false);
+
+            // Debug.Log("GG");
+            // gameObject.SetActive(false);
             // Destroy(gameObject);
         }
     }

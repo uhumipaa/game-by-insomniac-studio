@@ -3,24 +3,29 @@ using System.Collections;
 
 public class BossController : MonoBehaviour
 {
+    public enum BossState { Phase1, Phase2 }
+    public BossState currentState = BossState.Phase1;
+
     [Header("目標 & 地圖範圍")]
     public Transform player;
     public Vector2 mapMinBounds;
     public Vector2 mapMaxBounds;
 
-    [Header("追逐設定")]
-    public float moveSpeed = 3f;
-    public float stopDistance = 2f;
+    [Header("數值設定")]
+    public float moveSpeedPhase1 = 3f;
+    public float moveSpeedPhase2 = 5f;
+    public float attackCooldownPhase1 = 2f;
+    public float attackCooldownPhase2 = 1f;
 
-    [Header("瞬移設定")]
+    [Header("攻擊設定")]
+    public float stopDistance = 2f;
+    public float attackRange = 2f;
+    public float attackDuration = 1f;
+
+    [Header("瞬移設定 (只在Phase2生效)")]
     public float teleportCooldown = 5f;
     public float teleportWarningTime = 1f;
     public GameObject teleportWarningPrefab;
-
-    [Header("攻擊設定")]
-    public float attackRange = 2f;
-    public float attackCooldown = 2f;
-    public float attackDuration = 1f;
 
     [Header("攻擊動畫")]
     public Animator animator;
@@ -28,12 +33,12 @@ public class BossController : MonoBehaviour
     public string attack2TriggerName = "Attack2";
     public string attack3TriggerName = "Attack3";
     public string summonTriggerName = "Summon";
+    public string moveAnimPhase2Bool = "Phase2Move";
 
     [Header("攻擊Hitbox")]
     public Collider2D attackHitbox_1;
     public Collider2D attackHitbox_2;
     public Collider2D attackHitbox_3;
-    public Player_Property player_Property;
 
     [Header("召喚騎士")]
     public GameObject knightPrefab;
@@ -49,10 +54,19 @@ public class BossController : MonoBehaviour
     private enum AttackType { attack1, attack2, attack3, summon }
 
     void Start()
+{
+    player = GameObject.FindGameObjectWithTag("Player").transform;
+    lastPosition = transform.position;
+
+    // 找到自身的Health腳本
+    enemy_property health = GetComponent<enemy_property>();
+
+    // 訂閱死亡事件 (進入Phase2)
+    if (health != null)
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        lastPosition = transform.position;
+        health.Boss_King_Death += EnterPhase2;
     }
+}
 
     void Update()
     {
@@ -61,7 +75,7 @@ public class BossController : MonoBehaviour
         teleportTimer += Time.deltaTime;
         attackTimer += Time.deltaTime;
 
-        if (!isTeleporting && teleportTimer >= teleportCooldown)
+        if (currentState == BossState.Phase2 && !isTeleporting && teleportTimer >= teleportCooldown)
         {
             StartCoroutine(TeleportWithWarning());
             teleportTimer = 0f;
@@ -70,9 +84,10 @@ public class BossController : MonoBehaviour
         {
             ChasePlayer();
 
-            // 靠近自動攻擊
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            if (distanceToPlayer <= attackRange && attackTimer >= attackCooldown)
+            float currentAttackCooldown = currentState == BossState.Phase1 ? attackCooldownPhase1 : attackCooldownPhase2;
+
+            if (distanceToPlayer <= attackRange && attackTimer >= currentAttackCooldown)
             {
                 StartCoroutine(PerformAttack());
                 attackTimer = 0f;
@@ -104,7 +119,9 @@ public class BossController : MonoBehaviour
             targetPosition.y = Mathf.Clamp(targetPosition.y, mapMinBounds.y, mapMaxBounds.y);
             targetPosition.z = transform.position.z;
 
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            float currentMoveSpeed = currentState == BossState.Phase1 ? moveSpeedPhase1 : moveSpeedPhase2;
+
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentMoveSpeed * Time.deltaTime);
         }
     }
 
@@ -115,12 +132,15 @@ public class BossController : MonoBehaviour
 
         animator.SetFloat("Move", speed);
 
+        // 第二型態移動動畫 (假設你有特殊動畫)
+        animator.SetBool(moveAnimPhase2Bool, currentState == BossState.Phase2);
+
         lastPosition = transform.position;
     }
 
     IEnumerator PerformAttack()
     {
-        isAttacking = true;  // ✅ 攻擊開始 → 停止移動
+        isAttacking = true;
 
         AttackType selectedAttack = (AttackType)Random.Range(0, 4);
 
@@ -147,8 +167,13 @@ public class BossController : MonoBehaviour
 
         if (selectedAttack == AttackType.summon)
         {
-            yield return new WaitForSeconds(1.5f);
-            Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.8f);
+            int summonCount = currentState == BossState.Phase1 ? 1 : 2;
+
+            for (int i = 0; i < summonCount; i++)
+            {
+                Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
+            }
         }
         else
         {
@@ -157,7 +182,7 @@ public class BossController : MonoBehaviour
             EnableAttackHitbox(selectedAttack, false);
         }
 
-        isAttacking = false;  // ✅ 攻擊結束 → 恢復移動
+        isAttacking = false;
     }
 
     IEnumerator TeleportWithWarning()
@@ -177,13 +202,10 @@ public class BossController : MonoBehaviour
 
         transform.position = teleportTarget;
 
-        // ✅ 瞬移完冷卻歸0
-        attackTimer = attackCooldown;
+        attackTimer = currentState == BossState.Phase1 ? attackCooldownPhase1 : attackCooldownPhase2;
 
-        // ✅ 瞬移完後也要更新lastPosition，不然動畫會卡
         lastPosition = transform.position;
 
-        // ✅ 瞬移完馬上攻擊
         StartCoroutine(PerformAttack());
 
         isTeleporting = false;
@@ -205,6 +227,19 @@ public class BossController : MonoBehaviour
         }
     }
 
+    // ✅ 呼叫這個讓Boss進入第二型態
+    public void EnterPhase2()
+    {
+        if (currentState == BossState.Phase2) return;
+
+        currentState = BossState.Phase2;
+
+        Debug.Log("Boss進入第二型態！");
+        
+        animator.SetBool("Phase2Move", true);
+        // 你可以在這邊觸發變身特效、音效等
+    }
+
     void OnDrawGizmosSelected()
     {
         if (player != null)
@@ -222,13 +257,4 @@ public class BossController : MonoBehaviour
             Gizmos.DrawWireCube(center, size);
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Player"))
-            {
-                player_Property = collision.GetComponent<Player_Property>();
-                player_Property.takedamage(player_Property.atk,transform.position);
-            }
-        }
 }
