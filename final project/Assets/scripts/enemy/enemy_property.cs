@@ -18,7 +18,7 @@ public class enemy_property : MonoBehaviour
 
         [SerializeField] private SpriteRenderer spriteRender;
         [SerializeField] private UnityEvent healthChanged;
-        [SerializeField] private healthbar healthbar;
+        [SerializeField] private UnityEvent healthbarinitial;
 
         private Knockback knockback;
         private NanoMachine_Son nanoMachine; //加入無敵系統
@@ -50,7 +50,7 @@ public class enemy_property : MonoBehaviour
         {
             current_health = max_health;
              knockback = GetComponent<Knockback>();
-            healthbar.initial(); //血量條初始化
+            healthbarinitial.Invoke(); //血量條初始化
             nanoMachine = GetComponent<NanoMachine_Son>(); //抓無敵系統
         }
 
