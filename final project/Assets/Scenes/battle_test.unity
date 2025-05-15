@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -7.9304047, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2663,6 +2663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 654282341}
   player: {fileID: 1577759798}
+  enemy: {fileID: 1713663807}
 --- !u!60 &654282341
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -4886,6 +4887,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 675995836}
     - target: {fileID: 6847848162052370178, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+      propertyPath: max_health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6847848162052370178, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: healthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
@@ -6009,6 +6014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 1428165119}
   player: {fileID: 1577759798}
+  enemy: {fileID: 1713663807}
 --- !u!60 &1428165119
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6583,6 +6589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   col: {fileID: 1544717739}
   player: {fileID: 1577759798}
+  enemy: {fileID: 1713663807}
 --- !u!212 &1544717737
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7353,14 +7360,16 @@ MonoBehaviour:
   player: {fileID: 1577759811}
   mapMinBounds: {x: -20, y: -20}
   mapMaxBounds: {x: 20, y: 20}
-  moveSpeedPhase1: 1
+  moveSpeedPhase1: 1.5
   moveSpeedPhase2: 2
   attackCooldownPhase1: 5
   attackCooldownPhase2: 3
   stopDistance: 3
   attackRange: 3
   attackDuration: 0.5
-  teleportCooldown: 5
+  Player_Property: {fileID: 1577759798}
+  enemy: {fileID: 1713663807}
+  teleportCooldown: 10
   teleportWarningTime: 1
   teleportWarningPrefab: {fileID: 3769720981065868404, guid: bda07a2fc2bc291459310707829fae52, type: 3}
   animator: {fileID: 1713663801}
@@ -7374,7 +7383,7 @@ MonoBehaviour:
   attackHitbox_3: {fileID: 1544717739}
   knightPrefab: {fileID: 9033270406202045528, guid: 2bf344a8dcbdead4f8ef14220f33c6e6, type: 3}
   summonPoint: {fileID: 1713663803}
-  phase2EffectPrefab: {fileID: 3769720981065868404, guid: bda07a2fc2bc291459310707829fae52, type: 3}
+  phase2EffectPrefab: {fileID: 8939361574347465483, guid: b8e0250087dff534790a2d010e182e00, type: 3}
   phase2TransformTime: 5
 --- !u!61 &1713663805
 BoxCollider2D:
@@ -7447,7 +7456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c8a6e7dbc3f03b4a9b3ab23fcedd319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 100
+  max_health: 500
   current_health: 0
   def: 20
   atk: 20

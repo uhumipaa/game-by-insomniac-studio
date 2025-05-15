@@ -4,6 +4,7 @@ public class KingHitbox : MonoBehaviour
 {
     public Collider2D col;
     public Player_Property player;
+    public enemy_property enemy;
     void Start()
     {
         col.enabled = false;
@@ -13,7 +14,7 @@ public class KingHitbox : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 player = collision.GetComponent<Player_Property>();
-                player.takedamage(player.atk,transform.position);
+                player.takedamage(enemy.atk,transform.position);
             }
         }
 }
