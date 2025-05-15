@@ -22,6 +22,8 @@ public class BossController : MonoBehaviour
     public float stopDistance = 2f;
     public float attackRange = 2f;
     public float attackDuration = 1f;
+    public Player_Property Player_Property;
+    public enemy_property enemy;
 
     [Header("瞬移設定 (Phase2)")]
     public float teleportCooldown = 5f;
@@ -262,8 +264,11 @@ public class BossController : MonoBehaviour
         // yield return new WaitForSeconds(0.5f);
 
         if (phase2EffectPrefab != null)
-            Instantiate(phase2EffectPrefab, transform.position, Quaternion.identity);
-            
+        {
+            GameObject effect = Instantiate(phase2EffectPrefab, transform.position, Quaternion.identity);
+            Destroy(effect, 0.5f); // 讓這個物體在 0.5 秒後自動銷毀
+        }
+
         yield return new WaitForSeconds(0.5f);
 
         hp.current_health = targetHealth;
@@ -311,4 +316,13 @@ public class BossController : MonoBehaviour
             Gizmos.DrawWireCube(center, size);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                Player_Property = collision.GetComponent<Player_Property>();
+                Player_Property.takedamage(enemy.atk,transform.position);
+            }
+        }
 }
