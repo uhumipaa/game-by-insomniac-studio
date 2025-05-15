@@ -6,6 +6,7 @@ public class IntroSenceController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //設定並載入intro
         fs = FlowerManager.Instance.CreateFlowerSystem("default",false);
         fs.SetupDialog();
         fs.ReadTextFromResource("intro");
