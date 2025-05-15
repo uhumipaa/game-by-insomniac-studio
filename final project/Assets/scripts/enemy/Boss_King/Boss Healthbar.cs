@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DualHealthBarImage : MonoBehaviour
+public class BossHealthBar : MonoBehaviour
 {
     [Header("UI References")]
     public Image foregroundBar;  // 紅色當前血條

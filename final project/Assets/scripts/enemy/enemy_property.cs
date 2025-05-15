@@ -17,8 +17,8 @@ public class enemy_property : MonoBehaviour
         public System.Action Boss_King_Death;
 
         [SerializeField] private SpriteRenderer spriteRender;
-        [SerializeField] private UnityEvent healthChanged;
-        [SerializeField] private UnityEvent healthbarinitial;
+        [SerializeField] public UnityEvent healthChanged;
+        [SerializeField] public UnityEvent healthbarinitial;
 
         private Knockback knockback;
         private NanoMachine_Son nanoMachine; //加入無敵系統
@@ -67,6 +67,11 @@ public class enemy_property : MonoBehaviour
             {
                 return;
             }
+            var bossController = GetComponent<BossController>();
+            if (bossController != null && bossController.IsTransforming())
+            {
+                return;  // ✅ 變身中 → 不吃傷害
+            }
             int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
             int actual_damage = Mathf.Max(damage - actual_def, 0);
             current_health -= actual_damage;
@@ -102,6 +107,7 @@ public class enemy_property : MonoBehaviour
 
                 atk = Mathf.RoundToInt(atk * 1.5f);
                 def = Mathf.RoundToInt(def * 1.2f);
+                healthbarinitial.Invoke();
 
                 Debug.Log("Boss 進入第二型態");
             }
