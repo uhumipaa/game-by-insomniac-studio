@@ -62,7 +62,7 @@ public class enemy_property : MonoBehaviour
 
         public void takedamage(int damage , Vector2 attackerPos)
         {
-            // ⭐ 如果正在無敵，就不受傷
+            // 如果正在無敵，就不受傷
             if (nanoMachine != null && nanoMachine.IsInvincible())
             {
                 return;
