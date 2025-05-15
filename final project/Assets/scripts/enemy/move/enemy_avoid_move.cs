@@ -4,13 +4,10 @@ using UnityEngine;
 public class enemy_avoid_move : MonoBehaviour,IEnemyMoveBehavior
 {
     //玩家進入一定範圍會拉開距離
-    public float safeDistance;
+    //public float safeDistance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Move(Transform self, Transform player, Rigidbody2D rb, float speed)
     {
-        float distance = Vector2.Distance(self.position, player.position);
-        if (distance < safeDistance)
-        {
             Vector2 awayDir = (self.position - player.position).normalized;
             if (self.position.x > player.position.x)
             {
@@ -21,10 +18,6 @@ public class enemy_avoid_move : MonoBehaviour,IEnemyMoveBehavior
                 transform.localScale = new Vector3(-1, 1, 1);
             }
             rb.linearVelocity = awayDir * speed;
-        }
-        else
-        {
-            rb.linearVelocity = Vector2.zero; // 或 idle 漫步行為
-        }
+        
     }
 }

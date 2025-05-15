@@ -17,8 +17,8 @@ public class enemy_property : MonoBehaviour
         public System.Action Boss_King_Death;
 
         [SerializeField] private SpriteRenderer spriteRender;
-        [SerializeField] private UnityEvent healthChanged;
-        [SerializeField] private healthbar healthbar;
+        [SerializeField] public UnityEvent healthChanged;
+        [SerializeField] public UnityEvent healthbarinitial;
 
         private Knockback knockback;
         private NanoMachine_Son nanoMachine; //加入無敵系統
@@ -50,7 +50,7 @@ public class enemy_property : MonoBehaviour
         {
             current_health = max_health;
              knockback = GetComponent<Knockback>();
-            healthbar.initial(); //血量條初始化
+            healthbarinitial.Invoke(); //血量條初始化
             nanoMachine = GetComponent<NanoMachine_Son>(); //抓無敵系統
         }
 
@@ -66,6 +66,11 @@ public class enemy_property : MonoBehaviour
             if (nanoMachine != null && nanoMachine.IsInvincible())
             {
                 return;
+            }
+            var bossController = GetComponent<BossController>();
+            if (bossController != null && bossController.IsTransforming())
+            {
+                return;  // ✅ 變身中 → 不吃傷害
             }
             int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
             int actual_damage = Mathf.Max(damage - actual_def, 0);
@@ -94,7 +99,7 @@ public class enemy_property : MonoBehaviour
                 // 進入第二型態
                 Boss_King_Death.Invoke();
 
-                isBossKingPhase2 = true;  // ✅ 標記為第二型態
+                isBossKingPhase2 = true;  //標記為第二型態
 
                 // 進行強化
                 max_health *= 2;
@@ -102,12 +107,13 @@ public class enemy_property : MonoBehaviour
 
                 atk = Mathf.RoundToInt(atk * 1.5f);
                 def = Mathf.RoundToInt(def * 1.2f);
+                healthbarinitial.Invoke();
 
                 Debug.Log("Boss 進入第二型態");
             }
             else
             {
-                // ✅ 第二型態時 → 直接死
+                //第二型態時直接死
                 die();
                 stats.kill();
             }

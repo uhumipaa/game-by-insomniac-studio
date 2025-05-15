@@ -11,6 +11,7 @@ public class Enemy_Close_Attack : MonoBehaviour,IEnemyAttackBehavior
     
     public void Attack(Transform self, Transform player,float attack)
     {
+        //調用陣列的hitbox，0為左右，1下2上
         Vector2 diff = player.position - transform.position;
         if (Mathf.Abs(diff.y) < 0.2f)
         {
@@ -22,6 +23,7 @@ public class Enemy_Close_Attack : MonoBehaviour,IEnemyAttackBehavior
             hitbox_num = diff.y > 0 ? 1 : 2;
         }
     }
+    //下面的記得掛在animation
     public void Enablehitbox()
     {
         hitbox[hitbox_num].GetComponent<Hitbox_Controller>().Enablecol();
