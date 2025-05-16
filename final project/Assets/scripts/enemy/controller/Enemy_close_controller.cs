@@ -49,7 +49,7 @@ public class Enemy_close_controller : MonoBehaviour
             {
                 rb.linearVelocity = Vector2.zero;
                 animator.PlayAttack((player.position - transform.position).normalized, ani);
-                attack.Attack(transform, player, property.atk);
+                attack.Attack(transform, player, property.atk,scale);
                 isattacking = true;
             }
             else

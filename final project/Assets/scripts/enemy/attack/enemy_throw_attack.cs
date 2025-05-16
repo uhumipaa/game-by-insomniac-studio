@@ -8,15 +8,15 @@ public class enemy_throw_attack : MonoBehaviour,IEnemyAttackBehavior
     public GameObject prefab;
     private Transform Self;
     private float dmg;
-    public void Attack(Transform self, Transform player, float attack)
+    public void Attack(Transform self, Transform player, float attack, float scale)
     {
         if (self.position.x < player.position.x)
         {
-            self.localScale = new Vector3(1, 1, 1);
+            self.localScale = new Vector3(scale, 1, 1);
         }
         else
         {
-            self.localScale = new Vector3(-1, 1, 1);
+            self.localScale = new Vector3(-scale, 1, 1);
         }
         direction = (player.position - self.position).normalized;
         Player = player;

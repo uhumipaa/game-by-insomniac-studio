@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy_withdash_controller : MonoBehaviour
+public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
 {
     private Rigidbody2D rb;
     private Animator ani;
@@ -11,6 +11,7 @@ public class Enemy_withdash_controller : MonoBehaviour
     public IEnemyAttackBehavior attack;
     public IEnemyAnimatorBehavior animator;
     public IEnemyMoveBehavior move;
+    public IEnemySpecilskillBehavior sp;
     private bool isstuned;
     private bool isattacking;
     private bool dashing;
@@ -23,6 +24,7 @@ public class Enemy_withdash_controller : MonoBehaviour
         attack = scripts[0] as IEnemyAttackBehavior;
         animator = scripts[1] as IEnemyAnimatorBehavior;
         move = scripts[2] as IEnemyMoveBehavior;
+        sp = scripts[3] as IEnemySpecilskillBehavior;
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         player = FindAnyObjectByType<Player_Property>().transform;
@@ -47,13 +49,15 @@ public class Enemy_withdash_controller : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
             animator.PlayAttack((player.position - transform.position).normalized, ani);
-            attack.Attack(transform, player, property.atk);
+            attack.Attack(transform, player, property.atk,scale);
             isattacking = true;
             has_attack = true;
         }
         else if (has_attack)
         {
-
+            sp.usingskill(transform, player, property,scale);
+            dashing = true;
+            has_attack = false;
         }
         else 
         {
@@ -67,6 +71,13 @@ public class Enemy_withdash_controller : MonoBehaviour
         animator.PlayIdle(ani);
         Debug.Log("finish2");
         isattacking = false;
+        isstuned = true;
+        StartCoroutine(Stun(property.stuncd));
+    }
+    public void Finishdash()
+    {
+        animator.PlayIdle(ani);
+        dashing = false;
         isstuned = true;
         StartCoroutine(Stun(property.stuncd));
     }

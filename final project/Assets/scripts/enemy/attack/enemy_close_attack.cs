@@ -9,7 +9,7 @@ public class Enemy_Close_Attack : MonoBehaviour,IEnemyAttackBehavior
 
     // Update is called once per frame
     
-    public void Attack(Transform self, Transform player,float attack)
+    public void Attack(Transform self, Transform player,float attack, float scale)
     {
         //調用陣列的hitbox，0為左右，1下2上
         Vector2 diff = player.position - transform.position;

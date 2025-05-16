@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class Enemy_throw_controller : MonoBehaviour
+public class Enemy_throw_controller : MonoBehaviour,IEnemyControllerInterface
 {
     private Rigidbody2D rb;
     private Animator ani;
@@ -18,6 +18,7 @@ public class Enemy_throw_controller : MonoBehaviour
     //private float lastattackattacktime;
     //private bool canattack=true;
     [SerializeField] float safedistance;
+    [SerializeField] float scale;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -72,7 +73,7 @@ public class Enemy_throw_controller : MonoBehaviour
         //{
         if (isinattackerange)
             {
-                attack.Attack(transform, player, property.atk);
+                attack.Attack(transform, player, property.atk,scale);
                 animator.PlayAttack(direaction, ani);
                 isattacking = true;
                 //canattack = false;

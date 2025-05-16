@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireShootController : MonoBehaviour
+public class FireShootController : MonoBehaviour,IEnenmyResetInterface
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public PolygonCollider2D[] hitbox;
@@ -11,10 +11,14 @@ public class FireShootController : MonoBehaviour
     {
         ani = GetComponent<Animator>();
     }
-    public void Resetcontroller(float dmg)
+    public void Reset()
+    {
+        Resetcontroller();
+        gameObject.SetActive(true);
+    }
+    public void Resetcontroller()
     {
         hitbox_count = 0;
-        damage = dmg;
     }
     public void enablehitbox()
     {
@@ -29,5 +33,9 @@ public class FireShootController : MonoBehaviour
             hitbox[hitbox_count].enabled = true;
             hitbox_count++;
         }
+    }
+    public void closehitbox()
+    {
+        hitbox[hitbox_count].enabled = false;
     }
 }
