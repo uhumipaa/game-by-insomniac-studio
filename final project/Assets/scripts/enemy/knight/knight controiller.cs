@@ -1,19 +1,16 @@
 using UnityEngine;
 
-public class knightcontroiller : MonoBehaviour
+public class knightcontroller : MonoBehaviour
 {
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    // void Start()
-    // {
-        
-    // }
-
-    // Update is called once per frame
-    void Update()
-    {
-        Vector3 currentEuler = transform.eulerAngles;
-        currentEuler.z = 0f;
-        transform.eulerAngles = currentEuler;
-    }
+    public Collider2D col;
+    public Player_Property player;
+    public enemy_property enemy;
+    private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+            {
+                player = collision.GetComponent<Player_Property>();
+                player.takedamage(enemy.atk,transform.position);
+            }
+        }
 }
