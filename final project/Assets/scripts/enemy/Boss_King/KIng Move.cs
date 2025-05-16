@@ -240,7 +240,7 @@ public class BossController : MonoBehaviour
             yield return new WaitForSeconds(attackDuration);
             EnableAttackHitbox(selectedAttack, false);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         isAttacking = false;
     }
 
@@ -347,7 +347,7 @@ public class BossController : MonoBehaviour
         if (phase2EffectPrefab != null)
         {
             GameObject effect = Instantiate(phase2EffectPrefab, transform.position, Quaternion.identity);
-            Destroy(effect, 0.5f); // 讓這個物體在 0.5 秒後自動銷毀
+            Destroy(effect, 0.4f); // 讓這個物體在 0.5 秒後自動銷毀
         }
         ClearSummonedKnights();
 
@@ -363,6 +363,8 @@ public class BossController : MonoBehaviour
         Phase2ExplosionAttack();
 
         Debug.Log("Boss 完成變身！");
+
+        yield return new WaitForSeconds(1);
 
         isTeleporting = false;
         isAttacking = false;

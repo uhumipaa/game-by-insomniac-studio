@@ -7582,8 +7582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   player: {fileID: 1577759811}
-  mapMinBounds: {x: -20, y: -20}
-  mapMaxBounds: {x: 20, y: 20}
+  mapMinBounds: {x: -10, y: -10}
+  mapMaxBounds: {x: 10, y: 10}
   moveSpeedPhase1: 1.5
   moveSpeedPhase2: 2
   attackCooldownPhase1: 5
@@ -7609,7 +7609,7 @@ MonoBehaviour:
   attackHitbox_3: {fileID: 1544717739}
   knightPrefab: {fileID: 9033270406202045528, guid: 2bf344a8dcbdead4f8ef14220f33c6e6, type: 3}
   summonPoint: {fileID: 1713663803}
-  phase2EffectPrefab: {fileID: 8939361574347465483, guid: b8e0250087dff534790a2d010e182e00, type: 3}
+  phase2EffectPrefab: {fileID: 8939361574347465483, guid: dcd834ceba597cb41bc5d4e82f9ed99a, type: 3}
   phase2TransformTime: 5
   phase2ExplosionDamage: 1
   teleportEffectPrefab: {fileID: 8939361574347465483, guid: b8e0250087dff534790a2d010e182e00, type: 3}
