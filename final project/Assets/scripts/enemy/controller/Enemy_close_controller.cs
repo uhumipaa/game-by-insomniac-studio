@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy_close_controller : MonoBehaviour
+public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
 {
     private Rigidbody2D rb;
     private Animator ani;
