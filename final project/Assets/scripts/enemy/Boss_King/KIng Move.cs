@@ -37,6 +37,8 @@ public class BossController : MonoBehaviour
     public string attack3TriggerName = "Attack3";
     public string summonTriggerName = "Summon";
     public string moveAnimPhase2Bool = "Phase2Move";
+    public string deathTriggerName = "Death";   // 死亡動畫Trigger
+    public float deathAnimationDuration = 2f;   // 死亡動畫持續秒數
 
     [Header("攻擊Hitbox")]
     public Collider2D attackHitbox_1;
@@ -51,15 +53,19 @@ public class BossController : MonoBehaviour
     public GameObject phase2EffectPrefab;
     public float phase2TransformTime = 2f;
 
+    [Header("瞬移特效")]
+    public GameObject teleportEffectPrefab;
+
     private float teleportTimer = 0f;
     private float attackTimer = 0f;
     private bool isTeleporting = false;
     private bool isAttacking = false;
     private bool isTransforming = false;
-
     private Vector3 lastPosition;
-
+    private List<GameObject> summonedKnights = new List<GameObject>();
     private enum AttackType { attack1, attack2, attack3, summon }
+    public int phase2ExplosionDamage = 1;
+    private bool isBossKingDead = false;
 
     void Start()
     {
@@ -102,7 +108,40 @@ public class BossController : MonoBehaviour
         FacePlayer();
         UpdateMovementAnimation();
     }
+    public void ForceDie()
+    {
+        if (isBossKingDead) return;
+        isBossKingDead = true;
 
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.removeenemy(gameObject);
+        }
+
+        gameObject.SetActive(false);
+    }
+    void Phase2ExplosionAttack()
+    {
+        var player = FindFirstObjectByType<Player_Property>();
+        if (player != null)
+        {
+            // 傳Boss位置過去給玩家（比如擊退方向），如果不需要可以傳 Vector2.zero
+            player.takedamage(phase2ExplosionDamage, transform.position);
+            Debug.Log("Phase2 爆氣攻擊命中玩家");
+        }
+    }
+
+    public void ClearSummonedKnights()
+    {
+        foreach (GameObject knight in summonedKnights)
+        {
+            if (knight != null)
+            {
+                Destroy(knight);
+            }
+        }
+        summonedKnights.Clear();
+    }
     void FacePlayer()
     {
         Vector3 toPlayer = player.position - transform.position;
@@ -182,7 +221,8 @@ public class BossController : MonoBehaviour
 
             for (int i = 0; i < summonCount; i++)
             {
-                Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
+                GameObject knight = Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
+                summonedKnights.Add(knight);
             }
         }
         else
@@ -204,10 +244,38 @@ public class BossController : MonoBehaviour
         teleportTarget.y = Mathf.Clamp(teleportTarget.y, mapMinBounds.y, mapMaxBounds.y);
 
         GameObject warning = Instantiate(teleportWarningPrefab, teleportTarget, Quaternion.identity);
-        yield return new WaitForSeconds(teleportWarningTime);
+        yield return new WaitForSeconds(teleportWarningTime - 0.5f);
+
+        if (teleportEffectPrefab != null)
+        {
+            GameObject teleportEffect = Instantiate(teleportEffectPrefab, transform.position, Quaternion.identity);
+            //  讓特效 Animator 播放速度變快
+            Animator fxAnimator = teleportEffect.GetComponent<Animator>();
+            if (fxAnimator != null)
+            {
+                fxAnimator.speed = 2f; // 調成2倍速
+                StartCoroutine(RestoreteleporteffectAnimatorSpeed(fxAnimator, 1f, 0.25f)); // 1.5秒後恢復
+            }
+            Destroy(teleportEffect, 0.25f);
+        }
+        yield return new WaitForSeconds(0.25f);
+
         Destroy(warning);
 
         transform.position = teleportTarget;
+
+        if (teleportEffectPrefab != null)
+        {
+            GameObject teleportEffect = Instantiate(teleportEffectPrefab, transform.position, Quaternion.identity);
+            //  讓特效 Animator 播放速度變快
+            Animator fxAnimator = teleportEffect.GetComponent<Animator>();
+            if (fxAnimator != null)
+            {
+                fxAnimator.speed = 2f; // 調成2倍速
+                StartCoroutine(RestoreteleporteffectAnimatorSpeed(fxAnimator, 1f, 0.25f)); // 1.5秒後恢復
+            }
+            Destroy(teleportEffect, 0.25f);
+        }
         attackTimer = currentState == BossState.Phase1 ? attackCooldownPhase1 : attackCooldownPhase2;
 
         lastPosition = transform.position;
@@ -229,7 +297,10 @@ public class BossController : MonoBehaviour
     public void StartPhase2Transform()
     {
         if (!isTransforming)
+        {
+            ClearSummonedKnights();  //進Phase2時清掉小怪
             StartCoroutine(Phase2TransformRoutine());
+        }
     }
 
     IEnumerator Phase2TransformRoutine()
@@ -249,6 +320,7 @@ public class BossController : MonoBehaviour
 
         int startHealth = hp.current_health;
         int targetHealth = hp.max_health * 2;
+        hp.max_health = targetHealth;
 
         float elapsed = 0f;
         while (elapsed < phase2TransformTime)
@@ -268,6 +340,7 @@ public class BossController : MonoBehaviour
             GameObject effect = Instantiate(phase2EffectPrefab, transform.position, Quaternion.identity);
             Destroy(effect, 0.5f); // 讓這個物體在 0.5 秒後自動銷毀
         }
+        ClearSummonedKnights();
 
         yield return new WaitForSeconds(0.5f);
 
@@ -277,6 +350,8 @@ public class BossController : MonoBehaviour
         hp.def = Mathf.RoundToInt(hp.def * 1.2f);
 
         EnterPhase2();
+
+        Phase2ExplosionAttack();
 
         Debug.Log("Boss 完成變身！");
 
@@ -318,11 +393,54 @@ public class BossController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            if (collision.CompareTag("Player"))
+            Player_Property = collision.GetComponent<Player_Property>();
+            Player_Property.takedamage(enemy.atk, transform.position);
+        }
+    }
+
+    public void StartPhase2Death()
+    {
+        StartCoroutine(Phase2DeathRoutine());
+    }
+
+    IEnumerator Phase2DeathRoutine()
+    {
+        Debug.Log("Boss 第二階段死亡，播放死亡動畫");
+
+        isTeleporting = true;
+        isAttacking = true;
+        isTransforming = true; // 全部鎖住
+
+        if (animator != null)
+        {
+            animator.SetTrigger(deathTriggerName);
+        }
+
+        // 等待死亡動畫播完
+        yield return new WaitForSeconds(deathAnimationDuration);
+
+        // 清除召喚物
+        ClearSummonedKnights();
+
+        // 完成死亡
+        var hp = GetComponent<enemy_property>();
+        if (hp != null)
+        {
+            hp.ForceDie(); //
+        }
+
+        Debug.Log("Boss 第二階段死亡結束，移除物件");
+    }
+        IEnumerator RestoreteleporteffectAnimatorSpeed(Animator animator, float normalSpeed, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            if (animator != null)
             {
-                Player_Property = collision.GetComponent<Player_Property>();
-                Player_Property.takedamage(enemy.atk,transform.position);
+                animator.speed = normalSpeed;
             }
         }
 }
