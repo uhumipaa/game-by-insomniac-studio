@@ -14,6 +14,7 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
     public bool isstuned;
     public bool isattacking;
     public float scale;
+    public Transform attackPivot;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +36,7 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
         {
             return;
         }
-        if (transform.position.x < player.position.x)
+        if (attackPivot.position.x < player.position.x)
         {
             transform.localScale = new Vector2(scale, scale);
         }
@@ -43,19 +44,19 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
         {
             transform.localScale = new Vector2(-scale, scale);
         }
-            float distance = Vector2.Distance(player.position, transform.position);
+            float distance = Vector2.Distance(player.position, attackPivot.position);
 
             if (distance < property.attack_range)
             {
                 rb.linearVelocity = Vector2.zero;
-                animator.PlayAttack((player.position - transform.position).normalized, ani);
-                attack.Attack(transform, player, property.atk,scale);
+                animator.PlayAttack((player.position - attackPivot.position).normalized, ani);
+                attack.Attack(attackPivot, player, property.atk,scale);
                 isattacking = true;
             }
             else
             {
-                animator.PlayMove((player.position - transform.position).normalized, ani);
-                move.Move(transform, player, rb, property.speed);
+                animator.PlayMove((player.position - attackPivot.position).normalized, ani);
+                move.Move(attackPivot, player, rb, property.speed);
             }
 
         }
