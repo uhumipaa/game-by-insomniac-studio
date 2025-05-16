@@ -52,10 +52,13 @@ public class BossController : MonoBehaviour
     [Header("變身特效")]
     public GameObject phase2EffectPrefab;
     public float phase2TransformTime = 2f;
+    public int phase2ExplosionDamage = 1;
 
     [Header("瞬移特效")]
     public GameObject teleportEffectPrefab;
 
+    [Header("召換特效")]
+    public GameObject summonEffectPrefab;
     private float teleportTimer = 0f;
     private float attackTimer = 0f;
     private bool isTeleporting = false;
@@ -64,7 +67,6 @@ public class BossController : MonoBehaviour
     private Vector3 lastPosition;
     private List<GameObject> summonedKnights = new List<GameObject>();
     private enum AttackType { attack1, attack2, attack3, summon }
-    public int phase2ExplosionDamage = 1;
     private bool isBossKingDead = false;
 
     void Start()
@@ -103,9 +105,8 @@ public class BossController : MonoBehaviour
                 StartCoroutine(PerformAttack());
                 attackTimer = 0f;
             }
+            FacePlayer();
         }
-
-        FacePlayer();
         UpdateMovementAnimation();
     }
     public void ForceDie()
@@ -162,6 +163,8 @@ public class BossController : MonoBehaviour
 
     void ChasePlayer()
     {
+        if (isAttacking) return;
+
         Vector3 toPlayer = player.position - transform.position;
         float distance = toPlayer.magnitude;
 
@@ -180,9 +183,9 @@ public class BossController : MonoBehaviour
 
     void UpdateMovementAnimation()
     {
-        if (isTransforming)
+        if (isTransforming || isTeleporting || isAttacking)
         {
-            // 變身中 → 強制停住不撥移動動畫
+            // 強制停住不撥移動動畫
             animator.SetFloat("Move", 0f);
             return;
         }
@@ -216,9 +219,15 @@ public class BossController : MonoBehaviour
 
         if (selectedAttack == AttackType.summon)
         {
-            yield return new WaitForSeconds(0.8f);
+            if (isTransforming) yield break;
+            yield return new WaitForSeconds(0.5f);
+            if (summonEffectPrefab != null)
+            {
+                GameObject effect = Instantiate(summonEffectPrefab, summonPoint.position, Quaternion.identity);
+                Destroy(effect, 1.5f); // 自動刪除
+            }
             int summonCount = currentState == BossState.Phase1 ? 1 : 2;
-
+            yield return new WaitForSeconds(0.5f);
             for (int i = 0; i < summonCount; i++)
             {
                 GameObject knight = Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
@@ -231,7 +240,7 @@ public class BossController : MonoBehaviour
             yield return new WaitForSeconds(attackDuration);
             EnableAttackHitbox(selectedAttack, false);
         }
-
+        yield return new WaitForSeconds(0.5f);
         isAttacking = false;
     }
 
@@ -414,6 +423,15 @@ public class BossController : MonoBehaviour
         isAttacking = true;
         isTransforming = true; // 全部鎖住
 
+        // 停止所有攻擊動作、清空協程、關閉Hitbox
+        StopAllCoroutines();
+        DisableAllAttackHitbox();
+        animator.ResetTrigger(attack1TriggerName);
+        animator.ResetTrigger(attack2TriggerName);
+        animator.ResetTrigger(attack3TriggerName);
+        animator.ResetTrigger(summonTriggerName);
+        animator.Play("Idle", -1, 0f);
+
         if (animator != null)
         {
             animator.SetTrigger(deathTriggerName);
@@ -434,13 +452,19 @@ public class BossController : MonoBehaviour
 
         Debug.Log("Boss 第二階段死亡結束，移除物件");
     }
-        IEnumerator RestoreteleporteffectAnimatorSpeed(Animator animator, float normalSpeed, float delay)
-        {
-            yield return new WaitForSeconds(delay);
+    IEnumerator RestoreteleporteffectAnimatorSpeed(Animator animator, float normalSpeed, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
-            if (animator != null)
-            {
-                animator.speed = normalSpeed;
-            }
+        if (animator != null)
+        {
+            animator.speed = normalSpeed;
         }
+    }
+    void DisableAllAttackHitbox()
+    {
+        attackHitbox_1.enabled = false;
+        attackHitbox_2.enabled = false;
+        attackHitbox_3.enabled = false;
+    }
 }
