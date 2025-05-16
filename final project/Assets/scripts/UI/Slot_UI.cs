@@ -11,16 +11,28 @@ public class Slot_UI : MonoBehaviour
 
     [SerializeField] private GameObject highlight;
 
-    public void SetItem(Inventory.Slot slot, Item item)
+    public void SetItem(Inventory.Slot slot)
     {
-        Debug.Log($"SetItem() → icon: {item?.data?.icon?.name}, count: {slot.count}");
-        if(slot != null)
+        if (slot != null && slot.count > 0)
         {
-            itemIcon.sprite = item.data.icon;
-            Debug.Log("設定圖片為：" + slot.icon?.name);
-
-            itemIcon.color = new Color(1,1,1,1);
-            quantityText.text = slot.count.ToString();
+            if (slot.itemData.icon != null)
+            {
+                itemIcon.sprite = slot.itemData.icon;
+                itemIcon.color = new Color(1, 1, 1, 1);
+                quantityText.text = slot.count.ToString();
+                Debug.Log($"SetItem() → 設定 icon：{slot.itemData.icon.name}，數量：{slot.count}");
+            }
+            else
+            {
+                Debug.LogWarning("❌ Slot 的 icon 為 null，無法顯示圖示。");
+                itemIcon.color = new Color(1, 1, 1, 0); // 隱藏
+                quantityText.text = "";
+            }
+        }
+        else
+        {
+            Debug.LogWarning("❌ SetItem() 收到空 slot 或 count <= 0。");
+            SetEmpty();
         }
     }
 

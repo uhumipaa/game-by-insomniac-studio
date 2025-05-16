@@ -3,12 +3,15 @@ using UnityEngine;
 public class player_trigger : MonoBehaviour
 {
     public InventoryManager inventory;
-    private TileManager tileManager;
+
+    public TileManager tileManager;
+    private float footOffsetY = 0f;
     private void Awake()
     {
         //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
         inventory = GetComponent<InventoryManager>();
         GameManager.instance.player = this;
+        footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
     }
 
     private void Start()
@@ -22,14 +25,22 @@ public class player_trigger : MonoBehaviour
         {
             if(tileManager != null)
             {
-                Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0);
-                string tileName = tileManager.GetTileName(position);
+                //取位順便解決偏移
+                Vector3 footworldPos = transform.position + new Vector3(0, -footOffsetY, 0);
+
+                //實際種田位置
+                Vector3Int gridPos = tileManager.InteractableMap.WorldToCell(footworldPos);
+
+                //抓格子中心座標->讓種田效果居中
+                Vector3 gridCenterPos = tileManager.InteractableMap.GetCellCenterWorld(gridPos);
+
+                string tileName = tileManager.GetTileName(gridPos);
                 var selectedSlot = inventory.toolbar.selectedSlot;
 
                 //判斷這塊地能不能種田
-                if (PlantManager.instance.TryPlant(position, tileName, selectedSlot))
+                if (PlantManager.instance.TryPlant(gridPos, tileName, selectedSlot))
                 {
-                    Debug.Log("種植成功！");
+                    Debug.Log($"✔ 種植成功 at 格子座標 {gridPos} 世界中心 {gridCenterPos}");
                     GameManager.instance.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
                 }  
             }
@@ -51,10 +62,7 @@ public class player_trigger : MonoBehaviour
     //掉落一件物品
     public void DropItem(ItemType type)
     {
-        var prefab = GameManager.instance.itemManager.GetCollectablePrefab(type);
 
-        if (prefab != null)
-        {
             Vector3 playerPos = transform.position; // 主角位置
             Vector3 finalPosition = playerPos;
 
@@ -77,13 +85,16 @@ public class player_trigger : MonoBehaviour
                 }
             }
 
-            Collectable dropped = Instantiate(prefab, finalPosition, Quaternion.identity);
-            Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");
-        }
-        else
-        {
-            Debug.LogWarning("找不到對應 prefab：" + type);
-        }
+            Collectable dropped = GameManager.instance.itemManager.SpawnCollectable(type, finalPosition);
+            
+            if(dropped != null)
+            {
+                Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");
+            }
+            else
+            {
+                Debug.LogWarning("找不到對應 prefab：" + type);
+            }   
     }
 
     //掉落多件物品
@@ -94,4 +105,19 @@ public class player_trigger : MonoBehaviour
             DropItem(type);
         }
     }
+
+    /*private void OnDrawGizmos()
+    {
+        if (tileManager == null) return;
+
+        Vector3 footWorldPos = transform.position + new Vector3(0, -footOffsetY, 0);
+        Vector3Int gridPos = tileManager.InteractableMap.WorldToCell(footWorldPos);
+        Vector3 gridCenterPos = tileManager.InteractableMap.GetCellCenterWorld(gridPos);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(footWorldPos, 0.1f); // 腳下
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(gridCenterPos, 0.1f); // 格子中心
+    }*/
 }
