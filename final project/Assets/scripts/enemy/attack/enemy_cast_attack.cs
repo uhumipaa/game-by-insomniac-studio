@@ -36,14 +36,11 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
 
     public void enableprefab()
     {
-        if ((reset= cast_prefab[prefabcount].GetComponent<IEnenmyResetInterface>())!= null)
-        {
-            reset.Reset();
-        }
-        else
-        {
-            cast_prefab[prefabcount].SetActive(true);
-        }
+        reset = cast_prefab[prefabcount].GetComponent<IEnenmyResetInterface>();
+       
+        reset.Reset();
+        cast_prefab[prefabcount].SetActive(true);
+        
     }
     public void closeprefab()
     {

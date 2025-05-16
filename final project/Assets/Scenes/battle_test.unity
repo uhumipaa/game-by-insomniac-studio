@@ -4113,7 +4113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &955242322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9282,6 +9282,42 @@ PrefabInstance:
       propertyPath: 'scripts.Array.data[3]'
       value: 
       objectReference: {fileID: 1411970225}
+    - target: {fileID: 340910630978328608, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1838721446987542321, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183661900525946332, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759040654478824213, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069190556456653829, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820922578256329140, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Size.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820922578256329140, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820922578256329140, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820922578256329140, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3954891195046672055, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       propertyPath: cast_prefab.Array.size
       value: 3
@@ -9302,8 +9338,36 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4992490736812333197, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5302148018993618845, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6367254818486556801, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374767052920139676, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546460914194412860, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Size.x
+      value: 0.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546460914194412860, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546460914194412860, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546460914194412860, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6833490712657112247, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
@@ -9346,17 +9410,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898994954225960305, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474250717464417208, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       propertyPath: m_Name
       value: little_dino
       objectReference: {fileID: 0}
     - target: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183880269096470868, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427764740843010329, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427764740843010329, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8528520517230011321, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8534836281119741092, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9641,7 +9729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131749637687193133, guid: 73019f3c6b8f9d44fa6515cfd829d591, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6849129095553663063, guid: 73019f3c6b8f9d44fa6515cfd829d591, type: 3}
       propertyPath: m_AnchorMax.y

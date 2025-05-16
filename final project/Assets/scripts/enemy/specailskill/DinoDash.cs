@@ -76,7 +76,7 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player_Property>().takedamage(Property.atk, transform.position);
+            //collision.GetComponent<Player_Property>().takedamage(Property.atk, transform.position);
         }else if (collision.CompareTag("wall"))
         {
             meetwall = true;
