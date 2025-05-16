@@ -5,7 +5,7 @@ public class Hitbox_Controller : MonoBehaviour
     private Player_Property player;
     private PolygonCollider2D col;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         /*
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -18,6 +18,15 @@ public class Hitbox_Controller : MonoBehaviour
     }
     public void Enablecol()
     {
+        if (col == null)
+        {
+            col = GetComponent<PolygonCollider2D>();
+        }
+        if (col == null)
+        {
+            Debug.LogError("Hitbox_Controller: 找不到 PolygonCollider2D");
+            return;
+        }
         /*
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Color c = sr.color;
