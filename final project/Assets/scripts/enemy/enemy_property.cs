@@ -26,6 +26,7 @@ public class enemy_property : MonoBehaviour
     public KillEnemyStats stats;
     public bool isBossKingPhase2 = false;
     private bool isBossKingDead = false;
+    public float detect_range = 5f; 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

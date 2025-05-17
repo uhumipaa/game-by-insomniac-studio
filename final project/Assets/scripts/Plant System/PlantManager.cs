@@ -14,12 +14,14 @@ public class PlantManager : MonoBehaviour
 
     public bool TryPlant(Vector3Int position, string tileName, Inventory.Slot selectedSlot)
     {
+         Debug.Log($"檢查格子座標 {position}，Tile 名稱：{tileName}");
+         
         //檢查是不是田地
         if (tileName != "interable_visible") return false;
 
         //檢查是否有選到種子
-        if (selectedSlot == null || string.IsNullOrEmpty(selectedSlot.itemName)) return false;
-        if (selectedSlot.itemName != "Potato seeds") return false;
+        if (selectedSlot == null || string.IsNullOrEmpty(selectedSlot.itemData.itemName)) return false;
+        if (selectedSlot.itemData.itemName != "Potato seeds") return false;
         if (selectedSlot.count <= 0) return false;
 
         //判斷有沒有種作物

@@ -8,21 +8,23 @@ public class Inventory
     [System.Serializable]
     public class Slot
     {
-        public string itemName;
+        //public string itemName;
+        public ItemData itemData;
         public int count;
-        public int maxAllowed;
-        public Sprite icon;
-        public ItemType type;
-        public Vector3 originalDropPosition; //原始掉落位置
+        public bool IsEmpty => itemData == null || count <= 0;
+        //public int maxAllowed;
+        //public Sprite icon;
+        //public ItemType type;
+        //public Vector3 originalDropPosition; //原始掉落位置
 
-        public Slot()
+        /*public Slot()
         {
             itemName = "";
             count = 0;
             maxAllowed = 99;
-        }
+        }*/
 
-        //判斷格子是否為空
+        /*//判斷格子是否為空
         public bool IsEmpty
         {
             get
@@ -34,27 +36,29 @@ public class Inventory
                 
                 return false;
             }
-        }
+        }*/
         
-        public bool CanAddItem(string itemName)
+        public bool CanAddItem(ItemData data)
         {
-            if(this.itemName == itemName && count < maxAllowed)
+            return itemData == data && count < data.maxAllowed;
+        }
+
+        public void AddItem(ItemData data, int amount = 1)
+        {
+            //如果格子是空的
+            if (IsEmpty)
             {
-                return true;
+                itemData = data;
+                count = Mathf.Min(amount, data.maxAllowed);
             }
-            return false;
+            //如果格子裡和要加的物品是同樣的
+            else if (itemData == data)
+            {
+                count = Mathf.Min(count + amount, data.maxAllowed);
+            }
         }
 
-        public void AddItem(Item item)
-        {
-            this.itemName = item.data.itemName;
-            this.type = item.data.type;
-            this.icon = item.data.icon;
-            //this.originalDropPosition = item.transform.position; // 記住撿起前的位置
-            this.count++; 
-        }
-
-        public void AddItem(string itemName, Sprite icon, ItemType type, int maxAllowed)
+        /*public void AddItem(string itemName, Sprite icon, ItemType type, int maxAllowed)
         {
             this.itemName = itemName;
             this.icon = icon;
@@ -62,19 +66,18 @@ public class Inventory
             //this.originalDropPosition = item.transform.position; // 記住撿起前的位置
             this.count++; 
             this.maxAllowed = maxAllowed;
-        }
+        }*/
 
 
-        public void RemoveItem()
+        public void RemoveItem(int amount = 1)
         {
-            if(count > 0)
+            if (!IsEmpty)
             {
-                count--;
-                if(count == 0)
+                count -= amount;
+                if (count <= 0)
                 {
-                    icon = null;
-                    itemName = "";
-                    type = ItemType.NONE;
+                    itemData = null;
+                    count = 0;
                 }
             }
         }
@@ -92,42 +95,35 @@ public class Inventory
         }
     }
 
-    public void Add(Item item)
+    public void Add(ItemData data, int amount = 1)
     {
-        foreach(Slot slot in slots)
+        //找格子裡相同data的
+        foreach (Slot slot in slots)
         {
-            if(slot.itemName == item.data.itemName && slot.CanAddItem(item.data.itemName))
+            if (slot.CanAddItem(data))
             {
-                slot.AddItem(item);
+                slot.AddItem(data, amount);
                 return;
             }
         }
 
-        foreach(Slot slot in slots)
+        //如果沒有再找空格子
+        foreach (Slot slot in slots)
         {
-            if(slot.itemName == "")
+            if (slot.IsEmpty)
             {
-                slot.AddItem(item);
+                slot.AddItem(data, amount);
                 return;
             }
         }
+        Debug.LogWarning("沒有空格可以放置物品！");
     }
 
-    //移除一項物品
-    public void Remove(int index)
+    public void Remove(int index, int amount = 1)
     {
-        slots[index].RemoveItem();
-    }
-
-    //移除多項物品
-    public void Remove(int index, int numToRemove)
-    {
-        if(slots[index].count >= numToRemove)
+        if (index >= 0 && index < slots.Count)
         {
-            for(int i = 0; i < numToRemove; i++)
-            {
-                Remove(index);
-            }
+            slots[index].RemoveItem(amount);
         }
     }
 
@@ -137,14 +133,10 @@ public class Inventory
         Slot fromSlot = slots[fromIndex];
         Slot toSlot = toInventory.slots[toIndex];
 
-        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemName)) //如果格子為空或形態相符才可以挪
+        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemData)) //如果格子為空或形態相符才可以挪
         {
-            for(int i = 0; i < numToMove; i++)
-            {
-                toSlot.AddItem(fromSlot.itemName, fromSlot.icon, fromSlot.type, fromSlot.maxAllowed);
-                fromSlot.RemoveItem();
-            }
-            
+            toSlot.AddItem(fromSlot.itemData, numToMove);
+            fromSlot.RemoveItem(numToMove);    
         }
     }
 

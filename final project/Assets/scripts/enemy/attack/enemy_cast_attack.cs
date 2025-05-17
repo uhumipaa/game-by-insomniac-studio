@@ -22,7 +22,7 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
             self.localScale = new Vector3(-scale, scale, 1);
         }
         Vector2 diff = player.position - transform.position;
-        if (Mathf.Abs(diff.y) < 0.2f)
+        if (Mathf.Abs(diff.y) < 0.5f)
         {
 
             prefabcount = 0;
@@ -36,14 +36,17 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
 
     public void enableprefab()
     {
-        if ((reset= cast_prefab[prefabcount].GetComponent<IEnenmyResetInterface>())!= null)
+        reset = cast_prefab[prefabcount].GetComponent<IEnenmyResetInterface>();
+        if (reset != null)
         {
-            reset.Reset();
+            cast_prefab[prefabcount].SetActive(true);
+            reset.Reset(); // Reset ­t³dªì©l¤Æ & ±Ò°Ê
         }
         else
         {
-            cast_prefab[prefabcount].SetActive(true);
+            cast_prefab[prefabcount].SetActive(true); // fallback
         }
+        Debug.Log("reset");
     }
     public void closeprefab()
     {

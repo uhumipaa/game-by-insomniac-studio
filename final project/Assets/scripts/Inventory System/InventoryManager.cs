@@ -23,11 +23,12 @@ public class InventoryManager : MonoBehaviour
         inventoryByName.Add("Toolbar", toolbar);
     }
 
-    public void Add(string inventoryName, Item item)
+    public void Add(string inventoryName, ItemData data, int amount = 1)
     {
-        if(inventoryByName.ContainsKey(inventoryName))
+        if (inventoryByName.ContainsKey(inventoryName))
         {
-            inventoryByName[inventoryName].Add(item);
+            inventoryByName[inventoryName].Add(data, amount);
+            Debug.Log($"{inventoryName} 新增 {amount}個{data.itemName}");
         }    
     }
     

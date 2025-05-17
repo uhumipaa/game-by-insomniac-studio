@@ -45,24 +45,22 @@ public class Inventory_UI : MonoBehaviour
    
     public void Refresh()
     {
-        if(slots.Count == inventory.slots.Count)
+        //Debug.Log("畫面刷新");
+        //inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
+
+        if (slots.Count == inventory.slots.Count)
         {
-            for(int i = 0; i < slots.Count; i++)
+            for (int i = 0; i < slots.Count; i++)
             {
                 var sourceSlot = inventory.slots[i];
                 //Debug.Log($"刷新 Slot[{i}] → {sourceSlot.itemName} x{sourceSlot.count}");
 
-                Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(inventory.slots[i].type);
+                //Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(inventory.slots[i].type);
 
-                /*if (prefab == null)
-                {
-                    Debug.LogWarning($"❌ 無法取得 prefab，slot[{i}] 的 type 是 {sourceSlot.type}");
-                }*/
-
-                if (prefab != null && inventory.slots[i].count > 0)
+                if (sourceSlot.count > 0)
                 {
                     //Debug.Log($"⚠ 嘗試設置 slot[{i}]，圖示為：{prefab.item?.data?.icon?.name}");
-                    slots[i].SetItem(inventory.slots[i], prefab.item); // 把 item 傳進 UI slot
+                    slots[i].SetItem(sourceSlot); // 把 item 傳進 UI slot
                 }
                 else
                 {
@@ -78,29 +76,29 @@ public class Inventory_UI : MonoBehaviour
     {
         var slot = inventory.slots[UI_Manager.draggedSlot.slotID];
 
-        Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(slot.type);
+        //Collectable prefab = GameManager.instance.itemManager.GetCollectablePrefab(slot.type);
 
-        if(prefab == null)
+        /*if(prefab == null)
         {
             Debug.LogWarning($"找不到 itemToDrop，無法移除。類型為：{slot.type}");
             return;
         }   
 
         if(prefab != null)
-        {
+        {*/
             if(UI_Manager.dragSingle)
             {
-                GameManager.instance.player.DropItem(slot.type);
+                GameManager.instance.player.DropItem(slot.itemData.type);
                 inventory.Remove(UI_Manager.draggedSlot.slotID);
             }
             else
             {
-                GameManager.instance.player.DropItem(slot.type, inventory.slots[UI_Manager.draggedSlot.slotID].count);
+                GameManager.instance.player.DropItem(slot.itemData.type, inventory.slots[UI_Manager.draggedSlot.slotID].count);
                 inventory.Remove(UI_Manager.draggedSlot.slotID, inventory.slots[UI_Manager.draggedSlot.slotID].count);
             }
             
             Refresh();
-        }
+        //}
         
         UI_Manager.draggedSlot = null;
     }

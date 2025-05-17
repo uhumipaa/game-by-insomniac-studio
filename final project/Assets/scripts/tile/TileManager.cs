@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class TileManager : MonoBehaviour
 {
-    [SerializeField] private Tilemap InteractableMap; //田地層(不會改變)
+    [SerializeField] public Tilemap InteractableMap; //田地層(不會改變)
     [SerializeField] private Tile hiddenInteractableTile;
     public Tilemap cropTilemap;   // 作物層
 
