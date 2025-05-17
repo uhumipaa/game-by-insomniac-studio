@@ -1,22 +1,25 @@
 using UnityEngine;
 using System.Collections;
+using static Enemy_withdash_controller;
 
 public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
 {
+    public enum enemystate { Idle,Moving,Attacking,Dashing,Stunning,stunafterattack }
+    private enemystate currentstate;
+    [Header("基礎屬性")]
     private Rigidbody2D rb;
     private Animator ani;
     private Transform player;
     private enemy_property property;
     public MonoBehaviour[] scripts;
+
+    [Header("模組")]
     public IEnemyAttackBehavior attack;
     public IEnemyAnimatorBehavior animator;
     public IEnemyMoveBehavior move;
     public IEnemySpecilskillBehavior sp;
-    private bool isstuned;
-    private bool isattacking;
-    private bool dashing;
-    public float scale;
-    private bool has_attack;
+
+    [SerializeField]private float scale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -34,7 +37,26 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
     // Update is called once per frame
     void Update()
     {
-        if (dashing || isattacking||isstuned) return;
+        switch (currentstate)
+        {
+            case enemystate.Idle:
+            case enemystate.Moving:
+                AttackorMove();
+                break;
+            case enemystate.Attacking:
+                //動畫控制
+                break;
+            case enemystate.stunafterattack:
+                //協程控制
+                break;
+            case enemystate.Dashing:
+                break;
+            case enemystate.Stunning:
+                break;
+        }        
+    }
+    void flip()
+    {
         if (transform.position.x < player.position.x)
         {
             transform.localScale = new Vector2(scale, scale);
@@ -43,49 +65,56 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
         {
             transform.localScale = new Vector2(-scale, scale);
         }
-        float distance = Vector2.Distance(player.position, transform.position);
-
-        if (distance < property.attack_range&&!has_attack)
-        {
-            rb.linearVelocity = Vector2.zero;
-            animator.PlayAttack((player.position - transform.position).normalized, ani);
-            attack.Attack(transform, player, property.atk,scale);
-            isattacking = true;
-            has_attack = true;
-        }
-        else if (has_attack)
-        {
-            sp.usingskill(transform, player, property,scale);
-            dashing = true;
-            has_attack = false;
-        }
-        else 
-        {
-            animator.PlayMove((player.position - transform.position).normalized, ani);
-            move.Move(transform, player, rb, property.speed);
-        }
-
     }
     public void FinishAttack()
     {
         animator.PlayIdle(ani);
+        //StartCoroutine(AttackToDashDelay(0.5f));
         Debug.Log("finish2");
-        isattacking = false;
-        isstuned = true;
-        StartCoroutine(Stun(property.stuncd));
+        dash();
     }
     public void Finishdash()
     {
         animator.PlayIdle(ani);
-        dashing = false;
-        isstuned = true;
         StartCoroutine(Stun(property.stuncd));
     }
     IEnumerator Stun(float cd)
     {
+        currentstate = enemystate.Stunning;
         Debug.Log("stuned");
         yield return new WaitForSecondsRealtime(cd);
         Debug.Log("stuned");
-        isstuned = false;
+        currentstate = enemystate.Idle;
+    }
+
+    void AttackorMove()
+    {
+        float distance = Vector2.Distance(player.position, transform.position);
+        flip();
+        if (distance < property.attack_range)
+        {
+            currentstate = enemystate.Attacking;
+            rb.linearVelocity = Vector2.zero;
+            animator.PlayAttack((player.position - transform.position).normalized, ani);
+            attack.Attack(transform, player, property.atk, scale);
+        }
+        else
+        {
+            currentstate = enemystate.Moving;
+            animator.PlayMove((player.position - transform.position).normalized, ani);
+            move.Move(transform, player, rb, property.speed);
+        }
+    }
+    IEnumerator AttackToDashDelay(float delay)
+    {
+        Debug.Log("stunafterattack");
+        currentstate = enemystate.stunafterattack;
+        yield return new WaitForSecondsRealtime(delay);
+        dash();
+    }
+    void dash()
+    {
+        sp.usingskill(transform, player, property, scale);
+        currentstate = enemystate.Dashing;
     }
 }

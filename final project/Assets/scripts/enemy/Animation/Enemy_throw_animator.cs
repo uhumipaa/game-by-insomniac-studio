@@ -29,7 +29,7 @@ public class Enemy_throw_animator : MonoBehaviour,IEnemyAnimatorBehavior
         ani.SetBool("running", false);
     }
 
-    public void NotifyAttackFinished(Animator ani)
+    public void NotifyAttackFinished()
     {
         Debug.Log("finish");
         controller.FinishAttack();
