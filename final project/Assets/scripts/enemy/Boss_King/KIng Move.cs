@@ -47,7 +47,7 @@ public class BossController : MonoBehaviour
 
     [Header("召喚騎士")]
     public GameObject knightPrefab;
-    public Transform knight;
+    public Transform summonPoint;
 
     [Header("變身特效")]
     public GameObject phase2EffectPrefab;
@@ -221,28 +221,16 @@ public class BossController : MonoBehaviour
         {
             if (isTransforming) yield break;
             yield return new WaitForSeconds(0.5f);
-
-            Vector2 randomPos = new Vector2(
-            Random.Range(mapMinBounds.x / 2, mapMaxBounds.x / 2),
-            Random.Range(mapMinBounds.y / 2, mapMaxBounds.y / 2)
-            );
-
-            Transform attackPivot = knightPrefab.transform.Find("attack pivot");
-            Vector3 offset = knight.transform.position - attackPivot.position;
-            Vector3 spawnPos = new Vector3(randomPos.x, randomPos.y, 0f) - offset;
-
             if (summonEffectPrefab != null)
             {
-                GameObject effect = Instantiate(summonEffectPrefab, spawnPos, Quaternion.identity);
+                GameObject effect = Instantiate(summonEffectPrefab, summonPoint.position, Quaternion.identity);
                 Destroy(effect, 1.5f); // 自動刪除
             }
             int summonCount = currentState == BossState.Phase1 ? 1 : 2;
             yield return new WaitForSeconds(0.5f);
-
-            Vector3 spawnPoint = new Vector3(randomPos.x, randomPos.y, 0f);
             for (int i = 0; i < summonCount; i++)
             {
-                GameObject knight = Instantiate(knightPrefab, spawnPoint, Quaternion.identity);
+                GameObject knight = Instantiate(knightPrefab, summonPoint.position, Quaternion.identity);
                 summonedKnights.Add(knight);
             }
         }
