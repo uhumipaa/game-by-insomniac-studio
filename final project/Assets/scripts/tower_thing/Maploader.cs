@@ -1,9 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Maploader : MonoBehaviour
+public class Maploaders : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject playe;
     public GameObject chest;
     private GameObject player_instance;
     public GameObject transcircle;
@@ -11,7 +11,7 @@ public class Maploader : MonoBehaviour
     private GameObject chest_instance;
     private GameObject currentMap;
     public GameObject[] mapPrefabs;
-    public Transform mapParent;
+    public Transform mapParen;
     public FloorData[] floorDatas;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -39,7 +39,7 @@ public class Maploader : MonoBehaviour
         Transform playerspawn = GameObject.Find("player_spawn_point")?.transform;
         if (player_instance == null)
         {
-            player_instance = Instantiate(player, playerspawn.position, Quaternion.identity);
+            player_instance = Instantiate(playe, playerspawn.position, Quaternion.identity);
         }
         else
         {
@@ -48,7 +48,7 @@ public class Maploader : MonoBehaviour
 
     }
     // Update is called once per frame
-    public void LoadMap(int index)
+    public void LoadMaps(int index)
     {
         if (currentMap != null)
             Destroy(currentMap);
@@ -60,7 +60,7 @@ public class Maploader : MonoBehaviour
         {
             Destroy(chest_instance);
         }
-        currentMap = Instantiate(mapPrefabs[index], Vector3.zero, Quaternion.identity, mapParent);
+        currentMap = Instantiate(mapPrefabs[index], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
         FloorData floorData = floorDatas[index];
         SpawnMonsters(floorData);

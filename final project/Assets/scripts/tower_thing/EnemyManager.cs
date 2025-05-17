@@ -16,7 +16,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject); // ¨¾¤î­«½Æ
+            Destroy(gameObject); // ï¿½ï¿½ï¿½î­«ï¿½ï¿½
         }
         maploader = FindAnyObjectByType<Maploader>();
     }
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (now_enemy == null)
         {
-            Debug.LogWarning("now_enemy ¦Cªí¬O null¡I");
+            Debug.LogWarning("now_enemy ï¿½Cï¿½ï¿½ï¿½O nullï¿½I");
             return;
         }
         if (now_enemy.Contains(enemy))
@@ -51,8 +51,8 @@ public class EnemyManager : MonoBehaviour
     private void finishlayer()
     {
         Debug.Log("yayaya");
-        maploader.GetComponent<Maploader>().generate_tele();
-        maploader.GetComponent<Maploader>().generate_chest();
+        maploader.GetComponent<Maploaders>().generate_tele();
+        maploader.GetComponent<Maploaders>().generate_chest();
     }
 
     public void Startfight()
