@@ -64,16 +64,6 @@ AnimationClip:
       value: {fileID: 4354769662114645031, guid: 74061816db95d48429e43602c667685d, type: 3}
     - time: 2.2166667
       value: {fileID: -4545486299431970546, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - time: 2.3166666
-      value: {fileID: 3039971599116455348, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - time: 2.4166667
-      value: {fileID: 606979793319043027, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - time: 2.5333333
-      value: {fileID: -3213517952276764992, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - time: 2.65
-      value: {fileID: 8720520468919917045, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - time: 2.7666667
-      value: {fileID: -6017490860483724875, guid: 74061816db95d48429e43602c667685d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -118,17 +108,12 @@ AnimationClip:
     - {fileID: 6040437511144115857, guid: 25a3186823579f342b2398d96f6e55a6, type: 3}
     - {fileID: 4354769662114645031, guid: 74061816db95d48429e43602c667685d, type: 3}
     - {fileID: -4545486299431970546, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - {fileID: 3039971599116455348, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - {fileID: 606979793319043027, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - {fileID: -3213517952276764992, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - {fileID: 8720520468919917045, guid: 74061816db95d48429e43602c667685d, type: 3}
-    - {fileID: -6017490860483724875, guid: 74061816db95d48429e43602c667685d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.8166666
+    m_StopTime: 2.3166666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -155,21 +140,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.2333333
-    functionName: NotifyAttackFinished
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.8
+  - time: 2.1333334
     functionName: Closehitbox
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.8166666
+  - time: 2.3166666
     functionName: NotifyAttackFinished
     data: 
     objectReferenceParameter: {fileID: 0}

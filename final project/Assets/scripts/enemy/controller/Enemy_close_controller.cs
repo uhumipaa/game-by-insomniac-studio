@@ -45,7 +45,7 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
         }
         float distance = Vector2.Distance(player.position, attackPivot.position);
 
-        if (distance < property.attack_range)
+        if (distance <= property.attack_range)
         {
             rb.linearVelocity = Vector2.zero;
             FaceToPlayer();
