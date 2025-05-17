@@ -9695,12 +9695,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8655997469632151110, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
+      propertyPath: contorller
+      value: 
+      objectReference: {fileID: 1411970239}
+    m_RemovedComponents:
+    - {fileID: 62987143332769108, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
-      insertIndex: 11
+      insertIndex: 10
       addedObject: {fileID: 1411970239}
     - targetCorrespondingSourceObject: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}
       insertIndex: -1

@@ -50,7 +50,7 @@ public class Enemy_close_Animation : MonoBehaviour,IEnemyAnimatorBehavior
         ani.SetBool("running", false);
     }
 
-    public void NotifyAttackFinished(Animator ani)
+    public void NotifyAttackFinished()
     {
         Debug.Log("finish");
         controller.FinishAttack();

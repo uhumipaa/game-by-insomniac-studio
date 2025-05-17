@@ -22,7 +22,7 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
             self.localScale = new Vector3(-scale, scale, 1);
         }
         Vector2 diff = player.position - transform.position;
-        if (Mathf.Abs(diff.y) < 0.5f)
+        if (Mathf.Abs(diff.y) < 1f)
         {
 
             prefabcount = 0;
