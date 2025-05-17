@@ -8,6 +8,8 @@ public class CropData : ScriptableObject
     public Tile sproutTile;
     public Tile matureTile;
     public Tile harvestTile;
+    public GameObject harvestPrefab;
+    public ItemData harvestItemData;
     //public int daysToMature;
     //public int daysToHarvest;
 }

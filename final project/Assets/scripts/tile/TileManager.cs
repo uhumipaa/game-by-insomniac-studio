@@ -16,10 +16,10 @@ public class TileManager : MonoBehaviour
 
     void Start()
     {
-        foreach(var position in InteractableMap.cellBounds.allPositionsWithin)
+        foreach (var position in InteractableMap.cellBounds.allPositionsWithin)
         {
             InteractableMap.SetTile(position, hiddenInteractableTile);
-        }   
+        }
     }
 
     public void SetCropTile(Vector3Int position, TileBase tile)
@@ -29,11 +29,11 @@ public class TileManager : MonoBehaviour
 
     public string GetTileName(Vector3Int position)
     {
-        if(InteractableMap != null)
+        if (InteractableMap != null)
         {
             TileBase tile = InteractableMap.GetTile(position);
 
-            if(tile != null)
+            if (tile != null)
             {
                 return tile.name;
             }
@@ -41,5 +41,10 @@ public class TileManager : MonoBehaviour
         return "";
     }
 
-    
+    //清除作物並還原成原本的tile
+    public void ClearTile(Vector3Int position)
+    {
+        cropTilemap.SetTile(position, hiddenInteractableTile);
+    }
+
 }

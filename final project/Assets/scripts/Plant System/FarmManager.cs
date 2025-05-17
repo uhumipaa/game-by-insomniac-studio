@@ -31,11 +31,11 @@ public class FarmManager : MonoBehaviour
 
             UpdateTileVisual(tileData);
 
-            if (tileData.state >= 3) // 收成狀態
+            /*if (tileData.state >= 3) // 收成狀態
             {
                 //Debug.Log("這塊田可以收成了！");
                 farmTiles.Remove(pos);//移除成長資料，不再推進狀態
-            }
+            }*/
 
             return true;
         }
@@ -63,4 +63,46 @@ public class FarmManager : MonoBehaviour
     {
         return farmTiles.ContainsKey(pos);
     }
+
+    //田地收成
+    public bool TryHarvestTile(Vector3Int pos)
+    {
+        if (farmTiles.ContainsKey(pos))
+        {
+            var tileData = farmTiles[pos];
+
+            //生成收成物到地圖
+            Vector3 worldPos = tileManager.cropTilemap.CellToWorld(pos) + new Vector3(0.5f, 0.5f); // 讓物品出現在 tile 中央
+            GameObject harvestItem = GameObject.Instantiate(tileData.cropData.harvestPrefab, worldPos, Quaternion.identity);
+
+            Collectable collectable = harvestItem.GetComponent<Collectable>();
+            if (collectable != null)
+            {
+                collectable.SetItemData(tileData.cropData.harvestItemData);
+            }
+
+            //清除 tile
+            tileManager.ClearTile(pos);
+
+            //移除田地資料
+            farmTiles.Remove(pos);
+
+            Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
+            return true;
+
+        }
+
+        Debug.Log("這塊田還不能收成！");
+        return false;
+    }
+
+    //取得田地資料
+    public FarmTileData GetFarmTileData(Vector3Int pos)
+    {
+        if (farmTiles.ContainsKey(pos))
+            return farmTiles[pos];
+        else
+            return null;
+    }
+
 }

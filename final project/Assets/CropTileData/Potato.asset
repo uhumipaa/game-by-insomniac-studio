@@ -16,3 +16,5 @@ MonoBehaviour:
   sproutTile: {fileID: 11400000, guid: 63cd39a6e082e8e49a717425efdea5d2, type: 2}
   matureTile: {fileID: 11400000, guid: 52bc47bec81cfd84f994dee1bb5e5e49, type: 2}
   harvestTile: {fileID: 11400000, guid: 2a660fda3e4ce754d982e8f0a1a1aaf7, type: 2}
+  harvestPrefab: {fileID: 4729813849559725114, guid: e8c46797d6573604fa967cf8912fa7dd, type: 3}
+  harvestItemData: {fileID: 11400000, guid: 4683192dc95edb24cb4855ba7acade5f, type: 2}
