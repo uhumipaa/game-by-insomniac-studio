@@ -7,14 +7,10 @@ using UnityEngine.UIElements;
 
 public class throw_thing_controller : MonoBehaviour
 {
-    private float total_distance;
     //private Vector2 Start;
     //private Vector2 End;
     public AnimationCurve heightCurve;
     private Animator ani;
-    private Rigidbody2D rb;
-    private bool explosioning=false;
-    private Vector2 Dir;
     private float dmg;
     private PolygonCollider2D col;
     [SerializeField] float duration;
@@ -23,7 +19,6 @@ public class throw_thing_controller : MonoBehaviour
     void Awake()
     {
         ani = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
         col = GetComponent<PolygonCollider2D>();
         col.enabled = false;
     }
@@ -91,8 +86,7 @@ public class throw_thing_controller : MonoBehaviour
     public void Set_parabola(Vector2 end,Vector2 direction,float damage)
     {
         transform.localScale = new Vector3(1.5f, 1.5f, 1);
-        //Dir = direction;
-        total_distance = Vector2.Distance(transform.position, end);
+        //Dir = direction
         Debug.Log("setfinish");
         dmg = damage;
         StartCoroutine(Cruve(transform.position, end));

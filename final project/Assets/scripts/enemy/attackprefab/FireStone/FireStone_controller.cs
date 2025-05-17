@@ -45,8 +45,8 @@ public class FireStone_controller: MonoBehaviour
             float t = 1f - distance / totaldistance;        
             float speedFactor = dashSpeedCurve.Evaluate(t);
             hint.transform.localScale = new Vector3(2 * t+0.1f, t+0.1f, 1f);
-            //stonerb.linearVelocity = direction*speed*speedFactor;
-            firestone.transform.position = Vector2.MoveTowards(firestone.transform.position,position,speed * Time.deltaTime);
+            stonerb.linearVelocity = direction*speed*speedFactor;
+            //firestone.transform.position = Vector2.MoveTowards(firestone.transform.position,position,speed * Time.deltaTime);
             Debug.Log($"t: {t}, scale: {hint.transform.localScale}, pos: {firestone.transform.position}");
             yield return null;
         }
