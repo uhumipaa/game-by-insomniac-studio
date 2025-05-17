@@ -234,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2286013408862257750
 Transform:
   m_ObjectHideFlags: 0
@@ -295,12 +295,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -3785385192508942874, guid: ae87d3b954f5a1d4ab360911a3424976, type: 3}
+  m_Sprite: {fileID: -3785385192508942874, guid: 5602f91985a4896478bebd8e4cc4f07b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.53, y: 2.31}
+  m_Size: {x: 3.90625, y: 3.53125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -429,9 +429,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  healthbar: {fileID: 4226045618416883973}
-  playerstats: {fileID: 4044947140317877406, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+  healthbarinitial:
+    m_PersistentCalls:
+      m_Calls: []
   stats: {fileID: 1345292868052178229}
+  isBossKingPhase2: 0
+  detect_range: 5
 --- !u!114 &4461629830198391005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +565,7 @@ RectTransform:
   m_Father: {fileID: 4741011877847075730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -636,8 +639,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 29820645055083972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

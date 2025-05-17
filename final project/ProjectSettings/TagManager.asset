@@ -10,6 +10,7 @@ TagManager:
   - Well
   - spawnObject
   - CropTilemap
+  - Hint
   layers:
   - Default
   - TransparentFX
