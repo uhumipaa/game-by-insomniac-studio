@@ -6,17 +6,14 @@ public class player_trigger : MonoBehaviour
 
     public TileManager tileManager;
     private float footOffsetY = 0f;
-    private void Awake()
-    {
-        //Debug.Log("【Awake】初始化 Inventory 成功！物件：" + this.gameObject.name);
-        inventory = GetComponent<InventoryManager>();
-        GameManager.instance.player = this;
-        footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
-    }
 
     private void Start()
     {
+        /*//同步資料
+        inventory = GameManager.instance.inventoryManager;*/
+        GameManager.instance.player = this;
         tileManager = GameManager.instance.tileManager;   
+        footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
     }
 
     private void Update()

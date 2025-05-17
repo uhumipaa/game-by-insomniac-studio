@@ -8,6 +8,8 @@ TagManager:
   - wall
   - Event
   - Well
+  - spawnObject
+  - CropTilemap
   layers:
   - Default
   - TransparentFX

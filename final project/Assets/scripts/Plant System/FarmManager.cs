@@ -5,7 +5,6 @@ public class FarmManager : MonoBehaviour
 {
     public static FarmManager instance;
     public TileManager tileManager;
-
     private Dictionary<Vector3Int, FarmTileData> farmTiles = new Dictionary<Vector3Int, FarmTileData>();
 
     private void Awake()
@@ -14,11 +13,11 @@ public class FarmManager : MonoBehaviour
         tileManager = GameManager.instance.tileManager;
     }
 
-    public void AddFarmTile(Vector3Int pos)
+    public void AddFarmTile(Vector3Int pos, CropData cropData)
     {
         if (!farmTiles.ContainsKey(pos))
         {
-            farmTiles.Add(pos, new FarmTileData(pos, 1)); // 初始狀態是1(發芽)
+            farmTiles.Add(pos, new FarmTileData(pos, 1, cropData)); // 初始狀態是1(發芽)
             UpdateTileVisual(farmTiles[pos]);
         }
     }
@@ -34,7 +33,7 @@ public class FarmManager : MonoBehaviour
 
             if (tileData.state >= 3) // 收成狀態
             {
-                Debug.Log("這塊田可以收成了！");
+                //Debug.Log("這塊田可以收成了！");
                 farmTiles.Remove(pos);//移除成長資料，不再推進狀態
             }
 
@@ -49,13 +48,13 @@ public class FarmManager : MonoBehaviour
         switch (tileData.state)
         {
             case 1:
-                tileManager.SetCropTile(tileData.position, tileManager.sproutTile); // 發芽Tile
+                tileManager.SetCropTile(tileData.position, tileData.cropData.sproutTile); // 發芽Tile
                 break;
             case 2:
-                tileManager.SetCropTile(tileData.position, tileManager.matureTile); // 成長Tile
+                tileManager.SetCropTile(tileData.position, tileData.cropData.matureTile); // 成長Tile
                 break;
             case 3:
-                tileManager.SetCropTile(tileData.position, tileManager.readyToHarvestTile); // 準備收成Tile
+                tileManager.SetCropTile(tileData.position, tileData.cropData.harvestTile); // 準備收成Tile
                 break;
         }
     }

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: water
+  m_Name: spinach
   m_EditorClassIdentifier: 
-  itemName: water
-  icon: {fileID: 7538570299787566214, guid: 967d27540d9cb274a8c011686820dce3, type: 3}
-  type: 9
+  itemName: Spinach
+  icon: {fileID: 8616252762745753724, guid: 951712dfa17cf2748abad79b714d6479, type: 3}
+  type: 8
   maxAllowed: 99

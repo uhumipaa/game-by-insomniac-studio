@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
+
 public class TileManager : MonoBehaviour
 {
     [SerializeField] public Tilemap InteractableMap; //田地層(不會改變)
@@ -39,4 +40,6 @@ public class TileManager : MonoBehaviour
         }
         return "";
     }
+
+    
 }

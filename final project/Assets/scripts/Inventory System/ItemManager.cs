@@ -54,7 +54,7 @@ public class ItemManager : MonoBehaviour
             if (!dict.ContainsKey(data.type))
             {
                 dict.Add(data.type, data);
-                Debug.Log($"✅ 註冊 ItemData：{data.itemName}");
+                //Debug.Log($"✅ 註冊 ItemData：{data.itemName}");
             }
         }
     }

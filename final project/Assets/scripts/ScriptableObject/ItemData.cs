@@ -6,6 +6,9 @@ public enum ItemType
 {
     NONE,
     PotatoSeeds, Potato,
+    RadishSeeds, Radish,
+    TurnipSeeds, Turnip,
+    SpinachSeeds, Spinach,
     Water
 }
 

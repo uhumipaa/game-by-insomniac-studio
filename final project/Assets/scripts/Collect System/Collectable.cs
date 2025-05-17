@@ -36,8 +36,8 @@ public class Collectable : MonoBehaviour
             }
             else
             {
-                Debug.Log("✅ 找到 Inventory_UI，開始刷新");
-                Debug.Log("UI slot 數量：" + ui.slots.Count);  // ← 應該要是 28
+                //Debug.Log("✅ 找到 Inventory_UI，開始刷新");
+                //Debug.Log("UI slot 數量：" + ui.slots.Count);  // ← 應該要是 28
             }
 
             if (item == null)
@@ -52,7 +52,7 @@ public class Collectable : MonoBehaviour
                     Debug.LogError("【錯誤】player.inventory 還是 null！");
                 }
                 player.inventory.Add("Backpack", item.data, amount);
-                Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
+                //Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
                 Destroy(this.gameObject);
             }    
         }
@@ -72,6 +72,6 @@ public class Collectable : MonoBehaviour
             spriteRenderer.sprite = data.icon;
         }
 
-        Debug.Log($"✅ Collectable 動態指定 ItemData：{data.itemName}");
+        //Debug.Log($"✅ Collectable 動態指定 ItemData：{data.itemName}");
     }
 }
