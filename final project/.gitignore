@@ -1,1 +1,48 @@
+# ================= Unity 預設需要忽略的 =================
+
+# 只留Assets、ProjectSettings、Packages、.gitignore、.gitattributes，其他都不要跟版本控制
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Unity Cache
+[Uu]serSettings/
+
+# VSCode、JetBrains Rider、VisualStudio 之類的編輯器垃圾檔案
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# OS 自動生成的垃圾
 .DS_Store
+Thumbs.db
+
+# Unity Asset Store下載的臨時資料
+AssetStoreTools*
+
+# 壓縮檔
+*.zip
+*.rar
+
+# 自動生成的meta文件以外的二進位資料
+*.bak
+*.backup
+
+# ShaderCache
+[Bb]uilds-Cache/
+
+# Crashes / reports
+*.stacktrace
+*.dmp

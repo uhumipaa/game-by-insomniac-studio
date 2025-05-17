@@ -22,6 +22,7 @@ public class magic_controler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Debug.Log("change");
             magic_now = (magic_now + 1) % magic_list.Length;
             switchmagic(magic_now);
         }

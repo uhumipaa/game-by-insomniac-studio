@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,36 +8,83 @@ public class Inventory
     [System.Serializable]
     public class Slot
     {
-        public CollectableType type;
+        //public string itemName;
+        public ItemData itemData;
         public int count;
-        public int maxAllowed;
-        public Sprite icon;
+        public bool IsEmpty => itemData == null || count <= 0;
+        //public int maxAllowed;
+        //public Sprite icon;
+        //public ItemType type;
+        //public Vector3 originalDropPosition; //原始掉落位置
 
-        public Slot()
+        /*public Slot()
         {
-            type = CollectableType.NONE;
+            itemName = "";
             count = 0;
             maxAllowed = 99;
-        }
-        
-        public bool CanAddItem()
+        }*/
+
+        /*//判斷格子是否為空
+        public bool IsEmpty
         {
-            if(count < maxAllowed)
+            get
             {
-                return true;
+                if(itemName == "" && count == 0)
+                {
+                    return true;
+                }
+                
+                return false;
             }
-            return false;
+        }*/
+        
+        public bool CanAddItem(ItemData data)
+        {
+            return itemData == data && count < data.maxAllowed;
         }
 
-        public void AddItem(Collectable item)
+        public void AddItem(ItemData data, int amount = 1)
         {
-            this.type = item.type;
-            this.icon = item.icon;
-            count++; 
+            //如果格子是空的
+            if (IsEmpty)
+            {
+                itemData = data;
+                count = Mathf.Min(amount, data.maxAllowed);
+            }
+            //如果格子裡和要加的物品是同樣的
+            else if (itemData == data)
+            {
+                count = Mathf.Min(count + amount, data.maxAllowed);
+            }
+        }
+
+        /*public void AddItem(string itemName, Sprite icon, ItemType type, int maxAllowed)
+        {
+            this.itemName = itemName;
+            this.icon = icon;
+            this.type = type;
+            //this.originalDropPosition = item.transform.position; // 記住撿起前的位置
+            this.count++; 
+            this.maxAllowed = maxAllowed;
+        }*/
+
+
+        public void RemoveItem(int amount = 1)
+        {
+            if (!IsEmpty)
+            {
+                count -= amount;
+                if (count <= 0)
+                {
+                    itemData = null;
+                    count = 0;
+                }
+            }
         }
     }
 
     public List<Slot> slots = new List<Slot>();
+    public Slot selectedSlot = null;
 
     public Inventory(int numSlots)
     {
@@ -47,24 +95,57 @@ public class Inventory
         }
     }
 
-    public void Add(Collectable item)
+    public void Add(ItemData data, int amount = 1)
     {
-        foreach(Slot slot in slots)
+        //找格子裡相同data的
+        foreach (Slot slot in slots)
         {
-            if(slot.type == item.type && slot.CanAddItem())
+            if (slot.CanAddItem(data))
             {
-                slot.AddItem(item);
+                slot.AddItem(data, amount);
                 return;
             }
         }
 
-        foreach(Slot slot in slots)
+        //如果沒有再找空格子
+        foreach (Slot slot in slots)
         {
-            if(slot.type == CollectableType.NONE)
+            if (slot.IsEmpty)
             {
-                slot.AddItem(item);
+                slot.AddItem(data, amount);
                 return;
             }
+        }
+        Debug.LogWarning("沒有空格可以放置物品！");
+    }
+
+    public void Remove(int index, int amount = 1)
+    {
+        if (index >= 0 && index < slots.Count)
+        {
+            slots[index].RemoveItem(amount);
+        }
+    }
+
+    //在inventory視窗上的格子間挪動
+    public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)  //預設移動1個
+    {
+        Slot fromSlot = slots[fromIndex];
+        Slot toSlot = toInventory.slots[toIndex];
+
+        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemData)) //如果格子為空或形態相符才可以挪
+        {
+            toSlot.AddItem(fromSlot.itemData, numToMove);
+            fromSlot.RemoveItem(numToMove);    
+        }
+    }
+
+    //得到選擇的格子
+    public void SelectSlot(int index)
+    {
+        if(slots != null && slots.Count > 0)
+        {
+            selectedSlot = slots[index];
         }
     }
 }

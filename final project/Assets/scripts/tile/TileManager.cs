@@ -3,10 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Tilemaps;
 
+
 public class TileManager : MonoBehaviour
 {
-    [SerializeField] private Tilemap InteractableMap;
+    [SerializeField] public Tilemap InteractableMap; //田地層(不會改變)
     [SerializeField] private Tile hiddenInteractableTile;
+    public Tilemap cropTilemap;   // 作物層
+
+    public TileBase sproutTile; //發芽
+    public TileBase matureTile; //成長
+    public TileBase readyToHarvestTile; //準備收成
 
     void Start()
     {
@@ -16,19 +22,24 @@ public class TileManager : MonoBehaviour
         }   
     }
 
-    public bool IsInteractable(Vector3Int position)
+    public void SetCropTile(Vector3Int position, TileBase tile)
     {
-        TileBase tile = InteractableMap.GetTile(position);
+        cropTilemap.SetTile(position, tile);
+    }
 
-        if(tile != null)
+    public string GetTileName(Vector3Int position)
+    {
+        if(InteractableMap != null)
         {
-            Debug.Log("Tile Name: " + tile.name);  // 輸出 Tile 的名稱來確認
-            if(tile.name == "Interactable")
+            TileBase tile = InteractableMap.GetTile(position);
+
+            if(tile != null)
             {
-                return true;
+                return tile.name;
             }
         }
-
-        return false;
+        return "";
     }
+
+    
 }

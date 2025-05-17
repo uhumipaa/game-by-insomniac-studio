@@ -183,7 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8645798945149404310}
+  hitbox: {fileID: 0}
   tileManager: {fileID: 0}
+  canMove: 1
 --- !u!95 &6230689536207759314
 Animator:
   serializedVersion: 7
@@ -222,6 +224,7 @@ MonoBehaviour:
   current_health: 0
   atk: 15
   def: 30
+  attack_range: 0
   attack_time: 0.2
   speed: 3.5
 --- !u!114 &497330074470465192

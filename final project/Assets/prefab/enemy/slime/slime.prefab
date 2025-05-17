@@ -8,12 +8,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
   - component: {fileID: 7908426506085548301}
   - component: {fileID: 7206873896671180018}
   m_Layer: 12
   m_Name: HealthBar
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,10 +34,10 @@ RectTransform:
   - {fileID: 29820645055083972}
   m_Father: {fileID: 4120488962528116067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.1}
-  m_SizeDelta: {x: 1.2, y: 0.2}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.0999985}
+  m_SizeDelta: {x: -98.8, y: -99.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7206873896671180018
 MonoBehaviour:
@@ -61,7 +60,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.96981126, g: 0.9423638, b: 0.9423638, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -106,7 +105,7 @@ GameObject:
   - component: {fileID: 4226045618416883973}
   m_Layer: 12
   m_Name: PlayerHealthUI
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +151,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &6997395031388117008
 MonoBehaviour:
@@ -223,15 +222,12 @@ GameObject:
   - component: {fileID: 7885453470461172818}
   - component: {fileID: 2033366489375096606}
   - component: {fileID: 1134598922017474711}
-=======
-  - component: {fileID: 5126594704914784929}
-  - component: {fileID: 1756700868455327572}
-  - component: {fileID: 376992174460546894}
-  - component: {fileID: 3554093631874117866}
-  - component: {fileID: 3887201909088353445}
-  - component: {fileID: 4948092188169428969}
-  - component: {fileID: 1681355347929102291}
->>>>>>> Stashed changes
+  - component: {fileID: 4461629830198391005}
+  - component: {fileID: -1606029204898316246}
+  - component: {fileID: -8164130189725706051}
+  - component: {fileID: 1345292868052178229}
+  - component: {fileID: 7509584110117848782}
+  - component: {fileID: 7377689710196660885}
   m_Layer: 12
   m_Name: slime
   m_TagString: enemy
@@ -248,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 3548365237713620227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.03389573, y: -3.3516371, z: 0}
+  m_LocalPosition: {x: 2.67, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -298,7 +294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: -3785385192508942874, guid: ae87d3b954f5a1d4ab360911a3424976, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -323,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  canMove: 1
 --- !u!95 &7624157656253354013
 Animator:
   serializedVersion: 7
@@ -352,7 +349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3548365237713620227}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d5dd6e7715c6740bc58c2412077ccb, type: 3}
   m_Name: 
@@ -397,21 +394,13 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.45117188}
   m_Radius: 0.49414062
-<<<<<<< Updated upstream
 --- !u!114 &1134598922017474711
-=======
---- !u!114 &1681355347929102291
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 3548365237713620227}
-=======
-  m_GameObject: {fileID: 7611801143875218932}
->>>>>>> Stashed changes
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c8a6e7dbc3f03b4a9b3ab23fcedd319, type: 3}
@@ -420,7 +409,10 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 10
-<<<<<<< Updated upstream
+  atk: 0
+  attack_range: 2
+  speed: 3
+  stuncd: 0
   spriteRender: {fileID: 4683129588610336675}
   healthChanged:
     m_PersistentCalls:
@@ -438,6 +430,105 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healthbar: {fileID: 4226045618416883973}
+  playerstats: {fileID: 4044947140317877406, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+  stats: {fileID: 1345292868052178229}
+--- !u!114 &4461629830198391005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0bbe9c681da9a419c7d2668ae948ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackDistance: 1.5
+  knockbackDuration: 0.2
+--- !u!114 &-1606029204898316246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24e51c92d2879d4ab6c0093b15794d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibleDuration: 0.5
+--- !u!114 &-8164130189725706051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127f4d7fb42c11344a99f3e0a789c632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 5979649110480244299, guid: f687b29ac5be38843b9f58417fa61abf, type: 3}
+  shootInterval: 3
+--- !u!114 &1345292868052178229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expReward: 30
+--- !u!114 &7509584110117848782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98990efbfe5eae4ba202a1fdfbb86c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 5
+  stuned_time: 1
+  offsetStrength: 0.5
+  jitterStrength: 0.1
+--- !u!50 &7377689710196660885
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3548365237713620227}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4818089758913146581
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,5 +826,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-=======
->>>>>>> Stashed changes
