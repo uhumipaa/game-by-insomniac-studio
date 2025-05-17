@@ -4,7 +4,6 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
 {
     public GameObject[] cast_prefab;
     private int prefabcount;
-    private float damage;
     IEnenmyResetInterface reset;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,7 +30,6 @@ public class enemy_cast_attack : MonoBehaviour,IEnemyAttackBehavior
         {
             prefabcount = diff.y > 0 ? 1 : 2;
         }
-        damage = attack;
     }
 
     public void enableprefab()

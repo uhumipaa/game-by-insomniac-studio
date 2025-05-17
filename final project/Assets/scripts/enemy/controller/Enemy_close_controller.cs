@@ -3,14 +3,17 @@ using System.Collections;
 
 public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
 {
+    [Header("模組")]
     private Rigidbody2D rb;
     private Animator ani;
     private Transform player;
     private enemy_property property;
     public MonoBehaviour[] scripts;
+    [Header("腳本")]
     public IEnemyAttackBehavior attack;
     public IEnemyAnimatorBehavior animator;
     public IEnemyMoveBehavior move;
+    [Header("屬性")]
     public bool isstuned;
     public bool isattacking;
     public float scale;

@@ -4,8 +4,10 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
 {
+    [SerializeField] private AnimationCurve dashSpeedCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     [SerializeField] float duration;
     [SerializeField] float changetime;
+    [SerializeField] float speedMultiplier;
     private float speed;
     private Transform Player;
     private Enemy_withdash_controller controller;
@@ -34,18 +36,23 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
     }
     IEnumerator dashing(float scale)
     {
+        float dashSpeed = Property.speed * speedMultiplier;
         ani.SetBool("dashing", true);
         hitbox.enabled = true;
-        float pasttime = 0;
-        while (pasttime < duration)
+        float pasttime = 0f;
+        int count = 0;
+        while (count < (duration / changetime)) 
         {
             pasttime += Time.deltaTime;
-            if (pasttime % changetime == 0||meetwall)
+            if (pasttime > changetime||meetwall)
             {
+                pasttime = 0f;
+                count++;
                 direction = getdirection(scale);
                 meetwall = false;
             }
-            rb.linearVelocity = speed * direction;
+            float speedFactor = dashSpeedCurve.Evaluate(pasttime / changetime);
+            rb.linearVelocity = direction * dashSpeed * speedFactor;
             yield return null;
         }
         finishdash();

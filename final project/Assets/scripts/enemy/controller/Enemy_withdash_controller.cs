@@ -19,7 +19,9 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
     public IEnemyMoveBehavior move;
     public IEnemySpecilskillBehavior sp;
 
+    [Header("³]©w")]
     [SerializeField]private float scale;
+    [SerializeField] protected float stunAfterAttackDuration = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -68,10 +70,12 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
     }
     public void FinishAttack()
     {
+        if (currentstate != enemystate.Attacking)
+            return;
+        rb.linearVelocity = Vector2.zero;
+        StartCoroutine(AttackToDashDelay(stunAfterAttackDuration));
         animator.PlayIdle(ani);
-        //StartCoroutine(AttackToDashDelay(0.5f));
         Debug.Log("finish2");
-        dash();
     }
     public void Finishdash()
     {
@@ -83,7 +87,6 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
         currentstate = enemystate.Stunning;
         Debug.Log("stuned");
         yield return new WaitForSecondsRealtime(cd);
-        Debug.Log("stuned");
         currentstate = enemystate.Idle;
     }
 
@@ -105,16 +108,16 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
             move.Move(transform, player, rb, property.speed);
         }
     }
-    IEnumerator AttackToDashDelay(float delay)
+    IEnumerator AttackToDashDelay(float cd)
     {
         Debug.Log("stunafterattack");
         currentstate = enemystate.stunafterattack;
-        yield return new WaitForSecondsRealtime(delay);
+        yield return new WaitForSecondsRealtime(cd);
         dash();
     }
     void dash()
     {
-        sp.usingskill(transform, player, property, scale);
         currentstate = enemystate.Dashing;
+        sp.usingskill(transform, player, property, scale);
     }
 }

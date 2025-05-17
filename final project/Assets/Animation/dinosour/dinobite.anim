@@ -22,9 +22,9 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -4509359564991771626, guid: eca8ab2f825084945ab8b37b26495be4, type: 3}
-    - time: 0.23333333
+    - time: 0.16666667
       value: {fileID: 6035551703564059206, guid: eca8ab2f825084945ab8b37b26495be4, type: 3}
-    - time: 0.48333332
+    - time: 0.33333334
       value: {fileID: 8162908817550238793, guid: eca8ab2f825084945ab8b37b26495be4, type: 3}
     - time: 2
       value: {fileID: 8162908817550238793, guid: eca8ab2f825084945ab8b37b26495be4, type: 3}
@@ -79,7 +79,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.48333332
+  - time: 0.16666667
     functionName: enableprefab
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -87,14 +87,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2
-    functionName: NotifyAttackFinished
+    functionName: closeprefab
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 2
-    functionName: closeprefab
+    functionName: NotifyAttackFinished
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
