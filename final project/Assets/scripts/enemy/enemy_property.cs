@@ -22,7 +22,6 @@ public class enemy_property : MonoBehaviour
 
     private Knockback knockback;
     private NanoMachine_Son nanoMachine; //加入無敵系統
-    public PlayerStats playerstats;
     public KillEnemyStats stats;
     public bool isBossKingPhase2 = false;
     private bool isBossKingDead = false;
