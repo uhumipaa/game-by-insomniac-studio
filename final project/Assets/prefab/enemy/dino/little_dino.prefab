@@ -18,10 +18,12 @@ GameObject:
   - component: {fileID: 2079910820733350813}
   - component: {fileID: 4734062722886257044}
   - component: {fileID: 2934159072269727024}
+  - component: {fileID: 6471408198094226620}
   - component: {fileID: 7179058761044588442}
   - component: {fileID: 3954891195046672055}
   - component: {fileID: 4715906338733025867}
   - component: {fileID: 3414242635040456527}
+  - component: {fileID: 4590354793233068848}
   m_Layer: 0
   m_Name: little_dino
   m_TagString: Untagged
@@ -209,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8016570ffdbd6dc4bbeb5524b3158473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contorller: {fileID: 7179058761044588442}
+  contorller: {fileID: 6471408198094226620}
 --- !u!114 &7287043607139171809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +282,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 30
+--- !u!114 &6471408198094226620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549431525977102465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d80316277aee5545bb8ea6faf748c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 3954891195046672055}
+  - {fileID: 7287043607139171809}
+  - {fileID: 2079910820733350813}
+  - {fileID: 4590354793233068848}
+  scale: 4
+  stunAfterAttackDuration: 1
 --- !u!114 &7179058761044588442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +390,46 @@ PolygonCollider2D:
       - {x: 0.16405034, y: 0.14058839}
   m_UseDelaunayMesh: 0
 --- !u!114 &3414242635040456527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549431525977102465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef58d6ac71c16024e96265d18bf84998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 5
+  changetime: 1
+  speedMultiplier: 1.3
+  hitbox: {fileID: 4715906338733025867}
+--- !u!114 &4590354793233068848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -2,24 +2,24 @@ using UnityEngine;
 using System.Collections;
 using static Enemy_withdash_controller;
 
-public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
+public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface,IEnemySkillContollerInterface
 {
     public enum enemystate { Idle,Moving,Attacking,Dashing,Stunning,stunafterattack }
     private enemystate currentstate;
-    [Header("°òÂ¦ÄÝ©Ê")]
+    [Header("ï¿½ï¿½Â¦ï¿½Ý©ï¿½")]
     private Rigidbody2D rb;
     private Animator ani;
     private Transform player;
     private enemy_property property;
     public MonoBehaviour[] scripts;
 
-    [Header("¼Ò²Õ")]
+    [Header("ï¿½Ò²ï¿½")]
     public IEnemyAttackBehavior attack;
     public IEnemyAnimatorBehavior animator;
     public IEnemyMoveBehavior move;
     public IEnemySpecilskillBehavior sp;
 
-    [Header("³]©w")]
+    [Header("ï¿½]ï¿½w")]
     [SerializeField]private float scale;
     [SerializeField] protected float stunAfterAttackDuration = 0.5f;
 
@@ -46,10 +46,10 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
                 AttackorMove();
                 break;
             case enemystate.Attacking:
-                //°Êµe±±¨î
+                //ï¿½Êµeï¿½ï¿½ï¿½ï¿½
                 break;
             case enemystate.stunafterattack:
-                //¨óµ{±±¨î
+                //ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½
                 break;
             case enemystate.Dashing:
                 break;
@@ -77,7 +77,7 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
         animator.PlayIdle(ani);
         Debug.Log("finish2");
     }
-    public void Finishdash()
+    public void Finishskill()
     {
         animator.PlayIdle(ani);
         StartCoroutine(Stun(property.stuncd));

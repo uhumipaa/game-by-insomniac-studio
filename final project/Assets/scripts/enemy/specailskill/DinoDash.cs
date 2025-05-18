@@ -10,7 +10,7 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
     [SerializeField] float speedMultiplier;
     private float speed;
     private Transform Player;
-    private Enemy_withdash_controller controller;
+    private IEnemySkillContollerInterface controller;
     private Rigidbody2D rb;
     private Vector2 direction;
     public PolygonCollider2D hitbox;
@@ -18,9 +18,9 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
     private bool meetwall;
     private enemy_property Property;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        controller = GetComponent<Enemy_withdash_controller>();
+        controller = GetComponent<IEnemySkillContollerInterface>();
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         hitbox.enabled = false;
@@ -30,21 +30,21 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
         Player = player;
         speed = property.speed*1.5f;
         Property = property;
-        direction = (player.position-self.position );
+        direction = (Player.position-self.position).normalized;
         StartCoroutine(dashing(scale));
         
     }
     IEnumerator dashing(float scale)
     {
         float dashSpeed = Property.speed * speedMultiplier;
-        ani.SetBool("dashing", true);
+        ani.SetBool("dashing",true);
         hitbox.enabled = true;
         float pasttime = 0f;
         int count = 0;
         while (count < (duration / changetime)) 
         {
             pasttime += Time.deltaTime;
-            if (pasttime > changetime||meetwall)
+            if (pasttime > changetime || meetwall)
             {
                 pasttime = 0f;
                 count++;
@@ -76,7 +76,7 @@ public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
         hitbox.enabled = false;
         ani.SetBool("dashing", false);
         ani.SetBool("waiting", true);
-        controller.Finishdash();
+        controller.Finishskill();
     }
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)

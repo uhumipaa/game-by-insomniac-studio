@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
-public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
+public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface,IEnemySkillContollerInterface
 {
     public enum enemystate { Idle, Moving, Attacking, usingskill, Stunning, stunafterattack }
     private enemystate currentstate;
-    [Header("°òÂ¦ÄÝ©Ê")]
+    [Header("æ¨¡çµ„")]
     private Rigidbody2D rb;
     private Animator ani;
     private Transform player;
@@ -13,15 +13,15 @@ public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
     public MonoBehaviour[] scripts;
     public MonoBehaviour[] skillscripts;
 
-    [Header("¼Ò²Õ")]
+    [Header("è…³æœ¬")]
     private IEnemyAttackBehavior attack;
     private IEnemyAnimatorBehavior animator;
     private IEnemySpecilskillBehavior usingskill;
 
-    [Header("³]©w")]
+    [Header("å±¬æ€§")]
     [SerializeField] private float scale;
     [SerializeField] protected float stunAfterAttackDuration = 0.5f;
-    private bool rage   =true;
+    private bool rage;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -48,15 +48,22 @@ public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
                 AttackorMove();
                 break;
             case enemystate.Attacking:
-                //°Êµe±±¨î
+                //ï¿½Êµeï¿½ï¿½ï¿½ï¿½
                 break;
             case enemystate.stunafterattack:
-                //¨óµ{±±¨î
+                //ï¿½ï¿½{ï¿½ï¿½ï¿½ï¿½
                 break;
             case enemystate.usingskill:
                 break;
             case enemystate.Stunning:
                 break;
+        }
+        if (!rage)
+        {
+            if (property.current_health < property.max_health / 2)
+            {
+                rage = true;
+            }
         }
     }
     void flip()
@@ -82,16 +89,18 @@ public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
     }
     public void Finishskill()
     {
+        Debug.Log("finishskill");
         animator.PlayIdle(ani);
+        ani.SetBool("waiting", true);
+        ani.SetBool("dashing", false);
+        ani.SetBool("jumping", false);
+        ani.SetBool("casting", false);
         StartCoroutine(Stun(property.stuncd));
     }
     IEnumerator Stun(float cd)
     {
         currentstate = enemystate.Stunning;
-        ani.SetBool("dashing", false);
-        ani.SetBool("jumping", false);
-        ani.SetBool("casting", false);
-            Debug.Log("stuned");
+        Debug.Log("stuned");
         yield return new WaitForSecondsRealtime(cd);
         currentstate = enemystate.Idle;
     }
@@ -113,6 +122,7 @@ public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
     }
     void useskill()
     {
+        ani.SetBool("waiting", false);
         currentstate = enemystate.usingskill;
         if (rage)
         {
@@ -132,6 +142,22 @@ public class Boss_dino_controller : MonoBehaviour,IEnemyControllerInterface
                     break;
             }
         }
+        else
+        {
+            int rmd = Random.Range(0, 2);
+            usingskill = skillscripts[rmd] as IEnemySpecilskillBehavior;
+            usingskill.usingskill(transform, player, property, scale);
+            switch (rmd)
+            {
+                case 0:
+                    ani.SetBool("dashing", true);
+                    break;
+                case 1:
+                    ani.SetBool("jumping", true);
+                    break;
+            }
+        }
+        
         
         
     }
