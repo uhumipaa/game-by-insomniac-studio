@@ -924,7 +924,7 @@ MonoBehaviour:
   current_health: 0
   def: 28
   atk: 10
-  attack_range: 2
+  attack_range: 1
   speed: 1.5
   stuncd: 2
   spriteRender: {fileID: 6820064339209017111}
@@ -958,7 +958,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  playerstats: {fileID: 0}
   stats: {fileID: 2668980735709478927}
   isBossKingPhase2: 0
   detect_range: 10
