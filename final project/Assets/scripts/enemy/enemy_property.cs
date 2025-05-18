@@ -24,8 +24,12 @@ public class enemy_property : MonoBehaviour
     private NanoMachine_Son nanoMachine; //加入無敵系統
     public KillEnemyStats stats;
     public bool isBossKingPhase2 = false;
+    public bool isnightdemon = false;
     private bool isBossKingDead = false;
-    public float detect_range = 5f; 
+    public float detect_range = 5f;
+
+    [Header("是nightdemon才需要掛")]
+    public nightdemoncontroller nightdemon;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -95,6 +99,11 @@ public class enemy_property : MonoBehaviour
 
         if (current_health < 0)
         {
+            if (isnightdemon)
+            {
+                nightdemon.nightdemondie();
+                return;
+            }
             if (!isBossKingPhase2 && Boss_King_Death != null)
             {
                 Boss_King_Death.Invoke();

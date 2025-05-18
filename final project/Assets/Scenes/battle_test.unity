@@ -4691,7 +4691,9 @@ MonoBehaviour:
       m_Calls: []
   stats: {fileID: 994694384}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 5
+  nightdemon: {fileID: 0}
 --- !u!114 &994694383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4962,7 +4964,9 @@ MonoBehaviour:
       m_Calls: []
   stats: {fileID: 1053509780}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 5
+  nightdemon: {fileID: 0}
 --- !u!95 &1053509784
 Animator:
   serializedVersion: 7
@@ -7898,10 +7902,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1577759798}
-    - target: {fileID: 5268912130177065359, guid: b08c71930f7ca0544a5088146794cd38, type: 3}
-      propertyPath: detectionRange
-      value: 1.8
-      objectReference: {fileID: 0}
+    - target: {fileID: 4892284329258005066, guid: b08c71930f7ca0544a5088146794cd38, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1577759798}
     - target: {fileID: 5268912130177065359, guid: b08c71930f7ca0544a5088146794cd38, type: 3}
       propertyPath: player_Property
       value: 
@@ -7910,6 +7914,10 @@ PrefabInstance:
       propertyPath: playerDetectionPoint
       value: 
       objectReference: {fileID: 1577759811}
+    - target: {fileID: 6928965114502564376, guid: b08c71930f7ca0544a5088146794cd38, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7223888808878050180, guid: b08c71930f7ca0544a5088146794cd38, type: 3}
       propertyPath: m_Name
       value: nightdemon

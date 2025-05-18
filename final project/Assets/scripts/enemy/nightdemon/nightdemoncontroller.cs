@@ -8,11 +8,13 @@ public class nightdemoncontroller : MonoBehaviour
     public Vector2 rightBoundary;
 
     public GameObject attackHitbox;
+    public GameObject DeathHitbox;
+    public GameObject healthBarUI;
 
     private Vector2 moveDirection;
     private Transform player;
     private Rigidbody2D rb;
-    private Animator animator;
+    public Animator animator;
     public Transform playerDetectionPoint;
     public Transform selfDetectionPoint;
     public Player_Property player_Property;
@@ -20,10 +22,10 @@ public class nightdemoncontroller : MonoBehaviour
 
     private enum State { Patrol, Charging, Attacking }
     private State currentState = State.Patrol;
-
-    private bool isFacingRight = true;
     private float directionChangeInterval = 1f;
     private float directionChangeTimer;
+    private bool isdead = false;
+    public bool isattack = false;
 
     void Start()
     {
@@ -48,6 +50,11 @@ public class nightdemoncontroller : MonoBehaviour
 
     void Update()
     {
+        if (!isattack)
+        {
+            FaceDirection();
+        }
+        if (isdead) return;
         switch (currentState)
         {
             case State.Patrol:
@@ -62,17 +69,19 @@ public class nightdemoncontroller : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;
                 break;
         }
-        FaceDirection();
     }
 
     void LateUpdate()
     {
-        Vector3 pos = transform.position;
+        Vector3 clampedPos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, leftBoundary.x, rightBoundary.x);
-        pos.y = Mathf.Clamp(pos.y, leftBoundary.y, rightBoundary.y);
+        clampedPos.x = Mathf.Clamp(clampedPos.x, leftBoundary.x, rightBoundary.x);
+        clampedPos.y = Mathf.Clamp(clampedPos.y, leftBoundary.y, rightBoundary.y);
 
-        selfDetectionPoint.position = pos;
+        transform.position = clampedPos; // ✅ 直接修正主體位置
+
+        if (selfDetectionPoint != null)
+            selfDetectionPoint.position = clampedPos; // 同步自訂偵測點位置
     }
 
     void Patrol()
@@ -119,11 +128,7 @@ public class nightdemoncontroller : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             animator.Play("Charge");
 
-            // 面向玩家
-            if (playerDetectionPoint.position.x < selfDetectionPoint.position.x)
-                isFacingRight = false;
-            else
-                isFacingRight = true;
+            FaceDirectionToPlayer();
         }
     }
 
@@ -135,19 +140,17 @@ public class nightdemoncontroller : MonoBehaviour
 
     void FaceDirection()
     {
-        if (playerDetectionPoint.position.x > selfDetectionPoint.position.x && !isFacingRight)
-            Flip();
-        else if (playerDetectionPoint.position.x < selfDetectionPoint.position.x && isFacingRight)
-            Flip();
-
-    }
-
-    void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
+        Vector3 scale = selfDetectionPoint.localScale;
+        if (moveDirection.x >= 0)
+        {
+            scale.x = Mathf.Abs(scale.x);
+            selfDetectionPoint.localScale = scale;
+        }
+        else if (moveDirection.x < 0)
+        {
+            scale.x = -Mathf.Abs(scale.x);
+            selfDetectionPoint.localScale = scale;
+        }
     }
 
     void OnDrawGizmos()
@@ -179,15 +182,40 @@ public class nightdemoncontroller : MonoBehaviour
         }
     }
 
+    public void nightdemondie()
+    {
+        isdead = true;
+        if (healthBarUI != null)
+        {
+            healthBarUI.SetActive(false);
+        }
+        rb.linearVelocity = Vector2.zero;
+        animator.Play("Death");
+    }
+    void FaceDirectionToPlayer()
+    {
+        bool shouldFaceRight = playerDetectionPoint.position.x >= selfDetectionPoint.position.x;
+        Vector3 scale = selfDetectionPoint.localScale;
+        if (!shouldFaceRight)
+        {
+            scale.x = Mathf.Abs(scale.x);
+            selfDetectionPoint.localScale = scale;
+        }
+        else if (shouldFaceRight)
+        {
+            scale.x = -Mathf.Abs(scale.x);
+            selfDetectionPoint.localScale = scale;
+        }
+    }
+
     // ===== 🎬 動畫事件函數區塊 =====
 
     // 在 Charge 動畫的最後一幀呼叫
     public void OnChargeFinished()
     {
-        // FaceDirection();
         currentState = State.Attacking;
         animator.Play("Attack");
-        // FaceDirection();
+        isattack = true;
     }
 
     // 在 Attack 動畫的中段呼叫
@@ -210,9 +238,44 @@ public class nightdemoncontroller : MonoBehaviour
             if (col != null)
                 col.enabled = false;
         }
-
+    }
+    public void FinalAttack()
+    {
+        isattack = false;
         currentState = State.Patrol;
         directionChangeTimer = directionChangeInterval;
         PickRandomDirection();
+    }
+    public void EnableDeathHitbox()
+    {
+        if (DeathHitbox != null)
+        {
+            Collider2D col = DeathHitbox.GetComponent<Collider2D>();
+            if (col != null)
+                col.enabled = true;
+            Vector3 scale = selfDetectionPoint.localScale;
+            scale.x = 7;
+            scale.y = 7;
+            selfDetectionPoint.localScale = scale;
+        }
+    }
+    public void DisableDeathHitbox()
+    {
+        if (DeathHitbox != null)
+        {
+            Collider2D col = DeathHitbox.GetComponent<Collider2D>();
+            if (col != null)
+                col.enabled = false;
+        }
+    }
+    public void Destroynightdemon(){
+        Vector3 scale = selfDetectionPoint.localScale;
+        scale.x = 4;
+        scale.y = 4;
+        selfDetectionPoint.localScale = scale;
+        Collider2D col = DeathHitbox.GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
+        gameObject.SetActive(false);
     }
 }
