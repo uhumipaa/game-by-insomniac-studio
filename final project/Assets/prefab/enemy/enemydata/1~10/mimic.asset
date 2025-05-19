@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
+  m_Name: mimic
+  m_EditorClassIdentifier: 
+  baseHP: 30
+  baseatk: 12
+  basedef: 12
+  speed: 4
+  enemyname: mimic
+  atkpara: 1.6
+  defpara: 1.4
+  HPpara: 3
+  enemyprefab: {fileID: 5068894445854900378, guid: a56e6964a79d16a4e9fee52c74e0632c, type: 3}

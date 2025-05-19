@@ -14,6 +14,7 @@ public class Maploader : MonoBehaviour
 
 
     // Update is called once per frame
+    
     public void LoadMap(int index)
     {
         if (currentMap != null)

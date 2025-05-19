@@ -1,21 +1,22 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class General_teleport : MonoBehaviour
 {
     private TowerManager tower;
-    private Maploader maploader;
+    private Maploaders maploader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maploader = FindAnyObjectByType<Maploader>();
+        maploader = FindAnyObjectByType<Maploaders>();
         tower = FindAnyObjectByType<TowerManager>();
         if (tower == null)
         {
-            Debug.LogError("tower §ä¤£¨ì¡I");
+            Debug.LogError("tower ï¿½ä¤£ï¿½ï¿½I");
         }
         if (maploader == null)
         {
-            Debug.LogError("MapLoader §ä¤£¨ì¡I");
+            Debug.LogError("MapLoader ï¿½ä¤£ï¿½ï¿½I");
         }
     }
 
@@ -32,9 +33,23 @@ public class General_teleport : MonoBehaviour
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
         TowerManager.Instance.currentTowerFloor++;
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
-        int roomVariant = Random.Range(0, 4);
-        int floor = TowerManager.Instance.currentTowerFloor;
-        floor = (floor - 1) / 10 * 4 + roomVariant;
-        maploader.LoadMap(floor);
+        if (TowerManager.Instance.currentTowerFloor % 10 == 0)//boss
+        {
+
+        }
+        else if (TowerManager.Instance.currentTowerFloor % 10 == 5)//rest
+        {
+
+        }
+        else
+        {
+            int roomVariant = Random.Range(0, 4);
+            int floor = TowerManager.Instance.currentTowerFloor;
+            if (floor % 10 == 1)
+            {
+                maploader.changemap(floor / 10);
+            }
+            maploader.LoadMaps(floor,roomVariant);
+        }
     }
 }

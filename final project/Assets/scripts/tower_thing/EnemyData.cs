@@ -8,8 +8,8 @@ public class EnemyData : ScriptableObject
     public int basedef;
     public int speed;
     public string enemyname;
-    public int atkpara;
-    public int defpara;
-    public int HPpara;
+    public float atkpara;
+    public float defpara;
+    public float HPpara;
     public GameObject enemyprefab;
 }

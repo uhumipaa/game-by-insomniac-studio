@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9d1d200794024988bcc0c58a8baa7, type: 3}
+  m_Name: 1~10 castle
+  m_EditorClassIdentifier: 
+  enemyprefab:
+  - {fileID: 11400000, guid: 5e7cfeffe612b9148b8d614da9e02739, type: 2}
+  - {fileID: 11400000, guid: dbb6c054bf1b44e48b96c86cae041eb5, type: 2}
+  - {fileID: 11400000, guid: 29cef0b1b5660a84c8eca69662c207a7, type: 2}
+  - {fileID: 11400000, guid: 9610e74312840cc42ac450b2ece003a1, type: 2}
+  enemycount: 6
+  spwan_range_min: {x: -7, y: 5}
+  spawn_range_max: {x: 9, y: 9}
+  maps:
+  - {fileID: 1186761169993429777, guid: ec2b64264843a894c92a371de72d4513, type: 3}
+  - {fileID: 7721357749720449120, guid: 160cb6b1e54771a418fa3a8ed3e12a53, type: 3}
+  - {fileID: 7756073020670817217, guid: 59e3f6bd6705a734aa5c61654846f8f0, type: 3}
+  - {fileID: 7204867269575870743, guid: 6ab7fc8ed41edf349a223cbfc07b8a19, type: 3}
+  levelrange: 3

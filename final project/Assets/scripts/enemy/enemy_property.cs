@@ -46,9 +46,9 @@ public class enemy_property : MonoBehaviour
 
     public void generaterandomstatus(EnemyData enemyData, int level)
     {
-        max_health = enemyData.baseHP + (enemyData.HPpara * level);
-        atk = enemyData.baseatk + (enemyData.atkpara * level);
-        def = enemyData.basedef + (enemyData.defpara * level);
+        max_health = enemyData.baseHP + (int)(enemyData.HPpara * level);
+        atk = enemyData.baseatk + (int)(enemyData.atkpara * level);
+        def = enemyData.basedef + (int)(enemyData.defpara * level);
         Debug.Log($"生成了 {enemyData.enemyname}，等級 {level}，HP {max_health}，攻擊 {atk}");
     }
     void Start()

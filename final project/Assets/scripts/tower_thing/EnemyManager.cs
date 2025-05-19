@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static EnemyManager instance; 
     public List<GameObject> now_enemy = new List<GameObject>();
-    private Maploader maploader;
+    private Maploaders maploader;
 
     void Awake()
     {
@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
         {
             Destroy(gameObject); // �����
         }
-        maploader = FindAnyObjectByType<Maploader>();
+        maploader = FindAnyObjectByType<Maploaders>();
     }
 
     public void Addenemy(GameObject newenemy)

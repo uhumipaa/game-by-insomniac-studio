@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9d1d200794024988bcc0c58a8baa7, type: 3}
+  m_Name: 41~50
+  m_EditorClassIdentifier: 
+  enemyprefab: []
+  enemycount: 0
+  spwan_range_min: {x: -7, y: 5}
+  spawn_range_max: {x: 9, y: 9}
+  maps:
+  - {fileID: 8915497242171286968, guid: 40cb0a4cd0896d54cb5ed4980f5c9317, type: 3}
+  - {fileID: 489190757016656273, guid: afa3f40b2209e5844b626657c4f42798, type: 3}
+  - {fileID: 8747751907975859734, guid: 0ebbb8a7d8dbeca4783f52ff29e12f2b, type: 3}
+  - {fileID: 6629156361649460900, guid: ed59c04824f920f4196302e669447395, type: 3}
+  levelrange: 6

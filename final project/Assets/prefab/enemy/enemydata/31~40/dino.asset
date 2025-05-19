@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
-  m_Name: EnemyData
+  m_Name: dino
   m_EditorClassIdentifier: 
   baseHP: 50
-  baseatk: 3
-  basedef: 1
-  speed: 10
-  enemyname: "\u53F2\u840A\u59C6"
-  atkpara: 2
-  defpara: 1
-  HPpara: 4
-  enemyprefab: {fileID: 3548365237713620227, guid: 7c20c0007774a594a9965a8e05388291, type: 3}
+  baseatk: 10
+  basedef: 13
+  speed: 2
+  enemyname: dino
+  atkpara: 1.5
+  defpara: 1.5
+  HPpara: 3
+  enemyprefab: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}

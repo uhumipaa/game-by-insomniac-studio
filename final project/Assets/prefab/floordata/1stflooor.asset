@@ -17,4 +17,5 @@ MonoBehaviour:
   enemycount: 5
   spwan_range_min: {x: -7, y: 5}
   spawn_range_max: {x: 9, y: 9}
-  levelrange: 2
+  maps: {fileID: 0}
+  levelrange: 3

@@ -5,7 +5,7 @@ public class TowerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static TowerManager Instance { get; set; }
     public int currentTowerFloor = 1;
-    private Maploader loader;
+    private Maploaders loader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private void Awake()
@@ -22,8 +22,8 @@ public class TowerManager : MonoBehaviour
 
     private void Start()
     {
-        loader = FindAnyObjectByType<Maploader>();
-        loader.LoadMap(0);
+        loader = FindAnyObjectByType<Maploaders>();
+        loader.LoadMaps(currentTowerFloor,0);
     }
     void retrun_to_tower()
     {

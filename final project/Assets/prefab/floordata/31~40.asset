@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb9d1d200794024988bcc0c58a8baa7, type: 3}
+  m_Name: 31~40
+  m_EditorClassIdentifier: 
+  enemyprefab:
+  - {fileID: 11400000, guid: 0a88af0813a81a4438b849d1f9da1feb, type: 2}
+  - {fileID: 11400000, guid: cbccd4d994faec24a96ef338f7401fa4, type: 2}
+  - {fileID: 11400000, guid: 2d1ea07f30044d84aaf3383a779f48e0, type: 2}
+  - {fileID: 0}
+  enemycount: 7
+  spwan_range_min: {x: -7, y: 5}
+  spawn_range_max: {x: 9, y: 9}
+  maps:
+  - {fileID: 3934976362406733922, guid: 089426752df9cc44c857f7aae02627fe, type: 3}
+  - {fileID: 3834825118069168250, guid: 963f0f9e72901f942b74b35b833dfbab, type: 3}
+  - {fileID: 8436805376880381839, guid: aed8ca35a736e6642bd2197f529e810e, type: 3}
+  - {fileID: 1572944170789935281, guid: 1e6b61e26740ff942811aaa751f55ab1, type: 3}
+  levelrange: 5

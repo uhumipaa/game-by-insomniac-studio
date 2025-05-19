@@ -48,7 +48,7 @@ public class Maploaders : MonoBehaviour
 
     }
     // Update is called once per frame
-    public void LoadMaps(int index)
+    public void LoadMaps(int floor,int room)
     {
         if (currentMap != null)
             Destroy(currentMap);
@@ -60,10 +60,9 @@ public class Maploaders : MonoBehaviour
         {
             Destroy(chest_instance);
         }
-        currentMap = Instantiate(mapPrefabs[index], Vector3.zero, Quaternion.identity, mapParen);
+        currentMap = Instantiate(mapPrefabs[room], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
-        FloorData floorData = floorDatas[index];
-        SpawnMonsters(floorData);
+        SpawnMonsters(floorDatas[floor]);
     }
 
     Vector2 getrandomposition(FloorData floorData)
@@ -73,34 +72,39 @@ public class Maploaders : MonoBehaviour
         pos.y = Random.Range(floorData.spwan_range_min.y, floorData.spawn_range_max.y);
         return pos;
     }
+    public void changemap(int i)
+    {
+        mapPrefabs = floorDatas[i].maps;
+    }
 
     void SpawnMonsters(FloorData floorData)
     {
         int count = 0;
         for (int i = 0; i < floorData.enemycount; i++)
         {
-            if (i <4 )
+            if (i < floorData.enemycount - 1)
             {
                 int rmd = Random.Range(1, 4);
-                if (rmd % 3==0)
+                if (rmd % 3 == 0)
                 {
                     continue;
                 }
             }
-            int level = Random.Range((TowerManager.Instance.currentTowerFloor%5) + 2 - floorData.levelrange, (TowerManager.Instance.currentTowerFloor % 5) + 2 - floorData.levelrange);
-            if (count < 3)
+            int level = Random.Range((TowerManager.Instance.currentTowerFloor % 3) + 4 - floorData.levelrange, (TowerManager.Instance.currentTowerFloor % 3) + 4 - floorData.levelrange);
+            if (count < floorData.enemycount - 2)
             {
-                if (count < 2)
+                if (count < floorData.enemycount - 3)
                 {
                     level += 2;
-                }else
+                }
+                else
                 {
                     level += 1;
                 }
             }
             EnemyData monsterPrefab = Getrandomenemy(floorData);
             Vector2 spawnPos = getrandomposition(floorData);
-            Instantiate(monsterPrefab.enemyprefab, spawnPos, Quaternion.identity).GetComponent<enemy_property>()?.generaterandomstatus(monsterPrefab,level);
+            Instantiate(monsterPrefab.enemyprefab, spawnPos, Quaternion.identity).GetComponent<enemy_property>()?.generaterandomstatus(monsterPrefab, level);
             count++;
         }
     }
@@ -110,5 +114,21 @@ public class Maploaders : MonoBehaviour
         int i = Random.Range(0, floorData.enemyprefab.Length);
 
         return floorData.enemyprefab[i];
+    }
+    void loadrestmap()
+    {
+        if (currentMap != null)
+            Destroy(currentMap);
+        if (transcircle_instance != null)
+        {
+            Destroy(transcircle_instance);
+        }
+        if (chest_instance != null)
+        {
+            Destroy(chest_instance);
+        }
+        currentMap = Instantiate(mapPrefabs[5], Vector3.zero, Quaternion.identity, mapParen);
+        Generate_player();
+        
     }
 }
