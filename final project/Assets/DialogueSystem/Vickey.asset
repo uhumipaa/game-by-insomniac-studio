@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53bbbd3b62a7044696c33b6246cf23c, type: 3}
+  m_Name: Vickey
+  m_EditorClassIdentifier: 
+  npcName: Vickey
+  npcPortrait: {fileID: -1896912524, guid: 1d84ec193b4796a49b5b0a47178e75a4, type: 3}
+  dialogueLines:
+  - "\u54C8\u56C9\u4F60\u597D\u5440\\^0^/"
+  - "\u4ECA\u5929\u662F\u7F8E\u597D\u7684\u4E00\u5929^^"
+  - "\u4ECA\u5929\u4E5F\u662FLucky Vickey~~"
+  autoProgressLines: 010000
+  autoProgressDelay: 1.5
+  typingSpeed: 0.05
+  voicePitch: 1
