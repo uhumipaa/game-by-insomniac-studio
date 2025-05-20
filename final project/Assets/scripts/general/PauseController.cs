@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PauseControlle : MonoBehaviour
+public class PauseController : MonoBehaviour
 {
     public static bool IsGamePaused { get; private set; } = false;
 

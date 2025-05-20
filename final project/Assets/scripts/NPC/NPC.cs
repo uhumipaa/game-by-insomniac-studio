@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class NPC : MonoBehaviour, interactable
@@ -10,7 +12,6 @@ public class NPC : MonoBehaviour, interactable
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image protraitImage;
-
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
@@ -28,11 +29,11 @@ public class NPC : MonoBehaviour, interactable
 
         if (isDialogueActive) //如果對話正在進行中
         {
-            //NextLine
+            NextLine();
         }
         else
         {
-            //StartDialogue
+            StartDialogue();
         }
     }
 
@@ -51,5 +52,57 @@ public class NPC : MonoBehaviour, interactable
         //打開對話框
         dialoguePanel.SetActive(true);
 
+        //畫面暫停
+        PauseController.SetPause(true); //行動待補
+
+        StartCoroutine(TypeLine());
+    }
+
+    void NextLine()
+    {
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
+            isTyping = false;
+        }
+        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
+        {
+            StartCoroutine(TypeLine());
+        }
+        else
+        {
+            EndDialogue();
+        }
+    }
+
+    IEnumerator TypeLine()
+    {
+        isTyping = true;
+        dialogueText.SetText("");
+
+        foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(dialogueData.typingSpeed); //稍待幾秒
+        }
+
+        isTyping = false; //講完話停止
+
+        //如果是自動撥放，等幾秒結束後自動跳到下一行
+        if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
+        {
+            yield return new WaitForSeconds(dialogueData.autoProgressDelay);
+            NextLine();
+        }
+    }
+
+    public void EndDialogue()
+    {
+        StopAllCoroutines();
+        isDialogueActive = false;
+        dialogueText.SetText("");
+        dialoguePanel.SetActive(false);
+        PauseController.SetPause(false);
     }
 }

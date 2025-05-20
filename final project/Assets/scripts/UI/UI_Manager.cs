@@ -32,7 +32,14 @@ public class UI_Manager : MonoBehaviour
         // 按下 Tab 切換背包視窗
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            /*//如果視窗是關著且遊戲暫停
+            if (!inventoryPanel.activeSelf && PauseController.IsGamePaused)
+            {
+                return;
+            }*/
+
             ToggleInventoryUI();
+            //PauseController.SetPause(inventoryPanel.activeSelf); //視窗開啟時暫停
         }
     }
 
@@ -101,14 +108,7 @@ public class UI_Manager : MonoBehaviour
              // 設定 UI 的初始顯示狀態
             if (inventoryPanel != null)
             {
-                if (ui.uiType == Inventory_UI.InventoryType.Inventory)
-                {
                     inventoryPanel.SetActive(false); // 背包一開始隱藏
-                }
-                else if (ui.uiType == Inventory_UI.InventoryType.Toolbar)
-                {   
-                    inventoryPanel.SetActive(true); // 工具欄一開始顯示
-                }
             }
         }
     }

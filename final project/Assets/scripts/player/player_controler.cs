@@ -46,19 +46,6 @@ public class player_controler : MonoBehaviour
         {
             On_dash();
         }
-
-        
-
-        //待查
-        /*if(Input.GetMouseButtonDown(1)) //右鍵
-        {
-            Vector3Int position = new Vector3Int((int)transform.position.x, (int)transform.position.y, 0) ;
-            //tileManager = GetComponent<TileManager>();
-            if(tileManager.IsInteractable(position))
-            {
-                Debug.Log("Tile is interactable");
-            }
-        }*/
     }
         
     void LateUpdate()
