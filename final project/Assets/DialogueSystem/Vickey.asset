@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Vickey
   m_EditorClassIdentifier: 
   npcName: Vickey
-  npcPortrait: {fileID: -1896912524, guid: 1d84ec193b4796a49b5b0a47178e75a4, type: 3}
+  npcPortrait: {fileID: -3847345956899318814, guid: 0c4434b35b39488459fe31322f64d511, type: 3}
   dialogueLines:
   - "\u54C8\u56C9\u4F60\u597D\u5440\\^0^/"
   - "\u4ECA\u5929\u662F\u7F8E\u597D\u7684\u4E00\u5929^^"
