@@ -9,6 +9,11 @@ public enum ItemType
     RadishSeeds, Radish,
     TurnipSeeds, Turnip,
     SpinachSeeds, Spinach,
+    Magikarp, Starfish,
+    Gyarados, Guppy,
+    Golden_Tench, Clownfish,
+    Plastic_Bag, Message_In_A_Bottle,
+    Gundam, Coins,
     Water
 }
 
