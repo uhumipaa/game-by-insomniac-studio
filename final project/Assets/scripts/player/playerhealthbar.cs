@@ -8,14 +8,15 @@ public class playerhealthbar : MonoBehaviour
     // 更新更新血量數值
     public void UpdateUI()
     {
-        healthBar.value = property.ReadValue;
+        healthBar.value = property.current_health;
         Debug.Log("haha");
     }
 
     // 初始化血量數值
     public void initial()
     {
-        healthBar.maxValue = property.ReadValue;
-        healthBar.value = property.ReadValue;
+        property = FindAnyObjectByType<Player_Property>().GetComponent<Player_Property>();
+        healthBar.maxValue = property.current_health;
+        healthBar.value = property.current_health;
     }
 }

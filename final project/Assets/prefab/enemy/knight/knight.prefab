@@ -924,7 +924,7 @@ MonoBehaviour:
   current_health: 0
   def: 28
   atk: 10
-  attack_range: 1
+  attack_range: 0.5
   speed: 1.5
   stuncd: 2
   spriteRender: {fileID: 6820064339209017111}
@@ -960,7 +960,9 @@ MonoBehaviour:
         m_CallState: 2
   stats: {fileID: 2668980735709478927}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 10
+  nightdemon: {fileID: 0}
 --- !u!114 &2668980735709478927
 MonoBehaviour:
   m_ObjectHideFlags: 0

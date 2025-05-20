@@ -49,7 +49,7 @@ public class General_teleport : MonoBehaviour
             {
                 maploader.changemap(floor / 10);
             }
-            maploader.LoadMaps(floor,roomVariant);
+            maploader.LoadMaps(floor/10,roomVariant);
         }
     }
 }

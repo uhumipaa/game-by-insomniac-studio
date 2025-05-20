@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class TowerManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,15 +23,11 @@ public class TowerManager : MonoBehaviour
     private void Start()
     {
         loader = FindAnyObjectByType<Maploaders>();
-        loader.LoadMaps(currentTowerFloor,0);
-    }
-    void retrun_to_tower()
-    {
 
     }
     // Update is called once per frame
-    void retrun_to_town()
+    public void retrun_to_town()
     {
-
+        SceneManager.LoadScene("farm");
     }
 }

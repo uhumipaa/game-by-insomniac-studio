@@ -6,7 +6,6 @@ public class FireShootController : MonoBehaviour,IEnenmyResetInterface
     public List<PolygonCollider2D> hitboxs;
     private Animator ani;
     private enemy_property property;
-    private int hitbox_count = 0;
     private void Awake()
     {
         ani = GetComponent<Animator>();
@@ -18,7 +17,6 @@ public class FireShootController : MonoBehaviour,IEnenmyResetInterface
     }
     public void Reset()
     {
-        hitbox_count = 0;
         ani.SetBool("cast", true);
         gameObject.SetActive(true);
         foreach (PolygonCollider2D hitbox in hitboxs)
@@ -30,18 +28,18 @@ public class FireShootController : MonoBehaviour,IEnenmyResetInterface
     {
         if (index < 0 || index >= hitboxs.Count)
         {
-            Debug.LogWarning($"Hitbox ¯Á¤Þ {index} ¶W¥X½d³ò");
+            Debug.LogWarning($"Hitbox ï¿½ï¿½ï¿½ï¿½ {index} ï¿½Wï¿½Xï¿½dï¿½ï¿½");
             return;
         }
 
-        // ¥þÃö¡AÁ×§K­«½Æ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½×§Kï¿½ï¿½ï¿½ï¿½
         foreach (var hitbox in hitboxs)
         {
             hitbox.enabled = false;
         }
-        // ¶}±Ò«ü©w hitbox
+        // ï¿½}ï¿½Ò«ï¿½ï¿½w hitbox
         hitboxs[index].enabled = true;
-        Debug.Log($"±Ò¥Î²Ä {index} ¬q Hitbox");
+        Debug.Log($"ï¿½Ò¥Î²ï¿½ {index} ï¿½q Hitbox");
     }
     public void closehitbox()
     {

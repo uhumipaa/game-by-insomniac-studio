@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Maploaders : MonoBehaviour
 {
-    public GameObject playe;
+    public GameObject player;
     public GameObject chest;
     private GameObject player_instance;
     public GameObject transcircle;
@@ -39,7 +39,7 @@ public class Maploaders : MonoBehaviour
         Transform playerspawn = GameObject.Find("player_spawn_point")?.transform;
         if (player_instance == null)
         {
-            player_instance = Instantiate(playe, playerspawn.position, Quaternion.identity);
+            player_instance = Instantiate(player, playerspawn.position, Quaternion.identity);
         }
         else
         {
@@ -50,6 +50,7 @@ public class Maploaders : MonoBehaviour
     // Update is called once per frame
     public void LoadMaps(int floor,int room)
     {
+        changemap(floor);
         if (currentMap != null)
             Destroy(currentMap);
         if (transcircle_instance != null)

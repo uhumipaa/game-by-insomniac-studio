@@ -28,13 +28,14 @@ public class Player_Property : MonoBehaviour
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能
+        healthbar = FindAnyObjectByType<playerhealthbar>().GetComponent<playerhealthbar>();
         healthbar.initial(); //血量條初始化
     }
 
     // 讓其他程式讀取目前的血量
-    public int ReadValue
+    public int ReadValue()
     {
-        get { return current_health; }
+        return current_health; 
     }
 
     // 經驗點數屬性加成
