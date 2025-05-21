@@ -4,10 +4,11 @@ public class TowerManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static TowerManager Instance { get; set; }
+    public bool backtotower;
     public int currentTowerFloor = 1;
+    public int finishfloorthistime = 1;
     private Maploaders loader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -16,7 +17,7 @@ public class TowerManager : MonoBehaviour
             return;
         }
         Instance = this;
-
+        finishfloorthistime = currentTowerFloor;
         DontDestroyOnLoad(gameObject);
     }
 

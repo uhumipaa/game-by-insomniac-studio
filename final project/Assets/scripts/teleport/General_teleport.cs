@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
-
 public class General_teleport : MonoBehaviour
 {
     private TowerManager tower;
@@ -30,8 +30,14 @@ public class General_teleport : MonoBehaviour
     }
     void nextfloar()
     {
+        //防止在休息室一直刷通關數
+        if (TowerManager.Instance.backtotower)
+        {
+            TowerManager.Instance.backtotower = false;
+        }
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
         TowerManager.Instance.currentTowerFloor++;
+        TowerManager.Instance.finishfloorthistime++;
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
         if (TowerManager.Instance.currentTowerFloor % 10 == 0)//boss
         {
@@ -39,11 +45,11 @@ public class General_teleport : MonoBehaviour
         }
         else if (TowerManager.Instance.currentTowerFloor % 10 == 5)//rest
         {
-
+            maploader.loadrestmap();
         }
         else
         {
-            int roomVariant = Random.Range(0, 4);
+            int roomVariant = UnityEngine.Random.Range(0, 4);
             int floor = TowerManager.Instance.currentTowerFloor;
             if (floor % 10 == 1)
             {

@@ -13,6 +13,10 @@ public class Maploaders : MonoBehaviour
     public GameObject[] mapPrefabs;
     public Transform mapParen;
     public FloorData[] floorDatas;
+    public FloorData restdata;
+    public FloorData boosfloordata;
+    public GameObject backteleport;
+    private GameObject backteleport_instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -51,6 +55,10 @@ public class Maploaders : MonoBehaviour
     public void LoadMaps(int floor,int room)
     {
         changemap(floor);
+        if (backteleport_instance != null)
+        {
+            Destroy(backteleport);
+        }
         if (currentMap != null)
             Destroy(currentMap);
         if (transcircle_instance != null)
@@ -116,7 +124,7 @@ public class Maploaders : MonoBehaviour
 
         return floorData.enemyprefab[i];
     }
-    void loadrestmap()
+    public void loadrestmap()
     {
         if (currentMap != null)
             Destroy(currentMap);
@@ -128,8 +136,15 @@ public class Maploaders : MonoBehaviour
         {
             Destroy(chest_instance);
         }
-        currentMap = Instantiate(mapPrefabs[5], Vector3.zero, Quaternion.identity, mapParen);
+        currentMap = Instantiate(restdata.maps[0], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
-        
+        generate_tele();
+        Transform Telespawn = GameObject.Find("backtele_spawn_point")?.transform;
+        if (Telespawn == null)
+        {
+            Debug.Log("123");
+        }
+        backteleport_instance = Instantiate(backteleport, Telespawn.position, Quaternion.identity);
+        GetComponent<SetSpecialMap>().setrest();
     }
 }

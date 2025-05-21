@@ -4,7 +4,7 @@ public class player_controler : MonoBehaviour
 {
     private slash slash;
     public Rigidbody2D rb;
-    public GameObject hitbox;
+    public GameObject sword;
     public TileManager tileManager;
     Animator ani;
     private dash Dash;
@@ -86,37 +86,23 @@ public class player_controler : MonoBehaviour
     {
         attacking = true;
         lastattacktime = Time.time;
-        Vector3 hitbox_spawn_point = transform.position;
-        float Rotationz = 0f;
+        sword.SetActive(true);
         switch (player_direaction)
         {
             case direction.up:
-                hitbox_spawn_point = transform.position + Vector3.up * property.attack_range;
-                Rotationz = 0f;
+                sword.GetComponent<Animator>().SetTrigger("up");
                 break;
             case direction.down:
-                hitbox_spawn_point = transform.position + Vector3.down * property.attack_range*1.3f;
-                Rotationz = 180f;
+                sword.GetComponent<Animator>().SetTrigger("down");
                 break;
             case direction.right:
-                hitbox_spawn_point = transform.position + Vector3.right * property.attack_range;
-                Rotationz = 90f;
+                sword.GetComponent<Animator>().SetTrigger("right");
                 break;
             case direction.left:
-                hitbox_spawn_point = transform.position + Vector3.left * property.attack_range;
-                Rotationz = 90f;
+                sword.GetComponent<Animator>().SetTrigger("right");
                 break;
         }
-        GameObject hit = Instantiate(hitbox, hitbox_spawn_point, Quaternion.Euler(0, 0, Rotationz), transform);
-        if (hit != null)
-        {
-            slash = hit.GetComponent<slash>();
-            slash.enable_hitbox(property.attack_time);
-        }
-        else
-        {
-            Debug.Log("abc");
-        }
+        
 
     }
     private void Move()

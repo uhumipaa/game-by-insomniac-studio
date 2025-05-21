@@ -6,6 +6,7 @@ using UnityEngine;
 public class SetSpecialMap : MonoBehaviour
 {
     public GameObject uhumipa;
+
     private FloorData bossdata;
     public List<ItemData> itemdatas = new List<ItemData>();
 
@@ -14,7 +15,9 @@ public class SetSpecialMap : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void setrest()
     {
-        Instantiate(uhumipa, Vector3.zero, Quaternion.identity);
+        Transform tradesapwn = GameObject.Find("trader_spawn_point")?.transform;
+        Instantiate(uhumipa, tradesapwn.position, Quaternion.identity);
+        
         goods.Clear();
         while (true)
         {

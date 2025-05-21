@@ -71,6 +71,7 @@ public class Teleprot_To_Tower : MonoBehaviour
     public void OnClickStartFromBeginning()
     {
         TowerManager.Instance.currentTowerFloor= 1;
+        TowerManager.Instance.backtotower = true;
         SceneManager.LoadScene("tower");
     }
 
