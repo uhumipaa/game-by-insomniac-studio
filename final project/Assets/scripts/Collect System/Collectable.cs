@@ -21,13 +21,13 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isCollected) return; // 防止重複
-        isCollected = true;
+        
 
         player_trigger player = collision.GetComponent<player_trigger>();
 
         if (player)
         {
-            //Debug.Log("【OnTriggerEnter2D】撞到物件：" + player.gameObject.name);
+            Debug.Log("【OnTriggerEnter2D】撞到物件：" + player.gameObject.name);
 
             var ui = FindFirstObjectByType<Inventory_UI>();
             if (ui == null)
@@ -51,8 +51,9 @@ public class Collectable : MonoBehaviour
                 {
                     Debug.LogError("【錯誤】player.inventory 還是 null！");
                 }
+                isCollected = true;
                 player.inventory.Add("Backpack", item.data, amount);
-                //Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
+                Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
                 Destroy(this.gameObject);
             }    
         }
