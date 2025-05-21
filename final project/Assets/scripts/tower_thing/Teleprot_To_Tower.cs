@@ -1,11 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class Teleprot_To_Tower : MonoBehaviour
 {
     public GameObject towerEnterPanel;
     public GameObject floorChoicePanel;
+    public TMP_Text currentFloorText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] bool playerInRange = false;
 
@@ -49,7 +50,17 @@ public class Teleprot_To_Tower : MonoBehaviour
     public void OnClickEnterYes()
     {
         towerEnterPanel.SetActive(false);
-        floorChoicePanel.SetActive(true);
+        if (TowerManager.Instance.currentTowerFloor <5)
+        {
+            TowerManager.Instance.currentTowerFloor = 1;
+            SceneManager.LoadScene("tower");
+        }
+        else
+        {
+            int max = TowerManager.Instance.currentTowerFloor;
+            currentFloorText.text = $" {max} ";
+            floorChoicePanel.SetActive(true);
+        }
     }
 
     public void OnClickEnterNo()
@@ -60,7 +71,7 @@ public class Teleprot_To_Tower : MonoBehaviour
     public void OnClickStartFromBeginning()
     {
         TowerManager.Instance.currentTowerFloor= 1;
-        SceneManager.LoadScene("TowerScene");
+        SceneManager.LoadScene("tower");
     }
 
     public void OnClickStartFromMiddle()
@@ -73,8 +84,7 @@ public class Teleprot_To_Tower : MonoBehaviour
             }
             TowerManager.Instance.currentTowerFloor--;
         }
-            // 比如從第 11 層開始
-            SceneManager.LoadScene("TowerScene");
+            SceneManager.LoadScene("tower");
     }
 
 }
