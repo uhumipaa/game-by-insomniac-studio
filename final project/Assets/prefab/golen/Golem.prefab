@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 2002359475672413746}
   - component: {fileID: 4859860633071631559}
   - component: {fileID: 1244506913284305549}
+  - component: {fileID: 7729211823175400205}
   m_Layer: 12
   m_Name: Golem
   m_TagString: enemy
@@ -147,7 +148,7 @@ MonoBehaviour:
   - {fileID: 6861749199013064044}
   - {fileID: 4440920148170410877}
   isstuned: 0
-  isattacking: 1
+  isattacking: 0
   scale: 1
   attackPivot: {fileID: 8834901513476911888}
   isKnight: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
   - {fileID: 7521175624539228462}
   - {fileID: 7521175624539228462}
   - {fileID: 7521175624539228462}
-  attackPivot: {fileID: 0}
+  attackPivot: {fileID: 218797790707570515}
 --- !u!114 &6861749199013064044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +364,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 30
+--- !u!114 &7729211823175400205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035989420860370615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14ae8a3f8393d6d48bb9c8d8152d020f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &7521175624539228462
 GameObject:
   m_ObjectHideFlags: 0
