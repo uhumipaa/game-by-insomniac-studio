@@ -6,14 +6,13 @@ public class Teleprot_To_Tower : MonoBehaviour
 {
     private Maploaders loader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private bool playerInRange = false;
+    [SerializeField] bool playerInRange = false;
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.Return)) // Enter鍵
+        if (playerInRange && Input.GetKeyDown(KeyCode.Space)) // Enter鍵
         {
-            SceneManager.LoadScene("tower");
-            loader.LoadMaps(TowerManager.Instance.currentTowerFloor/10,Random.Range(0,4)); 
+            SceneManager.LoadScene("tower");  
         }
     }
 

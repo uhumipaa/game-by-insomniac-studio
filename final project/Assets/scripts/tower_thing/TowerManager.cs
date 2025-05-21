@@ -20,11 +20,6 @@ public class TowerManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        loader = FindAnyObjectByType<Maploaders>();
-
-    }
     // Update is called once per frame
     public void retrun_to_town()
     {

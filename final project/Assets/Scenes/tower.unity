@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 1779087276}
   - component: {fileID: 1779087277}
   m_Layer: 0
-  m_Name: TowerManager
+  m_Name: TowerMapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,10 +934,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1779087273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4323314963f67438a20c1073fa8cfb, type: 3}
+  m_Script: {fileID: 11500000, guid: 04ccbc4ee6723734c8e96bda9dd7830a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTowerFloor: 1
 --- !u!1 &1819465932
 GameObject:
   m_ObjectHideFlags: 0
