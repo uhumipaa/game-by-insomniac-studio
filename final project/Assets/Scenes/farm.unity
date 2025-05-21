@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 221224219}
   - component: {fileID: 221224221}
   - component: {fileID: 221224222}
+  - component: {fileID: 221224223}
   m_Layer: 0
   m_Name: NPC1
   m_TagString: Untagged
@@ -1016,6 +1017,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0549076, y: 1.2882649}
   m_EdgeRadius: 0
+--- !u!114 &221224223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221224218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537291199bad3fa4fa3bf5bc215aaf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointParent: {fileID: 1569145186}
+  moveSpeed: 2
+  waitTime: 1
+  loopWaypoints: 1
 --- !u!1 &227494189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3524108836386725992, guid: ea28ce1294137c549a53b4c8896954ed, type: 3}
