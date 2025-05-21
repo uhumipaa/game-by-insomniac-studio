@@ -15,10 +15,10 @@ MonoBehaviour:
   npcName: Vickey
   npcPortrait: {fileID: -3847345956899318814, guid: 0c4434b35b39488459fe31322f64d511, type: 3}
   dialogueLines:
-  - "\u54C8\u56C9\u4F60\u597D\u5440\\^0^/"
-  - "\u4ECA\u5929\u662F\u7F8E\u597D\u7684\u4E00\u5929^^"
-  - "\u4ECA\u5929\u4E5F\u662FLucky Vickey~~"
-  autoProgressLines: 010000
+  - 1111111
+  - 222222
+  - 333333
+  autoProgressLines: 010100
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voicePitch: 1

@@ -12,25 +12,27 @@ public class InteractionDetector : MonoBehaviour
         interactionIcon.SetActive(false);
     }
 
-    public void OnInteract(InputAction.CallbackContext context)
+    private void Update()
     {
-        if (context.performed)
+        // 檢查是否按下 E 鍵
+        if (Keyboard.current.eKey.wasPressedThisFrame && interactableInRange != null)
         {
-            interactableInRange?.Interact();
+            Debug.Log("按下 E 鍵，觸發互動！");
+            interactableInRange.Interact();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out interactable Interactable) && Interactable.CanInteract())
+        if (collision.TryGetComponent(out interactable target) && target.CanInteract())
         {
-            interactableInRange = Interactable;
+            interactableInRange = target;
             interactionIcon.SetActive(true);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.TryGetComponent(out interactable Interactable) && (Interactable == interactableInRange))
+        if (collision.TryGetComponent(out interactable target) && (target == interactableInRange))
         {
             interactableInRange = null;
             interactionIcon.SetActive(false);
