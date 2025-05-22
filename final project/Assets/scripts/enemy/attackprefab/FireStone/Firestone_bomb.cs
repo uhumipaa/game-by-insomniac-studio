@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.RenderGraphModule;
 
 public class Firestone_bomb : MonoBehaviour
 {
@@ -10,5 +11,9 @@ public class Firestone_bomb : MonoBehaviour
         {
             collision.GetComponent<Player_Property>().takedamage(damage, transform.position);
         }
+    }
+    public void fade()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }

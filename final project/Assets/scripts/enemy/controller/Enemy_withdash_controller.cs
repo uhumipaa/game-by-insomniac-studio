@@ -5,7 +5,7 @@ using static Enemy_withdash_controller;
 public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface,IEnemySkillContollerInterface
 {
     public enum enemystate { Idle,Moving,Attacking,Dashing,Stunning,stunafterattack }
-    private enemystate currentstate;
+    [SerializeField] enemystate currentstate;
     [Header("��¦�ݩ�")]
     private Rigidbody2D rb;
     private Animator ani;
@@ -21,7 +21,7 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
 
     [Header("�]�w")]
     [SerializeField]private float scale;
-    [SerializeField] protected float stunAfterAttackDuration = 0.5f;
+    [SerializeField] protected float stunAfterAttackDuration = 2f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -70,11 +70,11 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
     }
     public void FinishAttack()
     {
-        if (currentstate != enemystate.Attacking)
-            return;
+        animator.PlayIdle(ani);
+        currentstate = enemystate.stunafterattack;
         rb.linearVelocity = Vector2.zero;
         StartCoroutine(AttackToDashDelay(stunAfterAttackDuration));
-        animator.PlayIdle(ani);
+        
         Debug.Log("finish2");
     }
     public void Finishskill()
@@ -94,7 +94,7 @@ public class Enemy_withdash_controller : MonoBehaviour,IEnemyControllerInterface
     {
         float distance = Vector2.Distance(player.position, transform.position);
         flip();
-        if (distance < property.attack_range)
+        if (distance <= property.attack_range)
         {
             currentstate = enemystate.Attacking;
             rb.linearVelocity = Vector2.zero;

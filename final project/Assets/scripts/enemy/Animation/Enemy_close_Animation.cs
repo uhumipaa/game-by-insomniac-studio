@@ -22,6 +22,7 @@ public class Enemy_close_Animation : MonoBehaviour,IEnemyAnimatorBehavior
             ani.SetFloat("horizontal", 0f);
             ani.SetFloat("vertical", verticalparameter);
         }
+        ani.SetTrigger("Attack");
         ani.SetBool("attacking", true);
         ani.SetBool("waiting", false);
         ani.SetBool("running", false);
