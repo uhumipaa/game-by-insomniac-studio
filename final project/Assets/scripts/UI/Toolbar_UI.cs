@@ -29,7 +29,7 @@ public class Toolbar_UI : MonoBehaviour
             selectedSlot = toolbarSlots[index];
             selectedSlot.SetHighlight(true); //重新選定後打開highlight
 
-            GameManager.instance.player.inventory.toolbar.SelectSlot(index);
+            InventoryManager.Instance.toolbar.SelectSlot(index);
         }
     }
 

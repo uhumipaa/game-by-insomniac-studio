@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class player_trigger : MonoBehaviour
 {
-    public InventoryManager inventory;
+    //public InventoryManager inventory; //刪
 
     public TileManager tileManager;
     private float footOffsetY = 0f;
@@ -32,7 +32,7 @@ public class player_trigger : MonoBehaviour
                 Vector3 gridCenterPos = tileManager.InteractableMap.GetCellCenterWorld(gridPos);
 
                 string tileName = tileManager.GetTileName(gridPos);
-                var selectedSlot = inventory.toolbar.selectedSlot;
+                var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
 
                 //判斷這塊地能不能種田
                 if (PlantManager.instance.TryPlant(gridPos, tileName, selectedSlot))

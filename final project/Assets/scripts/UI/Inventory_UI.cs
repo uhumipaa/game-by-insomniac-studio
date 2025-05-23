@@ -14,7 +14,8 @@ public class Inventory_UI : MonoBehaviour
 
     private bool dragSingle;
     private Inventory inventory;
-    
+    public bool isReady = false;
+
 
     private void Awake()
     {
@@ -32,17 +33,30 @@ public class Inventory_UI : MonoBehaviour
             //Debug.LogError("找不到 Slots 節點！請確認階層是否為 inventory/Background/Slots");
         }
     }
-    private void Start()
+    private IEnumerator Start()
     {
-        inventory = GameManager.instance.player.inventory.GetInventoryByName(inventoryName);
+        // 等待一幀，讓 InventoryManager 完成初始化
+        yield return null;
+        Reconnect();
+        /*inventory = InventoryManager.Instance.GetInventoryByName(inventoryName);
+
+        if (inventory == null)
+        {
+            Debug.LogError($"❌ 找不到名為 {inventoryName} 的 Inventory");
+            yield break;
+        }
+
+        Debug.Log($"[Inventory_UI] 啟動 {inventoryName} → {inventory?.slots?.Count} 格");
 
         //設置SLOT ID
         SetupSlots();
 
         //清空slot
         Refresh();
+
+        isReady = true;//標記UI已完成初始化*/
     }
-   
+
     public void Refresh()
     {
         //Debug.Log("畫面刷新");
@@ -86,25 +100,32 @@ public class Inventory_UI : MonoBehaviour
 
         if(prefab != null)
         {*/
-            if(UI_Manager.dragSingle)
-            {
-                GameManager.instance.player.DropItem(slot.itemData.type);
-                inventory.Remove(UI_Manager.draggedSlot.slotID);
-            }
-            else
-            {
-                GameManager.instance.player.DropItem(slot.itemData.type, inventory.slots[UI_Manager.draggedSlot.slotID].count);
-                inventory.Remove(UI_Manager.draggedSlot.slotID, inventory.slots[UI_Manager.draggedSlot.slotID].count);
-            }
-            
-            Refresh();
+        if (UI_Manager.dragSingle)
+        {
+            GameManager.instance.player.DropItem(slot.itemData.type);
+            inventory.Remove(UI_Manager.draggedSlot.slotID);
+        }
+        else
+        {
+            GameManager.instance.player.DropItem(slot.itemData.type, inventory.slots[UI_Manager.draggedSlot.slotID].count);
+            inventory.Remove(UI_Manager.draggedSlot.slotID, inventory.slots[UI_Manager.draggedSlot.slotID].count);
+        }
+
+        Refresh();
         //}
-        
+
         UI_Manager.draggedSlot = null;
     }
 
     public void SlotBeginDrag(Slot_UI slot)
     {
+
+        if (slot.inventory == null)
+        {
+            Debug.LogError($"❌ Slot ID {slot.slotID} 的 inventory 為 null，無法開始拖曳！");
+            return;
+        }
+
         UI_Manager.draggedSlot = slot;
         UI_Manager.draggedIcon = Instantiate(UI_Manager.draggedSlot.itemIcon); //複製一個新icon
         UI_Manager.draggedIcon.transform.SetParent(canvas.transform);
@@ -131,23 +152,23 @@ public class Inventory_UI : MonoBehaviour
 
     public void SlotDrop(Slot_UI slot)
     {
-        if(UI_Manager.dragSingle)
+        if (UI_Manager.dragSingle)
         {
-            UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory);    
+            UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory);
         }
         else
         {
             UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory,
-                                                      UI_Manager.draggedSlot.inventory.slots[UI_Manager.draggedSlot.slotID].count); 
+                                                      UI_Manager.draggedSlot.inventory.slots[UI_Manager.draggedSlot.slotID].count);
         }
 
         GameManager.instance.uiManager.RefreshAll();
-        
+
     }
 
     private void MoveToMousePosition(GameObject toMove)
     {
-        if(canvas != null)
+        if (canvas != null)
         {
             Vector2 position;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, null, out position);
@@ -159,11 +180,31 @@ public class Inventory_UI : MonoBehaviour
     {
         int counter = 0;
 
-        foreach(Slot_UI slot in slots)
+        foreach (Slot_UI slot in slots)
         {
             slot.slotID = counter;
             counter++;
             slot.inventory = inventory;
         }
+    }
+
+    public void Reconnect()
+    {
+        inventory = InventoryManager.Instance.GetInventoryByName(inventoryName);
+
+        if (inventory == null)
+        {
+            Debug.LogError($"❌ 無法綁定 Inventory：{inventoryName}");
+            return;
+        }
+
+        SetupSlots();
+        Refresh();
+        isReady = true;
+    }
+
+    public void CloseUI()
+    {
+        this.gameObject.SetActive(false);
     }
 }

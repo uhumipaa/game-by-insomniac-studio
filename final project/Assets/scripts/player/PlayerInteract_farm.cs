@@ -38,7 +38,7 @@ public class PlayerInteract_farm : MonoBehaviour
         ItemData waterData = itemManager.GetItemData(ItemType.Water);
 
         //每次獲得10滴水，並加入inventory
-        GameManager.instance.player.inventory.Add("Backpack", waterData, 1);
+        InventoryManager.Instance.Add("Backpack", waterData, 1);
 
     }
 

@@ -19,10 +19,10 @@ public class ButtonInfo : MonoBehaviour
         if (shopManager != null)
         {
             shopManager = FindFirstObjectByType<ShopManagerScript>();
-            Debug.Log($"ButtonInfo 嘗試取得 ItemID: {ItemID}，ShopManager 是否存在: {shopManager != null}");
+            //Debug.Log($"ButtonInfo 嘗試取得 ItemID: {ItemID}，ShopManager 是否存在: {shopManager != null}");
             if (shopManager != null)
             {
-                Debug.Log($"ShopManager itemDataByID Count: {shopManager.itemDataByID.Count}");
+                //Debug.Log($"ShopManager itemDataByID Count: {shopManager.itemDataByID.Count}");
             }
 
             UpdateButtonUI();
@@ -30,7 +30,7 @@ public class ButtonInfo : MonoBehaviour
     }
     public void UpdateButtonUI()
     {
-        Debug.Log($"[ButtonInfo] 目前綁的 ShopManager 是 {shopManager.name}");
+        //Debug.Log($"[ButtonInfo] 目前綁的 ShopManager 是 {shopManager.name}");
         
         if (shopManager != null)
         {

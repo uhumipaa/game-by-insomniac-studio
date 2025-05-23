@@ -87,12 +87,12 @@ public class FarmManager : MonoBehaviour
             //移除田地資料
             farmTiles.Remove(pos);
 
-            Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
+           // Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
             return true;
 
         }
 
-        Debug.Log("這塊田還不能收成！");
+        //Debug.Log("這塊田還不能收成！");
         return false;
     }
 

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("玩家資料")]
-    public InventoryManager inventoryManager;
+    //public InventoryManager inventoryManager;
     //public CoinManager coin;
 
     public ItemManager itemManager;
@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
             //DontDestroyOnLoad(gameObject);
 
             // 初始化不隨場景消失的資料
-            inventoryManager = new InventoryManager();
+            //inventoryManager = new InventoryManager();
 
             itemManager = GetComponent<ItemManager>();
             tileManager = GetComponent<TileManager>();

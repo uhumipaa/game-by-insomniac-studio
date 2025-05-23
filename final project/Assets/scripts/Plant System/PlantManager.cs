@@ -32,14 +32,14 @@ public class PlantManager : MonoBehaviour
 
         if (cropToPlant == null) //如果找不到
         {
-            Debug.Log("找不到對應作物資料，無法種植");
+            //Debug.Log("找不到對應作物資料，無法種植");
             return false;
         }
 
         //判斷有沒有種作物
         if (FarmManager.instance.HasFarmTile(position))
         {
-            Debug.Log("這格已經種過了，不能重複種植！");
+            //Debug.Log("這格已經種過了，不能重複種植！");
             return false;
         }
 

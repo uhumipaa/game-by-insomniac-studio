@@ -47,12 +47,15 @@ public class Collectable : MonoBehaviour
             
             if (item != null)
             {
-                if (player.inventory == null)
+                if (InventoryManager.Instance== null)
                 {
                     Debug.LogError("【錯誤】player.inventory 還是 null！");
                 }
                 isCollected = true;
-                player.inventory.Add("Backpack", item.data, amount);
+
+                //player.inventory.Add("Backpack", item.data, amount);
+                InventoryManager.Instance.Add("Backpack", item.data, amount);
+
                 Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
                 Destroy(this.gameObject);
             }    

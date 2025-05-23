@@ -14,7 +14,7 @@ public class ShopManagerScript : MonoBehaviour
     public Text CoinsTXT;
     void Awake()
     {
-        Debug.Log($"[ShopManagerScript] Awake 被呼叫，我是 {gameObject.name}");
+        //Debug.Log($"[ShopManagerScript] Awake 被呼叫，我是 {gameObject.name}");
     }
     void Start()
     {
@@ -39,27 +39,27 @@ public class ShopManagerScript : MonoBehaviour
         shopItems[3, 3] = 0;
         shopItems[3, 4] = 0;*/
 
-        Debug.Log($"[ShopManagerScript] 我是 {gameObject.name}，Shop Item List 有 {shopItemList.Count} 個");
+        //Debug.Log($"[ShopManagerScript] 我是 {gameObject.name}，Shop Item List 有 {shopItemList.Count} 個");
         InitShopData();
     }
 
     public void InitShopData()
     {
-        Debug.Log("[InitShop] 進入");
+        //Debug.Log("[InitShop] 進入");
         itemDataByID.Clear();
         foreach (var shopItem in shopItemList)
         {
             if (!itemDataByID.ContainsKey(shopItem.itemID))
             {
                 itemDataByID.Add(shopItem.itemID, shopItem);
-                Debug.Log($"[ShopManager] 加入商品 {shopItem.itemID} {shopItem.itemData.itemName} $ {shopItem.price}");
+                //Debug.Log($"[ShopManager] 加入商品 {shopItem.itemID} {shopItem.itemData.itemName} $ {shopItem.price}");
             }
         }
     }
     public void Buy()
     {
 
-        Debug.Log("按鈕被點擊了");
+        //Debug.Log("按鈕被點擊了");
 
 
         if (itemDataByID == null || itemDataByID.Count == 0)
@@ -84,12 +84,12 @@ public class ShopManagerScript : MonoBehaviour
                 ButtonRef.GetComponent<ButtonInfo>().QuantityTxt.text = itemData.quantity.ToString();
 
                 //把買到的商品加入backpack
-                GameManagerForShop.instance.player.inventory.Add("Backpack", itemData.itemData, 1);
+                InventoryManager.Instance.Add("Backpack", itemData.itemData, 1);
             }
         }
         else
         {
-            Debug.LogError($"ItemID {itemID} 不存在於商店資料中");
+            //Debug.LogError($"ItemID {itemID} 不存在於商店資料中");
         }
         //end
 
