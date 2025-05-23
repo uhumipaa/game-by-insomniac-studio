@@ -762,7 +762,7 @@ MonoBehaviour:
   attackHitbox: {fileID: 157306650142786583}
   DeathHitbox: {fileID: 2774130684407220529}
   healthBarUI: {fileID: 8218743907050863091}
-  animator: {fileID: 0}
+  animator: {fileID: 3215454633162935061}
   playerDetectionPoint: {fileID: 0}
   selfDetectionPoint: {fileID: 8487831191531387584}
   player_Property: {fileID: 0}

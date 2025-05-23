@@ -78,6 +78,15 @@ public class BossController : MonoBehaviour
         {
             health.Boss_King_Death += StartPhase2Transform; // 改成呼叫變身協程
         }
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            Player_Property = playerGO.GetComponent<Player_Property>();
+        }
+        else
+        {
+            Debug.LogError("❌ 找不到 Player，請確認有設定 Tag 且場上有 Player！");
+        }
     }
 
     void Update()

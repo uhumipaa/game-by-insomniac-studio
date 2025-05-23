@@ -27,6 +27,15 @@ public class EnemyTeleportAttack : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         timer = disappearInterval;
         animator.SetBool("IsIdle", true); // 初始狀態為 Idle
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            player_Property = playerGO.GetComponent<Player_Property>();
+        }
+        else
+        {
+            Debug.LogError("❌ 找不到 Player，請確認有設定 Tag 且場上有 Player！");
+        }
     }
 
     void Update()

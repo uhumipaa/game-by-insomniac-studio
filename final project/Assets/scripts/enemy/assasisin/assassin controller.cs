@@ -19,6 +19,19 @@ public class EnemyAI2D : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        if (player == null)
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            if (playerGO != null)
+            {
+                player = playerGO.transform;
+                player_Property = playerGO.GetComponent<Player_Property>();
+            }
+            else
+            {
+                Debug.LogError("❌ 找不到 Player，請確認有設定 Tag 且場上有 Player！");
+            }
+        }
     }
 
     void Update()

@@ -43,6 +43,15 @@ public class nightdemoncontroller : MonoBehaviour
                 playerDetectionPoint = player; // 預防沒設就用本體
             }
         }
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            player_Property = playerGO.GetComponent<Player_Property>();
+        }
+        else
+        {
+            Debug.LogError("❌ 找不到 Player，請確認有設定 Tag 且場上有 Player！");
+        }
 
         PickRandomDirection();
         directionChangeTimer = directionChangeInterval;
