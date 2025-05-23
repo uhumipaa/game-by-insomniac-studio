@@ -320,7 +320,6 @@ GameObject:
   - component: {fileID: 4682273097826065263}
   - component: {fileID: 4044947140317877406}
   - component: {fileID: 7781321961168172477}
-  - component: {fileID: 2307748835791735589}
   m_Layer: 11
   m_Name: player_battle
   m_TagString: Player
@@ -525,7 +524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 100
   current_health: 0
-  atk: 15
+  atk: 40
   magic_atk: 100
   def: 5
   attack_range: 0.5
@@ -689,23 +688,6 @@ MonoBehaviour:
   maxHP: 54
   magic_power: 12
   cooldownMultiplier: 2
---- !u!114 &2307748835791735589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7440852206036009363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929ce406325355347a474923dc76a58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: 2
-  defense: 1
-  maxHP: 54
-  magic_power: 12
-  cooldownMultiplier: 2
 --- !u!1 &8066290499374552347
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +700,7 @@ GameObject:
   - component: {fileID: 8829269630297432949}
   - component: {fileID: 4498803285894781496}
   - component: {fileID: 9093437034773031477}
+  - component: {fileID: 9074811415718999310}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -849,7 +832,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -865,3 +848,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5625, y: 1.25}
   m_EdgeRadius: 0
+--- !u!114 &9074811415718999310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8066290499374552347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a84addb744952046a6163e022c8592d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public enum ItemType
@@ -22,7 +23,19 @@ public enum ItemType
 public class ItemData : ScriptableObject
 {
     public string itemName;
+    [TextArea] public string description;
     public Sprite icon;
     public ItemType type;
     public int maxAllowed = 99;
+    public bool isusable;
+    public bool isarmor;
+    [Header("效果屬性")]
+    public int currentHP;
+    public int maxHP;
+    public int buffATK;
+    public int bufDEF;
+    public float buffSP;
+    public int buffMP;
+    public float duration;
+    
 }

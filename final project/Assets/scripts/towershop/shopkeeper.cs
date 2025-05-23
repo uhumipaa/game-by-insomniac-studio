@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class shopkeeper : MonoBehaviour
 {
     public CanvasGroup shop;
@@ -13,9 +14,10 @@ public class shopkeeper : MonoBehaviour
     [SerializeField] private List<Shopitems> shopsurprisepool;
     [SerializeField] private List<Shopitems> shopsurprise;
     public static event Action<shopmanager, bool> onshopstatechanged;
+    public Loot[] surprices;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Palyer"))
+        if (collision.CompareTag("Player"))
         {
             inrange = true;
             hintani.SetBool("inrange", true);
@@ -23,10 +25,10 @@ public class shopkeeper : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Palyer"))
+        if (collision.CompareTag("Player"))
         {
             inrange = false;
-            hintani.SetBool("inrange", true);
+            hintani.SetBool("inrange", false);
         }
     }
     void Update()
@@ -41,6 +43,7 @@ public class shopkeeper : MonoBehaviour
                 shop.interactable = true;
                 shop.blocksRaycasts = true;
                 isshopopen = true;
+                openitems();
             }
             else
             {
@@ -56,14 +59,19 @@ public class shopkeeper : MonoBehaviour
     public void setsurprice()
     {
         shopsurprise.Clear();
+        int i = 0;
         while (true)
         {
+
             Shopitems data = shopsurprisepool[UnityEngine.Random.Range(0, shopsurprisepool.Count)];
             if (shopsurprise.Contains(data))
             {
                 continue;
             }
             shopsurprise.Add(data);
+            surprices[i].itemdata = data.itemdata;
+            surprices[i].updateloot();
+            i++;
             if (shopsurprise.Count >= 4) break;
         }
     }
@@ -78,6 +86,20 @@ public class shopkeeper : MonoBehaviour
     public void opensurprise()
     {
         Shopmanager.populateshopitem(shopsurprise);
+    }
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        setsurprice();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

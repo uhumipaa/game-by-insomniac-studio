@@ -12,13 +12,14 @@ GameObject:
   - component: {fileID: 336406545524883201}
   - component: {fileID: 3385560090659872713}
   - component: {fileID: 5103178656706246094}
+  - component: {fileID: 1730899264300790159}
   m_Layer: 0
   m_Name: humipa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &537582855100931854
 Transform:
   m_ObjectHideFlags: 0
@@ -148,6 +149,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.014223362, y: 0}
   m_Radius: 0.47069642
+--- !u!114 &1730899264300790159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441453037429238189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5270afae4214b4f8d20000452d7ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shop: {fileID: 0}
+  hintani: {fileID: 6530078436810129651}
+  Shopmanager: {fileID: 0}
+  shopitems: []
+  shopposions: []
+  shopsurprisepool: []
+  shopsurprise: []
 --- !u!1 &7074407434582191248
 GameObject:
   m_ObjectHideFlags: 0
