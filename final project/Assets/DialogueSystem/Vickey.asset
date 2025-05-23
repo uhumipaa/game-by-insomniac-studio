@@ -14,11 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Vickey
   npcPortrait: {fileID: -3847345956899318814, guid: 0c4434b35b39488459fe31322f64d511, type: 3}
-  dialogueLines:
-  - 1111111
-  - 222222
-  - 333333
+  firstTimeDialogue:
+  - hello^^
+  - I'm Vickey^^
+  randomDialogues:
+  - lines:
+    - 11111111111
+    - 22222222
+    - 33333333
+  - lines:
+    - 4444444444
+    - 5555555555
+    - 6666
+  - lines:
+    - 777
+    - 888
+    - 999
   autoProgressLines: 010100
   autoProgressDelay: 1.5
   typingSpeed: 0.05
-  voicePitch: 1

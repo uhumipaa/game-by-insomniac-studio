@@ -951,7 +951,7 @@ Transform:
   m_GameObject: {fileID: 221224218}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.539005, y: 22.17707, z: -0.06502541}
+  m_LocalPosition: {x: -17.48, y: 28.55, z: -0.06502541}
   m_LocalScale: {x: 1.4262, y: 1.4262, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -969,11 +969,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9a59fcc56361f94d8d6486dbb050ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueData: {fileID: 11400000, guid: 6f44d300e2eb21647a4c7cb2e454eebb, type: 2}
+  dialogueData: {fileID: 11400000, guid: de2a6ed47f3460d4eb3158087ea31854, type: 2}
   dialoguePanel: {fileID: 250999852}
   dialogueText: {fileID: 382377321}
   nameText: {fileID: 874363199}
   protraitImage: {fileID: 414383815}
+  npcID: NPC_01_Vickey
 --- !u!61 &221224222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48335,7 +48336,7 @@ Transform:
   m_GameObject: {fileID: 977576936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 1.5, z: 0}
+  m_LocalPosition: {x: -4, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76845,7 +76846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.999939, y: 2}
+  m_AnchoredPosition: {x: -11, y: 2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1272658115
@@ -77481,7 +77482,7 @@ Transform:
   m_GameObject: {fileID: 1343935293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9, y: 8.5, z: 0}
+  m_LocalPosition: {x: -31, y: 19.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79637,7 +79638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590859996}
   m_Layer: 0
-  m_Name: WayPoint (4)
+  m_Name: WayPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -79652,7 +79653,7 @@ Transform:
   m_GameObject: {fileID: 1590859995}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 8.5, z: 0}
+  m_LocalPosition: {x: -4, y: 19.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83372,7 +83373,7 @@ Transform:
   m_GameObject: {fileID: 1861774560}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9, y: 1.5, z: 0}
+  m_LocalPosition: {x: -31, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

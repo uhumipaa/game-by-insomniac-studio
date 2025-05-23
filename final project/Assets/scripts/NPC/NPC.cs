@@ -1,20 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
+
+[System.Serializable]
+public class DialogueGroup
+{
+    public string[] lines;
+}
 
 public class NPC : MonoBehaviour, interactable
 {
+    [Header("對話資料")]
     public NPCDialogue dialogueData;
+
+    [Header("UI 參考")]
     public GameObject dialoguePanel;
     public TMP_Text dialogueText, nameText;
     public Image protraitImage;
+
+    [Header("NPC ID")]
+    public string npcID = "NPC_Default";
+
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
+    private string[] currentDialogue;
 
+    void Start()
+    {
+        PlayerPrefs.DeleteKey("TalkedTo_" + npcID); //清除該 NPC 的對話紀錄
+    }
     public bool CanInteract()
     {
         return !isDialogueActive;
@@ -27,7 +43,7 @@ public class NPC : MonoBehaviour, interactable
             return;
         }
 
-        if (isDialogueActive) //如果對話正在進行中
+        if (isDialogueActive)
         {
             NextLine();
         }
@@ -39,21 +55,28 @@ public class NPC : MonoBehaviour, interactable
 
     void StartDialogue()
     {
-        //狀態變為正在對話
-        isDialogueActive = true;
+        //Debug.Log($"HasTalkedBefore = {HasTalkedBefore()}");
+        if (!HasTalkedBefore() && dialogueData.firstTimeDialogue.Length > 0)
+        {
+            //Debug.Log($"首次對話: {npcID}");
+            currentDialogue = dialogueData.firstTimeDialogue;
+            SetTalked();
+        }
+        else
+        {
+            //Debug.Log($"隨機對話: {npcID}");
+            int rand = Random.Range(0, dialogueData.randomDialogues.Count);
+            currentDialogue = dialogueData.randomDialogues[rand].lines;
+        }
 
-        //從第一條對話開始
+        isDialogueActive = true;
         dialogueIndex = 0;
 
-        //設置NPC資料
         nameText.SetText(dialogueData.npcName);
         protraitImage.sprite = dialogueData.npcPortrait;
 
-        //打開對話框
         dialoguePanel.SetActive(true);
-
-        //畫面暫停
-        PauseController.SetPause(true); //行動待補
+        PauseController.SetPause(true);
 
         StartCoroutine(TypeLine());
     }
@@ -63,10 +86,10 @@ public class NPC : MonoBehaviour, interactable
         if (isTyping)
         {
             StopAllCoroutines();
-            dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
+            dialogueText.SetText(currentDialogue[dialogueIndex]);
             isTyping = false;
         }
-        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
+        else if (++dialogueIndex < currentDialogue.Length)
         {
             StartCoroutine(TypeLine());
         }
@@ -81,15 +104,14 @@ public class NPC : MonoBehaviour, interactable
         isTyping = true;
         dialogueText.SetText("");
 
-        foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
+        foreach (char letter in currentDialogue[dialogueIndex])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(dialogueData.typingSpeed); //稍待幾秒
+            yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 
-        isTyping = false; //講完話停止
+        isTyping = false;
 
-        //如果是自動撥放，等幾秒結束後自動跳到下一行
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
@@ -104,5 +126,15 @@ public class NPC : MonoBehaviour, interactable
         dialogueText.SetText("");
         dialoguePanel.SetActive(false);
         PauseController.SetPause(false);
+    }
+
+    private bool HasTalkedBefore()
+    {
+        return PlayerPrefs.GetInt("TalkedTo_" + npcID, 0) == 1;
+    }
+
+    private void SetTalked()
+    {
+        PlayerPrefs.SetInt("TalkedTo_" + npcID, 1);
     }
 }
