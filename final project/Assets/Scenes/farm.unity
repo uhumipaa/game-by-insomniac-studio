@@ -76846,7 +76846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11, y: 2}
+  m_AnchoredPosition: {x: -11.000244, y: 2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1272658115
@@ -85833,6 +85833,10 @@ PrefabInstance:
       propertyPath: readyToHarvestTile
       value: 
       objectReference: {fileID: 11400000, guid: 2a660fda3e4ce754d982e8f0a1a1aaf7, type: 2}
+    - target: {fileID: 622368079556419364, guid: ea28ce1294137c549a53b4c8896954ed, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7595986285605212588, guid: 7d3ea8e2867e55a4ca415d2474e52027, type: 3}
     - target: {fileID: 622368079556419364, guid: ea28ce1294137c549a53b4c8896954ed, type: 3}
       propertyPath: m_SortingOrder
       value: 10
