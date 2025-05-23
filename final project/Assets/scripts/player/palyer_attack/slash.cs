@@ -35,6 +35,7 @@ public class slash : MonoBehaviour
     {
         if (collision.CompareTag("enemy"))
         {
+            Debug.Log("撞到的 Tag 是：" + collision.tag);
             enemy = collision.GetComponent<enemy_property>();
             enemy.takedamage(player.atk, player_transform.position);
 
