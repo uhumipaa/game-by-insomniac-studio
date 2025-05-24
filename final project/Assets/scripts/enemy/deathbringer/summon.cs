@@ -10,12 +10,10 @@ public class SummonHitboxController : MonoBehaviour
         if (enemy == null)
         {
             enemy = GetComponentInParent<enemy_property>();
-            Debug.LogError("❗ Enemy is null on hitbox! Check if it was assigned.");
         }
         if (player == null)
         {
             player = GetComponentInParent<Player_Property>();
-            Debug.LogError("❗ player is null on hitbox! Check if it was assigned.");
         }
 
         // Player 不一定需要預先設定，OnTriggerEnter2D 時再抓即可
