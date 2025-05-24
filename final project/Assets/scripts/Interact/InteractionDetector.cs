@@ -4,13 +4,6 @@ using UnityEngine.InputSystem;
 public class InteractionDetector : MonoBehaviour
 {
     private interactable interactableInRange = null;
-    public GameObject interactionIcon;
-
-    void Start()
-    {
-        //一開始先關閉圖示
-        interactionIcon.SetActive(false);
-    }
 
     private void Update()
     {
@@ -27,7 +20,7 @@ public class InteractionDetector : MonoBehaviour
         if (collision.TryGetComponent(out interactable target) && target.CanInteract())
         {
             interactableInRange = target;
-            interactionIcon.SetActive(true);
+            
         }
     }
 
@@ -35,7 +28,7 @@ public class InteractionDetector : MonoBehaviour
         if (collision.TryGetComponent(out interactable target) && (target == interactableInRange))
         {
             interactableInRange = null;
-            interactionIcon.SetActive(false);
+           
         }
     }
 }
