@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: "\u9EC3\u91D1\u9BFD\u9B5A"
   description: "\u901A\u9AD4\u91D1\u9EC3\u7684\u7F55\u898B\u9BFD\u9B5A\uFF0C\u50B3\u8AAA\u91E3\u5230\u7260\u6703\u5E36\u4F86\u8CA1\u904B\u2026\u96D6\u7136\u76EE\u524D\u770B\u4F86\u9084\u662F\u4EE5\u89C0\u8CDE\u70BA\u4E3B\u3002"
-  icon: {fileID: -110624349169949125, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
+  icon: {fileID: 21300000, guid: 3b76b7944b17c1f40bbbf8b319f8a13c, type: 3}
   type: 13
   maxAllowed: 99
   isusable: 0

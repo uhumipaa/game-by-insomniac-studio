@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nemo
   m_EditorClassIdentifier: 
   itemName: "\u5C3C\u83AB"
-  description: "\u7260\u89BA\u5F97\u81EA\u5DF1\u662F\u6D77\u5E95\u4E3B\u89D2\uFF0C\u4F46\u4F60\u91E3\u4E0A\u4F86\u5F8C\u7260\u958B\u59CB\u61F7\u7591\u9B5A\u751F\u3002"
+  description: "\u7260\u89BA\u5F97\u81EA\u5DF1\u662F\u4E3B\u89D2\uFF0C\u4F46\u88AB\u4F60\u91E3\u4E0A\u4F86\u5F8C\u7260\u958B\u59CB\u61F7\u7591\u9B5A\u751F\u3002"
   icon: {fileID: -5713880317805915125, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
   type: 14
   maxAllowed: 99
