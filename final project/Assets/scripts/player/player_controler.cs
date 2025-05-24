@@ -21,6 +21,11 @@ public class player_controler : MonoBehaviour
     {
         property = GetComponent<Player_Property>();
         ani = GetComponent<Animator>();
+        sliderCanvas = FindAnyObjectByType<playerhealthbar>()?.transform;
+        if (sliderCanvas == null)
+        {
+            sliderCanvas = transform;
+        }
         // 確保 Animator 不會影響 Scale
         if (GetComponent<Animator>() != null)
         {

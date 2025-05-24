@@ -7,7 +7,15 @@ public class Mapmanager : MonoBehaviour
     void Awake()
     {
         loader = FindAnyObjectByType<Maploaders>();
-        loader.LoadMaps(TowerManager.Instance.currentTowerFloor/10,Random.Range(0,4)); 
+        if (TowerManager.Instance.currentTowerFloor % 10 == 5)
+        {
+            loader.loadrestmap();
+        }
+        else
+        {
+            loader.LoadMaps(TowerManager.Instance.currentTowerFloor/10,Random.Range(0,4)); 
+        }
+        
     }
 
     // Update is called once per frame

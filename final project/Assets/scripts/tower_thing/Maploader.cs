@@ -5,7 +5,7 @@ public class Maploaders : MonoBehaviour
 {
     public GameObject player;
     public GameObject chest;
-    private GameObject player_instance;
+    public GameObject player_instance;
     public GameObject transcircle;
     private GameObject transcircle_instance;
     private GameObject chest_instance;
@@ -17,6 +17,7 @@ public class Maploaders : MonoBehaviour
     public FloorData boosfloordata;
     public GameObject backteleport;
     private GameObject backteleport_instance;
+    public GameObject shopsystem;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -43,21 +44,19 @@ public class Maploaders : MonoBehaviour
         Transform playerspawn = GameObject.Find("player_spawn_point")?.transform;
         if (player_instance == null)
         {
-            player_instance = Instantiate(player, playerspawn.position, Quaternion.identity);
+            player_instance = FindAnyObjectByType<player_controler>().gameObject;
         }
-        else
-        {
             player_instance.transform.position = playerspawn.position;
-        }
 
     }
     // Update is called once per frame
     public void LoadMaps(int floor,int room)
     {
         changemap(floor);
+        shopsystem.SetActive(false);
         if (backteleport_instance != null)
         {
-            Destroy(backteleport);
+            Destroy(backteleport_instance);
         }
         if (currentMap != null)
             Destroy(currentMap);
@@ -136,7 +135,7 @@ public class Maploaders : MonoBehaviour
         {
             Destroy(chest_instance);
         }
-        currentMap = Instantiate(restdata.maps[0], Vector3.zero, Quaternion.identity, mapParen);
+        currentMap = Instantiate(restdata.maps[0], Vector2.zero, Quaternion.identity, mapParen);
         Generate_player();
         generate_tele();
         Transform Telespawn = GameObject.Find("backtele_spawn_point")?.transform;
@@ -145,6 +144,7 @@ public class Maploaders : MonoBehaviour
             Debug.Log("123");
         }
         backteleport_instance = Instantiate(backteleport, Telespawn.position, Quaternion.identity);
+        shopsystem.SetActive(true);
         GetComponent<SetSpecialMap>().setrest();
     }
 }

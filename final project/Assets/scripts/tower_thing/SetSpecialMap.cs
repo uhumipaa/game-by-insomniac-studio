@@ -12,22 +12,11 @@ public class SetSpecialMap : MonoBehaviour
 
     private List<ItemData> goods = new List<ItemData>();
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void setrest()
     {
-        Transform tradesapwn = GameObject.Find("trader_spawn_point")?.transform;
-        Instantiate(uhumipa, tradesapwn.position, Quaternion.identity);
         
-        goods.Clear();
-        while (true)
-        {
-            ItemData data = itemdatas[Random.Range(0, itemdatas.Count)];
-            if (goods.Contains(data)) {
-                continue;
-            }
-            goods.Add(data);
-            if (goods.Count >= 4) break;
-        }
     }
     public void setboss(FloorData data)
     {

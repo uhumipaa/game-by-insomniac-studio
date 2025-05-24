@@ -29,6 +29,7 @@ public class nightdemoncontroller : MonoBehaviour
 
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         animator = GetComponent<Animator>();
@@ -200,6 +201,7 @@ public class nightdemoncontroller : MonoBehaviour
         }
         rb.linearVelocity = Vector2.zero;
         animator.Play("Death");
+
     }
     void FaceDirectionToPlayer()
     {
@@ -277,7 +279,8 @@ public class nightdemoncontroller : MonoBehaviour
                 col.enabled = false;
         }
     }
-    public void Destroynightdemon(){
+    public void Destroynightdemon()
+    {
         Vector3 scale = selfDetectionPoint.localScale;
         scale.x = 4;
         scale.y = 4;
@@ -285,6 +288,8 @@ public class nightdemoncontroller : MonoBehaviour
         Collider2D col = DeathHitbox.GetComponent<Collider2D>();
         if (col != null)
             col.enabled = false;
+        EnemyManager.instance.removeenemy(gameObject);
         gameObject.SetActive(false);
+        
     }
 }
