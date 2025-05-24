@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Linq;
 public class shopkeeper : MonoBehaviour
 {
     public CanvasGroup shop;
@@ -9,6 +10,7 @@ public class shopkeeper : MonoBehaviour
     private bool isshopopen;
     private bool inrange;
     public shopmanager Shopmanager;
+    [SerializeField] private List<Shopitems> shopitemspool;
     [SerializeField] private List<Shopitems> shopitems;
     [SerializeField] private List<Shopitems> shopposions;
     [SerializeField] private List<Shopitems> shopsurprisepool;
@@ -59,6 +61,19 @@ public class shopkeeper : MonoBehaviour
     public void setsurprice()
     {
         shopsurprise.Clear();
+        List<Shopitems> shuffled = new List<Shopitems>(shopsurprisepool);
+        for (int i = 0; i < shuffled.Count; i++)
+        {
+            int randIndex = UnityEngine.Random.Range(i, shuffled.Count);
+            (shuffled[i], shuffled[randIndex]) = (shuffled[randIndex], shuffled[i]);
+        }
+        shopsurprise = shuffled.Take(Mathf.Min(shuffled.Count,4)).OrderBy(item => item.price).ToList();
+        for (int i = 0; i < 4; i++)
+        {
+            surprices[i].itemdata = shopsurprise[i].itemdata;
+            surprices[i].updateloot();
+        }
+        /*
         int i = 0;
         while (true)
         {
@@ -74,6 +89,18 @@ public class shopkeeper : MonoBehaviour
             i++;
             if (shopsurprise.Count >= 4) break;
         }
+        */
+    }
+    public void setitem()
+    {
+        shopitems.Clear();
+        List<Shopitems> shuffled = new List<Shopitems>(shopitemspool);
+        for (int i = 0; i < shuffled.Count; i++)
+        {
+            int randIndex = UnityEngine.Random.Range(i, shuffled.Count);
+            (shuffled[i], shuffled[randIndex]) = (shuffled[randIndex], shuffled[i]);
+        }
+        shopitems = shuffled.Take(Mathf.Min(shuffled.Count,8)).OrderBy(item => item.price).ToList();
     }
     public void openitems()
     {
@@ -100,6 +127,7 @@ public class shopkeeper : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         setsurprice();
+        setitem();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 

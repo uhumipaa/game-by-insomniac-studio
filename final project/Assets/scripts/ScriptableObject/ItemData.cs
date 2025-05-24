@@ -33,7 +33,7 @@ public class ItemData : ScriptableObject
     public int currentHP;
     public int maxHP;
     public int buffATK;
-    public int bufDEF;
+    public int buffDEF;
     public float buffSP;
     public int buffMP;
     public float duration;

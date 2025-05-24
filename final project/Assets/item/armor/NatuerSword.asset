@@ -23,7 +23,7 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 20
   buffATK: 30
-  bufDEF: 10
+  buffDEF: 10
   buffSP: 0
-  buffMP: 0
+  buffMP: 5
   duration: 0
