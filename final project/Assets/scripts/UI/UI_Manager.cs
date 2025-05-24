@@ -123,6 +123,14 @@ public class UI_Manager : MonoBehaviour
         bool isActive = backpackGO.activeSelf;
         backpackGO.SetActive(!isActive); //開啟或關閉backpack視窗
 
+        //同步 raycastTarget 開關
+        if (targetUI.panelImage != null)
+        {
+            targetUI.panelImage.raycastTarget = !isActive;
+            Debug.Log($"raycast target : {!isActive}");
+        }
+            
+
         if (!isActive) //如果視窗顯示 -> 刷新
         {
             targetUI.Refresh();

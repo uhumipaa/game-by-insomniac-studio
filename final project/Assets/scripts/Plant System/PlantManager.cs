@@ -8,11 +8,13 @@ public class PlantManager : MonoBehaviour
     public TileManager tileManager;
     public FarmManager farmManager;
     public List<CropData> allCrops; // 所有作物資料
+    private GameManager gm;
 
     private void Awake()
     {
         instance = this;
-        tileManager = GameManager.instance.tileManager;
+        gm = FindFirstObjectByType<GameManager>();
+        tileManager = gm.tileManager;
     }
 
     public bool TryPlant(Vector3Int position, string tileName, Inventory.Slot selectedSlot)

@@ -6,13 +6,14 @@ public class player_trigger : MonoBehaviour
 
     public TileManager tileManager;
     private float footOffsetY = 0f;
+    private GameManager gm;
 
     private void Start()
     {
         /*//同步資料
         inventory = GameManager.instance.inventoryManager;*/
-        GameManager.instance.player = this;
-        tileManager = GameManager.instance.tileManager;
+        gm = FindFirstObjectByType<GameManager>();
+        tileManager = gm.tileManager;
         footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
     }
 
@@ -38,7 +39,7 @@ public class player_trigger : MonoBehaviour
                 if (PlantManager.instance.TryPlant(gridPos, tileName, selectedSlot))
                 {
                     Debug.Log($"✔ 種植成功 at 格子座標 {gridPos} 世界中心 {gridCenterPos}");
-                    GameManager.instance.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
+                    gm.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
                 }
             }
         }
@@ -97,7 +98,7 @@ public class player_trigger : MonoBehaviour
             }
         }
 
-        Collectable dropped = GameManager.instance.itemManager.SpawnCollectable(type, finalPosition);
+        Collectable dropped = gm.itemManager.SpawnCollectable(type, finalPosition);
 
         if (dropped != null)
         {

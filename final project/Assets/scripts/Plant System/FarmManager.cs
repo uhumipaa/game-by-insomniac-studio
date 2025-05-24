@@ -6,11 +6,12 @@ public class FarmManager : MonoBehaviour
     public static FarmManager instance;
     public TileManager tileManager;
     private Dictionary<Vector3Int, FarmTileData> farmTiles = new Dictionary<Vector3Int, FarmTileData>();
-
+    private GameManager gm;
     private void Awake()
     {
         instance = this;
-        tileManager = GameManager.instance.tileManager;
+        gm = FindFirstObjectByType<GameManager>();
+        tileManager = gm.tileManager;
     }
 
     public void AddFarmTile(Vector3Int pos, CropData cropData)
