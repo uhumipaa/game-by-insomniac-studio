@@ -12,7 +12,7 @@ public enum ItemType
     SpinachSeeds, Spinach,
     Magikarp, Starfish,
     Gyarados, Guppy,
-    Golden_Tench, Clownfish,
+    Golden_Tench, Nemo,
     Plastic_Bag, Message_In_A_Bottle,
     Gundam, Coins,
     Water

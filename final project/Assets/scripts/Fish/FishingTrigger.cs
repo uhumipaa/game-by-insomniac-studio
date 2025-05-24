@@ -12,6 +12,9 @@ public class FishingTrigger : MonoBehaviour
         if (isPlayerInZone && !isFishing && Input.GetKeyDown(KeyCode.F))
         {
             fishingAskPanel.SetActive(true);
+            fishingAskPanel.transform.Find("StartFishing?Text").gameObject.SetActive(true);
+            fishingAskPanel.transform.Find("YesButton").gameObject.SetActive(true);
+            fishingAskPanel.transform.Find("NoButton").gameObject.SetActive(true);
         }
     }
 

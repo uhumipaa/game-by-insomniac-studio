@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: Magikarp
   m_EditorClassIdentifier: 
-  itemName: Magikarp
+  itemName: "\u9BC9\u9B5A\u738B"
+  description: "\u5446\u982D\u5446\u8166\u7684\u9BC9\u9B5A\u738B\uFF0C\u770B\u8D77\u4F86\u4EC0\u9EBC\u90FD\u4E0D\u6703\u505A\uFF0C\u4F46\u4F3C\u4E4E\u6F5B\u85CF\u8457\u4EC0\u9EBC\u53EF\u80FD\u6027\uFF1F"
   icon: {fileID: 5457166598492366146, guid: 995740d82ce207346bbd28e453bd2ace, type: 3}
   type: 9
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  duration: 0

@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: Plastic Bag
   m_EditorClassIdentifier: 
-  itemName: Plastic Bag
+  itemName: "\u5851\u81A0\u888B"
+  description: "\u96D6\u7136\u4E0D\u662F\u5BF6\u7269\uFF0C\u4F46\u9019\u6B21\u4F60\u78BA\u5BE6\u5E6B\u4E86\u5730\u7403\u4E00\u9EDE\u5FD9\u3002"
   icon: {fileID: -4268808005231900133, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
   type: 15
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  duration: 0

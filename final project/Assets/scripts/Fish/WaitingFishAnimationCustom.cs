@@ -5,7 +5,7 @@ public class WaitingFishAnimationCustom : MonoBehaviour
 {
     public Sprite[] sprites; // 拖入 WaitingText0~3（順序不限）
     public float frameDelay = 0.6f; // 切換間隔
-    public float totalDuration = 8f; // 總播放時間
+    public float totalDuration = 5f; // 總播放時間
 
     public GameObject linkedFishPic; // 要一起關掉的圖片（WaitingFishPic）
 

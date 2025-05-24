@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FishingUIManager : MonoBehaviour
 {
     // 釣魚結果面板
     public GameObject fishingResultPanel;
-    public Image resultImage;
-    public Image resultNameImage;
-    public Image resultDescriptionImage;
-    public Image fixedMessageImage;
+    public Image itemIcon;
+    public TextMeshProUGUI itemNameText;
+    public TextMeshProUGUI itemDescriptionText;
+    public TextMeshProUGUI fixedMessageText;
 
-    // 可釣物品清單
-    public List<FishingItem> possibleItems;
+    private bool isShowing = false;
+
+    // 可釣物品清單（ItemData）
+    public List<ItemData> possibleItems;
+
     public GameObject fishingAskPanel;
 
     // 原本的UI元件
@@ -30,65 +34,63 @@ public class FishingUIManager : MonoBehaviour
 
     void Start()
     {
-        // 一開始就確保等待用的UI是隱藏的
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
+        fishingResultPanel.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (isShowing && Input.GetMouseButtonDown(0))
+        {
+            fishingResultPanel.SetActive(false);
+            isShowing = false;
+            fishingTrigger.isFishing = false;
+        }
+    }
+
+    public void OnClickYes()
+    {
+        Debug.Log("開始釣魚！");
+        fishingTrigger.isFishing = true;
+
+        startFishingText.SetActive(false);
+        yesButton.SetActive(false);
+        noButton.SetActive(false);
+
+        waitingFishPic.SetActive(true);
+        waitingFishText.SetActive(true);
+
+        StartCoroutine(ShowFishingResultAfterDelay(5f));
+    }
+
+    public void OnClickNo()
+    {
+        Debug.Log("取消釣魚。");
+        fishingAskPanel.SetActive(false);
     }
 
     private IEnumerator ShowFishingResultAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        // 隱藏等待動畫
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
 
-        // 顯示結果面板
-        fishingResultPanel.SetActive(true);
+        fishingAskPanel.SetActive(false); // 把問答 UI 關掉
 
-        // 隨機選一個物品
+        // 隨機選擇一個釣到的物品
         int index = Random.Range(0, possibleItems.Count);
-        FishingItem item = possibleItems[index];
+        ItemData item = possibleItems[index];
 
-        // 設定 UI 圖片
-        resultImage.sprite = item.itemSprite;
-        resultNameImage.sprite = item.nameSprite;
-        resultDescriptionImage.sprite = item.descriptionSprite;
+        // 顯示結果
+        fishingResultPanel.SetActive(true);
+        itemIcon.sprite = item.icon;
+        itemNameText.text = item.itemName;
+        itemDescriptionText.text = item.description;
+        fixedMessageText.text = "-點擊畫面任意處關閉視窗-";
 
-        // 顯示固定訊息圖片
-        fixedMessageImage.gameObject.SetActive(true);
-
-        Debug.Log("你釣到：" + item.nameSprite.name);
-
-        // （第3步可在這裡加“點一下結束”的邏輯）
-    }
-
-    public void OnClickYes()
-    {
-        Debug.Log("開始釣魚！");
-
-        // 設定釣魚狀態（鎖住F鍵觸發）
-        fishingTrigger.isFishing = true;
-
-        // 隱藏原本對話內容
-        startFishingText.SetActive(false);
-        yesButton.SetActive(false);
-        noButton.SetActive(false);
-
-        // 顯示等待魚咬鉤畫面
-        waitingFishPic.SetActive(true);
-        waitingFishText.SetActive(true);
-
-        // ➔ 這裡可以開始釣魚邏輯（例如等3秒後釣到魚）
-        StartCoroutine(ShowFishingResultAfterDelay(7f));
-
-    }
-
-
-
-    public void OnClickNo()
-    {
-        Debug.Log("取消釣魚。");
-        fishingAskPanel.SetActive(false);
+        isShowing = true;
+        Debug.Log("你釣到：" + item.itemName);
     }
 }

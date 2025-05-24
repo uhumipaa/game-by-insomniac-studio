@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: Gundam
   m_EditorClassIdentifier: 
-  itemName: Gundam
+  itemName: "\u92FC\u5F48"
+  description: "\u50B3\u805E\u4E2D\u6C89\u7761\u5728\u5BE7\u975C\u6E56\u5E95\u7684\u92FC\u5F48\uFF0C\u5230\u5E95\u54EA\u500B\u524D\u4EBA\u628A\u9019\u7A2E\u6771\u897F\u4E1F\u9032\u6C34\u88E1\uFF01"
   icon: {fileID: -1104263485170690809, guid: 406dec0ff757ca842b5e1a4848feaf68, type: 3}
   type: 17
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  duration: 0

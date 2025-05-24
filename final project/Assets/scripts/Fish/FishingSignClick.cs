@@ -16,6 +16,10 @@ public class FishingSignClick : MonoBehaviour
         if (fishingAskPanel != null)
         {
             fishingAskPanel.SetActive(true);
+            fishingAskPanel.transform.Find("StartFishing?Text").gameObject.SetActive(true);
+            fishingAskPanel.transform.Find("YesButton").gameObject.SetActive(true);
+            fishingAskPanel.transform.Find("NoButton").gameObject.SetActive(true);
+
         }
     }
 }

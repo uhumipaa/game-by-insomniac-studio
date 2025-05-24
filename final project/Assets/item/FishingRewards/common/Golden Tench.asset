@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: Golden Tench
   m_EditorClassIdentifier: 
-  itemName: Golden Tench
+  itemName: "\u9EC3\u91D1\u9BFD\u9B5A"
+  description: "\u901A\u9AD4\u91D1\u9EC3\u7684\u7F55\u898B\u9BFD\u9B5A\uFF0C\u50B3\u8AAA\u91E3\u5230\u7260\u6703\u5E36\u4F86\u8CA1\u904B\u2026\u96D6\u7136\u76EE\u524D\u770B\u4F86\u9084\u662F\u4EE5\u89C0\u8CDE\u70BA\u4E3B\u3002"
   icon: {fileID: -110624349169949125, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
   type: 13
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  duration: 0
