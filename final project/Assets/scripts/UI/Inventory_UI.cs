@@ -51,7 +51,7 @@ public class Inventory_UI : MonoBehaviour
 
     public void Remove()
     {
-        if (UI_Manager.draggedSlot == null)
+        /*if (UI_Manager.draggedSlot == null)
         {
             Debug.LogWarning("❗ 無法刪除，draggedSlot 為 null");
             return;
@@ -61,7 +61,7 @@ public class Inventory_UI : MonoBehaviour
         {
             Debug.LogWarning("❗ inventory 為 null，可能尚未初始化");
             return;
-        }
+        }*/
 
         int id = UI_Manager.draggedSlot.slotID;
         if (id < 0 || id >= inventory.slots.Count)
@@ -69,17 +69,41 @@ public class Inventory_UI : MonoBehaviour
             Debug.LogWarning($"❗ slotID 超出範圍：{id}");
             return;
         }
+
         var slot = inventory.slots[UI_Manager.draggedSlot.slotID];
+        GameManager gm = FindFirstObjectByType<GameManager>();
+
+        /////
+        if (gm == null)
+        {
+            Debug.LogError("❌ 找不到 GameManager！");
+            return;
+        }
+
+        if (gm.player == null)
+        {
+            Debug.LogWarning("⚠ GameManager.player 為 null，嘗試自動尋找並綁定");
+            var player = FindFirstObjectByType<player_trigger>();
+            if (player != null)
+            {
+                gm.player = player;
+                Debug.Log("✅ 已自動補綁 GameManager.player");
+            }
+            else
+            {
+                Debug.LogError("❌ 找不到 player_trigger，無法放置物品");
+                return;
+            }
+        }
+        ////
 
         if (UI_Manager.dragSingle)
         {
-            GameManager gm = FindFirstObjectByType<GameManager>();
             gm.player.DropItem(slot.itemData.type);
             inventory.Remove(UI_Manager.draggedSlot.slotID);
         }
         else
         {
-            GameManager gm = FindFirstObjectByType<GameManager>();
             gm.player.DropItem(slot.itemData.type, slot.count);
             inventory.Remove(UI_Manager.draggedSlot.slotID, slot.count);
         }
@@ -116,7 +140,9 @@ public class Inventory_UI : MonoBehaviour
     {
         if (UI_Manager.draggedIcon != null)
             Destroy(UI_Manager.draggedIcon.gameObject);
+
         UI_Manager.draggedIcon = null;
+
     }
 
     public void SlotDrop(Slot_UI slot)
@@ -171,7 +197,7 @@ public class Inventory_UI : MonoBehaviour
         isReady = true;
 
         // 初始化 Remove 面板的 DropReceiver 綁定
-        var receiver = transform.parent.GetComponentInChildren<DropReceiver>();
+        var receiver = GetComponentInChildren<DropReceiver>(); ;
         if (receiver != null)
         {
             receiver.Initialize(this);
@@ -179,7 +205,7 @@ public class Inventory_UI : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("⚠ 沒有找到 DropReceiver，請確認 RemoveItem_panel 上是否有掛腳本");
+            //Debug.LogWarning("⚠ 沒有找到 DropReceiver，請確認 RemoveItem_panel 上是否有掛腳本");
         }
     }
 

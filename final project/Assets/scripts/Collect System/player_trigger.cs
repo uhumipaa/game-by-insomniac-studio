@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class player_trigger : MonoBehaviour
 {
     //public InventoryManager inventory; //刪
@@ -8,14 +8,31 @@ public class player_trigger : MonoBehaviour
     private float footOffsetY = 0f;
     private GameManager gm;
 
-    private void Start()
+    private IEnumerator Start()
     {
-        /*//同步資料
-        inventory = GameManager.instance.inventoryManager;*/
+        yield return new WaitUntil(() => FindFirstObjectByType<GameManager>() != null);
+
         gm = FindFirstObjectByType<GameManager>();
+
+        if (gm == null)
+        {
+            Debug.LogError("❌ 找不到 GameManager，player_trigger 初始化失敗");
+            yield break;
+        }
+
         tileManager = gm.tileManager;
+
+        if (tileManager == null)
+        {
+            Debug.LogError("❌ 找不到 TileManager，請檢查 GameManager 有沒有正確掛上");
+            yield break;
+        }
+
         footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
+        
+        gm.player = this;
     }
+
 
     private void Update()
     {
@@ -75,7 +92,7 @@ public class player_trigger : MonoBehaviour
     //掉落一件物品
     public void DropItem(ItemType type)
     {
-
+        
         Vector3 playerPos = transform.position; // 主角位置
         Vector3 finalPosition = playerPos;
 

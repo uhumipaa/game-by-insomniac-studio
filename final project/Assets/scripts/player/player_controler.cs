@@ -5,7 +5,7 @@ public class player_controler : MonoBehaviour
     private slash slash;
     public Rigidbody2D rb;
     public GameObject sword;
-    public TileManager tileManager;
+    //public TileManager tileManager;
     Animator ani;
     private dash Dash;
     private Player_Property property;

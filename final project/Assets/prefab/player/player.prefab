@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5430722721211192478}
   - component: {fileID: 376822178825617878}
   - component: {fileID: 3584380122939355196}
+  - component: {fileID: -7854337500612217214}
   m_Layer: 11
   m_Name: player
   m_TagString: Player
@@ -183,9 +184,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8645798945149404310}
-  hitbox: {fileID: 0}
-  tileManager: {fileID: 0}
+  sword: {fileID: 0}
   canMove: 1
+  sliderCanvas: {fileID: 0}
 --- !u!95 &6230689536207759314
 Animator:
   serializedVersion: 7
@@ -223,10 +224,17 @@ MonoBehaviour:
   max_health: 50
   current_health: 0
   atk: 15
+  magic_atk: 0
   def: 30
   attack_range: 0
   attack_time: 0.2
   speed: 3.5
+  spriteRender: {fileID: 0}
+  healthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  healthbar: {fileID: 0}
+  expAddUI: {fileID: 0}
 --- !u!114 &497330074470465192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +277,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractableMap: {fileID: 0}
   hiddenInteractableTile: {fileID: 11400000, guid: ad510034ed68c754789ef53193f61a0f, type: 2}
+  cropTilemap: {fileID: 0}
+  sproutTile: {fileID: 0}
+  matureTile: {fileID: 0}
+  readyToHarvestTile: {fileID: 0}
 --- !u!114 &3584380122939355196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +298,19 @@ MonoBehaviour:
   dash_duration: 0.2
   dashing: 0
   afterimage: {fileID: 2945766868367674170, guid: ae50efb6339e1ed4e94bae44e4038f2f, type: 3}
+--- !u!114 &-7854337500612217214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524108836386725992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3eba569671189d46ad3d741bcdde1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileManager: {fileID: 0}
 --- !u!1 &7278219565202989929
 GameObject:
   m_ObjectHideFlags: 0
