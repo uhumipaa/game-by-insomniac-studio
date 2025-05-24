@@ -159,13 +159,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   r_rewards:
-  - {fileID: 11400000, guid: 405371e4584799f46b1f98735e9640e2, type: 2}
+  - {fileID: 0}
   sr_rewards:
-  - {fileID: 11400000, guid: 16274548bd5211648b2d047f60711d33, type: 2}
+  - {fileID: 0}
   ssr_rewards:
-  - {fileID: 11400000, guid: 8329bd7fd312991428d6653946bc2390, type: 2}
+  - {fileID: 0}
   ur_rewards:
-  - {fileID: 11400000, guid: 8b9391d18fa8f8f4abe257928e31e51f, type: 2}
+  - {fileID: 0}
   presents_reward: {fileID: 0}
   rewardUI: {fileID: 1411100191}
   ani: {fileID: 0}
@@ -1354,22 +1354,6 @@ PrefabInstance:
     - target: {fileID: 7440852206036009363, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: m_Name
       value: player_battle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8829269630297432949, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 2750298860172458669, guid: 9908208f33b7b50438fbf6de6acd060c, type: 3}
-    - target: {fileID: 8829269630297432949, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9093437034773031477, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.53125
-      objectReference: {fileID: 0}
-    - target: {fileID: 9093437034773031477, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.59375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3555,6 +3539,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: TroubleMaker
       objectReference: {fileID: 0}
+    - target: {fileID: 1807827915022120376, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991403290305525740, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991403290305525740, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991403290305525740, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6133467096071310310, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3597,11 +3597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641887931186429674, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7641887931186429674, guid: aa4be6cd17fe81749b272dd57c957039, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3997,7 +3997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4131749637687193133, guid: 73019f3c6b8f9d44fa6515cfd829d591, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4131749637687193133, guid: 73019f3c6b8f9d44fa6515cfd829d591, type: 3}
       propertyPath: m_TagString

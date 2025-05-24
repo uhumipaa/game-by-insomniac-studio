@@ -1,23 +1,33 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System.Collections.Generic;
-public class shopinfo : MonoBehaviour
+public class RewardCards : MonoBehaviour
 {
-    public CanvasGroup infopanel;
-    public TMP_Text nametext;
-    public TMP_Text descriptiontext;
-    public TMP_Text[] effecttext;
-    private RectTransform infopanelrect;
+    [SerializeField] TMP_Text nametext;
+    [SerializeField] TMP_Text[] effecttext;
+    [SerializeField] TMP_Text[] extratext;
+    [SerializeField] Image icon;
+    private ItemData item;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
-        infopanelrect = GetComponent<RectTransform>();
     }
-    public void showinfo(ItemData item)
+
+    // Update is called once per frame
+    void Update()
     {
-        infopanel.alpha = 1;
+
+    }
+    public void populatecard(RewardItem newrewardItem,List<extraRewardItem> extra)
+    {
+        item = newrewardItem.itemData;
         nametext.text = item.name;
-        descriptiontext.text = item.description;
+        icon.sprite = item.icon;
+        for (int i = 0; i < extra.Count && i < extratext.Length; i++)
+        {
+            extratext[i].text = new(extra[i].itemData.name + "x" + extra[i].quantity);
+        }
         List<string> stats = new List<string>();
         if (item.currentHP != 0) { stats.Add("Heal: " + item.currentHP); Debug.Log("→ 加入 Heal"); }
         if (item.buffATK != 0)   { stats.Add("ATK: " + item.buffATK);   Debug.Log("→ 加入 ATK"); }
@@ -26,14 +36,11 @@ public class shopinfo : MonoBehaviour
         if (item.buffSP != 0)    { stats.Add("Speed: " + item.buffSP);  Debug.Log("→ 加入 Speed"); }
         if (item.duration != 0)  { stats.Add("Duration: " + item.duration + "s"); Debug.Log("→ 加入 Duration"); }
         if (item.maxHP != 0)     { stats.Add("Max HP: " + item.maxHP);  Debug.Log("→ 加入 Max HP"); }
-
-        Debug.Log("stats count: " + stats.Count);
-        Debug.Log($"Item: {item.name} ATK:{item.buffATK} DEF:{item.buffDEF} HP:{item.currentHP} MP:{item.buffMP}");
         if (stats.Count <= 0)
         {
             effecttext[6].text = new("Maybe it can be use on other condition");
             effecttext[6].gameObject.SetActive(true);
-            for (int i = 0; i < effecttext.Length-1; i++)
+            for (int i = 0; i < effecttext.Length - 1; i++)
             {
                 effecttext[i].text = "";
                 effecttext[i].gameObject.SetActive(false);
@@ -42,7 +49,7 @@ public class shopinfo : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < stats.Count; i++)
+            for (int i = 0; i < stats.Count&& i < effecttext.Length; i++)
             {
                 effecttext[i].text = stats[i];
                 effecttext[i].gameObject.SetActive(true);
@@ -54,15 +61,4 @@ public class shopinfo : MonoBehaviour
             }
         }
     }
-    public void hideinfo()
-    {
-        infopanel.alpha = 0;
-    }
-    public void followmouse()
-    {
-        Vector3 mouseposition = Input.mousePosition;
-        Vector3 offset = new Vector3(50, -50, 0);
-        infopanelrect.position = mouseposition + offset;
-    }
 }
-
