@@ -34,6 +34,11 @@ public class FishingUIManager : MonoBehaviour
 
     void Start()
     {
+
+        fishingAskPanel.SetActive(false);
+        startFishingText.SetActive(false);
+        yesButton.SetActive(false);
+        noButton.SetActive(false);
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
         fishingResultPanel.SetActive(false);
@@ -92,5 +97,8 @@ public class FishingUIManager : MonoBehaviour
 
         isShowing = true;
         Debug.Log("你釣到：" + item.itemName);
+
+        InventoryManager.Instance.Add("Backpack", item, 1);
+        CoinManager.instance.SpendCoins(20);
     }
 }
