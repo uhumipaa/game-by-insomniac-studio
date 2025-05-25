@@ -26,6 +26,7 @@ public class shopinfo : MonoBehaviour
         if (item.buffSP != 0)    { stats.Add("Speed: " + item.buffSP);  Debug.Log("→ 加入 Speed"); }
         if (item.duration != 0)  { stats.Add("Duration: " + item.duration + "s"); Debug.Log("→ 加入 Duration"); }
         if (item.maxHP != 0)     { stats.Add("Max HP: " + item.maxHP);  Debug.Log("→ 加入 Max HP"); }
+        if (item.buffLuck != 0)     { stats.Add("Luck: " + item.buffLuck);  Debug.Log("→ 加入 Max HP"); }
 
         Debug.Log("stats count: " + stats.Count);
         Debug.Log($"Item: {item.name} ATK:{item.buffATK} DEF:{item.buffDEF} HP:{item.currentHP} MP:{item.buffMP}");

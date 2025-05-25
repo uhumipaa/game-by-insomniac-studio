@@ -89,6 +89,10 @@ public class player_controler : MonoBehaviour
     }
     void attack()
     {
+        if (sword == null)
+        {
+            return;
+        }
         attacking = true;
         lastattacktime = Time.time;
         sword.SetActive(true);

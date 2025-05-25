@@ -2,6 +2,7 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 public class Chest_Controller : MonoBehaviour
 {
 
@@ -21,6 +22,7 @@ public class Chest_Controller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        ani = GetComponent<Animator>();
         cards = FindObjectsByType<RewardCards>(FindObjectsSortMode.None);
         rewardUI = FindAnyObjectByType<Treasuremanager>().GetComponent<CanvasGroup>();      
     }
@@ -28,9 +30,10 @@ public class Chest_Controller : MonoBehaviour
     {
         if (inrange && !isopen && Input.GetKeyDown(KeyCode.Return))
         {
-            showreward();
+            ani.SetTrigger("open");
+            StartCoroutine(opentreasure());
         }
-        else if(Input.GetKeyDown(KeyCode.Return))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
             rewardUI.alpha = 0;
         }
@@ -72,6 +75,11 @@ public class Chest_Controller : MonoBehaviour
         }
         return rarity;
     }
+    IEnumerator opentreasure()
+    {
+        yield return new WaitForSecondsRealtime(1.5f);
+        showreward();
+    }
     RewardItem getrandomreward()
     {
         ItemRarity selectedRarity = GetRandomRarity();
@@ -86,8 +94,10 @@ public class Chest_Controller : MonoBehaviour
             currentextraRewards.Add(extraRewards[Random.Range(0, extraRewards.Count)]);
         }
     }
+    
     public void showreward()
     {
+        Debug.Log("123");
         rewardUI.alpha = 1;
         for (int i = 0; i < 3; i++)
         {

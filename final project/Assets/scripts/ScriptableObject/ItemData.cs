@@ -15,7 +15,7 @@ public enum ItemType
     Golden_Tench, Nemo,
     Plastic_Bag, Message_In_A_Bottle,
     Gundam, Coins,
-    Water
+    Water,armor,helmet,boots,pants,accesasor,sword,staff
 }
 
 [CreateAssetMenu(fileName = "Item Data", menuName = "Item Data", order = 50)]
@@ -36,6 +36,7 @@ public class ItemData : ScriptableObject
     public int buffDEF;
     public float buffSP;
     public int buffMP;
+    public int buffLuck;
     public float duration;
     
 }

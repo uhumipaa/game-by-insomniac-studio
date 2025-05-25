@@ -13,7 +13,6 @@ public class ArmorRewardData : RewardData
     public int add_magic;
     public override void ApplyReward(GameObject player)
     {
-        playerstatus staus= player.GetComponent<playerstatus>();
-        staus.add_status(this);
+        
     }
 }

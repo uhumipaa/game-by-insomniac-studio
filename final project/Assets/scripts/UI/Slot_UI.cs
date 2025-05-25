@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-public class Slot_UI : MonoBehaviour
+using UnityEngine.EventSystems;
+public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     public int slotID;
     public Inventory inventory;
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
-
+    [SerializeField] InventoryInfo info;
+    private Inventory.Slot slotitem;
     [SerializeField] private GameObject highlight;
+    private float lastClickTime;
+    [SerializeField] private const float doubleClickThreshold = 0.3f;
+    [SerializeField] private EquipmentSlot[] equipmentSlots;
 
+    void Awake()
+    {
+        if (info == null)
+            info = FindAnyObjectByType<InventoryInfo>();
+    }
     public void SetItem(Inventory.Slot slot)
     {
         if (slot != null && slot.count > 0)
@@ -48,4 +57,85 @@ public class Slot_UI : MonoBehaviour
         highlight.SetActive(isOn);
 
     }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (info == null)
+        {
+            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
+            return;
+        }
+
+        if (inventory != null && slotID >= 0 && slotID < inventory.slots.Count)
+        {
+            var slot = inventory.slots[slotID];
+            if (!slot.IsEmpty)
+            {
+                info.showinfo(slot.itemData);
+            }
+        }
+
+    }
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (info == null)
+        {
+            Debug.LogWarning($"⚠️ info 為 null，SlotID: {slotID}, GameObject: {gameObject.name}");
+            return;
+        }
+        info.hideinfo();
+    }
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (info == null)
+        {
+            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
+            return;
+        }
+
+        if (inventory != null && slotID >= 0 && slotID < inventory.slots.Count)
+        {
+            var slot = inventory.slots[slotID];
+            if (!slot.IsEmpty)
+            {
+                info.followmouse();
+            }
+        }
+    }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (Time.time - lastClickTime < doubleClickThreshold)
+        {
+            trytoequip();
+        }
+
+        lastClickTime = Time.time;
+    }
+    private void trytoequip()
+    {
+        if (inventory != null && slotID >= 0 && slotID < inventory.slots.Count)
+        {
+            var slot = inventory.slots[slotID];
+            if (!slot.IsEmpty)
+            {
+                int findemptyaccesaor = 0;
+                ItemData item = slot.itemData;
+                foreach (EquipmentSlot equipmentSlot in equipmentSlots)
+                {
+                    if (item.type == equipmentSlot.type)
+                    {
+                        if (item.type == ItemType.accesasor && equipmentSlot.itemData != null)
+                        {
+                            if (findemptyaccesaor < 2)
+                            {
+                                findemptyaccesaor++;
+                                continue;
+                            }
+                        }
+                        equipmentSlot.equip(item,slotID);
+                    }
+                }
+            }
+        }
+    }
+    
 }

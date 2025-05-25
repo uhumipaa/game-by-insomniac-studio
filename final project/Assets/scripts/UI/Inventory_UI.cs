@@ -6,28 +6,36 @@ using UnityEngine.UI;
 
 public class Inventory_UI : MonoBehaviour
 {
+    [SerializeField] CanvasGroup[] UIs;
     [SerializeField] public Image panelImage; //backpack 視窗
     public enum InventoryType { Inventory, Toolbar }
+    public enum SlotGroup { Backpack, Equipment }
+
     public InventoryType uiType;
     public string inventoryName;
     public List<Slot_UI> slots = new List<Slot_UI>();
-
+    public List<Slot_UI> bagslots = new List<Slot_UI>();
+    public List<Slot_UI> equipslots = new List<Slot_UI>();
     [SerializeField] private Canvas canvas;
-
+    [SerializeField] int equipmentoffset;
+    [SerializeField] bool isequipment=false;
+    
     private Inventory inventory;
     public bool isReady = false;
-
+    [SerializeField] private int slotOffset = 0;
     private void Awake()
     {
         canvas = FindFirstObjectByType<Canvas>();
         Debug.Log($"🟢 Inventory_UI 綁定 Canvas：{canvas?.name}");
 
         // 抓 Slots 子物件
-        Transform slotRoot = transform.Find("Background/Slots");
-        if (slotRoot != null)
-            slots = new List<Slot_UI>(slotRoot.GetComponentsInChildren<Slot_UI>());
+        Transform bagslotRoot = transform.Find("Background/Slots");
+        
+        slots = new List<Slot_UI>(bagslotRoot.GetComponentsInChildren<Slot_UI>());
+        
+        
     }
-
+    
     private IEnumerator Start()
     {
         yield return null;
@@ -36,9 +44,12 @@ public class Inventory_UI : MonoBehaviour
 
     public void Refresh()
     {
-        if (slots.Count == inventory.slots.Count)
+        //if (slots.Count == inventory.slots.Count)
+        //{
+        /*
+        if (isequipment)
         {
-            for (int i = 0; i < slots.Count; i++)
+            for (int i = equipmentoffset; i < slots.Count; i++)
             {
                 var sourceSlot = inventory.slots[i];
                 if (sourceSlot.count > 0)
@@ -47,6 +58,16 @@ public class Inventory_UI : MonoBehaviour
                     slots[i].SetEmpty();
             }
         }
+        */
+            for (int i = 0; i < slots.Count; i++)
+            {
+                var sourceSlot = inventory.slots[i];
+                if (sourceSlot.count > 0)
+                    slots[i].SetItem(sourceSlot);
+                else
+                    slots[i].SetEmpty();
+            }
+        //}
     }
 
     public void Remove()
@@ -174,6 +195,7 @@ public class Inventory_UI : MonoBehaviour
     void SetupSlots()
     {
         int counter = 0;
+        //if (isequipment) counter += equipmentoffset;
         foreach (Slot_UI slot in slots)
         {
             slot.slotID = counter;
@@ -207,6 +229,17 @@ public class Inventory_UI : MonoBehaviour
         {
             //Debug.LogWarning("⚠ 沒有找到 DropReceiver，請確認 RemoveItem_panel 上是否有掛腳本");
         }
+    }
+    public void switchtobackpack()
+    {
+        UIs[0].alpha = 1;
+        UIs[1].alpha = 0;
+    }
+    public void switchtostatus()
+    {
+        UIs[0].alpha = 0;
+        UIs[1].alpha = 1;
+        UIs[1].GetComponent<IventoryStatus>().setstatus();
     }
 
     //按下X

@@ -12,6 +12,8 @@ public class Player_Property : MonoBehaviour
     public float attack_range;
     public float attack_time;
     public float speed;
+    public int Luck;
+
 
     private Knockback knockback;
     private SuperStarEffect SuperStarEffect; 
@@ -25,6 +27,7 @@ public class Player_Property : MonoBehaviour
     
     void Start()
     {
+        
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能
@@ -37,44 +40,66 @@ public class Player_Property : MonoBehaviour
     {
         return current_health; 
     }
+    
 
     // 經驗點數屬性加成
     public void AtkAdd()
     {
-        if(expAddUI.minuspoint() >= 0) {
-            atk += 1;
-            magic_atk += 1;
+        if (expAddUI.minuspoint() >= 0)
+        {
+            PlayerStatusManager.instance.attack += 1;
+            PlayerStatusManager.instance.magic_power += 1;
+            update_property();
         }
     }
     public void DefAdd()
     {
-        if(expAddUI.minuspoint() >= 0) {
-            def += 1;
+        if (expAddUI.minuspoint() >= 0)
+        {
+            PlayerStatusManager.instance.defense += 1;
+            update_property();
         }
     }
     public void HPAdd()
     {
         if(expAddUI.minuspoint() >= 0) {
-            max_health += 1;
-            current_health += 1;
+            PlayerStatusManager.instance.maxHP += 1;
+            update_property();
         }
     }
-    // 受傷
-    public void takedamage(int damage , Vector2 attackerPos)
+    public void update_property()
     {
-          // 判斷還是不是無敵
+        if (PlayerStatusManager.instance.maxHP - max_health > 0)
+        {
+            current_health += PlayerStatusManager.instance.maxHP - max_health;
+        }
+        max_health = PlayerStatusManager.instance.maxHP;
+        if (max_health < current_health)
+        {
+            current_health = max_health;
+        }
+        atk = PlayerStatusManager.instance.attack;
+        def = PlayerStatusManager.instance.defense;
+        magic_atk = PlayerStatusManager.instance.magic_power;
+        speed = PlayerStatusManager.instance.speed;
+        Luck = PlayerStatusManager.instance.Luck;
+    }
+    // 受傷
+    public void takedamage(int damage, Vector2 attackerPos)
+    {
+        // 判斷還是不是無敵
         if (SuperStarEffect != null && SuperStarEffect.IsInvincible())
         {
             return;
         }
 
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
-        int actual_damage = Mathf.Max(damage - actual_def,0);
+        int actual_damage = Mathf.Max(damage - actual_def, 0);
         current_health -= actual_damage;
         // healthChanged.Invoke();
         healthbar.UpdateUI();
         Debug.Log($"takedamage; {actual_damage} now health: {current_health}");
-        
+
         // 擊退效果
         if (knockback != null)
         {
@@ -87,7 +112,7 @@ public class Player_Property : MonoBehaviour
         {
             SuperStarEffect.StartSuperstar();
         }
-        
+
         if (current_health < 0)
         {
             die();

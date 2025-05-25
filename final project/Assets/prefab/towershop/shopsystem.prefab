@@ -622,7 +622,7 @@ PrefabInstance:
     - target: {fileID: 4431580577597051471, guid: b05fc9b36a173474b98632ada6199d25, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -110624349169949125, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
+      objectReference: {fileID: 21300000, guid: 3b76b7944b17c1f40bbbf8b319f8a13c, type: 3}
     - target: {fileID: 4431580577597051471, guid: b05fc9b36a173474b98632ada6199d25, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -1751,7 +1751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6980800888504510907, guid: b05fc9b36a173474b98632ada6199d25, type: 3}
       propertyPath: m_Name
-      value: Clownfish
+      value: Nemo
       objectReference: {fileID: 0}
     - target: {fileID: 7978944039338039477, guid: b05fc9b36a173474b98632ada6199d25, type: 3}
       propertyPath: m_LocalPosition.x
