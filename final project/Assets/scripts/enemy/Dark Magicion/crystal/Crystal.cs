@@ -7,7 +7,7 @@ public class Crystal : MonoBehaviour
 
     private bool isDestroyed = false;
 
-    private void OnDisable()
+    private void OnDisable()//水晶被破壞後執行
     {
         if (!isDestroyed && boss != null)
         {

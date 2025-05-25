@@ -10,7 +10,7 @@ public class DarkMagicionController : MonoBehaviour
     public float magicInterval = 2f;
 
     [Header("水晶設定")]
-    public GameObject crystalPrefab;
+    public List<GameObject> crystalPrefabs; // ✅ 支援多個水晶 prefab
     public List<Transform> crystalSpawnPoints;
     public int totalCrystals = 4;
     private int crystalsRemaining;
@@ -28,7 +28,6 @@ public class DarkMagicionController : MonoBehaviour
 
     private void Start()
     {
-        //  不再使用 GetComponent，自行在 Inspector 指派
         if (enemyStats == null)
         {
             Debug.LogError("enemyStats 沒有指定，請拖拉 enemy_property 元件進來！");
@@ -48,12 +47,20 @@ public class DarkMagicionController : MonoBehaviour
         StartCoroutine(CastMagicLoop());
     }
 
-
     private void SpawnCrystals()
     {
-        foreach (var point in crystalSpawnPoints)
+        for (int i = 0; i < crystalSpawnPoints.Count; i++)
         {
-            GameObject crystal = Instantiate(crystalPrefab, point.position, Quaternion.identity);
+            // ✅ 安全檢查：水晶 prefab 有設定，且不超出索引
+            if (crystalPrefabs.Count == 0)
+            {
+                Debug.LogError("未設定任何水晶 prefab！");
+                return;
+            }
+
+            GameObject prefabToSpawn = crystalPrefabs[Mathf.Min(i, crystalPrefabs.Count - 1)];
+            GameObject crystal = Instantiate(prefabToSpawn, crystalSpawnPoints[i].position, Quaternion.identity);
+
             Crystal crystalScript = crystal.GetComponent<Crystal>();
             if (crystalScript != null)
             {
@@ -86,31 +93,22 @@ public class DarkMagicionController : MonoBehaviour
             return;
         }
 
-        // 扣除一顆水晶
         crystalsRemaining--;
-
-        // 每顆水晶扣總血量的 1/N
         int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals);
-
-        // 使用 enemy_property 中的正規傷害流程
+        damage++;
         enemyStats.takedamage(damage, transform.position);
 
         Debug.Log($"水晶被破壞，Dark Magicion 扣 {damage} HP，目前剩餘 {enemyStats.current_health}");
 
-        // 不用手動判斷血量是否為 0，因為 enemy_property 的 takedamage 會自動判斷並呼叫 ForceDie() 或死亡流程
-        // 若你仍然想額外做處理，也可以檢查再執行 Die()
         if (enemyStats.current_health <= 0)
         {
-            Die(); // 可選：讓 bossController 自己額外處理動畫或結束流程
+            Die();
         }
     }
-
 
     private void Die()
     {
         Debug.Log("Dark Magicion 被擊敗！");
-        enemyStats.ForceDie(); // 使用 enemy_property 內建的死亡處理
+        enemyStats.ForceDie();
     }
 }
-
-   
