@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using UnityEngine.PlayerLoop;
+using Unity.VisualScripting;
 public class enemy_property : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +28,7 @@ public class enemy_property : MonoBehaviour
     public bool isnightdemon = false;
     private bool isBossKingDead = false;
     public float detect_range = 5f;
+    private SmartShieldEnemy killershield;
 
     [Header("是nightdemon才需要掛")]
     public nightdemoncontroller nightdemon;
@@ -77,6 +79,14 @@ public class enemy_property : MonoBehaviour
         if (bossController != null && bossController.IsTransforming())
         {
             return;  //  變身中 → 不吃傷害
+        }
+        var killershield = GetComponent<SmartShieldEnemy>();
+        if (killershield != null)
+        {
+            if (killershield.isShielded)
+            {
+                return;  //  護盾
+            }
         }
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def, 0);

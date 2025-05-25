@@ -10,7 +10,6 @@ public class AttackHitbox : MonoBehaviour
         if (enemy == null)
         {
             enemy = GetComponentInParent<enemy_property>();
-            Debug.LogError("❗ Enemy is null on hitbox! Check if it was assigned.");
         }
         if (player == null)
         {
