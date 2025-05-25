@@ -669,7 +669,7 @@ MonoBehaviour:
   attack_range: 0
   speed: 0
   stuncd: 0
-  spriteRender: {fileID: 0}
+  spriteRender: {fileID: 8686061684688398991}
   healthChanged:
     m_PersistentCalls:
       m_Calls:
@@ -705,6 +705,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 5651076737655622805}
 --- !u!114 &4170816672811408024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,8 +756,21 @@ MonoBehaviour:
   magicPrefabs: []
   magicSpawnPoint: {fileID: 0}
   magicInterval: 2
-  crystalPrefab: {fileID: 0}
-  crystalSpawnPoints: []
+  crystalPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  crystalSpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  crystalSpawnDelays:
+  - 3
+  - 4
+  - 5
+  - 6
   totalCrystals: 4
   enemyStats: {fileID: 37747594938347549}
 --- !u!1 &9190453172179733971

@@ -27,11 +27,15 @@ public class enemy_property : MonoBehaviour
     public bool isBossKingPhase2 = false;
     public bool isnightdemon = false;
     private bool isBossKingDead = false;
+    private bool isDarkMagicion = false;
     public float detect_range = 5f;
     private SmartShieldEnemy killershield;
 
     [Header("是nightdemon才需要掛")]
     public nightdemoncontroller nightdemon;
+
+    [Header("是Dark Magicion才需要掛")]
+    public Dark_Magicion_Controller Dark_Magicion;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -125,6 +129,12 @@ public class enemy_property : MonoBehaviour
                 if (bossController != null && bossController.currentState == BossController.BossState.Phase2)
                 {
                     bossController.StartPhase2Death(); //  呼叫Boss死亡動畫流程
+                }
+                if (Dark_Magicion != null)
+                {
+                    // 交給 Dark Magicion 自己決定什麼時候死亡（播放動畫等等）
+                    Debug.Log("由 Dark Magicion 自行處理死亡流程");
+                    Dark_Magicion.Die(); // ✅ 呼叫 Dark Magicion 自訂死亡流程（播放動畫 + 延遲死亡）
                 }
                 else
                 {

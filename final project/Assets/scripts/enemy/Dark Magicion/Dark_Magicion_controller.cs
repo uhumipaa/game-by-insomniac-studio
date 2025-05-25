@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class DarkMagicionController : MonoBehaviour
+public class Dark_Magicion_Controller : MonoBehaviour
 {
     [Header("魔法設定")]
     public List<GameObject> magicPrefabs;
@@ -10,13 +10,15 @@ public class DarkMagicionController : MonoBehaviour
     public float magicInterval = 2f;
 
     [Header("水晶設定")]
-    public List<GameObject> crystalPrefabs; // ✅ 支援多個水晶 prefab
+    public List<GameObject> crystalPrefabs;
     public List<Transform> crystalSpawnPoints;
+    public List<float> crystalSpawnDelays = new List<float> { 3f, 4f, 5f, 6f };
     public int totalCrystals = 4;
     private int crystalsRemaining;
 
     [Header("元件參考")]
     public enemy_property enemyStats;
+    private Animator animator; // ✅ 動畫元件
 
     // 快取數值（可選）
     private int maxHealth;
@@ -34,6 +36,14 @@ public class DarkMagicionController : MonoBehaviour
             return;
         }
 
+        // ✅ 抓 Animator
+        animator = GetComponent<Animator>();
+        if (animator == null)
+        {
+            Debug.LogError("沒有找到 Animator 元件！");
+        }
+
+        // 快取數值
         maxHealth = enemyStats.max_health;
         atk = enemyStats.atk;
         def = enemyStats.def;
@@ -43,29 +53,35 @@ public class DarkMagicionController : MonoBehaviour
 
         crystalsRemaining = totalCrystals;
 
-        SpawnCrystals();
+        StartCoroutine(SpawnCrystalsStaggered());
         StartCoroutine(CastMagicLoop());
     }
 
-    private void SpawnCrystals()
+    IEnumerator SpawnCrystalsStaggered()
     {
-        for (int i = 0; i < crystalSpawnPoints.Count; i++)
+        int spawnCount = Mathf.Min(crystalSpawnPoints.Count, crystalPrefabs.Count, crystalSpawnDelays.Count);
+        float totalDelay = 0f;
+
+        Debug.Log("StartCoroutine 啟動 SpawnCrystalsStaggered");
+        Debug.Log($"總共預計生成 {spawnCount} 顆水晶");
+
+        for (int i = 0; i < spawnCount; i++)
         {
-            // ✅ 安全檢查：水晶 prefab 有設定，且不超出索引
-            if (crystalPrefabs.Count == 0)
-            {
-                Debug.LogError("未設定任何水晶 prefab！");
-                return;
-            }
+            float delay = crystalSpawnDelays[i];
+            float waitTime = (i == 0) ? delay : delay - crystalSpawnDelays[i - 1];
+            yield return new WaitForSeconds(waitTime);
+            totalDelay += waitTime;
 
-            GameObject prefabToSpawn = crystalPrefabs[Mathf.Min(i, crystalPrefabs.Count - 1)];
-            GameObject crystal = Instantiate(prefabToSpawn, crystalSpawnPoints[i].position, Quaternion.identity);
+            GameObject prefabToSpawn = crystalPrefabs[i];
+            Transform spawnPoint = crystalSpawnPoints[i];
 
-            Crystal crystalScript = crystal.GetComponent<Crystal>();
-            if (crystalScript != null)
-            {
-                crystalScript.boss = this;
-            }
+            GameObject crystal = Instantiate(prefabToSpawn, spawnPoint.position, Quaternion.identity);
+            crystal.SetActive(true);
+            Debug.Log($"✔ 第 {i + 1} 顆水晶已生成於 {spawnPoint.position}（總延遲 {totalDelay} 秒）");
+
+            var script = crystal.GetComponent<Crystal>();
+            if (script != null)
+                script.boss = this;
         }
     }
 
@@ -94,8 +110,8 @@ public class DarkMagicionController : MonoBehaviour
         }
 
         crystalsRemaining--;
-        int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals);
-        damage++;
+        int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals)+1;
+        damage++; // 額外補正
         enemyStats.takedamage(damage, transform.position);
 
         Debug.Log($"水晶被破壞，Dark Magicion 扣 {damage} HP，目前剩餘 {enemyStats.current_health}");
@@ -106,9 +122,25 @@ public class DarkMagicionController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("Dark Magicion 被擊敗！");
-        enemyStats.ForceDie();
+
+        //  播放死亡動畫（Trigger）
+        if (animator != null)
+        {
+            animator.SetTrigger("DarkMagicionDie");
+        }
+
+        //  延遲一點再處理 Disable（選擇性，確保動畫有播出來）
+        StartCoroutine(DieAfterAnimation(2.2f)); // 1.5 秒後真正消失
+    }
+
+    IEnumerator DieAfterAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        enemyStats.ForceDie(); // 關閉物件或其他死亡處理
     }
 }
+

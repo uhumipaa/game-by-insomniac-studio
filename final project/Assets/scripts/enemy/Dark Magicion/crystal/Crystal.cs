@@ -3,7 +3,7 @@ using UnityEngine;
 public class Crystal : MonoBehaviour
 {
     [Header("Boss 參考 (由 Inspector 指定)")]
-    public DarkMagicionController boss;
+    public Dark_Magicion_Controller boss;
 
     private bool isDestroyed = false;
 
