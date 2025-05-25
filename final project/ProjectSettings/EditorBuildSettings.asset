@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tower.unity
     guid: 4832a2aec15616f49a7c08f6c5f5c982
+  - enabled: 1
+    path: Assets/Scenes/playerHome.unity
+    guid: 7204b4ef24b915744b24860171856255
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

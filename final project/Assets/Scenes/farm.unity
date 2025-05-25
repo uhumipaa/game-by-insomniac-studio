@@ -72794,10 +72794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fb3bafdb94e4f4ba0ee6cb79edc649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questPanel: {fileID: 979236349}
-  questButtonImage: {fileID: 2057201701}
-  defaultSprite: {fileID: 7661086997256020637, guid: edf3012da4a95f345a4eb23313d6a5f0, type: 3}
-  activeSprite: {fileID: -7849917687947064273, guid: edf3012da4a95f345a4eb23313d6a5f0, type: 3}
 --- !u!4 &1342878983
 Transform:
   m_ObjectHideFlags: 0
@@ -74632,6 +74628,7 @@ GameObject:
   - component: {fileID: 1685223541}
   - component: {fileID: 1685223540}
   - component: {fileID: 1685223539}
+  - component: {fileID: 1685223543}
   m_Layer: 0
   m_Name: playerHome
   m_TagString: Untagged
@@ -74673,7 +74670,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.007529974, y: 0.0011885464}
+  m_Offset: {x: -0.03330475, y: -0.0076670647}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -74683,7 +74680,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8213234, y: 1.0421305}
+  m_Size: {x: 0.9931544, y: 1.1749623}
   m_EdgeRadius: 0
 --- !u!50 &1685223540
 Rigidbody2D:
@@ -74782,6 +74779,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685223543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685223538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12d0ebe3233fd243877f1188642be10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1724509294
 GameObject:
   m_ObjectHideFlags: 0
@@ -79625,7 +79634,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.000366, y: 2}
+  m_AnchoredPosition: {x: -11.000244, y: 2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5260254161468815399
