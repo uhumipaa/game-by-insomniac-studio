@@ -4,7 +4,7 @@ public class GolemAttackEffect : MonoBehaviour
 {
     public GameObject attackEffectPrefab;
     public Transform effectSpawnPoint;
-    public float effectLifetime = 0.05f; // 🕒 特效存活時間（秒）
+    public float effectLifetime = 0.5f; // 🕒 特效存活時間（秒）
 
     public void PlayAttackEffect()
     {

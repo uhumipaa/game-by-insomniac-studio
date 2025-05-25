@@ -33,10 +33,15 @@ public class slash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("4sa5daf");
         if (collision.CompareTag("enemy"))
         {
             Debug.Log("撞到的 Tag 是：" + collision.tag);
             enemy = collision.GetComponent<enemy_property>();
+            if (enemy == null)
+            {
+                Debug.Log("4sa5daf");
+            }
             enemy.takedamage(player.atk, player_transform.position);
 
         }

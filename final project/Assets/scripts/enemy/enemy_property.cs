@@ -67,6 +67,7 @@ public class enemy_property : MonoBehaviour
 
     public void takedamage(int damage, Vector2 attackerPos)
     {
+        Debug.Log("12345464");
         // 如果正在無敵，就不受傷
         if (nanoMachine != null && nanoMachine.IsInvincible())
         {
@@ -75,7 +76,7 @@ public class enemy_property : MonoBehaviour
         var bossController = GetComponent<BossController>();
         if (bossController != null && bossController.IsTransforming())
         {
-            return;  // ✅ 變身中 → 不吃傷害
+            return;  //  變身中 → 不吃傷害
         }
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def, 0);
@@ -113,7 +114,7 @@ public class enemy_property : MonoBehaviour
             {
                 if (bossController != null && bossController.currentState == BossController.BossState.Phase2)
                 {
-                    bossController.StartPhase2Death(); // ⭐ 呼叫Boss死亡動畫流程
+                    bossController.StartPhase2Death(); //  呼叫Boss死亡動畫流程
                 }
                 else
                 {
