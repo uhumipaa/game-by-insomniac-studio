@@ -1,132 +1,167 @@
+﻿using UnityEngine;
 using System.Collections;
-using UnityEngine;
-
-public class Boss_warrior_controller : MonoBehaviour
+using Unity.VisualScripting;
+public class Boss_warrior_controller : MonoBehaviour, IEnemyControllerInterface
 {
-    public enum EnemyState { Idle, Run, Attack1, Attack2, Attack3, Jump }
-    public EnemyState currentState = EnemyState.Idle;
+    public enum enemystate { Idle, Moving, Attack1, Attack2, Attack3, Jump, Stunning, stunafterattack }
+    private enemystate currentstate;
+    [Header("模組")]
+    private Rigidbody2D rb;
+    private Animator ani;
+    private Transform player;
+    private enemy_property property;
 
-    public float moveSpeed = 2f;
-    public float attackRange = 2f;
-    public float jumpRange = 4f;
-    public float idleDelay = 1f;
+    [Header("腳本")]
+    private IEnemyAttackBehavior attack;
+    private IEnemyAnimatorBehavior animator;
 
-    public Transform player;
-    public Animator animator;
+    [Header("偵測")]
+    public float detectRange = 20f;
+    public float attackRange = 6f;
 
+    [Header("數值參數")]
+    public float moveSpeed = 8f;
+
+    [Header("Hitbox")]
     public WarriorHitbox attack1Hitbox;
     public WarriorHitbox attack2Hitbox;
     public WarriorHitbox attack3Hitbox;
 
-    private Vector3 originalPosition;
-    private bool isJumping = false;
-    private float stateTimer = 0f;
+    [Header("屬性")]
+    [SerializeField] private float scale;
+    [SerializeField] protected float stunAfterAttackDuration = 0.5f;
 
-    void Start()
+    private bool isJumping = false;
+    private bool isAttacking = false;
+
+    void Awake()
     {
-        originalPosition = transform.position;
-        DisableAllHitboxes();
+        rb = GetComponent<Rigidbody2D>();
+        ani = GetComponent<Animator>();
+        player = FindAnyObjectByType<Player_Property>().transform;
+        property = GetComponent<enemy_property>();
     }
 
     void Update()
     {
-        if (player == null) return;
-
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        stateTimer += Time.deltaTime;
-
-        switch (currentState)
+        switch (currentstate)
         {
-            case EnemyState.Idle:
-                animator.Play("Idle");
-                if (distanceToPlayer < attackRange)
-                {
-                    int attackType = Random.Range(0, 2);
-                    currentState = (attackType == 0) ? EnemyState.Attack2 : EnemyState.Attack3;
-                    stateTimer = 0f;
-                }
-                else if (distanceToPlayer < jumpRange)
-                {
-                    currentState = EnemyState.Jump;
-                    stateTimer = 0f;
-                }
-                else if (distanceToPlayer < 8f)
-                {
-                    currentState = EnemyState.Run;
-                    stateTimer = 0f;
-                }
+            case enemystate.Idle:
+            case enemystate.Moving:
+                AttackorMove();
                 break;
-
-            case EnemyState.Run:
-                animator.Play("Run");
-                transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-                if (distanceToPlayer < attackRange)
-                {
-                    currentState = EnemyState.Attack1;
-                    stateTimer = 0f;
-                }
-                else if (stateTimer > idleDelay)
-                {
-                    currentState = EnemyState.Idle;
-                    stateTimer = 0f;
-                }
+            case enemystate.Attack1:
+                //�ʵe����
                 break;
-
-            case EnemyState.Attack1:
-                animator.Play("Attack1");
+            case enemystate.stunafterattack:
+                //��{����
                 break;
-
-            case EnemyState.Attack2:
-                animator.Play("Attack2");
+            case enemystate.Attack2:
                 break;
-
-            case EnemyState.Attack3:
-                animator.Play("Attack3");
+            case enemystate.Attack3:
                 break;
-
-            case EnemyState.Jump:
-                if (!isJumping)
-                {
-                    StartCoroutine(JumpTowardsPlayer());
-                }
+            case enemystate.Stunning:
                 break;
         }
     }
 
-    IEnumerator JumpTowardsPlayer()
+    void flip()
+    {
+        if (transform.position.x < player.position.x)
+        {
+            transform.localScale = new Vector2(scale, scale);
+        }
+        else
+        {
+            transform.localScale = new Vector2(-scale, scale);
+        }
+    }
+    public void FinishAttack()
+    {
+        if (currentstate != enemystate.Attack1 && currentstate != enemystate.Attack2 && currentstate != enemystate.Attack3)
+            return;
+        rb.linearVelocity = Vector2.zero;
+        StartCoroutine(AttackToRunDelay(stunAfterAttackDuration));
+        animator.PlayIdle(ani);
+        Debug.Log("finish2");
+    }
+    IEnumerator Stun(float cd)
+    {
+        currentstate = enemystate.Stunning;
+        Debug.Log("stuned");
+        yield return new WaitForSecondsRealtime(cd);
+        currentstate = enemystate.Idle;
+    }
+
+    IEnumerator AttackToRunDelay(float cd)
+    {
+        Debug.Log("stunafterattack");
+        currentstate = enemystate.stunafterattack;
+        yield return new WaitForSecondsRealtime(cd);
+    }
+    void AttackorMove()
+    {
+        flip();
+        if(isAttacking == true)
+        {
+
+        }
+        //currentstate = enemystate.Attacking;
+        rb.linearVelocity = Vector2.zero;
+        animator.PlayAttack((player.position - transform.position).normalized, ani);
+        attack.Attack(transform, player, property.atk, scale);
+    }
+
+    void startattack()
+    {
+        ani.SetBool("waiting", false);
+        currentstate = enemystate.Attack1;
+        
+        int rmd = Random.Range(0, 3);
+        //usingskill = skillscripts[rmd] as IEnemySpecilskillBehavior;
+        //usingskill.usingskill(transform, player, property, scale);
+        switch (rmd)
+        {
+            case 1:
+                ani.SetBool("dashing", true);
+                break;
+            case 2:
+                ani.SetBool("jumping", true);
+                break;
+            case 3:
+                ani.SetBool("casting", true);
+                break;
+            }
+       
+    }
+
+
+    public void StartJump()
     {
         isJumping = true;
-        Vector3 jumpTarget = player.position;
-        animator.Play("Jump");
-        float jumpDuration = 0.4f;
-        float elapsed = 0f;
-
-        Vector3 startPos = transform.position;
-        while (elapsed < jumpDuration)
-        {
-            transform.position = Vector3.Lerp(startPos, jumpTarget, elapsed / jumpDuration);
-            elapsed += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = originalPosition;
-        isJumping = false;
-        currentState = EnemyState.Idle;
+        //currentState = enemystate.Jump;
+        //animator.SetTrigger("Jump");
     }
 
-    // Animation Event Functions
-    public void EnableHitbox1() { attack1Hitbox.EnableHitbox(); }
-    public void DisableHitbox1() { attack1Hitbox.DisableHitbox(); }
-
-    public void EnableHitbox2() { attack2Hitbox.EnableHitbox(); }
-    public void DisableHitbox2() { attack2Hitbox.DisableHitbox(); }
-
-    public void EnableHitbox3() { attack3Hitbox.EnableHitbox(); }
-    public void DisableHitbox3() { attack3Hitbox.DisableHitbox(); }
-
-    void DisableAllHitboxes()
+    public void EndJump()
     {
-        attack1Hitbox.DisableHitbox();
-        attack2Hitbox.DisableHitbox();
-        attack3Hitbox.DisableHitbox();
+        //transform.position = originalPosition;
+        isJumping = false;
+        //currentState = enemystate.Idle;
+    }
+
+    // 給動畫事件使用
+    public void EnableHitbox1() => attack1Hitbox.EnableHitbox();
+    public void DisableHitbox1() => attack1Hitbox.DisableHitbox();
+    public void EnableHitbox2() => attack2Hitbox.EnableHitbox();
+    public void DisableHitbox2() => attack2Hitbox.DisableHitbox();
+    public void EnableHitbox3() => attack3Hitbox.EnableHitbox();
+    public void DisableHitbox3() => attack3Hitbox.DisableHitbox();
+
+    public void DisableAllHitboxes()
+    {
+        DisableHitbox1();
+        DisableHitbox2();
+        DisableHitbox3();
     }
 }
