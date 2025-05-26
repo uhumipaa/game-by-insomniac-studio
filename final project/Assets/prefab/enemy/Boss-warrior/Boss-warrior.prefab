@@ -336,9 +336,8 @@ GameObject:
   - component: {fileID: 8846637823765606784}
   - component: {fileID: 8632577970284941206}
   - component: {fileID: 6931144524499299279}
-  - component: {fileID: 8818504285542916297}
-  - component: {fileID: 4368752975444892455}
   - component: {fileID: 5346534374739040456}
+  - component: {fileID: 8249480548469087319}
   m_Layer: 0
   m_Name: Boss-warrior
   m_TagString: enemy
@@ -545,6 +544,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &6931144524499299279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,37 +558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 30
---- !u!114 &8818504285542916297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327946148222204481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36f866b29ad13ec4e89c75e0fb68891e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4368752975444892455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7327946148222204481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7da6ecf909fc76d4787d3905ac3fe14a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
-  detectRange: 20
-  attackRange: 6
-  moveSpeed: 8
-  attack1Hitbox: {fileID: 14869907392657955}
-  attack2Hitbox: {fileID: 543467897529495727}
-  attack3Hitbox: {fileID: 6614755439793420859}
 --- !u!114 &5346534374739040456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +572,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitbox: []
   attackPivot: {fileID: 0}
+--- !u!114 &8249480548469087319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7327946148222204481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da6ecf909fc76d4787d3905ac3fe14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  detect_distence: 20
 --- !u!1 &8271452003149545304
 GameObject:
   m_ObjectHideFlags: 0

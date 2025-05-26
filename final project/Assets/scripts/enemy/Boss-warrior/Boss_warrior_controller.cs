@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
-public class Boss_warrior_controller : MonoBehaviour, IEnemyControllerInterface
+public class Boss_warrior_controller : MonoBehaviour
 {
-    public enum enemystate { Idle, Moving, Attack1, Attack2, Attack3, Jump, Stunning, stunafterattack }
+    public enum enemystate { Idle, Moving, Attack1, Attack2, Attack3, Stunning, stunafterattack }
     private enemystate currentstate;
+
     [Header("模組")]
     private Rigidbody2D rb;
-    private Animator ani;
+    private Animator anim;
     private Transform player;
     private enemy_property property;
 
@@ -15,153 +16,210 @@ public class Boss_warrior_controller : MonoBehaviour, IEnemyControllerInterface
     private IEnemyAttackBehavior attack;
     private IEnemyAnimatorBehavior animator;
 
-    [Header("偵測")]
-    public float detectRange = 20f;
-    public float attackRange = 6f;
+    [Header("攻擊設定")]
+    public float attackDistance = 2.5f;
+    private float attackCooldown = 2f;
+    private float lastAttackTime = -999f;
+    public float stunAfterAttackTime = 1f;
 
-    [Header("數值參數")]
+
+
+    [Header("數值設定")]
     public float moveSpeed = 8f;
+    public float jumpTriggerDistance = 5f;
+    public float detect_distence = 20f;
 
-    [Header("Hitbox")]
-    public WarriorHitbox attack1Hitbox;
-    public WarriorHitbox attack2Hitbox;
-    public WarriorHitbox attack3Hitbox;
 
-    [Header("屬性")]
-    [SerializeField] private float scale;
-    [SerializeField] protected float stunAfterAttackDuration = 0.5f;
-
-    private bool isJumping = false;
+    private float patrolTimer = 0f;
+    private float patrolInterval = 5f;
+    private float patrolMoveDuration = 2f;
+    private float patrolMoveTimer = 0f;
+    private bool isPatrolling = false;
+    private Vector2 patrolDirection;
+    private float previousDistance;
     private bool isAttacking = false;
 
-    void Awake()
+
+    // Hitbox 物件（建議直接 assign）
+    public GameObject hitbox_attack1;
+    public GameObject hitbox_attack2;
+    public GameObject hitbox_attack3;
+
+    // 控制函式（供動畫事件呼叫）
+    public void EnableHitbox1() => hitbox_attack1.SetActive(true);
+    public void DisableHitbox1() => hitbox_attack1.SetActive(false);
+
+    public void EnableHitbox2() => hitbox_attack2.SetActive(true);
+    public void DisableHitbox2() => hitbox_attack2.SetActive(false);
+
+    public void EnableHitbox3() => hitbox_attack3.SetActive(true);
+    public void DisableHitbox3() => hitbox_attack3.SetActive(false);
+
+
+    private void Start()
     {
+        hitbox_attack1.SetActive(false);
+        hitbox_attack2.SetActive(false);
+        hitbox_attack3.SetActive(false);
+
+        anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        currentstate = enemystate.Idle;
         rb = GetComponent<Rigidbody2D>();
-        ani = GetComponent<Animator>();
-        player = FindAnyObjectByType<Player_Property>().transform;
-        property = GetComponent<enemy_property>();
     }
 
-    void Update()
+    private void Update()
     {
-        switch (currentstate)
+        float distance = Vector3.Distance(transform.position, player.position);
+        bool playerIsApproaching = distance < previousDistance;
+
+        FlipToFacePlayer();
+
+        // 如果正在僵直，什麼都不做（避免移動或再次攻擊）
+        if (currentstate == enemystate.stunafterattack)
         {
-            case enemystate.Idle:
-            case enemystate.Moving:
-                AttackorMove();
-                break;
-            case enemystate.Attack1:
-                //�ʵe����
-                break;
-            case enemystate.stunafterattack:
-                //��{����
-                break;
-            case enemystate.Attack2:
-                break;
-            case enemystate.Attack3:
-                break;
-            case enemystate.Stunning:
-                break;
+            rb.linearVelocity = Vector2.zero;
+            return;
         }
-    }
 
-    void flip()
-    {
-        if (transform.position.x < player.position.x)
+        if (distance <= detect_distence)
         {
-            transform.localScale = new Vector2(scale, scale);
+            // 若目前不是攻擊/僵直狀態才允許移動
+            if (currentstate != enemystate.Attack1 &&
+                currentstate != enemystate.Attack2 &&
+                currentstate != enemystate.Attack3 &&
+                currentstate != enemystate.stunafterattack)
+            {
+                currentstate = enemystate.Moving;
+                MoveTowardsPlayer();
+            }
+
+
+            // 如果靠近且冷卻結束，就執行攻擊
+            if (distance <= attackDistance && Time.time - lastAttackTime >= attackCooldown)
+            {
+                if (!isAttacking)
+                {
+                    StartCoroutine(PerformAttack());
+                }
+
+            }
         }
         else
         {
-            transform.localScale = new Vector2(-scale, scale);
+            PatrolBehavior();
         }
+
+        UpdateAnimator();
+
+        previousDistance = distance;
+
     }
-    public void FinishAttack()
+
+
+    void MoveTowardsPlayer()
     {
-        if (currentstate != enemystate.Attack1 && currentstate != enemystate.Attack2 && currentstate != enemystate.Attack3)
-            return;
-        rb.linearVelocity = Vector2.zero;
-        StartCoroutine(AttackToRunDelay(stunAfterAttackDuration));
-        animator.PlayIdle(ani);
-        Debug.Log("finish2");
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.linearVelocity = direction * moveSpeed;
     }
-    IEnumerator Stun(float cd)
+
+    void PatrolBehavior()
     {
-        currentstate = enemystate.Stunning;
-        Debug.Log("stuned");
-        yield return new WaitForSecondsRealtime(cd);
+        patrolTimer += Time.deltaTime;
+
+        if (isPatrolling)
+        {
+            patrolMoveTimer += Time.deltaTime;
+
+            rb.linearVelocity = patrolDirection * moveSpeed;
+
+            if (patrolMoveTimer >= patrolMoveDuration)
+            {
+                rb.linearVelocity = Vector2.zero;
+                isPatrolling = false;
+                patrolMoveTimer = 0f;
+            }
+        }
+        else if (patrolTimer >= patrolInterval)
+        {
+            // 開始新一輪巡邏
+            patrolDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            isPatrolling = true;
+            patrolTimer = 0f;
+        }
+
         currentstate = enemystate.Idle;
     }
 
-    IEnumerator AttackToRunDelay(float cd)
+    void UpdateAnimator()
     {
-        Debug.Log("stunafterattack");
-        currentstate = enemystate.stunafterattack;
-        yield return new WaitForSecondsRealtime(cd);
+        anim.SetBool("running", currentstate == enemystate.Moving);
+        anim.SetBool("waiting", currentstate == enemystate.Idle);
     }
-    void AttackorMove()
-    {
-        flip();
-        if(isAttacking == true)
-        {
 
-        }
-        //currentstate = enemystate.Attacking;
+    public void OnAttackAnimationEnd()
+    {
+        currentstate = enemystate.Idle;
+    }
+
+    IEnumerator PerformAttack()
+    {
+        // 停止移動
         rb.linearVelocity = Vector2.zero;
-        animator.PlayAttack((player.position - transform.position).normalized, ani);
-        attack.Attack(transform, player, property.atk, scale);
-    }
 
-    void startattack()
-    {
-        ani.SetBool("waiting", false);
-        currentstate = enemystate.Attack1;
-        
-        int rmd = Random.Range(0, 3);
-        //usingskill = skillscripts[rmd] as IEnemySpecilskillBehavior;
-        //usingskill.usingskill(transform, player, property, scale);
-        switch (rmd)
+        // 隨機選一個攻擊
+        int rand = Random.Range(1, 4); // 1 ~ 3
+
+        switch (rand)
         {
             case 1:
-                ani.SetBool("dashing", true);
+                currentstate = enemystate.Attack1;
+                EnableHitbox1();
+                anim.SetTrigger("Attack1");
                 break;
             case 2:
-                ani.SetBool("jumping", true);
+                currentstate = enemystate.Attack2;
+                EnableHitbox2();
+                anim.SetTrigger("Attack2");
                 break;
             case 3:
-                ani.SetBool("casting", true);
+                currentstate = enemystate.Attack3;
+                EnableHitbox3();
+                anim.SetTrigger("Attack3");
                 break;
-            }
-       
+        }
+
+        // 進入僵直狀態（如果你有這個列舉值可視覺用）
+        currentstate = enemystate.stunafterattack;
+
+        // 等待攻擊後停頓 1.0~2.0 秒，可調整
+        yield return new WaitForSeconds(1.5f);
+
+        // 回到待機狀態
+        currentstate = enemystate.Idle;
     }
 
 
-    public void StartJump()
+
+    private void FlipToFacePlayer()
     {
-        isJumping = true;
-        //currentState = enemystate.Jump;
-        //animator.SetTrigger("Jump");
+        if (player == null) return;
+
+        Vector3 scale = transform.localScale;
+
+        // 如果玩家在左邊但角色朝右（scale.x 為正），就反轉
+        if (player.position.x < transform.position.x && scale.x > 0)
+        {
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
+        // 如果玩家在右邊但角色朝左（scale.x 為負），就反轉
+        else if (player.position.x > transform.position.x && scale.x < 0)
+        {
+            scale.x *= -1;
+            transform.localScale = scale;
+        }
     }
 
-    public void EndJump()
-    {
-        //transform.position = originalPosition;
-        isJumping = false;
-        //currentState = enemystate.Idle;
-    }
 
-    // 給動畫事件使用
-    public void EnableHitbox1() => attack1Hitbox.EnableHitbox();
-    public void DisableHitbox1() => attack1Hitbox.DisableHitbox();
-    public void EnableHitbox2() => attack2Hitbox.EnableHitbox();
-    public void DisableHitbox2() => attack2Hitbox.DisableHitbox();
-    public void EnableHitbox3() => attack3Hitbox.EnableHitbox();
-    public void DisableHitbox3() => attack3Hitbox.DisableHitbox();
-
-    public void DisableAllHitboxes()
-    {
-        DisableHitbox1();
-        DisableHitbox2();
-        DisableHitbox3();
-    }
 }
