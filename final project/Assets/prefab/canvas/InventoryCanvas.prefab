@@ -953,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 7823503019144041430, guid: e7d355969be65e24f86c3e1b60d998c9, type: 3}
       propertyPath: equipRoot
       value: 
-      objectReference: {fileID: 3366374981580693809}
+      objectReference: {fileID: 0}
     - target: {fileID: 7823503019144041430, guid: e7d355969be65e24f86c3e1b60d998c9, type: 3}
       propertyPath: equipmentoffset
       value: 28
@@ -1119,11 +1119,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7d355969be65e24f86c3e1b60d998c9, type: 3}
---- !u!224 &3366374981580693809 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 43619018427622269, guid: e7d355969be65e24f86c3e1b60d998c9, type: 3}
-  m_PrefabInstance: {fileID: 3327372262792053324}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &5154000871439098666 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7614323690433093990, guid: e7d355969be65e24f86c3e1b60d998c9, type: 3}

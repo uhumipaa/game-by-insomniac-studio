@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: water
   m_EditorClassIdentifier: 
   itemName: water
+  description: 
   icon: {fileID: 7538570299787566214, guid: 967d27540d9cb274a8c011686820dce3, type: 3}
   type: 19
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  buffLuck: 0
+  duration: 0

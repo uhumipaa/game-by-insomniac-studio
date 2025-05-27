@@ -26,7 +26,7 @@ public class ItemData : ScriptableObject
     [TextArea] public string description;
     public Sprite icon;
     public ItemType type;
-    public int maxAllowed = 99;
+    public int maxAllowed = 100;
     public bool isusable;
     public bool isarmor;
     [Header("效果屬性")]

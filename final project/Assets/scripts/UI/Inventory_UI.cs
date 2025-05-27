@@ -255,10 +255,10 @@ public class Inventory_UI : MonoBehaviour
     //按下X
     public void CloseUI()
     {
-        Debug.Log("點下背包關閉按鈕");
         //如果backpack關閉 raycastTarget關閉
         if (panelImage != null) panelImage.raycastTarget = false;
 
+        //backpack面板關閉
         gameObject.SetActive(false);
     }
 }
