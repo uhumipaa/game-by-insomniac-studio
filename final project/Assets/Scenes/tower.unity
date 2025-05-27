@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20fbea86ae33839448255927fecdd8de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 610047670}
+  player: {fileID: 7440852206036009363, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
   chest: {fileID: 2720324144936102746, guid: f427e2244b6b1a24d8c6129fccc17a4f, type: 3}
   player_instance: {fileID: 610047670}
   transcircle: {fileID: 217994453200195246, guid: 20cdd62360ca4fc46baf610f5bfdec92, type: 3}

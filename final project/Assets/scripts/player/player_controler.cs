@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class player_controler : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private slash slash;
+    public Rigidbody2D rb;
     public GameObject sword;
     //public TileManager tileManager;
     Animator ani;
@@ -18,7 +19,6 @@ public class player_controler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         property = GetComponent<Player_Property>();
         ani = GetComponent<Animator>();
         sliderCanvas = FindAnyObjectByType<playerhealthbar>()?.transform;
