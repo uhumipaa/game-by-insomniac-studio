@@ -17,7 +17,7 @@ public class Boss_warrior_controller : MonoBehaviour
     private IEnemyAnimatorBehavior animator;
 
     [Header("攻擊設定")]
-    public float attackDistance = 2.5f;
+    public float attackDistance = 3.8f;
     private float attackCooldown = 2f;
     private float lastAttackTime = -999f;
     public float stunAfterAttackTime = 1f;
@@ -27,7 +27,7 @@ public class Boss_warrior_controller : MonoBehaviour
     [Header("數值設定")]
     public float moveSpeed = 8f;
     public float jumpTriggerDistance = 5f;
-    public float detect_distence = 20f;
+    public float detect_distence = 10f;
 
 
     private float patrolTimer = 0f;
@@ -46,14 +46,37 @@ public class Boss_warrior_controller : MonoBehaviour
     public GameObject hitbox_attack3;
 
     // 控制函式（供動畫事件呼叫）
-    public void EnableHitbox1() => hitbox_attack1.SetActive(true);
-    public void DisableHitbox1() => hitbox_attack1.SetActive(false);
+    public void EnableHitbox1()
+    {
+        hitbox_attack1.SetActive(true);
+        hitbox_attack1.GetComponent<WarriorHitbox>().EnableHitbox();
+    }
+    public void DisableHitbox1()
+    {
+        hitbox_attack1.GetComponent<WarriorHitbox>().DisableHitbox();
+        hitbox_attack1.SetActive(false);
+    }
 
-    public void EnableHitbox2() => hitbox_attack2.SetActive(true);
-    public void DisableHitbox2() => hitbox_attack2.SetActive(false);
-
-    public void EnableHitbox3() => hitbox_attack3.SetActive(true);
-    public void DisableHitbox3() => hitbox_attack3.SetActive(false);
+    public void EnableHitbox2()
+    {
+        hitbox_attack2.SetActive(true);
+        hitbox_attack2.GetComponent<WarriorHitbox>().EnableHitbox();
+    }
+    public void DisableHitbox2()
+    {
+        hitbox_attack2.GetComponent<WarriorHitbox>().DisableHitbox();
+        hitbox_attack2.SetActive(false);
+    }
+    public void EnableHitbox3()
+    {
+        hitbox_attack3.SetActive(true);
+        hitbox_attack3.GetComponent<WarriorHitbox>().EnableHitbox();
+    }
+    public void DisableHitbox3()
+    {
+        hitbox_attack3.GetComponent<WarriorHitbox>().DisableHitbox();
+        hitbox_attack3.SetActive(false);
+    }
 
 
     private void Start()
@@ -125,6 +148,7 @@ public class Boss_warrior_controller : MonoBehaviour
 
     void PatrolBehavior()
     {
+        Debug.Log("77777");
         patrolTimer += Time.deltaTime;
 
         if (isPatrolling)
@@ -169,7 +193,7 @@ public class Boss_warrior_controller : MonoBehaviour
 
         // 隨機選一個攻擊
         int rand = Random.Range(1, 4); // 1 ~ 3
-
+        lastAttackTime = Time.time;
         switch (rand)
         {
             case 1:
@@ -193,10 +217,16 @@ public class Boss_warrior_controller : MonoBehaviour
         currentstate = enemystate.stunafterattack;
 
         // 等待攻擊後停頓 1.0~2.0 秒，可調整
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
 
         // 回到待機狀態
         currentstate = enemystate.Idle;
+
+        // 結束攻擊時關閉所有 Hitbox
+        DisableHitbox1();
+        DisableHitbox2();
+        DisableHitbox3();
+
     }
 
 
