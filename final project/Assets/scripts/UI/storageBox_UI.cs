@@ -4,25 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Inventory_UI : MonoBehaviour
+public class storageBox_UI : MonoBehaviour
 {
-    [SerializeField] CanvasGroup[] UIs;
+    //[SerializeField] CanvasGroup[] UIs;
     [SerializeField] public Image panelImage; //backpack 視窗
-    public enum InventoryType { Inventory, Toolbar }
-    public enum SlotGroup { Backpack, Equipment }
+    //public enum InventoryType { Inventory, Toolbar }
+    //public enum SlotGroup { Backpack, Equipment }
 
-    public InventoryType uiType;
+    //public InventoryType uiType;
     public string inventoryName;
     public List<Slot_UI> slots = new List<Slot_UI>();
-    public List<Slot_UI> bagslots = new List<Slot_UI>();
-    public List<Slot_UI> equipslots = new List<Slot_UI>();
+    //public List<Slot_UI> bagslots = new List<Slot_UI>();
+    //public List<Slot_UI> equipslots = new List<Slot_UI>();
     [SerializeField] private Canvas canvas;
-    [SerializeField] int equipmentoffset;
-    [SerializeField] bool isequipment=false;
-    
+    //[SerializeField] int equipmentoffset;
+    //[SerializeField] bool isequipment = false;
+
     private Inventory inventory;
-    public bool isReady = false;
-    [SerializeField] private int slotOffset = 0;
+    //public bool isReady = false;
+    //[SerializeField] private int slotOffset = 0;
     private void Awake()
     {
         canvas = FindFirstObjectByType<Canvas>();
@@ -30,16 +30,30 @@ public class Inventory_UI : MonoBehaviour
 
         // 抓 Slots 子物件
         Transform bagslotRoot = transform.Find("Background/Slots");
-        
+
         slots = new List<Slot_UI>(bagslotRoot.GetComponentsInChildren<Slot_UI>());
-        
     }
-    
-    private IEnumerator Start()
+
+    private void Start()
     {
-        yield return null;
-        Reconnect();
+        inventory = InventoryManager.Instance.GetInventoryByName("Storagebox");
+
+        if (inventory == null)
+        {
+            Debug.LogError("❌ 找不到 StorageBox inventory！");
+            return;
+        }
+
+        for (int i = 0; i < slots.Count; i++)
+        {
+            slots[i].slotID = i;
+            slots[i].inventory = inventory;
+        }
+
+        Refresh();
     }
+
+
 
     public void Refresh()
     {
@@ -58,14 +72,14 @@ public class Inventory_UI : MonoBehaviour
             }
         }
         */
-            for (int i = 0; i < slots.Count; i++)
-            {
-                var sourceSlot = inventory.slots[i];
-                if (sourceSlot.count > 0)
-                    slots[i].SetItem(sourceSlot);
-                else
-                    slots[i].SetEmpty();
-            }
+        for (int i = 0; i < slots.Count; i++)
+        {
+            var sourceSlot = inventory.slots[i];
+            if (sourceSlot.count > 0)
+                slots[i].SetItem(sourceSlot);
+            else
+                slots[i].SetEmpty();
+        }
         //}
     }
 
@@ -191,7 +205,7 @@ public class Inventory_UI : MonoBehaviour
         }
     }
 
-    void SetupSlots()
+    /*void SetupSlots()
     {
         int counter = 0;
         //if (isequipment) counter += equipmentoffset;
@@ -201,9 +215,9 @@ public class Inventory_UI : MonoBehaviour
             counter++;
             slot.inventory = inventory;
         }
-    }
+    }*/
 
-    public void Reconnect()
+    /*public void Reconnect()
     {
         inventory = InventoryManager.Instance.GetInventoryByName(inventoryName);
 
@@ -228,28 +242,8 @@ public class Inventory_UI : MonoBehaviour
         {
             //Debug.LogWarning("⚠ 沒有找到 DropReceiver，請確認 RemoveItem_panel 上是否有掛腳本");
         }
-    }
-    public void switchtobackpack()
-    {
-        UIs[0].alpha = 1;
-        UIs[0].blocksRaycasts = true;
-        UIs[0].interactable = true;
+    }*/
 
-        UIs[1].alpha = 0;
-        UIs[1].blocksRaycasts = false;
-        UIs[1].interactable = false;
-    }
-    public void switchtostatus()
-    {
-        UIs[0].alpha = 0;
-        //UIs[0].blocksRaycasts = false;
-        //UIs[0].interactable = false;
-
-        UIs[1].alpha = 1;
-        //UIs[1].blocksRaycasts = true;
-        //UIs[1].interactable = true;
-        UIs[1].GetComponent<IventoryStatus>().setstatus();
-    }
 
     //按下X
     public void CloseUI()
@@ -261,3 +255,5 @@ public class Inventory_UI : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+
+

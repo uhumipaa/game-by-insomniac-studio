@@ -204,6 +204,12 @@ MonoBehaviour:
       itemData: {fileID: 0}
       count: 0
   toolbarSlotCount: 10
+  storagebox:
+    slots: []
+    selectedSlot:
+      itemData: {fileID: 0}
+      count: 0
+  storageboxSlotCount: 12
 --- !u!4 &553631281
 Transform:
   m_ObjectHideFlags: 0

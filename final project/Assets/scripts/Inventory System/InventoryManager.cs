@@ -15,6 +15,11 @@ public class InventoryManager : MonoBehaviour
     public Inventory toolbar;
     public int toolbarSlotCount;
 
+    [Header("Storagebox")]
+    public Inventory storagebox;
+    public int storageboxSlotCount;
+
+
     private void Awake()
     {
         //單例處理
@@ -29,12 +34,15 @@ public class InventoryManager : MonoBehaviour
             return;
         }
 
+        //註冊格數
         backpack = new Inventory(backpackSlotCount);
         toolbar = new Inventory(toolbarSlotCount);
+        storagebox = new Inventory(storageboxSlotCount);
 
-        //把backpack跟toolbar註冊進inventoryByName的字典中
+        //註冊進inventoryByName的字典中
         inventoryByName.Add("Backpack", backpack);
         inventoryByName.Add("Toolbar", toolbar);
+        inventoryByName.Add("Storagebox", storagebox);
     }
 
     public void Add(string inventoryName, ItemData data, int amount = 1)
