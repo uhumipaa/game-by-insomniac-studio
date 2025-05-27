@@ -665,7 +665,7 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 5
-  atk: 0
+  atk: 1
   attack_range: 0
   speed: 0
   stuncd: 0
@@ -705,6 +705,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &8583011573450202800
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class PlayerFeatureManager : MonoBehaviour
 
         foreach (MonoBehaviour script in towerscript)
         {
-            script.enabled = (sceneName == "tower");
+            script.enabled = (sceneName == "tower"||sceneName == "battle_test");
         }
         //農場
         foreach (MonoBehaviour script in farmscript)

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 9207443685532598836}
-  property: {fileID: 0}
+  property: {fileID: 5846364219080989478}
 --- !u!114 &8020171352526169059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e859b4abab4a3e46a24e76232259954, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRoot: {fileID: 0}
+  enemyRoot: {fileID: 2466559003660295297}
 --- !u!1 &1857782233381471375
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 5846364219080989478}
   - component: {fileID: 476887064327017265}
   - component: {fileID: 7024043300854703176}
+  - component: {fileID: 8712807239132022008}
   m_Layer: 12
   m_Name: Golem
   m_TagString: enemy
@@ -701,7 +702,10 @@ MonoBehaviour:
         m_CallState: 2
   stats: {fileID: 7024043300854703176}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 5
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &476887064327017265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +733,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 30
+--- !u!114 &8712807239132022008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335172089475755453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9315f0d65bae72a43ae4bcdd8f0f7526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackEffectPrefab: {fileID: 2871971146823888416, guid: ab4166e643d820d41982d44c3786c311, type: 3}
+  effectSpawnPoint: {fileID: 2466559003660295297}
+  effectLifetime: 0.5
 --- !u!1 &3376691268510963836
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +790,7 @@ GameObject:
   - component: {fileID: 3055279698015134674}
   - component: {fileID: 506946021088509958}
   - component: {fileID: 9041670889378149002}
+  - component: {fileID: 2012255500252378959}
   m_Layer: 12
   m_Name: hitbox(1)
   m_TagString: Untagged
@@ -915,6 +935,18 @@ PolygonCollider2D:
       - {x: 0.5500853, y: 0.5525322}
       - {x: 0.3802444, y: 0.5635121}
   m_UseDelaunayMesh: 0
+--- !u!114 &2012255500252378959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4428022947994639021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfa7747f2d1dfb4c95af18084e06d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5210872269467435590
 GameObject:
   m_ObjectHideFlags: 0

@@ -575,7 +575,7 @@ MonoBehaviour:
   max_health: 100
   current_health: 0
   def: 5
-  atk: 0
+  atk: 1
   attack_range: 0
   speed: 0
   stuncd: 0
@@ -615,6 +615,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!60 &7357791387202461094
 PolygonCollider2D:
   m_ObjectHideFlags: 0

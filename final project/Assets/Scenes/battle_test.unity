@@ -127,57 +127,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 756521211679341055, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 756521211679341055, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 756521211679341055, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalPrefabs.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2052500016}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalPrefabs.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1950278734}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalPrefabs.Array.data[2]'
-      value: 
-      objectReference: {fileID: 609033685}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalPrefabs.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1577873732}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalSpawnPoints.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2052500022}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalSpawnPoints.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1950278739}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalSpawnPoints.Array.data[2]'
-      value: 
-      objectReference: {fileID: 609033690}
-    - target: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: 'crystalSpawnPoints.Array.data[3]'
-      value: 
-      objectReference: {fileID: 1577873737}
     - target: {fileID: 6646726626095917116, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6646726626095917116, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.76
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6646726626095917116, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -213,19 +169,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7064528139349619804, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064528139349619804, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8935701723312490220, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_Name
       value: Dark Magicion
-      objectReference: {fileID: 0}
-    - target: {fileID: 8935701723312490220, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -785,16 +737,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &609033685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6170885418039203946, guid: 2338dd7210ac1ec4f85cab805743c7f4, type: 3}
-  m_PrefabInstance: {fileID: 1051091548}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &609033690 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8264403143725391089, guid: 2338dd7210ac1ec4f85cab805743c7f4, type: 3}
-  m_PrefabInstance: {fileID: 1051091548}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &675995835 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4436704896917217858, guid: 6285be21d79f0f64fa8d2c5733af4162, type: 3}
@@ -2104,16 +2046,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 634934692496824900, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
   m_PrefabInstance: {fileID: 1095329856}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1577873732 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2158037582136663870, guid: ddd07d08b6751ed4b8f64a1986a0ac1f, type: 3}
-  m_PrefabInstance: {fileID: 1134935742}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1577873737 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7569443796599448476, guid: ddd07d08b6751ed4b8f64a1986a0ac1f, type: 3}
-  m_PrefabInstance: {fileID: 1134935742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1589397290
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,16 +2314,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1950278734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2985717366527632815, guid: 392d5d21b99d5ef4ca2a7002dcd762fa, type: 3}
-  m_PrefabInstance: {fileID: 1908556584}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1950278739 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4187703175973807568, guid: 392d5d21b99d5ef4ca2a7002dcd762fa, type: 3}
-  m_PrefabInstance: {fileID: 1908556584}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1958491780
 GameObject:
   m_ObjectHideFlags: 0
@@ -2428,16 +2350,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2052500016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6590278512204790096, guid: 68adcd2dbe2ded44e873a39c6c2b7cb7, type: 3}
-  m_PrefabInstance: {fileID: 1149963389}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2052500022 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3859578304927439805, guid: 68adcd2dbe2ded44e873a39c6c2b7cb7, type: 3}
-  m_PrefabInstance: {fileID: 1149963389}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2119813038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2643,6 +2555,10 @@ PrefabInstance:
     - target: {fileID: 8453923247473432126, guid: 3e2378c832b3d884d839a0052a103c39, type: 3}
       propertyPath: m_Name
       value: Boss-warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453923247473432126, guid: 3e2378c832b3d884d839a0052a103c39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
