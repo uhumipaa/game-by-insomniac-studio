@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
@@ -10,7 +11,8 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text pricetext;
     public Image icon;
     private int price;
-    [SerializeField] shopmanager shopmanager;
+    [SerializeField] GameObject cantbuyhint;
+    [SerializeField] Shopmanager shopmanager;
     [SerializeField] shopinfo info;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +26,17 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnButtonClick()
     {
-        shopmanager.trytobuyitem(item, price);
+        if (!shopmanager.cantbuytemp)
+        {
+            if (CoinManager.instance.SpendCoins(price))
+        {
+            InventoryManager.Instance.Add("Backpack", item, 1);
+        } 
+        else
+        {
+                showcantbuyitem();
+        }
+        }
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -36,13 +48,21 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        info.hideinfo();  
+        info.hideinfo();
     }
-     public void OnPointerMove(PointerEventData eventData)
+    public void OnPointerMove(PointerEventData eventData)
     {
         if (item != null)
         {
             info.followmouse();
         }
+    }
+    IEnumerator showcantbuyitem()
+    {
+        cantbuyhint.SetActive(true);
+        shopmanager.cantbuytemp = true;
+        yield return new WaitForSecondsRealtime(0.5f);
+        cantbuyhint.SetActive(false);
+        shopmanager.cantbuytemp = false;
     }
 }

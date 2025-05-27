@@ -135,6 +135,7 @@ public class Inventory_UI : MonoBehaviour
 
     public void SlotBeginDrag(Slot_UI slot)
     {
+        Debug.Log("begindrag");
         if (slot.inventory == null)
         {
             Debug.LogError($"❌ Slot ID {slot.slotID} 的 inventory 為 null，無法開始拖曳！");

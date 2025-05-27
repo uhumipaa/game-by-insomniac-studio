@@ -13,7 +13,7 @@ public class Mapmanager : MonoBehaviour
         }
         else
         {
-            loader.LoadMaps(TowerManager.Instance.currentTowerFloor/10,Random.Range(0,4)); 
+            loader.LoadMaps(Random.Range(0,4));
         }
         
     }

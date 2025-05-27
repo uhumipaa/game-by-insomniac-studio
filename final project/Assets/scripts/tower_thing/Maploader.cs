@@ -1,11 +1,12 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Maploaders : MonoBehaviour
 {
     public GameObject player;
     public GameObject chest;
-    public GameObject player_instance;
+    int nowfloor;
+    [SerializeField] GameObject player_instance;
     public GameObject transcircle;
     private GameObject transcircle_instance;
     private GameObject chest_instance;
@@ -47,12 +48,15 @@ public class Maploaders : MonoBehaviour
             player_instance = FindAnyObjectByType<player_controler>().gameObject;
         }
             player_instance.transform.position = playerspawn.position;
-
     }
     // Update is called once per frame
-    public void LoadMaps(int floor,int room)
+    public void LoadMaps(int room)
     {
-        changemap(floor);
+
+        if (TowerManager.Instance.currentTowerFloor % 10 == 1) {
+            nowfloor = Random.Range(0, floorDatas.Length);
+        } 
+        changemap(nowfloor);
         shopsystem.SetActive(false);
         if (backteleport_instance != null)
         {
@@ -70,7 +74,7 @@ public class Maploaders : MonoBehaviour
         }
         currentMap = Instantiate(mapPrefabs[room], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
-        SpawnMonsters(floorDatas[floor]);
+        SpawnMonsters(floorDatas[nowfloor]);
     }
 
     Vector2 getrandomposition(FloorData floorData)

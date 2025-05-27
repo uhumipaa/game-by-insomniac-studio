@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shopmanager : MonoBehaviour
+public class Shopmanager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public bool cantbuytemp;
     [SerializeField] private Shopsolt[] shopsolts;
 
 
@@ -25,10 +25,6 @@ public class shopmanager : MonoBehaviour
         {
             shopsolts[i].gameObject.SetActive(false);
         }
-    }
-    public void trytobuyitem(ItemData item, int price)
-    {
-
     }
     
 }

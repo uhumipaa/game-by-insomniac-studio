@@ -27,12 +27,14 @@ public class Player_Property : MonoBehaviour
     
     void Start()
     {
-        
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能
-        healthbar = FindAnyObjectByType<playerhealthbar>().GetComponent<playerhealthbar>();
-        healthbar.initial(); //血量條初始化
+        healthbar = FindAnyObjectByType<playerhealthbar>()?.GetComponent<playerhealthbar>();
+        if (healthbar != null)
+        {
+            healthbar.initial(); //血量條初始化
+        }
     }
 
     // 讓其他程式讀取目前的血量
@@ -97,7 +99,10 @@ public class Player_Property : MonoBehaviour
         int actual_damage = Mathf.Max(damage - actual_def, 0);
         current_health -= actual_damage;
         // healthChanged.Invoke();
-        healthbar.UpdateUI();
+        if (healthbar != null)
+        {
+            healthbar.UpdateUI();
+        }
         Debug.Log($"takedamage; {actual_damage} now health: {current_health}");
 
         // 擊退效果

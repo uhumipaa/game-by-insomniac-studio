@@ -2,21 +2,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class Slot_UI : MonoBehaviour//,IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler,IPointerClickHandler,IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     public int slotID;
     public Inventory inventory;
     public Image itemIcon;
     public TextMeshProUGUI quantityText;
     [SerializeField] InventoryInfo info;
-    private Inventory.Slot slotitem;
     [SerializeField] private GameObject highlight;
     private float lastClickTime;
     [SerializeField] private const float doubleClickThreshold = 0.3f;
     [SerializeField] private EquipmentSlot[] equipmentSlots;
-
     void Awake()
     {
+        Debug.Log($"🟢 Slot_UI 初始化: {gameObject.name}");
+    if (GetComponent<Image>() == null)
+        Debug.LogError("❌ 缺少 Image 元件！");
+    else
+        Debug.Log($"Image Raycast Target: {GetComponent<Image>().raycastTarget}");
         if (info == null)
             info = FindAnyObjectByType<InventoryInfo>();
     }
@@ -57,11 +60,12 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         highlight.SetActive(isOn);
 
     }
+    /*
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("🟡 OnPointerEnter 被觸發");
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
             return;
         }
 
@@ -70,6 +74,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             var slot = inventory.slots[slotID];
             if (!slot.IsEmpty)
             {
+                Debug.Log("🟡 OnPointerEnter 被觸發2");
                 info.showinfo(slot.itemData);
             }
         }
@@ -79,7 +84,6 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ info 為 null，SlotID: {slotID}, GameObject: {gameObject.name}");
             return;
         }
         info.hideinfo();
@@ -88,7 +92,6 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
             return;
         }
 
@@ -110,6 +113,32 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
 
         lastClickTime = Time.time;
     }
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (inventory == null)
+        {
+            Debug.LogError($"❌ 無法拖曳，inventory 為 null (slot {slotID})");
+                return;
+        }
+
+        FindFirstObjectByType<Inventory_UI>()?.SlotBeginDrag(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        FindFirstObjectByType<Inventory_UI>()?.SlotDrag();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        FindFirstObjectByType<Inventory_UI>()?.SlotEndDrag();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        FindFirstObjectByType<Inventory_UI>()?.SlotDrop(this);
+    }
+    */
     private void trytoequip()
     {
         if (inventory != null && slotID >= 0 && slotID < inventory.slots.Count)
@@ -131,7 +160,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                                 continue;
                             }
                         }
-                        equipmentSlot.equip(item,slotID);
+                        equipmentSlot.equip(item, slotID);
                     }
                 }
             }
