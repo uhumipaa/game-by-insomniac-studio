@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
+public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler,IPointerClickHandler
 {
     public int slotID;
     public Inventory inventory;
@@ -119,6 +119,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             {
                 int findemptyaccesaor = 0;
                 ItemData item = slot.itemData;
+                Debug.Log($"嘗試裝備：{item.name} 到 slotID: {slotID}");
                 foreach (EquipmentSlot equipmentSlot in equipmentSlots)
                 {
                     if (item.type == equipmentSlot.type)
@@ -131,7 +132,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                                 continue;
                             }
                         }
-                        equipmentSlot.equip(item,slotID);
+                        equipmentSlot.equip(item, slotID);
                     }
                 }
             }

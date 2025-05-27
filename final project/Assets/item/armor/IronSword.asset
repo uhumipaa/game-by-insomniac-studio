@@ -15,14 +15,15 @@ MonoBehaviour:
   itemName: IronSword
   description: just iron sword,simplest weapon
   icon: {fileID: 7680820834086852892, guid: 332e02ff43ddf364eb04a3146ab9c53b, type: 3}
-  type: 0
+  type: 25
   maxAllowed: 1
   isusable: 0
   isarmor: 1
   currentHP: 0
   maxHP: 0
   buffATK: 20
-  bufDEF: 0
+  buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

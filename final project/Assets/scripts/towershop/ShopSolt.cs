@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using System.Collections;
 public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     public ItemData item;
@@ -10,6 +10,7 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text pricetext;
     public Image icon;
     private int price;
+    [SerializeField] GameObject canbuyhint;
     [SerializeField] Shopmanager shopmanager;
     [SerializeField] shopinfo info;
 
@@ -24,7 +25,14 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnButtonClick()
     {
-        
+        if (CoinManager.instance.SpendCoins(price))
+        {
+            InventoryManager.Instance.Add("Backpack", item, 1);
+        }
+        else
+        {
+            cantbuyla();
+        }
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -36,13 +44,19 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        info.hideinfo();  
+        info.hideinfo();
     }
-     public void OnPointerMove(PointerEventData eventData)
+    public void OnPointerMove(PointerEventData eventData)
     {
         if (item != null)
         {
             info.followmouse();
         }
+    }
+    IEnumerator cantbuyla()
+    {
+        canbuyhint.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.5f);
+        canbuyhint.SetActive(false);
     }
 }

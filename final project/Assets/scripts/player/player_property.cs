@@ -27,6 +27,7 @@ public class Player_Property : MonoBehaviour
     
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能

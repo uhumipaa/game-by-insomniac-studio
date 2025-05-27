@@ -3,21 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class PlayerFeatureManager : MonoBehaviour
 {
-    void OnEnable()
+    [SerializeField] MonoBehaviour[] towerscript;
+    [SerializeField] MonoBehaviour[] farmscript;
+    void Awake()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;       
     }
-
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         string sceneName = scene.name;
 
-        GetComponent<player_controler>().enabled = (sceneName == "tower");
-        GetComponent<PlayerFarmController>().enabled = (sceneName == "farm");
+        foreach (MonoBehaviour script in towerscript)
+        {
+            script.enabled = (sceneName == "tower");
+        }
+        //農場
+        foreach (MonoBehaviour script in farmscript)
+        {
+            script.enabled = (sceneName == "farm");
+        }
+    
     }
 }

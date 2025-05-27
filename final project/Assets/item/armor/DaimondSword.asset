@@ -15,14 +15,15 @@ MonoBehaviour:
   itemName: DiamondSword
   description: just...DianmondSword,more powerful than Iron Sword
   icon: {fileID: 141893073332109768, guid: 57596ea5efe3cb4448d2d36c09aa56d9, type: 3}
-  type: 0
+  type: 25
   maxAllowed: 1
   isusable: 0
   isarmor: 0
   currentHP: 0
   maxHP: 0
   buffATK: 40
-  bufDEF: 0
+  buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

@@ -16,5 +16,9 @@ MonoBehaviour:
   enemycount: 0
   spwan_range_min: {x: -7, y: 5}
   spawn_range_max: {x: 9, y: 9}
-  maps: []
+  maps:
+  - {fileID: 2619146617169980005, guid: 7d8014ab6e4f54b4a89b8617b3d3a591, type: 3}
+  - {fileID: 5253792705636221262, guid: e77ecae1c18914545a4680c82de8f6be, type: 3}
+  - {fileID: 9209542482478359876, guid: 08985548cb8157a4d8375729a83208c1, type: 3}
+  - {fileID: 4292610592000368754, guid: 23165ce72c5cb70439ef5cba4fefed00, type: 3}
   levelrange: 0

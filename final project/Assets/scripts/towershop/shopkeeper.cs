@@ -117,6 +117,8 @@ public class shopkeeper : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        setsurprice();
+        setitem();
     }
 
     private void OnDisable()

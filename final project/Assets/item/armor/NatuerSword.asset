@@ -16,7 +16,7 @@ MonoBehaviour:
   description: A sword with the power of nature, the user will be blessed by living
     beings
   icon: {fileID: -2276259661975475453, guid: 87b1faa9db5b0aa479e9bf359c63f781, type: 3}
-  type: 0
+  type: 25
   maxAllowed: 1
   isusable: 0
   isarmor: 1
@@ -26,4 +26,5 @@ MonoBehaviour:
   buffDEF: 10
   buffSP: 0
   buffMP: 5
+  buffLuck: 0
   duration: 0

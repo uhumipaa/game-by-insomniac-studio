@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Wooden Sword
   description: just a wooden sword
   icon: {fileID: -6270953770400647376, guid: 87560552285f36a4f8da616d51d66265, type: 3}
-  type: 0
+  type: 25
   maxAllowed: 99
   isusable: 0
   isarmor: 1

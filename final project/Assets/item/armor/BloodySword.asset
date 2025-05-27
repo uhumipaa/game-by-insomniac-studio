@@ -16,14 +16,15 @@ MonoBehaviour:
   description: A sword that smears blood everywhere. It is said that its wielder
     is cursed.
   icon: {fileID: 8389134475083476877, guid: a0ae9e1844954ca498af2635c1afc6d7, type: 3}
-  type: 0
+  type: 25
   maxAllowed: 1
   isusable: 0
   isarmor: 1
   currentHP: 0
   maxHP: -20
   buffATK: 50
-  bufDEF: 0
+  buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

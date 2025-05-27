@@ -30,6 +30,12 @@ public class TileManager : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        var tilemapObj = GameObject.Find("CropTilemap");
+            if (tilemapObj != null)
+                cropTilemap = tilemapObj.GetComponent<Tilemap>();
+        var Interactobj = GameObject.Find("InteractableMap");
+            if (Interactobj != null)
+                InteractableMap = Interactobj.GetComponent<Tilemap>();
         foreach (var position in InteractableMap.cellBounds.allPositionsWithin)
         {
             InteractableMap.SetTile(position, hiddenInteractableTile);

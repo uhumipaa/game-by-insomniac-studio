@@ -43,20 +43,38 @@ public class Maploaders : MonoBehaviour
     void Generate_player()
     {
         Transform playerspawn = GameObject.Find("player_spawn_point")?.transform;
+        if (playerspawn == null)
+    {
+        Debug.LogError("找不到 player_spawn_point");
+        return;
+    }
         if (player_instance == null)
         {
             player_instance = FindAnyObjectByType<player_controler>().gameObject;
+            if (player_instance == null)
+            {
+                player_instance = Instantiate(player, playerspawn);
+            }
         }
+        
             player_instance.transform.position = playerspawn.position;
     }
     // Update is called once per frame
     public void LoadMaps(int room)
     {
 
-        if (TowerManager.Instance.currentTowerFloor % 10 == 1) {
-            nowfloor = Random.Range(0, floorDatas.Length);
+        if (TowerManager.Instance.currentTowerFloor % 10 == 1)
+        {
+            if (TowerManager.Instance.currentTowerFloor == 1)
+            {
+                nowfloor = 0;
+            }
+            else
+            {
+                nowfloor = Random.Range(0, floorDatas.Length);
+            }
+            changemap(nowfloor);
         } 
-        changemap(nowfloor);
         shopsystem.SetActive(false);
         if (backteleport_instance != null)
         {
