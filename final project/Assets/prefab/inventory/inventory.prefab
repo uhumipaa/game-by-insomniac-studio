@@ -634,7 +634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7823503019144041430}
         m_TargetAssemblyTypeName: Inventory_UI, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9641509, b: 0.9641509, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1685,7 +1685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -57.588303, y: 1.6197014}
+  m_AnchoredPosition: {x: -55, y: -3}
   m_SizeDelta: {x: 942.5547, y: 351.1922}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &40976170171108890
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7823503019144041430}
         m_TargetAssemblyTypeName: Inventory_UI, Assembly-CSharp
         m_MethodName: CloseUI
         m_Mode: 1

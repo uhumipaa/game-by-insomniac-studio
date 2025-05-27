@@ -233,18 +233,29 @@ public class Inventory_UI : MonoBehaviour
     public void switchtobackpack()
     {
         UIs[0].alpha = 1;
+        UIs[0].blocksRaycasts = true;
+        UIs[0].interactable = true;
+
         UIs[1].alpha = 0;
+        UIs[1].blocksRaycasts = false;
+        UIs[1].interactable = false;
     }
     public void switchtostatus()
     {
         UIs[0].alpha = 0;
+        //UIs[0].blocksRaycasts = false;
+        //UIs[0].interactable = false;
+
         UIs[1].alpha = 1;
+        //UIs[1].blocksRaycasts = true;
+        //UIs[1].interactable = true;
         UIs[1].GetComponent<IventoryStatus>().setstatus();
     }
 
     //按下X
     public void CloseUI()
     {
+        Debug.Log("點下背包關閉按鈕");
         //如果backpack關閉 raycastTarget關閉
         if (panelImage != null) panelImage.raycastTarget = false;
 
