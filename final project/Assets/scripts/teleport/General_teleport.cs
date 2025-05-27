@@ -50,12 +50,7 @@ public class General_teleport : MonoBehaviour
         else
         {
             int roomVariant = UnityEngine.Random.Range(0, 4);
-            int floor = TowerManager.Instance.currentTowerFloor;
-            if (floor % 10 == 1)
-            {
-                maploader.changemap(floor / 10);
-            }
-            maploader.LoadMaps(floor/10,roomVariant);
+            maploader.LoadMaps(roomVariant);
         }
     }
 }

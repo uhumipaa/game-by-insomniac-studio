@@ -13,11 +13,13 @@ public class EquipmentSlot : MonoBehaviour
 
     public void equip(ItemData newitem,int slotID)
     {
-        
+
         if (itemData != null)
         {
             PlayerStatusManager.instance.diff_status(itemData);
+            InventoryManager.Instance.Add("Backpack", itemData, 1);
         }
+        
         itemData = newitem;
         icon.sprite = itemData.icon;
         PlayerStatusManager.instance.add_status(itemData);

@@ -9,13 +9,13 @@ public class shopkeeper : MonoBehaviour
     public Animator hintani;
     private bool isshopopen;
     private bool inrange;
-    public shopmanager Shopmanager;
+    public Shopmanager Shopmanager;
     [SerializeField] private List<Shopitems> shopitemspool;
     [SerializeField] private List<Shopitems> shopitems;
     [SerializeField] private List<Shopitems> shopposions;
     [SerializeField] private List<Shopitems> shopsurprisepool;
     [SerializeField] private List<Shopitems> shopsurprise;
-    public static event Action<shopmanager, bool> onshopstatechanged;
+    public static event Action<Shopmanager, bool> onshopstatechanged;
     public Loot[] surprices;
     void OnTriggerEnter2D(Collider2D collision)
     {

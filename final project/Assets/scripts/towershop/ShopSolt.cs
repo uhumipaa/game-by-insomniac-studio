@@ -10,7 +10,7 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public TMP_Text pricetext;
     public Image icon;
     private int price;
-    [SerializeField] shopmanager shopmanager;
+    [SerializeField] Shopmanager shopmanager;
     [SerializeField] shopinfo info;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +24,7 @@ public class Shopsolt : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnButtonClick()
     {
-        shopmanager.trytobuyitem(item, price);
+        
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
