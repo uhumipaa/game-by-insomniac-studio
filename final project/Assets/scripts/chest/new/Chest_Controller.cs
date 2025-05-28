@@ -11,8 +11,8 @@ public class Chest_Controller : MonoBehaviour
     public int Rate_Epic;
     public int Rate_Lengendary;
     public List<RewardItem> rewardspool;
-    public List<extraRewardItem> extraRewards;
-    private List<extraRewardItem> currentextraRewards = new List<extraRewardItem>();
+    //public List<extraRewardItem> extraRewards;
+    //private List<extraRewardItem> currentextraRewards = new List<extraRewardItem>();
     public RewardItem presents_reward;
     public CanvasGroup rewardUI;
     public Animator ani;
@@ -24,7 +24,6 @@ public class Chest_Controller : MonoBehaviour
     {
         ani = GetComponent<Animator>();
         cards = FindObjectsByType<RewardCards>(FindObjectsSortMode.None);
-        rewardUI = FindAnyObjectByType<Treasuremanager>().GetComponent<CanvasGroup>();      
     }
     void Update()
     {
@@ -86,6 +85,7 @@ public class Chest_Controller : MonoBehaviour
         var filteredItems = rewardspool.Where(item => item.rarity == selectedRarity).ToList();
         return filteredItems[Random.Range(0, filteredItems.Count)];
     }
+    /*
     void getextra()
     {
         currentextraRewards.Clear();
@@ -94,17 +94,19 @@ public class Chest_Controller : MonoBehaviour
             currentextraRewards.Add(extraRewards[Random.Range(0, extraRewards.Count)]);
         }
     }
-    
+    */
+
     public void showreward()
     {
         Debug.Log("123");
-        rewardUI.alpha = 1;
         for (int i = 0; i < 3; i++)
         {
-            getextra();
-            cards[i].populatecard(getrandomreward(), currentextraRewards);
+            //getextra();
+            //cards[i].populatecard(getrandomreward(), currentextraRewards);
+            cards[i].populatecard(getrandomreward());
             cards[i].GetComponent<Animator>().SetTrigger("Move");
         }
+        FindAnyObjectByType<Treasuremanager>().GetComponent<Treasuremanager>().openUI();
 
     }
 }

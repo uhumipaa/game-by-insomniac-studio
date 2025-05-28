@@ -119,6 +119,8 @@ public class shopkeeper : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
         setsurprice();
         setitem();
+        shop.interactable = false;
+        shop.blocksRaycasts = false;
     }
 
     private void OnDisable()

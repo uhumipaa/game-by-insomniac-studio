@@ -4,7 +4,24 @@ public class Treasuremanager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] RewardCards cards;
-
+    void Awake()
+    {
+        closeUI();       
+    }
+    public void closeUI()
+    {
+        CanvasGroup canvas = GetComponent<CanvasGroup>();
+        canvas.alpha = 0;
+        canvas.interactable = false;
+        canvas.blocksRaycasts = false;
+    }
+    public void openUI()
+    {
+        CanvasGroup canvas = GetComponent<CanvasGroup>();
+        canvas.alpha = 1;
+        canvas.interactable = true;
+        canvas.blocksRaycasts = true;
+    }
 }
 public enum ItemRarity
     {

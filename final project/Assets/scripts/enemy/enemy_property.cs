@@ -160,7 +160,7 @@ public class enemy_property : MonoBehaviour
             bossController.ClearSummonedKnights();  // Boss死時清掉所有召喚物
         }
         Debug.Log("GG");
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
         // Debug.Log("GG");
         // gameObject.SetActive(false);

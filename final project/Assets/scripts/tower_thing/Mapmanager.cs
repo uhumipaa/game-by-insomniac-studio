@@ -9,6 +9,7 @@ public class Mapmanager : MonoBehaviour
         loader = FindAnyObjectByType<Maploaders>();
         if (TowerManager.Instance.currentTowerFloor % 10 == 5)
         {
+            loader.changemap(Random.Range(0, 5));
             loader.loadrestmap();
         }
         else

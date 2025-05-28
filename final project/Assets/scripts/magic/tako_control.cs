@@ -7,14 +7,16 @@ public class tako_control : MonoBehaviour
 {
     public float speed;
     private Vector2 actul_direction;
-    public int damage;
     private Rigidbody2D rb;
     private Animator ani;   
     private enemy_property property;
-    private Transform attackerTransform;//紀錄釋放者位置
+    private Player_Property player_Property;
+    [SerializeField] float damagepara;
+    private bool exploed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        player_Property = GameObject.Find("player_battle").GetComponent<Player_Property>();
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         rb.gravityScale = 0f;
@@ -25,7 +27,13 @@ public class tako_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = actul_direction * speed;
+        if (!exploed)
+        {
+            rb.linearVelocity = actul_direction * speed;
+        }else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
     public void setdirection(Vector2 direction)
     {
@@ -41,34 +49,65 @@ public class tako_control : MonoBehaviour
     }
     
 
-    public void SetAttacker(Transform attacker)
-    {
-        attackerTransform = attacker;
-    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("enemy"))
         {   
             if (collision != null)
             {
-                property = collision.GetComponent<enemy_property>();
-                if (property != null)
+                if (exploed)
                 {
-                    Debug.Log("gg" + collision.name);
-                    property.takedamage(damage, transform.position);
+                    property = collision.GetComponent<enemy_property>();
+                    if (property != null)
+                    {
+                        int damage = (int)(player_Property.magic_atk * damagepara);
+                        property.takedamage(damage, transform.position);
+                    }
+                }
+                else
+                {
+                    rb.linearVelocity = Vector2.zero;
+                    explosion();
                 }
             }
-            rb.linearVelocity = Vector2.zero;
-            explosion();
         }else if (collision.CompareTag("wall"))
         {
-            rb.linearVelocity = Vector2.zero;
-            explosion();
+            if (!exploed)
+            {
+                rb.linearVelocity = Vector2.zero;
+                explosion();
+            }
+        }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("enemy"))
+        {
+            if (collision != null)
+            {
+                if (exploed)
+                {
+                    property = collision.GetComponent<enemy_property>();
+                    if (property != null)
+                    {
+                        Debug.Log("123");
+                        int damage = (int)(player_Property.magic_atk * damagepara);
+                        property.takedamage(damage, transform.position);
+                    }
+                }
+                else
+                {
+                    rb.linearVelocity = Vector2.zero;
+                    explosion();
+                }
+            }
         }
     }
     void explosion()
     {
-        ani.SetBool("isexploed", true);
+        exploed = true;
+        ani.SetTrigger("isexploed");
         Destroy(gameObject, 0.6f);
-    }
+    }   
 }

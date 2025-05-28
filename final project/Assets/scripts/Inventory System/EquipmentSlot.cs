@@ -25,7 +25,7 @@ public class EquipmentSlot : MonoBehaviour
         
         itemData = newitem;
         icon.sprite = itemData.icon;
-        //PlayerStatusManager.instance.add_status(itemData);
+        PlayerStatusManager.instance.add_status(itemData);
         if (type == ItemType.sword)
         {
             sword.sprite = itemData.icon;
