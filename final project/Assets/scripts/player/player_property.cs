@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 public class Player_Property : MonoBehaviour
@@ -27,6 +28,18 @@ public class Player_Property : MonoBehaviour
     
     void Start()
     {
+        healthbar = FindAnyObjectByType<playerhealthbar>();
+        expAddUI = FindAnyObjectByType<ExpAddUI>();
+        GameObject UI = GameObject.FindGameObjectWithTag("exp");
+        if (UI != null)
+        {
+            expAddUI = UI.GetComponent<ExpAddUI>();
+            healthbar = UI.GetComponent<playerhealthbar>();
+        }
+        else
+        {
+            Debug.Log("jaja");
+        }
         DontDestroyOnLoad(this.gameObject);
         current_health = max_health;
         knockback = GetComponent<Knockback>();
@@ -38,10 +51,16 @@ public class Player_Property : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        healthbar = FindAnyObjectByType<playerhealthbar>();
+        expAddUI = FindAnyObjectByType<ExpAddUI>();
+    }
+
     // 讓其他程式讀取目前的血量
     public int ReadValue()
     {
-        return current_health; 
+        return current_health;
     }
     
 
@@ -99,7 +118,7 @@ public class Player_Property : MonoBehaviour
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def, 0);
         current_health -= actual_damage;
-        // healthChanged.Invoke();
+        healthChanged.Invoke();
         if (healthbar != null)
         {
             healthbar.UpdateUI();

@@ -30,6 +30,12 @@ public class expUI : MonoBehaviour
     
     void Start()
     {
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            player_Property = playerGO.GetComponent<Player_Property>();
+            playerStats = playerGO.GetComponent<PlayerStats>();
+        }
         expSlider.maxValue = playerStats.expToNextLevel;
         expSlider.value = playerStats.currentExp;
     }

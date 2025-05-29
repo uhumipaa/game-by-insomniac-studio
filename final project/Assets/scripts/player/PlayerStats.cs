@@ -15,9 +15,19 @@ public class PlayerStats : MonoBehaviour
         expToNextLevel = CalculateExpToNextLevel(level);
     }
 
+    void Update()
+    {
+        expAddUI = FindAnyObjectByType<ExpAddUI>();
+    }
+
     //計算經驗和經驗等級
     public void GainExp(int amount)
     {
+        GameObject exp = GameObject.FindGameObjectWithTag("exp");
+        if (exp != null)
+        {
+            expAddUI = exp.GetComponent<ExpAddUI>();
+        }
         currentExp += amount;
         Debug.Log($"獲得經驗值：{amount}，距離下次升級所需經驗：{expToNextLevel - currentExp}");
 

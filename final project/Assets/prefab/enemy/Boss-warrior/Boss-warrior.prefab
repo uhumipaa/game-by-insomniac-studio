@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 30
+  expReward: 500
 --- !u!114 &8814050282703541402
 MonoBehaviour:
   m_ObjectHideFlags: 0

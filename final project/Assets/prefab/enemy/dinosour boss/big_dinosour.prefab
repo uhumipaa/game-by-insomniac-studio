@@ -693,6 +693,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &6697655044920270510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,7 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 30
+  expReward: 500
 --- !u!60 &198520984358835327
 PolygonCollider2D:
   m_ObjectHideFlags: 0

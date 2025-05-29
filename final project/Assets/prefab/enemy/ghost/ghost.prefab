@@ -631,6 +631,9 @@ MonoBehaviour:
   current_health: 0
   def: 10
   atk: 0
+  attack_range: 0
+  speed: 0
+  stuncd: 0
   spriteRender: {fileID: 562207015278686872}
   healthChanged:
     m_PersistentCalls:
@@ -647,9 +650,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  healthbar: {fileID: 5931376460597912799}
-  playerstats: {fileID: 4044947140317877406, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+  healthbarinitial:
+    m_PersistentCalls:
+      m_Calls: []
   stats: {fileID: 6689158650468969680}
+  isBossKingPhase2: 0
+  isnightdemon: 0
+  detect_range: 5
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &6285663617980002178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 50
+  expReward: 100
 --- !u!114 &598964149184687614
 MonoBehaviour:
   m_ObjectHideFlags: 0

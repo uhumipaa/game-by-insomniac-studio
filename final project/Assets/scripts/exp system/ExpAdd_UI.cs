@@ -17,6 +17,11 @@ public class ExpAddUI : MonoBehaviour
     void Start()
     {
         inventoryPanel.SetActive(isInventoryVisible);
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            player_Property = playerGO.GetComponent<Player_Property>();
+        }
     }
 
     // 按p鍵開啟加點介面

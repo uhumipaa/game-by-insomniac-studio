@@ -11,6 +11,7 @@ TagManager:
   - spawnObject
   - CropTilemap
   - Hint
+  - exp
   layers:
   - Default
   - TransparentFX

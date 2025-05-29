@@ -117,6 +117,7 @@ public class enemy_property : MonoBehaviour
             if (isnightdemon)
             {
                 nightdemon.nightdemondie();
+                stats.kill();
                 return;
             }
             if (!isBossKingPhase2 && Boss_King_Death != null)
@@ -128,10 +129,12 @@ public class enemy_property : MonoBehaviour
             {
                 if (bossController != null && bossController.currentState == BossController.BossState.Phase2)
                 {
+                    stats.kill();
                     bossController.StartPhase2Death(); //  呼叫Boss死亡動畫流程
                 }
                 if (Dark_Magicion != null)
                 {
+                    stats.kill();
                     // 交給 Dark Magicion 自己決定什麼時候死亡（播放動畫等等）
                     Debug.Log("由 Dark Magicion 自行處理死亡流程");
                     Dark_Magicion.Die(); // ✅ 呼叫 Dark Magicion 自訂死亡流程（播放動畫 + 延遲死亡）

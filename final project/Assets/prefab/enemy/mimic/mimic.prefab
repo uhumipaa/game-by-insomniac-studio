@@ -324,7 +324,7 @@ SpriteRenderer:
   m_Size: {x: 2.53, y: 2.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &9018693125583829195
@@ -450,10 +450,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  healthbar: {fileID: 2889205820872602836}
-  playerstats: {fileID: 4044947140317877406, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+  healthbarinitial:
+    m_PersistentCalls:
+      m_Calls: []
   stats: {fileID: 6853552834785626944}
   isBossKingPhase2: 0
+  isnightdemon: 0
+  detect_range: 5
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &3160357955531189978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 30
+  expReward: 100
 --- !u!114 &7525946424678435576
 MonoBehaviour:
   m_ObjectHideFlags: 0

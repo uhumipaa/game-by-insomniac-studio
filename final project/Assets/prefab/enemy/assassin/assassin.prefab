@@ -570,6 +570,7 @@ MonoBehaviour:
   isnightdemon: 0
   detect_range: 5
   nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!50 &1083194761367907438
 Rigidbody2D:
   serializedVersion: 5
@@ -677,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 30
+  expReward: 100
 --- !u!114 &4840818314095632181
 MonoBehaviour:
   m_ObjectHideFlags: 0

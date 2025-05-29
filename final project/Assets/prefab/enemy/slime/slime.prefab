@@ -434,7 +434,10 @@ MonoBehaviour:
       m_Calls: []
   stats: {fileID: 1345292868052178229}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 5
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &4461629830198391005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 30
+  expReward: 100
 --- !u!114 &7509584110117848782
 MonoBehaviour:
   m_ObjectHideFlags: 0
