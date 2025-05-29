@@ -9,11 +9,14 @@ public class SaveFileHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private string DataDirPath = "";
     private string DataFileName = "";
+    private static readonly string key = "meowmeow"; // 加密密碼
+    private bool useencryption=false;
 
-    public SaveFileHandler(string DataDirPath, string DataFileName)
+    public SaveFileHandler(string DataDirPath, string DataFileName, bool useencryption)
     {
         this.DataDirPath = DataDirPath;
         this.DataFileName = DataFileName;
+        this.useencryption = useencryption;
     }
     public SaveData Load()
     {
@@ -25,12 +28,16 @@ public class SaveFileHandler : MonoBehaviour
             {
                 //讀取加密的資料
                 string datatoload = "";
-                using (FileStream stream = new FileStream(fullpath, FileMode.Create))
+                using (FileStream stream = new FileStream(fullpath, FileMode.Open))
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
                         datatoload = reader.ReadToEnd();
                     }
+                }
+                if (useencryption)
+                {
+                    datatoload = EncryptDecrypt(datatoload);
                 }
                 //解密資料
                 loaddata = JsonUtility.FromJson<SaveData>(datatoload);
@@ -40,10 +47,7 @@ public class SaveFileHandler : MonoBehaviour
                 Debug.LogError("Error to load data to file:" + fullpath + "\n" + e);
             }
         }
-        
-         
-
-            return loaddata;
+        return loaddata;
     }
     public void Save(SaveData data)
     {
@@ -52,6 +56,10 @@ public class SaveFileHandler : MonoBehaviour
         {
             Directory.CreateDirectory(Path.GetDirectoryName(fullpath));
             string datastore = JsonUtility.ToJson(data, true);
+            if (useencryption)
+            {
+                datastore = EncryptDecrypt(datastore);
+            }
             using (FileStream stream = new FileStream(fullpath, FileMode.Create))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
@@ -64,7 +72,21 @@ public class SaveFileHandler : MonoBehaviour
         {
             Debug.LogError("Error to save data to file:" + fullpath + "\n" + e);
         }
-        
-    }
 
+    }
+    private string EncryptDecrypt(string data)
+    {
+        char[] result = new char[data.Length];
+        for (int i = 0; i < data.Length; i++)
+        {
+            result[i] = (char)(data[i] ^ key[i % key.Length]);
+        }
+        return new string(result);
+    }
+    //測試有沒有存檔
+    public bool HasSaveFile()
+    {
+        string fullpath = Path.Combine(DataDirPath, DataFileName);
+        return File.Exists(fullpath);
+    }
 }
