@@ -1361,7 +1361,7 @@ MonoBehaviour:
   level: 1
   currentExp: 0
   expToNextLevel: 500
-  expGrowthRate: 0
+  expGrowthRate: 1
   expAddUI: {fileID: 0}
 --- !u!114 &-1378991675077928577
 MonoBehaviour:
