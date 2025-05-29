@@ -12,6 +12,7 @@ public class FishingUIManager : MonoBehaviour
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
     public TextMeshProUGUI fixedMessageText;
+    
 
     private bool isShowing = false;
 
@@ -99,6 +100,7 @@ public class FishingUIManager : MonoBehaviour
         Debug.Log("你釣到：" + item.itemName);
 
         InventoryManager.Instance.Add("Backpack", item, 1);
-        CoinManager.instance.SpendCoins(20);
+        
+        //CoinManager.instance.SpendCoins(20);
     }
 }

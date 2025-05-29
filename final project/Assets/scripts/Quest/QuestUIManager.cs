@@ -8,6 +8,8 @@ public class QuestUIManager : MonoBehaviour
     public Sprite defaultSprite;   // 預設圖示
     public Sprite activeSprite;    // 啟用時圖示
 
+    public QuestManager questManager; // ⭐ 加入這一行
+
     private bool isPanelOpen = false;
 
     public void ToggleQuestPanel()
@@ -19,6 +21,12 @@ public class QuestUIManager : MonoBehaviour
         if (questButtonImage != null)
         {
             questButtonImage.sprite = isPanelOpen ? activeSprite : defaultSprite;
+        }
+
+        // ⭐ 當面板開啟時刷新任務內容
+        if (isPanelOpen && questManager != null)
+        {
+            questManager.RefreshQuests();
         }
     }
 }

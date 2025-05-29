@@ -15,6 +15,7 @@ public enum ItemType
     Golden_Tench, Nemo,
     Plastic_Bag, Message_In_A_Bottle,
     Gundam, Coins,
+    Fishing_feel,
     Water,armor,helmet,boots,pants,accesasor,sword,staff
 }
 

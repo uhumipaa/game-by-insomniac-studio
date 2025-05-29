@@ -22805,7 +22805,7 @@ GameObject:
   m_Component:
   - component: {fileID: 349128609}
   m_Layer: 5
-  m_Name: QuestItem2
+  m_Name: QuestSlot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43857,8 +43857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: -215}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.600006, y: -230}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642814463
 MonoBehaviour:
@@ -43882,8 +43882,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -43948,7 +43948,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &642814464
@@ -43959,6 +43959,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642814461}
   m_CullTransparentMesh: 1
+--- !u!1 &651835634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 651835636}
+  - component: {fileID: 651835635}
+  m_Layer: 0
+  m_Name: QuestManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &651835635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651835634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686b60fc188812146bc5ad623631912a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questSlots:
+  - rootObject: {fileID: 979236349}
+    rewardIcon: {fileID: 2109807825}
+    goalText: {fileID: 1575132443}
+    rewardText: {fileID: 1890792442}
+    nextButton: {fileID: 655101573}
+  - rootObject: {fileID: 349128608}
+    rewardIcon: {fileID: 1555902562}
+    goalText: {fileID: 1534399484}
+    rewardText: {fileID: 1477616668}
+    nextButton: {fileID: 508218899}
+  - rootObject: {fileID: 1010269971}
+    rewardIcon: {fileID: 723847228}
+    goalText: {fileID: 1491328951}
+    rewardText: {fileID: 642814463}
+    nextButton: {fileID: 1454909372}
+  allQuests:
+  - {fileID: 11400000, guid: a02525ee21d089c4b96c43183da1c7e7, type: 2}
+  - {fileID: 11400000, guid: 46be4bb2550ea30469de5e63a9e929a2, type: 2}
+  - {fileID: 11400000, guid: 41bb66b6dc7c6cb49893418d163d1f5f, type: 2}
+  - {fileID: 11400000, guid: 9b121f79d895d284bbd74ff08375071b, type: 2}
+  - {fileID: 11400000, guid: e9c2d18954e3a2542b3d2434dc1b7c44, type: 2}
+  - {fileID: 11400000, guid: 2272615cbf9ae8c448dc5fc60137537f, type: 2}
+  - {fileID: 11400000, guid: 06ce37d3093b5ed4f99d067af939a51e, type: 2}
+  - {fileID: 11400000, guid: 50af006fc07ff2a42bdff4cec4f58d33, type: 2}
+  - {fileID: 11400000, guid: b91e5791e495cc842b0321a9246c3d7c, type: 2}
+  - {fileID: 11400000, guid: 7d28788531892774f9a37f667ab8dd66, type: 2}
+  - {fileID: 11400000, guid: 82ec144772000d641bea79656a511cfc, type: 2}
+--- !u!4 &651835636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651835634}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.946925, y: -0.40602896, z: 0.036899365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &654689464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44618,6 +44690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingAskPanel: {fileID: 4526673293855686373}
+  fishingUIManager: {fileID: 0}
+  fishingFeelItem: {fileID: 0}
   isFishing: 0
 --- !u!212 &849657440
 SpriteRenderer:
@@ -44732,7 +44806,7 @@ GameObject:
   - component: {fileID: 979236352}
   - component: {fileID: 979236351}
   m_Layer: 5
-  m_Name: QuestPanel
+  m_Name: QuestWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44959,7 +45033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 989752803}
   m_Layer: 5
-  m_Name: QuestItem1
+  m_Name: QuestSlot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71092,7 +71166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1010269972}
   m_Layer: 5
-  m_Name: QuestItem3
+  m_Name: QuestSlot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72484,6 +72558,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1342878983}
   - component: {fileID: 1342878982}
+  - component: {fileID: 1342878984}
   m_Layer: 0
   m_Name: QuestUIManager
   m_TagString: Untagged
@@ -72518,6 +72593,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1342878984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342878981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b3c6796965cbe4fbd10a22996a51fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questPanel: {fileID: 979236349}
+  questButtonImage: {fileID: 2057201701}
+  defaultSprite: {fileID: 7661086997256020637, guid: edf3012da4a95f345a4eb23313d6a5f0, type: 3}
+  activeSprite: {fileID: -7849917687947064273, guid: edf3012da4a95f345a4eb23313d6a5f0, type: 3}
+  questManager: {fileID: 651835635}
 --- !u!1 &1343935293
 GameObject:
   m_ObjectHideFlags: 0
@@ -72886,8 +72978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: -40}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.600006, y: -59.000008}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477616668
 MonoBehaviour:
@@ -72911,8 +73003,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -72977,7 +73069,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1477616669
@@ -73000,7 +73092,7 @@ GameObject:
   - component: {fileID: 1491328952}
   - component: {fileID: 1491328951}
   m_Layer: 5
-  m_Name: TaskText
+  m_Name: GoalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73022,8 +73114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: -160}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.6, y: -171}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491328951
 MonoBehaviour:
@@ -73047,8 +73139,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -73113,7 +73205,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1491328952
@@ -73285,7 +73377,7 @@ GameObject:
   - component: {fileID: 1534399485}
   - component: {fileID: 1534399484}
   m_Layer: 5
-  m_Name: TaskText
+  m_Name: GoalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73307,8 +73399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: 10}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.6, y: 7}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534399484
 MonoBehaviour:
@@ -73332,8 +73424,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -73531,7 +73623,7 @@ GameObject:
   - component: {fileID: 1575132444}
   - component: {fileID: 1575132443}
   m_Layer: 5
-  m_Name: TaskText
+  m_Name: GoalText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73553,8 +73645,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: 179.29997}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.6, y: 179.30002}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1575132443
 MonoBehaviour:
@@ -73578,8 +73670,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -73644,7 +73736,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1575132444
@@ -73938,12 +74030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929ce406325355347a474923dc76a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 0
-  defense: 0
-  maxHP: 0
-  magic_power: 0
-  speed: 0
-  Luck: 0
 --- !u!1 &1664388025
 GameObject:
   m_ObjectHideFlags: 0
@@ -75397,8 +75483,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -384.4, y: 104.9}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 15.600006, y: 113.300026}
+  m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890792442
 MonoBehaviour:
@@ -75422,8 +75508,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
+  m_sharedMaterial: {fileID: -2414413464408258680, guid: f0cf2148b6418d74fabe3817ad571924, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -75488,7 +75574,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1890792443
@@ -75899,7 +75985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2057201699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -75963,7 +76049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1342878982}
+      - m_Target: {fileID: 1342878984}
         m_TargetAssemblyTypeName: QuestUIManager, Assembly-CSharp
         m_MethodName: ToggleQuestPanel
         m_Mode: 1
@@ -80866,6 +80952,7 @@ SceneRoots:
   - {fileID: 1236268446}
   - {fileID: 849657441}
   - {fileID: 1342878983}
+  - {fileID: 651835636}
   - {fileID: 989622786}
   - {fileID: 1569145186}
   - {fileID: 444818938}

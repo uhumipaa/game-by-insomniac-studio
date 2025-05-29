@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
+  m_Name: Fishing feel
+  m_EditorClassIdentifier: 
+  itemName: "\u91E3\u9B5A\u624B\u611F"
+  description: "\u91E3\u9B5A\u975E\u5FC5\u5099\u9053\u5177\uFF0C\u6BCF\u6B21\u6309F\u91E3\u9B5A\u5C07\u5931\u53BB\u4E00\u4EFD\u624B\u611F\u3002\n\u4F46\u6216\u8A31\u5B58\u5728\u6C92\u6709\u624B\u611F\u4E5F\u80FD\u91E3\u9B5A\u7684\u91E3\u9B5A\u6CD5...?\n\u53EF\u5728\u5546\u5E97\u8CFC\u8CB7\u3002"
+  icon: {fileID: -7958469324413354489, guid: 4dab444441c803a4cb6c7154a971e2c5, type: 3}
+  type: 19
+  maxAllowed: 100
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  buffLuck: 0
+  duration: 0

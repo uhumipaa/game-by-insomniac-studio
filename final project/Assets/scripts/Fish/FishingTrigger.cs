@@ -3,6 +3,8 @@ using UnityEngine;
 public class FishingTrigger : MonoBehaviour
 {
     public GameObject fishingAskPanel;
+    public FishingUIManager fishingUIManager;
+    public ItemData fishingFeelItem; // 檢查道具
     public bool isFishing = false; // 狀態鎖
 
     private bool isPlayerInZone = false;
@@ -12,6 +14,8 @@ public class FishingTrigger : MonoBehaviour
         if (isPlayerInZone && !isFishing && Input.GetKeyDown(KeyCode.F))
         {
             fishingAskPanel.SetActive(true);
+
+            //bool hasFishingFeel = InventoryManager.Instance.backpack.Contains(fishingFeelItem);
             fishingAskPanel.transform.Find("StartFishing?Text").gameObject.SetActive(true);
             fishingAskPanel.transform.Find("YesButton").gameObject.SetActive(true);
             fishingAskPanel.transform.Find("NoButton").gameObject.SetActive(true);
