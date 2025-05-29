@@ -50,8 +50,8 @@ public class Player_Property : MonoBehaviour
     {
         if (expAddUI.minuspoint() >= 0)
         {
-            PlayerStatusManager.instance.attack += 1;
-            PlayerStatusManager.instance.magic_power += 1;
+            PlayerStatusManager.instance.playerStatusData.attack += 1;
+            PlayerStatusManager.instance.playerStatusData.magic_power += 1;
             update_property();
         }
     }
@@ -59,33 +59,33 @@ public class Player_Property : MonoBehaviour
     {
         if (expAddUI.minuspoint() >= 0)
         {
-            PlayerStatusManager.instance.defense += 1;
+            PlayerStatusManager.instance.playerStatusData.defense += 1;
             update_property();
         }
     }
     public void HPAdd()
     {
         if(expAddUI.minuspoint() >= 0) {
-            PlayerStatusManager.instance.maxHP += 1;
+            PlayerStatusManager.instance.playerStatusData.maxHP += 1;
             update_property();
         }
     }
     public void update_property()
     {
-        if (PlayerStatusManager.instance.maxHP - max_health > 0)
+        if (PlayerStatusManager.instance.playerStatusData.maxHP - max_health > 0)
         {
-            current_health += PlayerStatusManager.instance.maxHP - max_health;
+            current_health += PlayerStatusManager.instance.playerStatusData.maxHP - max_health;
         }
-        max_health = PlayerStatusManager.instance.maxHP;
+        max_health = PlayerStatusManager.instance.playerStatusData.maxHP;
         if (max_health < current_health)
         {
             current_health = max_health;
         }
-        atk = PlayerStatusManager.instance.attack;
-        def = PlayerStatusManager.instance.defense;
-        magic_atk = PlayerStatusManager.instance.magic_power;
-        speed = PlayerStatusManager.instance.speed;
-        Luck = PlayerStatusManager.instance.Luck;
+        atk = PlayerStatusManager.instance.playerStatusData.attack;
+        def = PlayerStatusManager.instance.playerStatusData.defense;
+        magic_atk = PlayerStatusManager.instance.playerStatusData.magic_power;
+        speed = PlayerStatusManager.instance.playerStatusData.speed;
+        Luck = PlayerStatusManager.instance.playerStatusData.Luck;
     }
     // 受傷
     public void takedamage(int damage, Vector2 attackerPos)
