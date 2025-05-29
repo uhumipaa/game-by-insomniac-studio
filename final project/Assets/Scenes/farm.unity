@@ -73872,6 +73872,7 @@ GameObject:
   - component: {fileID: 1652634051}
   - component: {fileID: 1652634052}
   - component: {fileID: 1652634053}
+  - component: {fileID: 1652634054}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -74030,6 +74031,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929ce406325355347a474923dc76a58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1652634054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652634044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392d2877e3845ba4fa6e2ed3cec4f9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatusData:
+    attack: 15
+    defense: 15
+    maxHP: 50
+    magic_power: 15
+    speed: 3
+    Luck: 10
 --- !u!1 &1664388025
 GameObject:
   m_ObjectHideFlags: 0

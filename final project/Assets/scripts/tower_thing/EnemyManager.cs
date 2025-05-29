@@ -48,6 +48,7 @@ public class EnemyManager : MonoBehaviour
             finishlayer();
         }
     }
+
     private void finishlayer()
     {
         Debug.Log("yayaya");

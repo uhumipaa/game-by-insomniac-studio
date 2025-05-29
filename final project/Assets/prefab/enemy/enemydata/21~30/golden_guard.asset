@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
+  m_Name: golden_guard
+  m_EditorClassIdentifier: 
+  baseHP: 50
+  baseatk: 5
+  basedef: 15
+  speed: 1
+  enemyname: golden_guard
+  atkpara: 0.5
+  defpara: 1.5
+  HPpara: 2
+  enemyprefab: {fileID: 3643312648362050986, guid: 2f9ee0b4171e71745b585a43cb0aa517, type: 3}

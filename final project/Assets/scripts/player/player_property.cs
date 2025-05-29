@@ -23,9 +23,9 @@ public class Player_Property : MonoBehaviour
     [SerializeField] private playerhealthbar healthbar;
     public ExpAddUI expAddUI;
 
-   
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
+
     void Start()
     {
         healthbar = FindAnyObjectByType<playerhealthbar>();
@@ -49,6 +49,7 @@ public class Player_Property : MonoBehaviour
         {
             healthbar.initial(); //血量條初始化
         }
+        update_property();
     }
 
     void Update()
@@ -71,7 +72,6 @@ public class Player_Property : MonoBehaviour
         {
             PlayerStatusManager.instance.playerStatusData.attack += 1;
             PlayerStatusManager.instance.playerStatusData.magic_power += 1;
-            update_property();
         }
     }
     public void DefAdd()
@@ -91,6 +91,11 @@ public class Player_Property : MonoBehaviour
     }
     public void update_property()
     {
+        if (PlayerStatusManager.instance == null)
+        {
+            Debug.LogError("aaaaaa");
+            return;
+        }
         if (PlayerStatusManager.instance.playerStatusData.maxHP - max_health > 0)
         {
             current_health += PlayerStatusManager.instance.playerStatusData.maxHP - max_health;

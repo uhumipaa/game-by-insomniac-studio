@@ -18,24 +18,24 @@ public class PlayerStatusData
         Luck = 10;
     }
 }
-public class PlayerStatusManager : MonoBehaviour,ISaveData
+public class PlayerStatusManager : MonoBehaviour,ISaveData  
 {
     public static PlayerStatusManager instance;
     public PlayerStatusData playerStatusData;
     private Player_Property property;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        instance = this;
         property = FindAnyObjectByType<Player_Property>().GetComponent<Player_Property>();
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject); 
-        }
         Initialize();
+        property.update_property();
+        
+        
     }
     private void Initialize()
     {

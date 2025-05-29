@@ -72,6 +72,7 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
             else
             {
                 // 非騎士就普通移動
+                FaceToPlayer();
                 animator.PlayMove((player.position - transform.position).normalized, ani);
                 move.Move(transform, player, rb, property.speed);
             }
