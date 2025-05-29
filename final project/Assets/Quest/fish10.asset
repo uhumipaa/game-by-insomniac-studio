@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 163ac63730815dc4283a1b40c3d70c75, type: 3}
-  m_Name: "\u901A\u95DC1\u5C64\u5854"
+  m_Name: fish10
   m_EditorClassIdentifier: 
-  rewardIcon: {fileID: -6960336221495813347, guid: 0d1e0e5d8d24d1f4b9e6c80f3daa9195, type: 3}
-  goalText: "\u4F60\u4ECA\u5929\u722C\u5854\u4E86\u55CE\uFF1A\u901A\u95DC1\u5C64\u5854\u4EE5\u4E0A"
-  rewardDescription: "\u91D1\u9322 + 100"
+  rewardIcon: {fileID: -6848339344689442713, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
+  goalText: "\u4F60\u4ECA\u5929\u91E3\u9B5A\u4E86\u55CE\uFF1A\u91E3\u9B5A1\u6B21"
+  rewardDescription: "\u91D1\u9322 + 300"

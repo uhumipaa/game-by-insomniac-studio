@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 163ac63730815dc4283a1b40c3d70c75, type: 3}
-  m_Name: "\u91E3\u9B5A5\u6B21"
+  m_Name: fish5
   m_EditorClassIdentifier: 
   rewardIcon: {fileID: 4119601289736491763, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
   goalText: "\u4F60\u4ECA\u5929\u91E3\u9B5A\u4E86\u55CE\uFF1A\u91E3\u9B5A1\u6B21"

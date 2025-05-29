@@ -6,13 +6,23 @@ using TMPro;
 
 public class FishingUIManager : MonoBehaviour
 {
+    // Singleton
+    public static FishingUIManager Instance { get; private set; }
+
+    // 統計用變數
+    private int totalFishingAttempts = 0;
+    private int debrisCaughtCount = 0;
+
+    // 公開唯讀屬性
+    public int TotalFishingAttempts => totalFishingAttempts;
+    public int DebrisCaughtCount => debrisCaughtCount;
+
     // 釣魚結果面板
     public GameObject fishingResultPanel;
     public Image itemIcon;
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
     public TextMeshProUGUI fixedMessageText;
-    
 
     private bool isShowing = false;
 
@@ -33,9 +43,21 @@ public class FishingUIManager : MonoBehaviour
     // 連接FishingTrigger腳本來控制isFishing狀態
     public FishingTrigger fishingTrigger;
 
+    private void Awake()
+    {
+        // 設定 Singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-
         fishingAskPanel.SetActive(false);
         startFishingText.SetActive(false);
         yesButton.SetActive(false);
@@ -80,14 +102,21 @@ public class FishingUIManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        totalFishingAttempts++; // 統計總釣魚次數
+
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
-
-        fishingAskPanel.SetActive(false); // 把問答 UI 關掉
+        fishingAskPanel.SetActive(false);
 
         // 隨機選擇一個釣到的物品
         int index = Random.Range(0, possibleItems.Count);
         ItemData item = possibleItems[index];
+
+        // 統計是否釣到 Element9
+        if (item.itemName == "塑膠袋" || item.itemName == "漂流瓶" || item.itemName == "鋼彈" || item.itemName == "金幣")
+        {
+            debrisCaughtCount++;
+        }
 
         // 顯示結果
         fishingResultPanel.SetActive(true);
@@ -98,9 +127,9 @@ public class FishingUIManager : MonoBehaviour
 
         isShowing = true;
         Debug.Log("你釣到：" + item.itemName);
+        Debug.Log($"目前總釣魚次數：{totalFishingAttempts}，Element9 次數：{debrisCaughtCount}");
 
         InventoryManager.Instance.Add("Backpack", item, 1);
-        
         //CoinManager.instance.SpendCoins(20);
     }
 }

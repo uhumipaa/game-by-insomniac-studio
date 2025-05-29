@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 163ac63730815dc4283a1b40c3d70c75, type: 3}
-  m_Name: "\u7A2E\u690D\u6536\u7A6B10\u6B21"
+  m_Name: tower1
   m_EditorClassIdentifier: 
-  rewardIcon: {fileID: -4117252538624138608, guid: 7a5ee98cf3b4974478972e0e172e29e7, type: 3}
-  goalText: "\u4F60\u4ECA\u5929\u7A2E\u83DC\u4E86\u55CE\uFF1A\u7A2E\u690D\u6536\u7A6B10\u6B21"
-  rewardDescription: "\u91D1\u9322 + 300"
+  rewardIcon: {fileID: -6960336221495813347, guid: 0d1e0e5d8d24d1f4b9e6c80f3daa9195, type: 3}
+  goalText: "\u4F60\u4ECA\u5929\u722C\u5854\u4E86\u55CE\uFF1A\u901A\u95DC1\u5C64\u5854\u4EE5\u4E0A"
+  rewardDescription: "\u91D1\u9322 + 100"
