@@ -460,7 +460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &260300149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44800,12 +44800,12 @@ GameObject:
   - component: {fileID: 847981308}
   - component: {fileID: 847981307}
   m_Layer: 5
-  m_Name: 'NoFishingFeelText '
+  m_Name: NoFishingFeelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847981306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44822,8 +44822,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -128, y: -114}
-  m_SizeDelta: {x: 670.8318, y: 386.2009}
+  m_AnchoredPosition: {x: -133, y: -110}
+  m_SizeDelta: {x: 680.3456, y: 405.2283}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847981307
 MonoBehaviour:
@@ -44872,8 +44872,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -72497,6 +72497,8 @@ MonoBehaviour:
   itemNameText: {fileID: 1245216621}
   itemDescriptionText: {fileID: 1915869679}
   fixedMessageText: {fileID: 309270460}
+  fromTrigger: 0
+  fishingFeelItem: {fileID: 11400000, guid: 48cddc10cc2209842965ffac306cbfe7, type: 2}
   possibleItems:
   - {fileID: 11400000, guid: 261b75db322cedf4197916fe3ffd0a33, type: 2}
   - {fileID: 11400000, guid: bcc4a374754364f4f94f9b2bbd78a59c, type: 2}
@@ -73727,6 +73729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishingAskPanel: {fileID: 4526673293855686373}
   fishingTrigger: {fileID: 849657439}
+  fishingUIManager: {fileID: 1236268445}
 --- !u!212 &1529138989
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -79426,7 +79429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &4680526604580425711
 GameObject:
   m_ObjectHideFlags: 0
@@ -79901,12 +79904,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 847981306}
   - {fileID: 4153658880602269386}
   - {fileID: 7228726722800015379}
   - {fileID: 7235941870152978768}
   - {fileID: 6471907829661161391}
   - {fileID: 1179695915529634397}
-  - {fileID: 847981306}
   - {fileID: 260300149}
   m_Father: {fileID: 7000359318951232760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

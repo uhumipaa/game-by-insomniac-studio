@@ -23,8 +23,13 @@ public class FishingUIManager : MonoBehaviour
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemDescriptionText;
     public TextMeshProUGUI fixedMessageText;
+    
+
 
     private bool isShowing = false;
+    public bool fromTrigger = false;
+    public ItemData fishingFeelItem; // 指向 Fishing_feel 的 itemdata
+
 
     // 可釣物品清單（ItemData）
     public List<ItemData> possibleItems;
@@ -65,6 +70,10 @@ public class FishingUIManager : MonoBehaviour
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
         fishingResultPanel.SetActive(false);
+        for (int i = 0; i < 3; i++)
+        {
+            InventoryManager.Instance.Add("Backpack", fishingFeelItem, 1);
+        }
     }
 
     void Update()
@@ -79,11 +88,15 @@ public class FishingUIManager : MonoBehaviour
 
     public void OnClickYes()
     {
-        // 扣掉一個 Fishing_feel
-        if (InventoryManager.Instance.Contains("Backpack", fishingTrigger.fishingFeelItem))
+        if (fromTrigger)
         {
-            InventoryManager.Instance.TryRemove("Backpack", fishingTrigger.fishingFeelItem, 1);
+            // 扣掉一個 Fishing_feel
+            if (InventoryManager.Instance.Contains("Backpack", fishingTrigger.fishingFeelItem))
+            {
+                InventoryManager.Instance.TryRemove("Backpack", fishingTrigger.fishingFeelItem, 1);
+            }
         }
+            
 
         Debug.Log("開始釣魚！");
         fishingTrigger.isFishing = true;

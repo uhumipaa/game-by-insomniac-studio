@@ -4,6 +4,7 @@ public class FishingSignClick : MonoBehaviour
 {
     public GameObject fishingAskPanel;
     public FishingTrigger fishingTrigger; // 控制鎖定狀態
+    public FishingUIManager fishingUIManager;
 
     private void OnMouseDown()
     {
@@ -16,6 +17,8 @@ public class FishingSignClick : MonoBehaviour
         if (fishingAskPanel != null)
         {
             fishingAskPanel.SetActive(true);
+            fishingUIManager.fromTrigger = false;
+
             fishingAskPanel.transform.Find("StartFishing?Text").gameObject.SetActive(true);
             fishingAskPanel.transform.Find("YesButton").gameObject.SetActive(true);
             fishingAskPanel.transform.Find("NoButton").gameObject.SetActive(true);

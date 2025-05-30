@@ -11,15 +11,13 @@ public class FishingTrigger : MonoBehaviour
 
     private bool isPlayerInZone = false;
 
-void Start()
-    {
-        InventoryManager.Instance.Add("Backpack", fishingFeelItem, 1);
-    }
+
     void Update()
     {
         if (isPlayerInZone && !isFishing && Input.GetKeyDown(KeyCode.F))
         {
             fishingAskPanel.SetActive(true);
+            fishingUIManager.fromTrigger = true;
 
             
 
