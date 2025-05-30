@@ -79,6 +79,12 @@ public class FishingUIManager : MonoBehaviour
 
     public void OnClickYes()
     {
+        // 扣掉一個 Fishing_feel
+        if (InventoryManager.Instance.Contains("Backpack", fishingTrigger.fishingFeelItem))
+        {
+            InventoryManager.Instance.TryRemove("Backpack", fishingTrigger.fishingFeelItem, 1);
+        }
+
         Debug.Log("開始釣魚！");
         fishingTrigger.isFishing = true;
 
@@ -112,7 +118,7 @@ public class FishingUIManager : MonoBehaviour
         int index = Random.Range(0, possibleItems.Count);
         ItemData item = possibleItems[index];
 
-        // 統計是否釣到 Element9
+        // 統計是否釣到汙染物
         if (item.itemName == "塑膠袋" || item.itemName == "漂流瓶" || item.itemName == "鋼彈" || item.itemName == "金幣")
         {
             debrisCaughtCount++;
@@ -127,7 +133,7 @@ public class FishingUIManager : MonoBehaviour
 
         isShowing = true;
         Debug.Log("你釣到：" + item.itemName);
-        Debug.Log($"目前總釣魚次數：{totalFishingAttempts}，Element9 次數：{debrisCaughtCount}");
+        Debug.Log($"目前總釣魚次數：{totalFishingAttempts}，汙染物次數：{debrisCaughtCount}");
 
         InventoryManager.Instance.Add("Backpack", item, 1);
         //CoinManager.instance.SpendCoins(20);
