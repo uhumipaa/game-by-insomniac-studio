@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 
+[System.Serializable]
 public class FarmTileData
 {
     public Vector3Int position;
@@ -13,4 +15,20 @@ public class FarmTileData
         state = initialState;
         cropData = crop;
     }
+}
+
+[System.Serializable]
+public class FarmTileSaveData
+{
+    public int x;
+    public int y;
+    public int z;
+    public int state;
+    public string cropName;
+}
+
+[System.Serializable]
+public class FarmSaveData
+{
+    public List<FarmTileSaveData> allTiles = new List<FarmTileSaveData>();
 }
