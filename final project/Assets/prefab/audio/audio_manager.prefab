@@ -56,3 +56,8 @@ MonoBehaviour:
   Boss_dino_bgm: {fileID: 8300000, guid: f7e8ba55a8dec3a4f895df5e322d9302, type: 3}
   finalboss_bgm: {fileID: 8300000, guid: b07d3c8020dde3a4eadcee8feaeaebb6, type: 3}
   restmap_bgm: {fileID: 8300000, guid: b1f763a300b95264b8abdfeef66dad75, type: 3}
+  player_sword: {fileID: 8300000, guid: c03be7a10334bde498d91c626175517f, type: 3}
+  player_swing: {fileID: 8300000, guid: 57c988e9e1d4a664996376c0e3c8719d, type: 3}
+  player_take_damaged: {fileID: 8300000, guid: 075ca022a9aeace4db3294bb93b8d30b, type: 3}
+  player_tako: {fileID: 8300000, guid: 9093488fd4287784dae13aac73c5d3ed, type: 3}
+  player_lighting: {fileID: 8300000, guid: a939488c7a532e34d9a3b2c57b62cd03, type: 3}

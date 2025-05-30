@@ -42,6 +42,7 @@ public class tako_control : MonoBehaviour
     }
     IEnumerator natural_exlposion(float delay)  
     {
+        Audio_manager.Instance.Play(15, "player_tako", false, 0);
         yield return new WaitForSeconds(delay);
         rb.linearVelocity = Vector2.zero;
         explosion();

@@ -49,5 +49,6 @@ public class teleporthint : MonoBehaviour
             int roomVariant = UnityEngine.Random.Range(0, 4);
             maploader.LoadMaps(roomVariant);
         }
+        maploader.playbgm();
     }
 }

@@ -124,6 +124,7 @@ public class Player_Property : MonoBehaviour
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def, 0);
         current_health -= actual_damage;
+        Audio_manager.Instance.Play(14, "player_take_damaged", false, 0);
         healthChanged.Invoke();
         if (healthbar != null)
         {

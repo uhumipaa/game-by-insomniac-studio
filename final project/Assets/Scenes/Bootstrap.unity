@@ -178,6 +178,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2161727825334077923, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: playerStatusData.maxHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161727825334077923, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: playerStatusData.speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161727825334077923, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: playerStatusData.attack
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161727825334077923, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: playerStatusData.defense
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161727825334077923, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: playerStatusData.magic_power
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2249138406920513167, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: farmTileProgressBarPrefab
       value: 

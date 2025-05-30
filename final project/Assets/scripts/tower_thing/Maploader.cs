@@ -21,6 +21,8 @@ public class Maploaders : MonoBehaviour
     public GameObject shopsystem;
     public GameObject audio_managerPrefab;
     public Audio_manager audio_manager;
+    string audioname;
+    int audioindex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -111,18 +113,18 @@ public class Maploaders : MonoBehaviour
         mapPrefabs = floorDatas[i].maps;
     }
 
-    void playbgm()
+    public void playbgm()
     {
-        string name = findname();
-        int index = findindex();
-        Debug.Log($"Clip Name: {name} | Index: {index}");
-        Audio_manager.Instance.Play(index, name, true);
+        int lastaudio = audioindex;
+        audioname = findname();
+        audioindex = findindex();
+        Debug.Log($"Clip Name: {audioname} | Index: {audioindex}");
+        Audio_manager.Instance.Play(audioindex, audioname, true,lastaudio);
         //audio_manager.Play(index, name, true);
     }
     string findname()
     {
-        bool boss;
-        bool rest;
+        bool boss = false;
         if (TowerManager.Instance.currentTowerFloor%10 == 0)
         {
             boss = true;
@@ -131,13 +133,13 @@ public class Maploaders : MonoBehaviour
         {
             return "restmap_bgm";
         }
-        else rest = false;
         switch (TowerManager.Instance.currentfloorprefab, boss)
         {
             case (0, false):
                 return "map1map10_bgm";
             case (0, true):
                 return "Boss_king_bgm";
+
             case (1, false):
                 return "map11map20_bgm";
             case (1, true):
@@ -157,6 +159,7 @@ public class Maploaders : MonoBehaviour
                 return "map41map50_bgm";
             case (4, true):
                 return "finalboss_bgm";
+
             default:
                 return "initial_bgm";
 
@@ -243,6 +246,7 @@ public class Maploaders : MonoBehaviour
     }
     public void loadBossmap(int judge)
     {
+        playbgm();
         if (currentMap != null)
             Destroy(currentMap);
         if (transcircle_instance != null)
@@ -258,6 +262,5 @@ public class Maploaders : MonoBehaviour
         Generate_player();
         SpawnMonsters(boosfloordata[judge]);
         shopsystem.SetActive(false);
-        playbgm();
     }
 }

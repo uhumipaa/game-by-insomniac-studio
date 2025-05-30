@@ -42,6 +42,7 @@ public class magic_controler : MonoBehaviour
     IEnumerator castwithani()
     {
         iscast = true;
+        Audio_manager.Instance.Play(13, "player_swing", false, 0);
         yield return new WaitForSecondsRealtime(1.75f);
         magic_current?.cast();
         iscast = false;

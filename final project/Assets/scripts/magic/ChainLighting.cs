@@ -44,6 +44,7 @@ public class ChainLighting : MonoBehaviour,isMagic
     void createlighting(Vector3 form_pos,Vector3 target_pos)
     {
         Debug.Log("CreateLightningEffect called: " + form_pos + " -> " + target_pos);
+        Audio_manager.Instance.Play(16, "player_lighting", false, 0);
         GameObject lighting = Instantiate(lightingprefab);
         LineRenderer line = lighting.GetComponent<LineRenderer>();
         line.positionCount = 2;

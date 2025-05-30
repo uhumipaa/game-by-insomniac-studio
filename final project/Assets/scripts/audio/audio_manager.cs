@@ -5,18 +5,23 @@ using UnityEngine;
 
 public class Audio_manager : MonoBehaviour
 {
-    public AudioClip initial_bgm;
+    public AudioClip initial_bgm; //0
     public AudioClip map1map10_bgm;
     public AudioClip map11map20_bgm;
     public AudioClip map21map30_bgm;
     public AudioClip map31map40_bgm;
-    public AudioClip map41map50_bgm;
+    public AudioClip map41map50_bgm; //5
     public AudioClip Boss_king_bgm;
     public AudioClip Boss_Dark_Magicion_bgm;
     public AudioClip Boss_warrior_bgm;
     public AudioClip Boss_dino_bgm;
-    public AudioClip finalboss_bgm;
+    public AudioClip finalboss_bgm; //10
     public AudioClip restmap_bgm;
+    public AudioClip player_sword;
+    public AudioClip player_swing;
+    public AudioClip player_take_damaged;
+    public AudioClip player_tako; //15
+    public AudioClip player_lighting;
 
     public static Audio_manager Instance;
 
@@ -34,7 +39,7 @@ public class Audio_manager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < 12; i++) // 看上面public有幾個
+        for (int i = 0; i < 17; i++) // 看上面public有幾個
         {
             Debug.Log($"Audio Count: {audios.Count}");
 
@@ -43,20 +48,43 @@ public class Audio_manager : MonoBehaviour
         }
     }
 
-    public void Play(int index, string name, bool isLoop)
+    public void Play(int index, string name, bool isLoop,int lastindex)
     {
-        Debug.Log("77777");
         var clip = GetAudioClip(name);
-        //Debug.Log($"Clip Name: {clip?.name} | Index: {index}");
-        if (clip != null)
+        if (clip == null)
         {
-            Debug.Log("sjdfi");
-            var audio = audios[index];
-            audio.clip = clip;
-            audio.loop = isLoop;
-            audio.Play();
+            Debug.LogWarning("音效不存在：" + name);
+            return;
         }
+        var lastaudio = audios[lastindex];
+        var audio = audios[index];
+        if (lastaudio.isPlaying)
+        {
+            lastaudio.Stop(); // 確保停止
+        }
+        // 若已經正在播放該 Clip，則略過重複播放
+        /*
+        if (audio.clip == clip)
+        {
+            Debug.Log("正在播放相同音樂，略過播放");
+            return;
+        }
+        audio.Stop();
+        // 若播放的是不同的音樂，要先 Stop 原本的
+        if (audio.clip != clip)
+        {
+            Debug.Log("stop");
+            audio.Stop();
+            Debug.Log("stop2");
+        }
+        */
+        Debug.Log($"audio.isplaying: {audio.isPlaying} | audio.clip: {audio.clip}| clip: {clip}");
+        Debug.Log("22222");
+        audio.clip = clip;
+        audio.loop = isLoop;
+        audio.Play();
     }
+
 
     AudioClip GetAudioClip (string name)
     {
@@ -75,6 +103,7 @@ public class Audio_manager : MonoBehaviour
                 return map31map40_bgm;
             case "map41map50_bgm":
                 return map41map50_bgm;
+
             case "Boss_king_bgm":
                 return Boss_king_bgm;
             case "Boss_Dark_Magicion_bgm":
@@ -85,8 +114,22 @@ public class Audio_manager : MonoBehaviour
                 return Boss_dino_bgm;
             case "finalboss_bgm":
                 return finalboss_bgm;
+
             case "restmap_bgm":
                 return restmap_bgm;
+
+            case "player_sword":
+                return player_sword;
+            case "player_swing":
+                return player_swing;
+            case "player_take_damaged":
+                return player_take_damaged;
+
+            case "player_tako":
+                return player_tako;
+            case "player_lighting":
+                return player_lighting;
+
             default:
                 return  initial_bgm;
         }
