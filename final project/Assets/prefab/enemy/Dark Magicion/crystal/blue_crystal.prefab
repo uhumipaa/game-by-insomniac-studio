@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6679245, g: 0.04410813, b: 0.04410813, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc122901d3b91534c923443a727545e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 5651076737655622805, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
+  boss: {fileID: 0}
   player_Property: {fileID: 0}
   enemy_Property: {fileID: 1253029082574644471}
 --- !u!114 &1253029082574644471

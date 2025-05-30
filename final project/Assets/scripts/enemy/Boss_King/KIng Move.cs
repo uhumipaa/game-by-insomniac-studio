@@ -185,6 +185,7 @@ public class BossController : MonoBehaviour
 
             float currentMoveSpeed = currentState == BossState.Phase1 ? moveSpeedPhase1 : moveSpeedPhase2;
 
+
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentMoveSpeed * Time.deltaTime);
         }
     }
@@ -450,7 +451,7 @@ public class BossController : MonoBehaviour
         animator.ResetTrigger(attack2TriggerName);
         animator.ResetTrigger(attack3TriggerName);
         animator.ResetTrigger(summonTriggerName);
-        animator.Play("Idle", -1, 0f);
+        animator.Play("Idle", 1, 0f);
 
         if (animator != null)
         {

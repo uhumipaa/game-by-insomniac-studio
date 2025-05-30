@@ -3,6 +3,7 @@ using UnityEngine;
 public class WarriorHitbox : MonoBehaviour
 {
     private Collider2D hitboxCollider;
+    public enemy_property enemy;
 
     private void Awake()
     {
@@ -15,22 +16,22 @@ public class WarriorHitbox : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // ¶Ë®`³B²z¡]©I¥s player_property¡^
+            // ï¿½Ë®`ï¿½Bï¿½zï¿½]ï¿½Iï¿½s player_propertyï¿½^
             var property = collision.GetComponent<Player_Property>();
             if (property != null)
             {
-                property.takedamage(10, transform.position); // ¥¿½T¡G²Å¦X¤èªk°Ñ¼Æ»P©R¦W
+                property.takedamage(enemy.atk, transform.position); // ï¿½ï¿½ï¿½Tï¿½Gï¿½Å¦Xï¿½ï¿½kï¿½Ñ¼Æ»Pï¿½Rï¿½W
 
             }
 
-            // À»°h³B²z¡]©I¥s Knockback¡^
+            // ï¿½ï¿½ï¿½hï¿½Bï¿½zï¿½]ï¿½Iï¿½s Knockbackï¿½^
             var knock = collision.GetComponent<Knockback>();
             if (knock != null)
             {
-                knock.ApplyKnockback(transform.position); // ¶Ç¤J Boss ªº¦ì¸m
+                knock.ApplyKnockback(transform.position); // ï¿½Ç¤J Boss ï¿½ï¿½ï¿½ï¿½m
             }
 
-            Debug.Log("Boss_warrior ©R¤¤ª±®a¡I");
+            Debug.Log("Boss_warrior ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½aï¿½I");
         }
     }
 
