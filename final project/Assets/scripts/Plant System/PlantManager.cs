@@ -49,7 +49,7 @@ public class PlantManager : MonoBehaviour
         selectedSlot.count--;
 
         //種下種子後變成發芽狀態
-        tileManager.SetCropTile(position, cropToPlant.sproutTile);
+        //tileManager.SetCropTile(position, cropToPlant.sproutTile);
 
         // 記錄田地狀態
         FarmManager.instance.AddFarmTile(position, cropToPlant);

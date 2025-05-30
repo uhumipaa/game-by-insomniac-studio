@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Collections;
+
 using UnityEngine;
 
 public class FarmManager : MonoBehaviour
@@ -14,11 +16,25 @@ public class FarmManager : MonoBehaviour
         tileManager = gm.tileManager;
     }
 
+    private void Start()
+    {
+        StartCoroutine(CheckGrowthPeriodically());
+    }
+
+    private IEnumerator CheckGrowthPeriodically()
+    {
+        while (true)
+        {
+            AutoGrowAllTiles(); // 檢查是否成長
+            yield return new WaitForSeconds(10f); // 每 10 秒跑一次
+        }
+    }
+
     public void AddFarmTile(Vector3Int pos, CropData cropData)
     {
         if (!farmTiles.ContainsKey(pos))
         {
-            farmTiles.Add(pos, new FarmTileData(pos, 1, cropData)); // 初始狀態是1(發芽)
+            farmTiles.Add(pos, new FarmTileData(pos, 0, cropData)); // 初始狀態是0(剛播種)
             UpdateTileVisual(farmTiles[pos]);
         }
     }
@@ -28,17 +44,47 @@ public class FarmManager : MonoBehaviour
         if (farmTiles.ContainsKey(pos))
         {
             var tileData = farmTiles[pos];
-            tileData.state++;
+            var crop = tileData.cropData;
+            int floor = TowerManager.Instance.finishfloorthistime;
 
-            UpdateTileVisual(tileData);
-
-            /*if (tileData.state >= 3) // 收成狀態
+            switch (tileData.state)
             {
-                //Debug.Log("這塊田可以收成了！");
-                farmTiles.Remove(pos);//移除成長資料，不再推進狀態
-            }*/
+                case 0: // 播種 -> 發芽
+                    if (floor >= crop.sproutFloor)
+                    {
+                        tileData.state = 1;
+                        UpdateTileVisual(tileData);
+                        return true;
+                    }
+                    break;
+                case 1: // 發芽 → 成長
+                    if (floor >= crop.growFloor)
+                    {
+                        tileData.state = 2;
+                        UpdateTileVisual(tileData);
+                        return true;
+                    }
+                    break;
+                case 2: // 成長 → 成熟
+                    if (floor >= crop.matureFloor)
+                    {
+                        tileData.state = 3;
+                        UpdateTileVisual(tileData);
+                        return true;
+                    }
+                    break;
+                case 3: //成熟 -> 收成
+                    if (floor >= crop.harvestFloor)
+                    {
+                        TryHarvestTile(pos);
+                        return true;
+                    }
+                    break;
+                default: //state == 0
+                    tileManager.ClearTile(tileData.position); // 播種時清除圖像
+                    break;
+            }
 
-            return true;
         }
 
         return false;
@@ -88,7 +134,7 @@ public class FarmManager : MonoBehaviour
             //移除田地資料
             farmTiles.Remove(pos);
 
-           // Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
+            // Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
             return true;
 
         }
@@ -105,5 +151,16 @@ public class FarmManager : MonoBehaviour
         else
             return null;
     }
+
+    public void AutoGrowAllTiles()
+    {
+        List<Vector3Int> keys = new List<Vector3Int>(farmTiles.Keys);
+
+        foreach (var pos in keys)
+        {
+            TryGrowTile(pos);
+        }
+    }
+
 
 }

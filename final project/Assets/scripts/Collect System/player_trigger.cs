@@ -61,7 +61,7 @@ public class player_trigger : MonoBehaviour
             }
         }
 
-        // 左鍵點田地
+        /*// 左鍵點田地
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -71,7 +71,7 @@ public class player_trigger : MonoBehaviour
             {
                 var farmTileData = FarmManager.instance.GetFarmTileData(gridPos);
 
-                if (farmTileData.state >= 3)
+                if (farmTileData.state > 3)
                 {
                     if (FarmManager.instance.TryHarvestTile(gridPos))
                     {
@@ -87,7 +87,7 @@ public class player_trigger : MonoBehaviour
 
                 }
             }
-        }
+        }*/
     }
     //掉落一件物品
     public void DropItem(ItemType type)

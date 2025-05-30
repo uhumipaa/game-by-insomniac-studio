@@ -25,5 +25,7 @@ public class TowerManager : MonoBehaviour
     public void retrun_to_town()
     {
         SceneManager.LoadScene("farm");
+
+        FarmManager.instance?.AutoGrowAllTiles(); // 自動成長
     }
 }
