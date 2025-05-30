@@ -5,10 +5,13 @@ public class HealthArea : MonoBehaviour
 {
     public int healAmountPerSecond = 10;   // 每秒補血量
     public float duration = 10f;           // 持續存在時間（秒）
+    
+
 
     private void Start()
     {
         // 過指定時間自動銷毀
+        
         Destroy(gameObject, duration);
     }
 

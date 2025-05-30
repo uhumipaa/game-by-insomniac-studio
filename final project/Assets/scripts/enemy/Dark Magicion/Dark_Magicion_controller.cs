@@ -282,7 +282,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
     {
 
         crystalsRemaining--;
-        int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals) + 3;
+        int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals) + 5;
         damage++;
         enemyStats.takedamage(damage, transform.position);
 
@@ -297,6 +297,9 @@ public class Dark_Magicion_Controller : MonoBehaviour
     public void Die()
     {
         Debug.Log("Dark Magicion 被擊敗！");
+
+        // 清除所有其他敵人
+        ClearAllOtherEnemies();
 
         // 先處理要關閉的物件
         DisableObjectsOnDeath();
@@ -313,7 +316,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
         yield return new WaitForSeconds(delay);
         enemyStats.ForceDie();
     }
-    
+
     private void DisableObjectsOnDeath()
     {
         foreach (GameObject obj in objectsToDisableOnDeath)
@@ -323,5 +326,20 @@ public class Dark_Magicion_Controller : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+    }
+    
+    private void ClearAllOtherEnemies()
+    {
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("enemy"); 
+        foreach (GameObject enemy in allEnemies)
+        {
+            // 避免自殺，跳過自己
+            if (enemy != this.gameObject)
+            {
+                Destroy(enemy);
+            }
+        }
+
+        Debug.Log("所有敵人已清除！");
     }
 }

@@ -221,8 +221,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6405079874169446385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -455,7 +455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3692273515323781150
 Transform:
   m_ObjectHideFlags: 0
@@ -652,7 +652,19 @@ MonoBehaviour:
         m_CallState: 2
   healthbarinitial:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5931376460597912799}
+        m_TargetAssemblyTypeName: healthbar, Assembly-CSharp
+        m_MethodName: initial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stats: {fileID: 6689158650468969680}
   isBossKingPhase2: 0
   isnightdemon: 0
@@ -712,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 100
+  expReward: 200
 --- !u!114 &598964149184687614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,7 +780,7 @@ RectTransform:
   m_Father: {fileID: 1045246215639476591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.207, y: -0.056}
   m_SizeDelta: {x: 0.414, y: 0.111}
   m_Pivot: {x: 0.5, y: 0.5}

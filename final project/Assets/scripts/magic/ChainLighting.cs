@@ -9,6 +9,8 @@ public class ChainLighting : MonoBehaviour,isMagic
     private Player_Property property;
     public float chiandelay;
     public GameObject lightingprefab;
+    public Animator ChainLightingCD; // 在 Inspector 連到 CooldownIcon 的 Animator
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -18,6 +20,7 @@ public class ChainLighting : MonoBehaviour,isMagic
     public void cast()
     {
         StartCoroutine(Lighting(transform.position, new List<GameObject>(), chainnumber));
+        ChainLightingCD.SetTrigger("StartCD");
     }
     private IEnumerator Lighting(Vector3 postion,List<GameObject> hitenemy, int remainingJumps)
     {
@@ -41,38 +44,28 @@ public class ChainLighting : MonoBehaviour,isMagic
         StartCoroutine(Lighting(target.transform.position,hitenemy, remainingJumps-1));
 
     }
-    void createlighting(Vector3 form_pos,Vector3 target_pos)
+    void createlighting(Vector3 from_pos, Vector3 to_pos)
     {
-        Debug.Log("CreateLightningEffect called: " + form_pos + " -> " + target_pos);
-        Audio_manager.Instance.Play(16, "player_lighting", false, 0);
-        GameObject lighting = Instantiate(lightingprefab);
-        LineRenderer line = lighting.GetComponent<LineRenderer>();
-        line.positionCount = 2;
-        line.SetPosition(0, form_pos);
-        line.SetPosition(1, target_pos);
-        line.startWidth = 0.1f;
-        line.endWidth = 0.1f;
-        line.widthMultiplier = 1.0f;
-        line.material = new Material(Shader.Find("Unlit/Color"));
-        AnimationCurve curve = new AnimationCurve();
-        curve.AddKey(0.0f, 0.1f);
-        curve.AddKey(0.5f, 0.3f);
-        curve.AddKey(1.0f, 0.1f);
-        line.widthCurve = curve;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] {
-            new GradientColorKey(new Color(0.6f, 0.9f, 1f), 0.0f),
-            new GradientColorKey(new Color(1f, 1f, 1f), 1.0f)
-            },
-            new GradientAlphaKey[] {
-            new GradientAlphaKey(0.0f, 0.0f),
-            new GradientAlphaKey(0.7f, 0.5f),
-            new GradientAlphaKey(0.0f, 1.0f)
-            }
-        );
-        line.colorGradient = gradient;
-        Destroy(lighting, 0.2f);
+        GameObject lightning = Instantiate(lightingprefab);
 
+        Vector3 direction = (to_pos - from_pos).normalized;
+        float distance = Vector3.Distance(from_pos, to_pos);
+
+        // 放置在兩點之間
+        lightning.transform.position = (from_pos + to_pos) / 2;
+
+        // 指向目標
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        lightning.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // ✨ 調整縮放：圖片寬度為 35 像素，PPU 為 15，要轉為世界單位寬度為 1
+        float baseUnitLength = 35f / 15f;  // 35 像素 ÷ 15 PPU = 2.33 單位（未縮放時的長度）
+        float scaleX = distance / baseUnitLength;
+
+        lightning.transform.localScale = new Vector3(scaleX, 1f, 1f); // 等比放大 X 軸
+
+        // 可選：自動摧毀
+        Destroy(lightning, 0.2f);
     }
+
 }

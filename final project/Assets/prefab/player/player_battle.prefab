@@ -1250,6 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   takoyaki_prefab: {fileID: 5141994571330609099, guid: 3668645da5ab59043bcaab10ec16af10, type: 3}
+  TakoCD: {fileID: 0}
 --- !u!114 &2087097861517849957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,6 +1322,7 @@ MonoBehaviour:
   dmgpara: 0
   chiandelay: 0.5
   lightingprefab: {fileID: 9105819828183486740, guid: b4dd7614ea14273499355df9f9970f4e, type: 3}
+  ChainLightingCD: {fileID: 0}
 --- !u!114 &3249337608617599248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,7 +1476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b977cfa6e72b94daf660feed37a309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAreaPrefab: {fileID: 0}
+  healthAreaPrefab: {fileID: 7255113382851955653, guid: 6d462829d7a99d54b82b7bbc65e2a832, type: 3}
+  HealthAreaCD: {fileID: 0}
 --- !u!1 &8066290499374552347
 GameObject:
   m_ObjectHideFlags: 0

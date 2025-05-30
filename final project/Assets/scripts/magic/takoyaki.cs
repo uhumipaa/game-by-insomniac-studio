@@ -4,6 +4,8 @@ public class takoyaki : MonoBehaviour,isMagic
 {
     public float speed;
     public GameObject takoyaki_prefab;
+    public Animator TakoCD; // 在 Inspector 連到 CooldownIcon 的 Animator
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,5 +18,6 @@ public class takoyaki : MonoBehaviour,isMagic
         Vector2 direction = (mouse_position - (Vector2)transform.position).normalized;
         Vector2 spown_position = (Vector2)transform.position + direction * 0.5f;
         Instantiate(takoyaki_prefab, spown_position, Quaternion.identity).GetComponent<tako_control>().setdirection(direction);
+        TakoCD.SetTrigger("StartCD");
     }
 }

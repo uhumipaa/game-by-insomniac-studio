@@ -15,9 +15,10 @@ public class dash : MonoBehaviour
     private Animator ani;
     private Transform player_pos;
     public GameObject afterimage;
+    public Animator DashCD;
     public void setdireaction(Vector2 Direction)
     {
-        
+
         if ((Time.time - last_dash_time) > dash_cd)
         {
             direction = Direction;
@@ -32,7 +33,7 @@ public class dash : MonoBehaviour
     IEnumerator Dash(float delay)
     {
         dashing = true;
-        Debug.Log("¶}©ldash");
+        Debug.Log("ï¿½}ï¿½ldash");
         rb.linearVelocity = direction * dash_speed;
         float elapsed = 0f;
         float spawnInterval = 0.05f; 
@@ -44,9 +45,9 @@ public class dash : MonoBehaviour
         }
         rb.linearVelocity = Vector2.zero;
         dashing = false;
-        Debug.Log("Ãö³¬dash");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½dash");
         last_dash_time = Time.time;
-        
+        DashCD.SetTrigger("StartCD");
     }
 
     void Start()

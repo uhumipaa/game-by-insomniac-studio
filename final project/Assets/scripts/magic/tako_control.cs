@@ -13,6 +13,7 @@ public class tako_control : MonoBehaviour
     private Player_Property player_Property;
     [SerializeField] float damagepara;
     private bool exploed;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -21,6 +22,7 @@ public class tako_control : MonoBehaviour
         ani = GetComponent<Animator>();
         rb.gravityScale = 0f;
         Debug.Log("�����N��l�Ƨ���");
+        
         StartCoroutine(natural_exlposion(3f));
     }
 
