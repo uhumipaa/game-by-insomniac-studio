@@ -19,6 +19,8 @@ public class Maploaders : MonoBehaviour
     public GameObject backteleport;
     private GameObject backteleport_instance;
     public GameObject shopsystem;
+    public GameObject audio_managerPrefab;
+    public Audio_manager audio_manager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -93,6 +95,7 @@ public class Maploaders : MonoBehaviour
         currentMap = Instantiate(mapPrefabs[room], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
         SpawnMonsters(floorDatas[nowfloor]);
+        playbgm();
     }
 
     Vector2 getrandomposition(FloorData floorData)
@@ -104,7 +107,74 @@ public class Maploaders : MonoBehaviour
     }
     public void changemap(int i)
     {
+        TowerManager.Instance.currentfloorprefab = i;
         mapPrefabs = floorDatas[i].maps;
+    }
+
+    void playbgm()
+    {
+        string name = findname();
+        int index = findindex();
+        Debug.Log($"Clip Name: {name} | Index: {index}");
+        Audio_manager.Instance.Play(index, name, true);
+        //audio_manager.Play(index, name, true);
+    }
+    string findname()
+    {
+        bool boss;
+        bool rest;
+        if (TowerManager.Instance.currentTowerFloor%10 == 0)
+        {
+            boss = true;
+        } else boss = false;
+        if (TowerManager.Instance.currentTowerFloor % 10 == 5)
+        {
+            return "restmap_bgm";
+        }
+        else rest = false;
+        switch (TowerManager.Instance.currentfloorprefab, boss)
+        {
+            case (0, false):
+                return "map1map10_bgm";
+            case (0, true):
+                return "Boss_king_bgm";
+            case (1, false):
+                return "map11map20_bgm";
+            case (1, true):
+                return "Boss_Dark_Magicion_bgm";
+
+            case (2, false):
+                return "map21map30_bgm";
+            case (2, true):
+                return "Boss_warrior_bgm";
+
+            case (3, false):
+                return "map31map40_bgm";
+            case (3, true):
+                return "Boss_dino_bgm";
+
+            case (4, false):
+                return "map41map50_bgm";
+            case (4, true):
+                return "finalboss_bgm";
+            default:
+                return "initial_bgm";
+
+        }
+    }
+
+    int findindex()
+    {        
+        int boss;
+        if (TowerManager.Instance.currentTowerFloor%10 == 0)
+        {
+            boss = 1;
+        }
+        else boss = 0;
+        
+        
+        return 2 * TowerManager.Instance.currentfloorprefab + boss + 1;
+        
     }
 
     void SpawnMonsters(FloorData floorData)
@@ -168,6 +238,8 @@ public class Maploaders : MonoBehaviour
         backteleport_instance = Instantiate(backteleport, Telespawn.position, Quaternion.identity);
         shopsystem.SetActive(true);
         GetComponent<SetSpecialMap>().setrest();
+        playbgm();
+
     }
     public void loadBossmap(int judge)
     {
@@ -186,5 +258,6 @@ public class Maploaders : MonoBehaviour
         Generate_player();
         SpawnMonsters(boosfloordata[judge]);
         shopsystem.SetActive(false);
+        playbgm();
     }
 }

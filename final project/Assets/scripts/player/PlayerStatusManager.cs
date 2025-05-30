@@ -31,17 +31,13 @@ public class PlayerStatusManager : MonoBehaviour,ISaveData
             Destroy(gameObject);
         }
         instance = this;
-        Initialize();
-    }
-    void OnEnable()
-    {
         property = FindAnyObjectByType<Player_Property>()?.GetComponent<Player_Property>();
-        if (property != null)
-        {
-            property.update_property();
-        }
+        Initialize();
+        if(property!=null)property.update_property();
+        
+        
     }
-    private void Initialize()
+    private void Initialize() 
     {
         playerStatusData.attack = 15;
         playerStatusData.defense = 15;

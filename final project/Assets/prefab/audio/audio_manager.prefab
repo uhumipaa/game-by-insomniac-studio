@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4138536827086940893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4244116061905146416}
+  - component: {fileID: 3352502266502453571}
+  m_Layer: 0
+  m_Name: audio_manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4244116061905146416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138536827086940893}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1728346, y: -1.3131044, z: -0.08167031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3352502266502453571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138536827086940893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625ef08c28e0acf47b7304b9f607691c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initial_bgm: {fileID: 8300000, guid: 542151037af29dc46a611e954cbf8290, type: 3}
+  map1map10_bgm: {fileID: 8300000, guid: 62ad1d0ab78355e4ca4c9a02b44fed7e, type: 3}
+  map11map20_bgm: {fileID: 8300000, guid: c3c715141c54a5445a0621fc528ecb77, type: 3}
+  map21map30_bgm: {fileID: 8300000, guid: 3eae183f3ca676843a5095a23bf79efa, type: 3}
+  map31map40_bgm: {fileID: 8300000, guid: d3a40c1440a4f8d4ea2b8a2bb9408557, type: 3}
+  map41map50_bgm: {fileID: 8300000, guid: 4065e3ca738e832469c98296663a8c9e, type: 3}
+  Boss_king_bgm: {fileID: 8300000, guid: a52ace87c41e94345ace946475e25f8a, type: 3}
+  Boss_Dark_Magicion_bgm: {fileID: 8300000, guid: 227221150aeafb046843e5efdbc1a9be, type: 3}
+  Boss_warrior_bgm: {fileID: 8300000, guid: 9a3832ba58eee054dbd2ad187253ef5a, type: 3}
+  Boss_dino_bgm: {fileID: 8300000, guid: f7e8ba55a8dec3a4f895df5e322d9302, type: 3}
+  finalboss_bgm: {fileID: 8300000, guid: b07d3c8020dde3a4eadcee8feaeaebb6, type: 3}
+  restmap_bgm: {fileID: 8300000, guid: b1f763a300b95264b8abdfeef66dad75, type: 3}

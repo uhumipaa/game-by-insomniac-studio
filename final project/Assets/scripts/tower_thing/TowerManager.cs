@@ -7,6 +7,7 @@ public class TowerManager : MonoBehaviour
     public bool backtotower;
     public int currentTowerFloor = 1;
     public int finishfloorthistime = 1;
+    public int currentfloorprefab=0;
     private Maploaders loader;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
