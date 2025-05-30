@@ -20,7 +20,7 @@ public class storageBox_UI : MonoBehaviour
     //[SerializeField] int equipmentoffset;
     //[SerializeField] bool isequipment = false;
 
-    private Inventory inventory;
+    public Inventory inventory;
     //public bool isReady = false;
     //[SerializeField] private int slotOffset = 0;
     private void Awake()
@@ -161,6 +161,11 @@ public class storageBox_UI : MonoBehaviour
         UI_Manager.draggedIcon.raycastTarget = false;
         UI_Manager.draggedIcon.rectTransform.sizeDelta = new Vector2(50, 50);
 
+        var canvasGroup = UI_Manager.draggedIcon.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = UI_Manager.draggedIcon.gameObject.AddComponent<CanvasGroup>();
+        canvasGroup.blocksRaycasts = false;
+
         MoveToMousePosition(UI_Manager.draggedIcon.gameObject);
     }
 
@@ -181,13 +186,64 @@ public class storageBox_UI : MonoBehaviour
 
     public void SlotDrop(Slot_UI slot)
     {
+        var fromSlot = UI_Manager.draggedSlot;
+        var toSlot = slot;
+
         if (UI_Manager.dragSingle)
             UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory);
         else
             UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory,
                 UI_Manager.draggedSlot.inventory.slots[UI_Manager.draggedSlot.slotID].count);
 
-        FindFirstObjectByType<GameManager>().uiManager.RefreshAll();
+        //立即刷新拖曳來源與目標 slot
+        //fromSlot.Refresh();
+        //toSlot.Refresh();
+
+        /*FindFirstObjectByType<GameManager>().uiManager.RefreshAll();*/
+
+        //UI_Manager.draggedSlot = null;
+        //UI_Manager.draggedIcon = null;
+
+        //先刪除拖曳圖示，避免殘影
+        if (UI_Manager.draggedIcon != null)
+            Destroy(UI_Manager.draggedIcon.gameObject);
+
+        UI_Manager.draggedIcon = null;
+        UI_Manager.draggedSlot = null;
+
+        //先刷新目標 slot
+        toSlot.Refresh();
+
+        //嘗試從場景中找到 fromSlot 的 UI 並刷新
+        bool sourceUIRefreshed = false;
+
+        foreach (var ui in FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None))
+        {
+            if (ui is Inventory_UI inventoryUI && inventoryUI.inventory == fromSlot.inventory)
+            {
+                Debug.Log($"✅ 找到來源 UI：{inventoryUI.inventoryName}");
+                inventoryUI.Refresh();
+                sourceUIRefreshed = true;
+                break;
+            }
+            else if (ui is storageBox_UI storageUI && storageUI.inventory == fromSlot.inventory)
+            {
+                Debug.Log("✅ 找到來源是 storagebox");
+                storageUI.Refresh();
+                sourceUIRefreshed = true;
+                break;
+            }
+        }
+
+        //fallback：如果找不到來源 UI，就刷新 fromSlot 自己
+        if (!sourceUIRefreshed)
+        {
+            Debug.Log("⚠️ 沒找到來源 UI，直接刷新 fromSlot");
+            fromSlot.Refresh();
+        }
+
+        Debug.Log($"🧩 fromSlot.inventory == toolbarInventory? {fromSlot.inventory == InventoryManager.Instance.toolbar}");
+
     }
 
     private void MoveToMousePosition(GameObject toMove)

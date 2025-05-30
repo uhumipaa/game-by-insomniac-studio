@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler,IPointerClickHandler
+public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler, IPointerClickHandler
 {
     public int slotID;
     public Inventory inventory;
@@ -43,6 +43,8 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             Debug.LogWarning("❌ SetItem() 收到空 slot 或 count <= 0。");
             SetEmpty();
         }
+
+
     }
 
     public void SetEmpty()
@@ -138,5 +140,14 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
             }
         }
     }
-    
+
+    public void Refresh()
+    {
+        var data = inventory.slots[slotID];
+        if (data.count > 0)
+            SetItem(data);
+        else
+            SetEmpty();
+    }
+
 }

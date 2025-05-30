@@ -37,7 +37,7 @@ public class Inventory
                 return false;
             }
         }*/
-        
+
         public bool CanAddItem(ItemData data)
         {
             return itemData == data && count < data.maxAllowed;
@@ -88,7 +88,7 @@ public class Inventory
 
     public Inventory(int numSlots)
     {
-        for(int i = 0; i < numSlots; i++)
+        for (int i = 0; i < numSlots; i++)
         {
             Slot slot = new Slot();
             slots.Add(slot);
@@ -133,19 +133,22 @@ public class Inventory
         Slot fromSlot = slots[fromIndex];
         Slot toSlot = toInventory.slots[toIndex];
 
-        if(toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemData)) //如果格子為空或形態相符才可以挪
+        if (toSlot.IsEmpty || toSlot.CanAddItem(fromSlot.itemData)) //如果格子為空或形態相符才可以挪
         {
             toSlot.AddItem(fromSlot.itemData, numToMove);
-            fromSlot.RemoveItem(numToMove);    
+            fromSlot.RemoveItem(numToMove);
         }
     }
 
     //得到選擇的格子
     public void SelectSlot(int index)
     {
-        if(slots != null && slots.Count > 0)
+        if (slots != null && slots.Count > 0)
         {
             selectedSlot = slots[index];
         }
     }
+
+    
+
 }
