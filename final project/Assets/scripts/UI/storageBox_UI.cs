@@ -8,6 +8,7 @@ public class storageBox_UI : MonoBehaviour
 {
     //[SerializeField] CanvasGroup[] UIs;
     [SerializeField] public Image panelImage; //backpack 視窗
+    public GameObject panelObject;
     //public enum InventoryType { Inventory, Toolbar }
     //public enum SlotGroup { Backpack, Equipment }
 
@@ -309,6 +310,14 @@ public class storageBox_UI : MonoBehaviour
 
         //backpack面板關閉
         gameObject.SetActive(false);
+    }
+
+    //按下按鈕打開/關閉置物箱
+    public void OpenWindow()
+    {
+        Debug.Log("🟢 OpenWindow 被呼叫！");
+        panelObject.SetActive(!panelObject.activeSelf);
+        Refresh();
     }
 }
 
