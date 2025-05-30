@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 4715906338733025867}
   - component: {fileID: 3414242635040456527}
   - component: {fileID: 4590354793233068848}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: little_dino
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,10 @@ MonoBehaviour:
       m_Calls: []
   stats: {fileID: 2934159072269727024}
   isBossKingPhase2: 0
+  isnightdemon: 0
   detect_range: 5
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
 --- !u!114 &2934159072269727024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d80316277aee5545bb8ea6faf748c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentstate: 0
   scripts:
   - {fileID: 3954891195046672055}
   - {fileID: 7287043607139171809}
@@ -313,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d80316277aee5545bb8ea6faf748c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentstate: 0
   scripts:
   - {fileID: 3954891195046672055}
   - {fileID: 7287043607139171809}

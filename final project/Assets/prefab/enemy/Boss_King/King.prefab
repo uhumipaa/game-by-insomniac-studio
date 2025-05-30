@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8000808265661766768}
   - component: {fileID: 843779582063786615}
   - component: {fileID: 1920035089040129605}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: King
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -134,10 +134,10 @@ MonoBehaviour:
   player: {fileID: 0}
   mapMinBounds: {x: -8, y: -8}
   mapMaxBounds: {x: 8, y: 8}
-  moveSpeedPhase1: 1.5
-  moveSpeedPhase2: 2
-  attackCooldownPhase1: 5
-  attackCooldownPhase2: 3
+  moveSpeedPhase1: 2
+  moveSpeedPhase2: 3
+  attackCooldownPhase1: 6
+  attackCooldownPhase2: 4
   stopDistance: 3
   attackRange: 3
   attackDuration: 0.5

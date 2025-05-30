@@ -727,9 +727,9 @@ GameObject:
   - component: {fileID: 4170816672811408024}
   - component: {fileID: 5682682471322491975}
   - component: {fileID: 5651076737655622805}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Dark Magicion
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

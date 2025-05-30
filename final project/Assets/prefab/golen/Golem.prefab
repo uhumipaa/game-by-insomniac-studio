@@ -223,13 +223,13 @@ GameObject:
   - component: {fileID: 1244506913284305549}
   - component: {fileID: 7729211823175400205}
   - component: {fileID: 2123524870829951921}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Golem
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &218797790707570515
 Transform:
   m_ObjectHideFlags: 0

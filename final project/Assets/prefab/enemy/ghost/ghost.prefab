@@ -731,9 +731,9 @@ MonoBehaviour:
   invisibilityDuration: 2
   moveBounds:
     serializedVersion: 2
-    x: -9
-    y: -4
-    width: 18
+    x: -8
+    y: -8
+    width: 8
     height: 8
 --- !u!1 &9149916433841717391
 GameObject:

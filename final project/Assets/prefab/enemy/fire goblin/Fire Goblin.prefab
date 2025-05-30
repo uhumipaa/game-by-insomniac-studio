@@ -573,13 +573,13 @@ GameObject:
   - component: {fileID: 1272108155856405711}
   - component: {fileID: 5483210976930453151}
   - component: {fileID: 2776155663586152061}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fire Goblin
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3196250513004194942
 Transform:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ MonoBehaviour:
   current_health: 0
   def: 5
   atk: 20
-  attack_range: 0.7
+  attack_range: 2
   speed: 6
   stuncd: 2
   spriteRender: {fileID: 0}
@@ -847,7 +847,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

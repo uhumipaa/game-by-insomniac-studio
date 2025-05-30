@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4717261430905311752}
   - component: {fileID: 6401265086616252433}
   - component: {fileID: 3022974598632560389}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: big_dinosour
   m_TagString: enemy
   m_Icon: {fileID: 0}

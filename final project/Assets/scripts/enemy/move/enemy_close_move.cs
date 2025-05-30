@@ -6,9 +6,9 @@ public class enemy_close_move : MonoBehaviour,IEnemyMoveBehavior
     private Transform player;
     public float turnSpeed = 5f;
     public float stuned_time=1f;
-    private int offsetSign;//°¾¦V¤è¦V
-    public float offsetStrength = 0.5f;//°¾¦V¤O«×
-    public float jitterStrength = 0.1f;//·n®Ì¤O«×
+    private int offsetSign;//ï¿½ï¿½ï¿½Vï¿½ï¿½V
+    public float offsetStrength = 0.5f;//ï¿½ï¿½ï¿½Vï¿½Oï¿½ï¿½
+    public float jitterStrength = 0.1f;//ï¿½nï¿½Ì¤Oï¿½ï¿½
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,19 +18,19 @@ public class enemy_close_move : MonoBehaviour,IEnemyMoveBehavior
     // Update is called once per frame
     public void Move(Transform self, Transform player, Rigidbody2D rb, float speed)
     {
-        // 1. °ò¥»¤è¦V¡]´Âª±®a¡^
+        // 1. ï¿½ò¥»¤ï¿½Vï¿½]ï¿½Âªï¿½ï¿½aï¿½^
         Vector2 direction = (player.position - self.position).normalized;
 
-        // 2. ¥]§¨°¾²¾¤è¦V¡]««ª½©ó direction¡^
-        Vector2 sideOffset = Vector2.Perpendicular(direction) * offsetSign; // offsetSign ¬O -1 ©Î 1
+        // 2. ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Vï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ directionï¿½^
+        Vector2 sideOffset = Vector2.Perpendicular(direction) * offsetSign; // offsetSign ï¿½O -1 ï¿½ï¿½ 1
 
-        // 3. ÀH¾÷§Ý°Ê¡]¤£³W«h·P¡^
+        // 3. ï¿½Hï¿½ï¿½ï¿½Ý°Ê¡]ï¿½ï¿½ï¿½Wï¿½hï¿½Pï¿½^
         Vector2 jitter = Random.insideUnitCircle * jitterStrength;
 
-        // 4. ³Ì²×¤è¦V¥[Á`
+        // 4. ï¿½Ì²×¤ï¿½Vï¿½[ï¿½
         Vector2 desiredDirection = (direction + sideOffset * offsetStrength + jitter).normalized;
 
-        // 5. ¥­·ÆÂà¦V
+        // 5. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½V
         Vector2 currentDirection = rb.linearVelocity.magnitude > 0.1f ? rb.linearVelocity.normalized : direction;
         Vector2 newDirection = Vector2.Lerp(currentDirection, desiredDirection, turnSpeed * Time.fixedDeltaTime);
         rb.linearVelocity = speed * newDirection;

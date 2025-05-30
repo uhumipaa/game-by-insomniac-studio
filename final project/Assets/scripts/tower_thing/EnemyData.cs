@@ -6,7 +6,7 @@ public class EnemyData : ScriptableObject
     public int baseHP;
     public int baseatk;
     public int basedef;
-    public int speed;
+    // public int speed;
     public string enemyname;
     public float atkpara;
     public float defpara;
