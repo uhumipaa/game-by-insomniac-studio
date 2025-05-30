@@ -181,11 +181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7064528139349619804, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064528139349619804, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8935701723312490220, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_Name
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8935701723312490220, guid: 879dfaa443f7b504f82d659456343d58, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: expAddUI
       value: 
       objectReference: {fileID: 278098097}
+    - target: {fileID: 6847848162052370178, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+      propertyPath: atk
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6847848162052370178, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: expAddUI
       value: 

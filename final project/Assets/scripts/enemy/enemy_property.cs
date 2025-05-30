@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System.Collections;
 using UnityEngine.PlayerLoop;
 using Unity.VisualScripting;
 public class enemy_property : MonoBehaviour
@@ -163,22 +164,29 @@ public class enemy_property : MonoBehaviour
             bossController.ClearSummonedKnights();  // Boss死時清掉所有召喚物
         }
         Debug.Log("GG");
-        Destroy(gameObject);
+        StartCoroutine(DelayedDestroy(0.5f));
+
 
         // Debug.Log("GG");
         // gameObject.SetActive(false);
         // Destroy(gameObject);
     }
-        public void ForceDie()
-        {
-            if (isBossKingDead) return;
-            isBossKingDead = true;
-
-            if (EnemyManager.instance != null)
-            {
-                EnemyManager.instance.removeenemy(gameObject);
-            }
-
-            gameObject.SetActive(false);
-        }
+    private IEnumerator DelayedDestroy(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(gameObject);
     }
+
+    public void ForceDie()
+    {
+        if (isBossKingDead) return;
+        isBossKingDead = true;
+
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.removeenemy(gameObject);
+        }
+
+        gameObject.SetActive(false);
+    }
+ }
