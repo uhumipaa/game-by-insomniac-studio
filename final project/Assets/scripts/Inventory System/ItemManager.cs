@@ -11,6 +11,7 @@ using UnityEngine;
 }*/
 public class ItemManager : MonoBehaviour
 {
+    public static ItemManager instance;
     [Header("物品資料")]
     public List<ItemData> itemList;
 
@@ -57,8 +58,17 @@ public class ItemManager : MonoBehaviour
                 //Debug.Log($"✅ 註冊 ItemData：{data.itemName}");
             }
         }
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); //保留物件跨場景
+        }
+        else
+        {
+            Destroy(gameObject); //若有重複就刪掉
+            return;
+        }
     }
-
     /*private void AddItem(ItemEntry entry)
     {
         //如果還沒有這個item 就加進去
@@ -104,5 +114,9 @@ public class ItemManager : MonoBehaviour
 
         Debug.LogWarning($"❌ 無法生成 Collectable：{type}");
         return null;
+    }
+    public ItemData GetItemDataByName(string name)
+    {
+        return itemList.Find(item => item.itemName == name);
     }
 }

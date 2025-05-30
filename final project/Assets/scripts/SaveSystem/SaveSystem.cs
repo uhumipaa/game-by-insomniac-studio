@@ -7,6 +7,10 @@ using System.Text.RegularExpressions;
 public class SaveData
 {
     public PlayerStatusData playerStatusData;
+    public Vector3 playerposition;
+    public List<SaveItem> backpackItems = new List<SaveItem>();
+    public List<SaveItem> equippedItems = new List<SaveItem>();
+    public List<SaveItem> toolbarItems = new List<SaveItem>();
     public SaveData()
     {
         playerStatusData = new PlayerStatusData();

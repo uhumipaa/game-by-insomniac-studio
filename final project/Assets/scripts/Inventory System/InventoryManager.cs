@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour,ISaveData
 {
     public static InventoryManager Instance;
 
@@ -19,6 +19,7 @@ public class InventoryManager : MonoBehaviour
     public Inventory storagebox;
     public int storageboxSlotCount;
 
+    ItemManager itemManager;
 
     private void Awake()
     {
@@ -43,6 +44,8 @@ public class InventoryManager : MonoBehaviour
         inventoryByName.Add("Backpack", backpack);
         inventoryByName.Add("Toolbar", toolbar);
         inventoryByName.Add("Storagebox", storagebox);
+
+        itemManager = FindAnyObjectByType<ItemManager>().GetComponent<ItemManager>();
     }
 
     public void Add(string inventoryName, ItemData data, int amount = 1)
@@ -73,4 +76,64 @@ public class InventoryManager : MonoBehaviour
             inventoryByName[name] = new Inventory(slotCount);
         }
     }
+
+    private List<SaveItem> ConvertItemsToSaveItems(Inventory inventory)
+    {
+        var result = new List<SaveItem>();
+        foreach (var slot in inventory.slots)
+        {
+            if (!slot.IsEmpty)
+            {
+                result.Add(new SaveItem(slot.itemData.itemName, slot.count));
+            }
+        }
+        return result;
+    }
+    private void LoadSaveItem(Inventory inventory, List<SaveItem> items,int type)
+    {
+        inventory.slots.Clear();
+        for (int i = 0; i < items.Count; i++)
+        {
+            var saved = items[i];
+            int quantity = items[i].quantity;
+            ItemData data = itemManager.GetItemDataByName(saved.Name);
+            if (data != null)
+            {
+                var slot = new Inventory.Slot();
+                switch (type)
+                {
+                    case 0:
+                        Add("Backpack", data, quantity);
+                        break;
+                    case 1:
+                        Add("Toolbar", data, quantity);
+                        break;
+                    case 2:
+                        Add("Storagebox", data, quantity);
+                        break;
+                }
+                
+            }
+            else
+            {
+                Debug.LogWarning($"❌ 無法找到 itemID：{saved.Name}");
+            }
+        }
+    }
+
+    public void SaveData(ref SaveData saveData)
+    {
+        
+        saveData.backpackItems = ConvertItemsToSaveItems(backpack);
+        saveData.toolbarItems = ConvertItemsToSaveItems(toolbar);
+        saveData.equippedItems = ConvertItemsToSaveItems(storagebox); 
+    }
+
+    public void LoadData(SaveData saveData)
+    {
+        LoadSaveItem(backpack, saveData.backpackItems,0);
+        LoadSaveItem(toolbar, saveData.toolbarItems,1);
+        LoadSaveItem(storagebox, saveData.equippedItems,2);
+    }
+
 }

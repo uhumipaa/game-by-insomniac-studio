@@ -74111,7 +74111,6 @@ GameObject:
   - component: {fileID: 1652634050}
   - component: {fileID: 1652634051}
   - component: {fileID: 1652634052}
-  - component: {fileID: 1652634053}
   - component: {fileID: 1652634054}
   m_Layer: 0
   m_Name: GameManager
@@ -74259,18 +74258,6 @@ MonoBehaviour:
   backtotower: 0
   currentTowerFloor: 6
   finishfloorthistime: 1
---- !u!114 &1652634053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652634044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 929ce406325355347a474923dc76a58c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1652634054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79772,7 +79759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.000305, y: 2}
+  m_AnchoredPosition: {x: -11.000244, y: 2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5260254161468815399

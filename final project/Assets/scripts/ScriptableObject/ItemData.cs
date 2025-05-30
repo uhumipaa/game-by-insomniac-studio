@@ -23,6 +23,7 @@ public enum ItemType
 [System.Serializable]
 public class ItemData : ScriptableObject
 {
+    public string ID;
     public string itemName;
     [TextArea] public string description;
     public Sprite icon;
@@ -39,5 +40,17 @@ public class ItemData : ScriptableObject
     public int buffMP;
     public int buffLuck;
     public float duration;
-    
+
+}
+
+[System.Serializable]
+public class SaveItem
+{
+    public string Name;
+    public int quantity;
+    public SaveItem(string name, int count)
+    {
+        Name = name;
+        quantity = count;
+    }
 }
