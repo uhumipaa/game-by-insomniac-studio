@@ -127,6 +127,30 @@ public class Inventory
         }
     }
 
+    // 嘗試移除指定物品（數量不足就不移除）
+    public bool TryRemoveItem(ItemData data, int amount)
+    {
+        int total = GetItemCount(data);
+        if (total < amount)
+        {
+            Debug.LogWarning($"❌ 無法移除 {amount} 個 {data.itemName}，因為只有 {total} 個");
+            return false;
+        }
+
+        for (int i = 0; i < slots.Count && amount > 0; i++)
+        {
+            var slot = slots[i];
+            if (!slot.IsEmpty && slot.itemData == data)
+            {
+                int removeAmount = Mathf.Min(slot.count, amount);
+                slot.RemoveItem(removeAmount);
+                amount -= removeAmount;
+            }
+        }
+
+        return true;
+    }
+
     //在inventory視窗上的格子間挪動
     public void MoveSlot(int fromIndex, int toIndex, Inventory toInventory, int numToMove = 1)  //預設移動1個
     {
@@ -149,6 +173,54 @@ public class Inventory
         }
     }
 
-    
+    //inventory清空
+    public void ClearInventory()
+    {
+        foreach (var slot in slots)
+        {
+            slot.itemData = null;
+            slot.count = 0;
+        }
+    }
+
+    //尋找是否有特定物品
+    public bool Contains(ItemData data)
+    {
+        foreach (var slot in slots)
+        {
+            if (!slot.IsEmpty && slot.itemData == data)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //總共有該物品幾個
+    public int GetItemCount(ItemData data)
+    {
+        int total = 0;
+        foreach (var slot in slots)
+        {
+            if (!slot.IsEmpty && slot.itemData == data)
+            {
+                total += slot.count;
+            }
+        }
+        return total;
+    }
+
+    //找出第一個包含該物品的slot
+    public Slot FindFirstSlotWith(ItemData data)
+    {
+        foreach (var slot in slots)
+        {
+            if (!slot.IsEmpty && slot.itemData == data)
+            {
+                return slot;
+            }
+        }
+        return null;
+    }
 
 }

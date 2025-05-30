@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour,ISaveData
+public class InventoryManager : MonoBehaviour, ISaveData
 {
     public static InventoryManager Instance;
 
@@ -89,7 +89,7 @@ public class InventoryManager : MonoBehaviour,ISaveData
         }
         return result;
     }
-    private void LoadSaveItem(Inventory inventory, List<SaveItem> items,int type)
+    private void LoadSaveItem(Inventory inventory, List<SaveItem> items, int type)
     {
         inventory.slots.Clear();
         for (int i = 0; i < items.Count; i++)
@@ -112,7 +112,7 @@ public class InventoryManager : MonoBehaviour,ISaveData
                         Add("Storagebox", data, quantity);
                         break;
                 }
-                
+
             }
             else
             {
@@ -123,17 +123,72 @@ public class InventoryManager : MonoBehaviour,ISaveData
 
     public void SaveData(ref SaveData saveData)
     {
-        
+
         saveData.backpackItems = ConvertItemsToSaveItems(backpack);
         saveData.toolbarItems = ConvertItemsToSaveItems(toolbar);
-        saveData.equippedItems = ConvertItemsToSaveItems(storagebox); 
+        saveData.equippedItems = ConvertItemsToSaveItems(storagebox);
     }
 
     public void LoadData(SaveData saveData)
     {
-        LoadSaveItem(backpack, saveData.backpackItems,0);
-        LoadSaveItem(toolbar, saveData.toolbarItems,1);
-        LoadSaveItem(storagebox, saveData.equippedItems,2);
+        LoadSaveItem(backpack, saveData.backpackItems, 0);
+        LoadSaveItem(toolbar, saveData.toolbarItems, 1);
+        LoadSaveItem(storagebox, saveData.equippedItems, 2);
     }
+
+    //清空指定Inventory
+    public void Clear(string inventoryName)
+    {
+        if (inventoryByName.ContainsKey(inventoryName))
+        {
+            inventoryByName[inventoryName].ClearInventory();
+            Debug.Log($"{inventoryName} 已清空");
+        }
+        else
+        {
+            Debug.LogWarning($"找不到名為 {inventoryName} 的背包，無法清空！");
+        }
+    }
+
+    //尋找是否有特定物品
+    public bool Contains(string inventoryName, ItemData data)
+    {
+        if (inventoryByName.TryGetValue(inventoryName, out Inventory inventory))
+        {
+            return inventory.Contains(data);
+        }
+        return false;
+    }
+    //總共有該物品幾個
+    public int GetItemCount(string inventoryName, ItemData data)
+    {
+        if (inventoryByName.TryGetValue(inventoryName, out Inventory inventory))
+        {
+            return inventory.GetItemCount(data);
+        }
+        return 0;
+    }
+    //找出第一個包含該物品的slot
+    public Inventory.Slot FindFirstSlotWith(string inventoryName, ItemData data)
+    {
+        if (inventoryByName.TryGetValue(inventoryName, out Inventory inventory))
+        {
+            return inventory.FindFirstSlotWith(data);
+        }
+        return null;
+    }
+
+    //減少特定物品
+    public bool TryRemove(string inventoryName, ItemData data, int amount = 1)
+    {
+        if (inventoryByName.TryGetValue(inventoryName, out Inventory inventory))
+        {
+            return inventory.TryRemoveItem(data, amount);
+        }
+        Debug.LogWarning($"❌ 無法移除，找不到名為 {inventoryName} 的 Inventory");
+        return false;
+    }
+
+
 
 }
