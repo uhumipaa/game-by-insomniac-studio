@@ -2,7 +2,8 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-public class Player_Property : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class Player_Property : MonoBehaviour,ISaveData
 {
     
     public int max_health;
@@ -161,4 +162,16 @@ public class Player_Property : MonoBehaviour
     {
         Debug.Log("���`�G�G");
     }
+
+    public void SaveData(ref SaveData saveData)
+    {
+        saveData.playerposition = transform.position;
+        saveData.currentscene = SceneManager.GetActiveScene().name;
+    }
+
+    public void LoadData(SaveData saveData)
+    {
+        transform.position = saveData.playerposition;
+    }
+
 }

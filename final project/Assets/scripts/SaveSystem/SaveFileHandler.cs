@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEditor.Playables;
 using UnityEngine;
 
-public class SaveFileHandler : MonoBehaviour
+public class SaveFileHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private string DataDirPath = "";
@@ -87,6 +87,7 @@ public class SaveFileHandler : MonoBehaviour
     public bool HasSaveFile()
     {
         string fullpath = Path.Combine(DataDirPath, DataFileName);
+        Debug.Log($"🔍 檢查是否有存檔 at path: {fullpath}");
         return File.Exists(fullpath);
     }
 }

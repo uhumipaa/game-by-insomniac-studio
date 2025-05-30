@@ -45,53 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 7813632383331753474}
-  farmTileProgressBarPrefab: {fileID: 0}
---- !u!1 &804051561568559137
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6058432266589941253}
-  - component: {fileID: 7366066124013930386}
-  m_Layer: 0
-  m_Name: FarmManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6058432266589941253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804051561568559137}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 856758771673194028}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7366066124013930386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804051561568559137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c289156feaf7a94fa3eaac26c84d788, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileManager: {fileID: 7813632383331753474}
-  farmTileProgressBarPrefab: {fileID: 0}
+  farmTileProgressBarPrefab: {fileID: 3343047390830797808, guid: 926834234d6135c46a17c2cd000c19b1, type: 3}
 --- !u!1 &1313660358877257958
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 7813632383331753474}
-  farmManager: {fileID: 7366066124013930386}
+  farmManager: {fileID: 2249138406920513167}
   allCrops:
   - {fileID: 11400000, guid: 18ed3340a86253742899b66f9b3d8ad2, type: 2}
   - {fileID: 11400000, guid: 82a5e2b386d4a2d4f89a4863440daabc, type: 2}
@@ -268,7 +222,7 @@ GameObject:
   - component: {fileID: 6023043036666393424}
   - component: {fileID: 8926896867482616276}
   - component: {fileID: 2161727825334077923}
-  - component: {fileID: 6467870026012383743}
+  - component: {fileID: 5244905657356034976}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -292,7 +246,6 @@ Transform:
   - {fileID: 4379032328673011289}
   - {fileID: 3862993237624051998}
   - {fileID: 8439255315170282188}
-  - {fileID: 6058432266589941253}
   - {fileID: 5532482272623432269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -308,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4865259b419dd1a4a9e3315fc1d700e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemManager: {fileID: 0}
+  itemManager: {fileID: 4609009657921270449}
   tileManager: {fileID: 7813632383331753474}
   uiManager: {fileID: 7667189415526095241}
   player: {fileID: 0}
@@ -413,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backtotower: 0
-  currentTowerFloor: 6
+  currentTowerFloor: 1
   finishfloorthistime: 1
   currentfloorprefab: 0
 --- !u!114 &2161727825334077923
@@ -429,13 +382,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusData:
-    attack: 15
-    defense: 15
-    maxHP: 50
-    magic_power: 15
-    speed: 3
+    attack: 30
+    defense: 30
+    maxHP: 100
+    magic_power: 30
+    speed: 6
     Luck: 10
---- !u!114 &6467870026012383743
+--- !u!114 &5244905657356034976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,6 +397,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5648091921307430071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23195a7c39ff2a542af2f8eb9cc81934, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ba0aaa1dd07ca346a97ff60ed3d26f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basefilename: save
+  useencryption: 0

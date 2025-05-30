@@ -64,9 +64,15 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
 
     public void SaveData(ref SaveData saveData)
     {
+        Debug.Log("儲存裝備資料中");
         if (itemData != null)
         {
-            saveData.equippmentItems.Add(new SaveEquippment(itemData.itemName,slotindex));
+            Debug.Log("545fa");
+            saveData.equippmentItems.Add(new SaveEquippment(itemData.itemName, slotindex));
+        }
+        else
+        {
+            Debug.Log("166654a");
         }
     }
 

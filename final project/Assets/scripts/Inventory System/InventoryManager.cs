@@ -89,7 +89,6 @@ public class InventoryManager : MonoBehaviour, ISaveData
     }
     private void LoadSaveItem(Inventory inventory, List<SaveItem> items, int type)
     {
-        inventory.slots.Clear();
         for (int i = 0; i < items.Count; i++)
         {
             var saved = items[i];
@@ -97,11 +96,12 @@ public class InventoryManager : MonoBehaviour, ISaveData
             ItemData data = ItemManager.instance.GetItemDataByName(saved.Name);
             if (data != null)
             {
-                var slot = new Inventory.Slot();
+                Debug.Log("add");
                 switch (type)
                 {
                     case 0:
                         Add("Backpack", data, quantity);
+                        Debug.Log("addtobackpack");
                         break;
                     case 1:
                         Add("Toolbar", data, quantity);
@@ -121,7 +121,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
 
     public void SaveData(ref SaveData saveData)
     {
-
+        Debug.Log("儲存背包資料中");
         saveData.backpackItems = ConvertItemsToSaveItems(backpack);
         saveData.toolbarItems = ConvertItemsToSaveItems(toolbar);
         saveData.storeboxItems = ConvertItemsToSaveItems(storagebox);

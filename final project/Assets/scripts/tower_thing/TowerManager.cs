@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class TowerManager : MonoBehaviour
+public class TowerManager : MonoBehaviour,ISaveData
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static TowerManager Instance { get; set; }
@@ -29,4 +29,15 @@ public class TowerManager : MonoBehaviour
 
         FarmManager.instance?.AutoGrowAllTiles(); // 自動成長
     }
+
+    public void SaveData(ref SaveData saveData)
+    {
+        saveData.currentfloor = currentTowerFloor;
+    }
+
+    public void LoadData(SaveData saveData)
+    {
+        currentTowerFloor = saveData.currentfloor;
+    }
+
 }

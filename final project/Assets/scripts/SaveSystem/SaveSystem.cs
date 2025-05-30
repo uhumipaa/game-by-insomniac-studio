@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Linq;
 using System.Collections;
 using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 [System.Serializable]
 public class SaveData
 {
@@ -11,12 +12,15 @@ public class SaveData
     public List<SaveItem> backpackItems = new List<SaveItem>();
     public List<SaveItem> storeboxItems = new List<SaveItem>();
     public List<SaveItem> toolbarItems = new List<SaveItem>();
+    public int currentfloor;
+    public int currentprefab;
     public List<SaveEquippment> equippmentItems = new List<SaveEquippment>();
     public string currentscene;
     public SaveData()
     {
         playerStatusData = new PlayerStatusData();
-        
+        currentscene = "farm";
+        playerposition = Vector2.zero;
     }
 }
 public class SaveSystem : MonoBehaviour
@@ -25,7 +29,7 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private string basefilename = "save";
 
     SaveData savedata;
-    List<ISaveData> saveDatasObject;
+    [SerializeField]List<ISaveData> saveDatasObject;
     private SaveFileHandler saveFileHandler;
     [SerializeField] private bool useencryption;
     private int currentSlot = 1;
@@ -41,11 +45,12 @@ public class SaveSystem : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-    void Start()
-    {
         SetSaveSlot(0);
         this.saveDatasObject = findallsavedata();
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L)) Savegame(1);    
     }
     public void Savegame(int slot)
     {
@@ -60,6 +65,7 @@ public class SaveSystem : MonoBehaviour
     {
         SetSaveSlot(slot);
         this.savedata = saveFileHandler.Load();
+        SceneManager.LoadScene(savedata.currentscene);
         foreach (ISaveData saveData in saveDatasObject)
         {
             saveData.LoadData(savedata);
@@ -68,10 +74,14 @@ public class SaveSystem : MonoBehaviour
     public void newgame()
     {
         savedata = new SaveData();
+        SceneManager.LoadScene(savedata.currentscene);
     }
     void OnApplicationQuit()
     {
-        Savegame(0);
+        if (SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            Savegame(0);
+        }
     }
     //自動綁定所有需要儲存的程式
     private List<ISaveData> findallsavedata()
@@ -86,12 +96,16 @@ public class SaveSystem : MonoBehaviour
         this.currentSlot = slot;
         string Filename = basefilename + "_" + slot + ".json";
         this.saveFileHandler = new SaveFileHandler(Application.persistentDataPath, Filename, useencryption);
+        if (saveFileHandler == null) Debug.Log("jfias");
+        Debug.Log($"[SetSaveSlot] slot: {slot}, file:{Filename}");
     }
     //測試有沒有存檔
-    public bool HasSaveFile()
+    public bool HasSaveFile(int slot)
     {
+        SetSaveSlot(slot);
+        
         return saveFileHandler != null && saveFileHandler.HasSaveFile();
-    }
+    } 
 }
 
  

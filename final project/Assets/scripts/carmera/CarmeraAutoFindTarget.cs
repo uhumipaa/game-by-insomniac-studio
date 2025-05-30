@@ -9,7 +9,7 @@ public class CarmeraAutoFindTarget : MonoBehaviour
     void Start()
     {
         GameObject player = FindAnyObjectByType<Player_Property>().gameObject;
-        CinemachineCamera vcam = FindAnyObjectByType<CinemachineCamera>().GetComponent<CinemachineCamera>();
+        CinemachineCamera vcam = GetComponent<CinemachineCamera>();
     if (vcam != null && player != null)
     {
             vcam.Follow = player.transform;
