@@ -38,6 +38,7 @@ public class PlayerStats : MonoBehaviour
             expToNextLevel = CalculateExpToNextLevel(level);
             Debug.Log($"升級了！目前等級：{level}");
             expAddUI.addpoint();
+            // expAddUI.point++;
         }
     }
 

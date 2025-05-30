@@ -72,6 +72,7 @@ public class Player_Property : MonoBehaviour
         {
             PlayerStatusManager.instance.playerStatusData.attack += 1;
             PlayerStatusManager.instance.playerStatusData.magic_power += 1;
+            update_property();
         }
     }
     public void DefAdd()

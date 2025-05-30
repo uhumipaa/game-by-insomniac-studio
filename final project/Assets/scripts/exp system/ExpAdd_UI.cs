@@ -7,7 +7,7 @@ public class ExpAddUI : MonoBehaviour
     public GameObject inventoryPanel;
 
     private bool isInventoryVisible = false;
-    private int point = 10;
+    public int point = 10;
     public TextMeshProUGUI pointText;
     public TextMeshProUGUI AtkText;
     public TextMeshProUGUI DefText;

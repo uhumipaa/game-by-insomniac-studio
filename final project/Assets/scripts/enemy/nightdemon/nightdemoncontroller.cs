@@ -289,7 +289,7 @@ public class nightdemoncontroller : MonoBehaviour
         if (col != null)
             col.enabled = false;
         EnemyManager.instance.removeenemy(gameObject);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
         
     }
 }
