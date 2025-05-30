@@ -1,19 +1,14 @@
-using System;
 using UnityEngine;
-using UnityEngine.Rendering;
-public class General_teleport : MonoBehaviour
+public class BackToFarm_tele : MonoBehaviour
 {
     [SerializeField] CanvasGroup check;
-    private TowerManager tower;
-    private Maploaders maploader;
     bool isinrange;
     bool opening;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         if (check == null)
         {
-            check = GameObject.Find("towertelecheck").GetComponent<CanvasGroup>();
+            check = GameObject.Find("backtofarmcheck").GetComponent<CanvasGroup>();
         }
         check.alpha = 0;
         check.blocksRaycasts = false;
@@ -36,14 +31,10 @@ public class General_teleport : MonoBehaviour
             opening = false;
         }
     }
-
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            isinrange = true;
-        }
+        if(collision.CompareTag("Player"))
+        isinrange = true;
     }
     void OnTriggerExit2D(Collider2D collision)
     {

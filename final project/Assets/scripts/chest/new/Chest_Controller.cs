@@ -32,7 +32,7 @@ public class Chest_Controller : MonoBehaviour
             ani.SetTrigger("open");
             StartCoroutine(opentreasure());
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (isopen&&Input.GetKeyDown(KeyCode.Return))
         {
             rewardUI.alpha = 0;
         }

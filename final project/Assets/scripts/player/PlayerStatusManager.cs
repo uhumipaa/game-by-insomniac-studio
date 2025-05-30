@@ -31,11 +31,15 @@ public class PlayerStatusManager : MonoBehaviour,ISaveData
             Destroy(gameObject);
         }
         instance = this;
-        property = FindAnyObjectByType<Player_Property>().GetComponent<Player_Property>();
         Initialize();
-        property.update_property();
-        
-        
+    }
+    void OnEnable()
+    {
+        property = FindAnyObjectByType<Player_Property>()?.GetComponent<Player_Property>();
+        if (property != null)
+        {
+            property.update_property();
+        }
     }
     private void Initialize()
     {

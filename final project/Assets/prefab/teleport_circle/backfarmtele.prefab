@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2449364111957546422}
   - component: {fileID: 148728996628896969}
   - component: {fileID: 4239753414132098996}
-  - component: {fileID: 6980900934458634037}
+  - component: {fileID: 3414465287510323277}
   m_Layer: 0
-  m_Name: "\u50B3\u9001\u9663"
+  m_Name: backfarmtele
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 15
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &6980900934458634037
+--- !u!114 &3414465287510323277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3837532041447484547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b81bee52b5b65418b67ff06014db65, type: 3}
+  m_Script: {fileID: 11500000, guid: 066cf00d237325041b41f87742a5f6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   check: {fileID: 0}

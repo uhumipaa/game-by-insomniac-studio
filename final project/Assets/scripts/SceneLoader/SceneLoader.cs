@@ -5,6 +5,6 @@ public class SceneLoader : MonoBehaviour
 {
     void Start()
     {
-        SceneManager.LoadScene("Main Menu"); 
+        SceneManager.LoadScene("Main Menu");
     }
 }

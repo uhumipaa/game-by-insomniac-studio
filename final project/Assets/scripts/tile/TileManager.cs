@@ -27,7 +27,7 @@ public class TileManager : MonoBehaviour
                 InteractableMap = Interactobj.GetComponent<Tilemap>();
         }
     }
-    void Start()
+    void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         var tilemapObj = GameObject.Find("CropTilemap");
@@ -36,9 +36,12 @@ public class TileManager : MonoBehaviour
         var Interactobj = GameObject.Find("InteractableMap");
             if (Interactobj != null)
                 InteractableMap = Interactobj.GetComponent<Tilemap>();
-        foreach (var position in InteractableMap.cellBounds.allPositionsWithin)
+        if (InteractableMap != null)
+        {
+            foreach (var position in InteractableMap.cellBounds.allPositionsWithin)
         {
             InteractableMap.SetTile(position, hiddenInteractableTile);
+        }
         }
     }
 
