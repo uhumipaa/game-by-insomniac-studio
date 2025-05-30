@@ -15,15 +15,8 @@ public class MoneyLowQuestLogic : ScriptableObject, IQuestLogic
 
     public void GiveReward()
     {
-        if (rewardGiven)
-        {
-            Debug.Log("金錢補助任務已領獎");
-            return;
-        }
-
         CoinManager.instance.AddCoins(rewardAmount);
-        rewardGiven = true;
-
         Debug.Log($"🪙 任務完成：金錢低於 {coinThreshold}，發送補助 {rewardAmount} 金幣");
     }
+
 }

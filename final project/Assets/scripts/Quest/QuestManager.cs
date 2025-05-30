@@ -12,6 +12,7 @@ public class QuestManager : MonoBehaviour
     {
         public GameObject rootObject;
         public Image rewardIcon;
+        public Button rewardButton;
         public TextMeshProUGUI goalText;
         public TextMeshProUGUI rewardText;
         public Button nextButton;
@@ -31,11 +32,12 @@ public class QuestManager : MonoBehaviour
         {
             slot.nextButton.onClick.AddListener(OnNextClicked);
         }
-        
+
     }
 
     public void RefreshQuests()
     {
+
         // ⭐ 保留：未完成任務 + 完成但未領獎的任務
         List<QuestData> filteredQuests = allQuests
             .Where(q =>
@@ -63,66 +65,67 @@ public class QuestManager : MonoBehaviour
 
     void OnNextClicked()
     {
-        currentIndex++;
-
-        // 最多只顯示到倒數第三筆
-        if (currentIndex + 2 >= sortedQuests.Count)
+        if (sortedQuests.Count <= 3)
         {
             currentIndex = 0;
+        }
+        else
+        {
+            currentIndex = (currentIndex + 1) % (sortedQuests.Count - 2); // 避免溢位
         }
 
         UpdateQuestSlots();
     }
-    void GiveReward(int questIndex)
+
+    public void GiveReward(int questIndex)
     {
         if (questIndex < 0 || questIndex >= sortedQuests.Count)
             return;
 
         QuestData quest = sortedQuests[questIndex];
 
-        if (quest.questLogic is IQuestLogic logic && logic.IsComplete() && !quest.rewardClaimed)
+        if (quest.rewardClaimed)
+            return;
+
+        if (quest.questLogic is IQuestLogic logic && logic.IsComplete())
         {
-            logic.GiveReward();
-            quest.rewardClaimed = true;
-            RefreshQuests();
+            logic.GiveReward();             // 發獎
+            quest.rewardClaimed = true;     // 標記為已領
+            RefreshQuests();                // 立即刷新畫面
+        }
+        else
+        {
+            Debug.LogWarning($"任務 [{quest.name}] 無法領獎，可能尚未完成。");
         }
     }
+
 
 
     void UpdateQuestSlots()
     {
         for (int i = 0; i < questSlots.Count; i++)
         {
-            if (i + currentIndex >= sortedQuests.Count)
+            int questIndex = currentIndex + i;
+
+            if (questIndex >= sortedQuests.Count)
             {
                 questSlots[i].rootObject.SetActive(false);
                 continue;
             }
 
-            QuestData quest = sortedQuests[i + currentIndex];
+            var quest = sortedQuests[questIndex];
             var slot = questSlots[i];
 
             slot.rootObject.SetActive(true);
-
-            // 重設預設內容
             slot.goalText.text = quest.goalText;
             slot.rewardText.text = quest.rewardDescription;
             slot.rewardIcon.sprite = quest.rewardIcon;
-            slot.rewardIcon.GetComponent<Button>().onClick.RemoveAllListeners(); // 保險清除
 
-            bool isComplete = false;
+            slot.rewardButton.onClick.RemoveAllListeners();
 
             if (quest.questLogic is IQuestLogic logic)
             {
-                try
-                {
-                    isComplete = logic.IsComplete();
-                }
-                catch
-                {
-                    Debug.LogWarning($"任務 {quest.name} 的 IsComplete() 發生錯誤，請檢查邏輯");
-                }
-
+                bool isComplete = logic.IsComplete();
                 quest.isCompleted = isComplete;
 
                 if (isComplete && !quest.rewardClaimed)
@@ -131,19 +134,15 @@ public class QuestManager : MonoBehaviour
                     slot.rewardText.text += " 點擊圖標領取獎勵";
                     slot.rewardIcon.sprite = completedRewardIcon;
 
-                    int questIndex = i + currentIndex;
-                    slot.rewardIcon.GetComponent<Button>().onClick.AddListener(() =>
-                    {
-                        GiveReward(questIndex);
-                    });
+                    int localIndex = questIndex;
+                    slot.rewardButton.onClick.RemoveAllListeners(); // 確保清除先前事件
+                    slot.rewardButton.onClick.AddListener(() => GiveReward(localIndex));
                 }
             }
-            else
-            {
-                Debug.LogWarning($"任務 {quest.name} 沒有指派 questLogic，請檢查 QuestData");
-            }
         }
+
     }
+
 
 
 

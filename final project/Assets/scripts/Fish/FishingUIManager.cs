@@ -13,7 +13,7 @@ public class FishingUIManager : MonoBehaviour
     private int totalFishingAttempts = 0;
     private int debrisCaughtCount = 0;
 
-    // 公開唯讀屬性
+    // 公開任務系統用的唯讀屬性
     public int TotalFishingAttempts => totalFishingAttempts;
     public int DebrisCaughtCount => debrisCaughtCount;
 
@@ -26,8 +26,8 @@ public class FishingUIManager : MonoBehaviour
     
 
 
-    private bool isShowing = false;
-    public bool fromTrigger = false;
+    private bool isShowing = false; // 釣魚結果
+    public bool fromTrigger = false; // 從進入釣魚的途徑判定後續是否扣除手感
     public ItemData fishingFeelItem; // 指向 Fishing_feel 的 itemdata
 
 
@@ -36,7 +36,7 @@ public class FishingUIManager : MonoBehaviour
 
     public GameObject fishingAskPanel;
 
-    // 原本的UI元件
+    //詢問是否釣魚的UI元件
     public GameObject startFishingText;
     public GameObject yesButton;
     public GameObject noButton;
@@ -70,6 +70,8 @@ public class FishingUIManager : MonoBehaviour
         waitingFishPic.SetActive(false);
         waitingFishText.SetActive(false);
         fishingResultPanel.SetActive(false);
+
+        // 初始贈送釣魚手感* 3
         for (int i = 0; i < 3; i++)
         {
             InventoryManager.Instance.Add("Backpack", fishingFeelItem, 1);
@@ -78,6 +80,7 @@ public class FishingUIManager : MonoBehaviour
 
     void Update()
     {
+        // 關閉結果面板
         if (isShowing && Input.GetMouseButtonDown(0))
         {
             fishingResultPanel.SetActive(false);
@@ -149,6 +152,6 @@ public class FishingUIManager : MonoBehaviour
         Debug.Log($"目前總釣魚次數：{totalFishingAttempts}，汙染物次數：{debrisCaughtCount}");
 
         InventoryManager.Instance.Add("Backpack", item, 1);
-        //CoinManager.instance.SpendCoins(20);
+        
     }
 }

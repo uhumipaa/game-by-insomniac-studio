@@ -17,23 +17,16 @@ public class FishingQuestLogic : ScriptableObject, IQuestLogic
 
     public void GiveReward()
     {
-        if (isRewardGiven)
-        {
-            Debug.Log("獎勵已發送過");
-            return;
-        }
-
         CoinManager.instance.AddCoins(coinReward);
 
         if (rewardItem != null)
         {
-            InventoryManager.Instance.Add("Backpack", rewardItem, itemAmount); // ⭐ 傳 ItemData
+            InventoryManager.Instance.Add("Backpack", rewardItem, itemAmount);
         }
-
-        isRewardGiven = true;
 
         Debug.Log($"獲得獎勵：{coinReward} 金幣 + {itemAmount} 個 {rewardItem.itemName}");
     }
+
 
     public string GetProgressText()
     {

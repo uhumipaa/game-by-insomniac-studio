@@ -6,7 +6,7 @@ public class TowerQuestLogic : ScriptableObject, IQuestLogic
     public int requiredFloor;    // 要完成的樓層數
     public float coinReward = 100f;
 
-    private bool rewardGiven = false;
+    
 
     public bool IsComplete()
     {
@@ -16,15 +16,8 @@ public class TowerQuestLogic : ScriptableObject, IQuestLogic
 
     public void GiveReward()
     {
-        if (rewardGiven)
-        {
-            Debug.Log("已領過獎勵");
-            return;
-        }
-
         CoinManager.instance.AddCoins(coinReward);
-        rewardGiven = true;
-        Debug.Log($" 任務完成：通關 {requiredFloor} 層，獲得 {coinReward} 金幣");
+        Debug.Log($"任務完成：通關 {requiredFloor} 層，獲得 {coinReward} 金幣");
     }
 
     public string GetProgressText()
