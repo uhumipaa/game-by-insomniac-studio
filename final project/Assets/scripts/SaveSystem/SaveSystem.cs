@@ -16,6 +16,7 @@ public class SaveData
     public int currentprefab;
     public List<SaveEquippment> equippmentItems = new List<SaveEquippment>();
     public string currentscene;
+    public float coin;
     public SaveData()
     {
         playerStatusData = new PlayerStatusData();
@@ -40,8 +41,8 @@ public class SaveSystem : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogError("has other savesystem");
-            Destroy(instance);
+            Debug.Log("has other savesystem");
+            Destroy(gameObject);
         }
         instance = this;
         DontDestroyOnLoad(gameObject);

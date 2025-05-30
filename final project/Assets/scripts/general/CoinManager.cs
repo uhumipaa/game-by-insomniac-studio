@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class CoinManager : MonoBehaviour
+public class CoinManager : MonoBehaviour,ISaveData
 {
     public static CoinManager instance;
 
@@ -87,4 +87,15 @@ public class CoinManager : MonoBehaviour
         coinsText = newText;
         UpdateCoinText();
     }
+
+    public void SaveData(ref SaveData saveData)
+    {
+        saveData.coin = coins;
+    }
+
+    public void LoadData(SaveData saveData)
+    {
+        coins = saveData.coin;
+    }
+
 }

@@ -1,0 +1,113 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+public class ESC_UI : MonoBehaviour
+{
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] CanvasGroup escpanel;
+    [SerializeField] CanvasGroup loadmenu;
+    [SerializeField] Button loadbutton;
+    [SerializeField] Button loadbuttoninesc;
+    [SerializeField] Animator loadani;
+    [SerializeField] Button escentry;
+    [SerializeField] Button[] loadsavebutton;
+    bool isopen;
+    static public ESC_UI instance;
+    void Start()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
+        escpanel.alpha = 0;
+        escpanel.interactable = false;
+        escpanel.blocksRaycasts = false;
+        loadmenu.alpha = 0;
+        loadmenu.interactable = false;
+        loadmenu.blocksRaycasts = false;
+        if (!SaveSystem.instance.HasSaveFile(0))
+        {
+            loadbutton.interactable = false;
+        }
+        else
+        {
+            loadbutton.interactable = true;
+        }
+    }
+    void Update()
+    {
+        if (!isopen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            openmenu();
+        }
+        else if (isopen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            closemenu();
+        }
+    }
+    void OnEnable()
+    {
+        if (SceneManager.GetActiveScene().name == "Main Manu")
+        {
+            escentry.interactable = false;
+        }
+        else
+        {
+            escentry.interactable = true;
+        }
+    }
+    public void openmenu()
+    {
+        isopen = true;
+        escpanel.alpha = 1;
+        escpanel.interactable = true;
+        escpanel.blocksRaycasts = true;
+        if (!SaveSystem.instance.HasSaveFile(0))
+        {
+            loadbuttoninesc.interactable = false;
+        }
+        else
+        {
+            loadbuttoninesc.interactable = true;
+        }
+    }
+    public void closemenu()
+    {
+        isopen = false;
+        escpanel.alpha = 0;
+        escpanel.interactable = false;
+        escpanel.blocksRaycasts = false;
+    }
+    public void Openloadmenu()
+    {
+        loadani.SetTrigger("open");
+        loadmenu.alpha = 1;
+        loadmenu.interactable = true;
+        loadmenu.blocksRaycasts = true;
+
+        for (int i = 0; i < loadsavebutton.Length; i++)
+        {
+            if (!SaveSystem.instance.HasSaveFile(i))
+            {
+                loadbuttoninesc.interactable = true;
+                loadsavebutton[i].interactable = false;
+            }
+            else
+            {
+                loadsavebutton[i].interactable = true;
+            }
+        }
+    }
+    public void closeloadmenu()
+    {
+        loadmenu.alpha = 0;
+        loadmenu.interactable = false;
+        loadmenu.blocksRaycasts = false;
+    }
+    public void backtomainmenu(){
+        closemenu();
+        SaveSystem.instance.Savegame(0);
+        SceneManager.LoadScene("Main Menu");
+    }
+}

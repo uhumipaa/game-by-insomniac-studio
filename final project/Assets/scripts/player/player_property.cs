@@ -16,7 +16,7 @@ public class Player_Property : MonoBehaviour,ISaveData
     public float speed;
     public int Luck;
 
-
+    static public Player_Property instance;
     private Knockback knockback;
     private SuperStarEffect SuperStarEffect; 
     [SerializeField] private SpriteRenderer spriteRender;
@@ -29,6 +29,11 @@ public class Player_Property : MonoBehaviour,ISaveData
 
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(this.gameObject);
         healthbar = FindAnyObjectByType<playerhealthbar>();
         expAddUI = FindAnyObjectByType<ExpAddUI>();
         GameObject UI = GameObject.FindGameObjectWithTag("exp");
@@ -41,7 +46,6 @@ public class Player_Property : MonoBehaviour,ISaveData
         {
             Debug.Log("jaja");
         }
-        DontDestroyOnLoad(this.gameObject);
         current_health = max_health;
         knockback = GetComponent<Knockback>();
         SuperStarEffect = GetComponent<SuperStarEffect>(); //無敵和閃爍功能
