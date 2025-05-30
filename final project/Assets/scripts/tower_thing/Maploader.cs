@@ -70,7 +70,8 @@ public class Maploaders : MonoBehaviour
             }
             else
             {
-                nowfloor = Random.Range(0, floorDatas.Length);
+                // nowfloor = Random.Range(0, floorDatas.Length);
+                nowfloor = TowerManager.Instance.currentTowerFloor / 10;
             }
             changemap(nowfloor);
         }
