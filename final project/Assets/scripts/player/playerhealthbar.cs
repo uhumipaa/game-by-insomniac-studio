@@ -27,6 +27,7 @@ public class playerhealthbar : MonoBehaviour
         {
             property = playerGO.GetComponent<Player_Property>();
         }
+        healthBar.maxValue = property.max_health;
         healthBar.value = property.current_health;
         Debug.Log("haha");
     }
@@ -37,6 +38,7 @@ public class playerhealthbar : MonoBehaviour
         {
             property = playerGO.GetComponent<Player_Property>();
         }
+        healthBar.maxValue = property.max_health;
         healthBar.value = property.current_health;
     }
 

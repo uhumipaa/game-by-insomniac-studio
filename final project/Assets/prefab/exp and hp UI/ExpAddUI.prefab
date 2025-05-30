@@ -333,9 +333,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player_Property, Assembly-CSharp
-        m_MethodName: DefAdd
+      - m_Target: {fileID: 6479228025862971339}
+        m_TargetAssemblyTypeName: Defbutton, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -602,9 +602,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player_Property, Assembly-CSharp
-        m_MethodName: AtkAdd
+      - m_Target: {fileID: 6228024633089893411}
+        m_TargetAssemblyTypeName: Atkbutton, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 6442598607605878389}
   m_Layer: 5
   m_Name: ExpAddUI
-  m_TagString: Untagged
+  m_TagString: exp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1168,6 +1168,7 @@ GameObject:
   - component: {fileID: 5144621757375083275}
   - component: {fileID: 6774869260199763553}
   - component: {fileID: 7499228272015647811}
+  - component: {fileID: 6479228025862971339}
   m_Layer: 5
   m_Name: DefImage
   m_TagString: Untagged
@@ -1233,6 +1234,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6479228025862971339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901370320634075912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f1860efed5a8c45ae8734761bba0d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6420137314752183559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,6 +1257,7 @@ GameObject:
   - component: {fileID: 4572641170332665033}
   - component: {fileID: 9061548554454269020}
   - component: {fileID: 8832785134300852191}
+  - component: {fileID: 6978523417842287193}
   m_Layer: 5
   m_Name: HpImage
   m_TagString: Untagged
@@ -1309,6 +1323,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6978523417842287193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6420137314752183559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c164e8cb447f3c4ab45efef82a8e699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6586932871084175806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1384,7 @@ GameObject:
   - component: {fileID: 7841689425241880063}
   - component: {fileID: 1866993596995796242}
   - component: {fileID: 1463286232946059560}
+  - component: {fileID: 6228024633089893411}
   m_Layer: 5
   m_Name: AtkImage
   m_TagString: Untagged
@@ -1423,6 +1450,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6228024633089893411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983388203963274658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fef580e0682171e45aef6f53da3de4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7376115487294912767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,9 +1583,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Player_Property, Assembly-CSharp
-        m_MethodName: HPAdd
+      - m_Target: {fileID: 6978523417842287193}
+        m_TargetAssemblyTypeName: Hpbutton, Assembly-CSharp
+        m_MethodName: OnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
