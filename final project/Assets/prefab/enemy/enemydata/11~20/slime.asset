@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
   m_Name: slime
   m_EditorClassIdentifier: 
-  baseHP: 50
+  baseHP: 40
   baseatk: 3
   basedef: 5
   speed: 3

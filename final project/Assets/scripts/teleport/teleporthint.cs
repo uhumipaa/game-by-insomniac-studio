@@ -5,6 +5,7 @@ public class teleporthint : MonoBehaviour
 {
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] Maploaders maploader;
+    public int judge;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void yes()
     {
@@ -36,7 +37,8 @@ public class teleporthint : MonoBehaviour
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
         if (TowerManager.Instance.currentTowerFloor % 10 == 0)//boss
         {
-
+            judge = TowerManager.Instance.currentTowerFloor / 10;
+            maploader.loadBossmap(judge);
         }
         else if (TowerManager.Instance.currentTowerFloor % 10 == 5)//rest
         {

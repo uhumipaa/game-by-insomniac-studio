@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0a88af0813a81a4438b849d1f9da1feb, type: 2}
   - {fileID: 11400000, guid: cbccd4d994faec24a96ef338f7401fa4, type: 2}
   - {fileID: 11400000, guid: 2d1ea07f30044d84aaf3383a779f48e0, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 16c789019c321104c9d1f54322d69f47, type: 2}
   enemycount: 7
   spwan_range_min: {x: -7, y: 5}
   spawn_range_max: {x: 9, y: 9}

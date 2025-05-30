@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb9d1d200794024988bcc0c58a8baa7, type: 3}
   m_Name: 21~30
   m_EditorClassIdentifier: 
-  enemyprefab: []
-  enemycount: 0
+  enemyprefab:
+  - {fileID: 11400000, guid: e87268b28c241754b9be992acc977a88, type: 2}
+  - {fileID: 11400000, guid: 4b5a5576fae4d0149a410e64173fe419, type: 2}
+  - {fileID: 11400000, guid: 665b7a079c903b2469313ef83a0435e4, type: 2}
+  - {fileID: 11400000, guid: 49c0935c9f15d084ba4df0bac25f03f1, type: 2}
+  enemycount: 6
   spwan_range_min: {x: -7, y: 5}
   spawn_range_max: {x: 9, y: 9}
   maps:
@@ -21,4 +25,4 @@ MonoBehaviour:
   - {fileID: 5157364928709964788, guid: f26114d0a1d2530469bb558e6235d7d0, type: 3}
   - {fileID: 4835875689813516175, guid: d8d385dfd41202e479ffeff952bdd28b, type: 3}
   - {fileID: 5726715689182317134, guid: 97a10c099cd513440b47d73a88b6625d, type: 3}
-  levelrange: 0
+  levelrange: 5

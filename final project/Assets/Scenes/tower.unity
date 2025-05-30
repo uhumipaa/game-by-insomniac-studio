@@ -1456,6 +1456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3370985696304643814, guid: 677fc5be833b9784b81ce410040fd099, type: 3}
+      propertyPath: maploader
+      value: 
+      objectReference: {fileID: 1490032416}
     - target: {fileID: 3573775280642149887, guid: 677fc5be833b9784b81ce410040fd099, type: 3}
       propertyPath: m_Name
       value: 'towertelehint '
@@ -1593,7 +1597,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 059f7380bdccb1a4aa14c5a719ecf25b, type: 2}
   - {fileID: 11400000, guid: 902e98c812189284eb64298be94e1b6d, type: 2}
   restdata: {fileID: 11400000, guid: 56b76ef5d4a87334e9f2ad3f78b1934d, type: 2}
-  boosfloordata: {fileID: 11400000, guid: a5850d61d6b6eb64f8c9b2d1c1f35a2e, type: 2}
+  boosfloordata:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: f85c5e11789a08b4f8b1dd0bfc9016e5, type: 2}
+  - {fileID: 11400000, guid: 255b61848234b254aba7503884c8ec85, type: 2}
+  - {fileID: 11400000, guid: 3bb4e2d332309584bb298b5941866fc8, type: 2}
+  - {fileID: 11400000, guid: fe99ac87d99e43e4a8c99577ff5320aa, type: 2}
+  - {fileID: 0}
   backteleport: {fileID: 3837532041447484547, guid: 6a00236467664304aab8035b792ea137, type: 3}
   shopsystem: {fileID: 844709439}
 --- !u!4 &1490032417

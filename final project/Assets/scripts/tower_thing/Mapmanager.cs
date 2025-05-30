@@ -14,7 +14,7 @@ public class Mapmanager : MonoBehaviour
         }
         else
         {
-            loader.LoadMaps((int)Random.Range(0,4));
+            loader.LoadMaps((int)Random.Range(0, 4));
         }
         
     }

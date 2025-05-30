@@ -15,7 +15,7 @@ public class Maploaders : MonoBehaviour
     public Transform mapParen;
     public FloorData[] floorDatas;
     public FloorData restdata;
-    public FloorData boosfloordata;
+    public FloorData[] boosfloordata;
     public GameObject backteleport;
     private GameObject backteleport_instance;
     public GameObject shopsystem;
@@ -44,10 +44,10 @@ public class Maploaders : MonoBehaviour
     {
         Transform playerspawn = GameObject.Find("player_spawn_point")?.transform;
         if (playerspawn == null)
-    {
-        Debug.LogError("找不到 player_spawn_point");
-        return;
-    }
+        {
+            Debug.LogError("找不到 player_spawn_point");
+            return;
+        }
         if (player_instance == null)
         {
             player_instance = FindAnyObjectByType<player_controler>().gameObject;
@@ -56,13 +56,12 @@ public class Maploaders : MonoBehaviour
                 player_instance = Instantiate(player, playerspawn);
             }
         }
-        
-            player_instance.transform.position = playerspawn.position;
+
+        player_instance.transform.position = playerspawn.position;
     }
     // Update is called once per frame
     public void LoadMaps(int room)
     {
-
         if (TowerManager.Instance.currentTowerFloor % 10 == 1)
         {
             if (TowerManager.Instance.currentTowerFloor == 1)
@@ -74,7 +73,7 @@ public class Maploaders : MonoBehaviour
                 nowfloor = Random.Range(0, floorDatas.Length);
             }
             changemap(nowfloor);
-        } 
+        }
         shopsystem.SetActive(false);
         if (backteleport_instance != null)
         {
@@ -168,5 +167,23 @@ public class Maploaders : MonoBehaviour
         backteleport_instance = Instantiate(backteleport, Telespawn.position, Quaternion.identity);
         shopsystem.SetActive(true);
         GetComponent<SetSpecialMap>().setrest();
+    }
+    public void loadBossmap(int judge)
+    {
+        if (currentMap != null)
+            Destroy(currentMap);
+        if (transcircle_instance != null)
+        {
+            Destroy(transcircle_instance);
+        }
+        if (chest_instance != null)
+        {
+            Destroy(chest_instance);
+        }
+        mapPrefabs = boosfloordata[judge].maps;
+        currentMap = Instantiate(boosfloordata[judge].maps[0],  Vector2.zero, Quaternion.identity, mapParen);
+        Generate_player();
+        SpawnMonsters(boosfloordata[judge]);
+        shopsystem.SetActive(false);
     }
 }

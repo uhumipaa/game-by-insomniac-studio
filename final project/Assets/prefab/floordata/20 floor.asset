@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2eb9d1d200794024988bcc0c58a8baa7, type: 3}
-  m_Name: FloorData
+  m_Name: 20 floor
   m_EditorClassIdentifier: 
-  enemyprefab: []
-  enemycount: 0
-  spwan_range_min: {x: -7, y: 5}
-  spawn_range_max: {x: 9, y: 9}
-  maps: []
-  levelrange: 0
+  enemyprefab:
+  - {fileID: 11400000, guid: 51e1ccec130e4db44b84548854eba340, type: 2}
+  enemycount: 1
+  spwan_range_min: {x: 0, y: 0}
+  spawn_range_max: {x: 0, y: 0}
+  maps:
+  - {fileID: 2619146617169980005, guid: 7d8014ab6e4f54b4a89b8617b3d3a591, type: 3}
+  levelrange: 1
