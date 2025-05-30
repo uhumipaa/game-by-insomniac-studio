@@ -15,3 +15,6 @@ MonoBehaviour:
   rewardIcon: {fileID: -123669246465474846, guid: 0d1e0e5d8d24d1f4b9e6c80f3daa9195, type: 3}
   goalText: "\u4F60\u4ECA\u5929\u7834\u7522\u4E86\u55CE\uFF1A\u91D1\u9322\u5C11\u65BC20"
   rewardDescription: "\u91D1\u9322 + 250"
+  questLogic: {fileID: 11400000, guid: 1b496080e58a3b245965fd4ce64c9855, type: 2}
+  isCompleted: 0
+  rewardClaimed: 0

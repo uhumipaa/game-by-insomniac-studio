@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 163ac63730815dc4283a1b40c3d70c75, type: 3}
   m_Name: debris3
   m_EditorClassIdentifier: 
-  rewardIcon: {fileID: -123669246465474846, guid: 0d1e0e5d8d24d1f4b9e6c80f3daa9195, type: 3}
-  goalText: "\u4F60\u4ECA\u5929\u74B0\u4FDD\u4E86\u55CE\uFF1A\u91E3\u5230\u6E56\u6CCA\u6C59\u67D3\u72693\u6B21"
-  rewardDescription: "\u91D1\u9322 + 99"
+  rewardIcon: {fileID: -4268808005231900133, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
+  goalText: "\u4F60\u4ECA\u5929\u74B0\u4FDD\u4E86\u55CE\uFF1A\u91E3\u5230\u6E56\u6CCA\u6C59\u67D3\u72693\u6B21\u4EE5\u4E0A"
+  rewardDescription: "\u91D1\u9322 + 99\uFF1B\u91E3\u9B5A\u624B\u611F + 1"
+  questLogic: {fileID: 11400000, guid: a83eddc6037cfc043af13abc6f86080b, type: 2}
+  isCompleted: 0
+  rewardClaimed: 0

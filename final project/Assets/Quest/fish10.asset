@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: fish10
   m_EditorClassIdentifier: 
   rewardIcon: {fileID: -6848339344689442713, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
-  goalText: "\u4F60\u4ECA\u5929\u91E3\u9B5A\u4E86\u55CE\uFF1A\u91E3\u9B5A1\u6B21"
-  rewardDescription: "\u91D1\u9322 + 300"
+  goalText: "\u4F60\u4ECA\u5929\u91E3\u9B5A\u4E86\u55CE\uFF1A\u91E3\u9B5A10\u6B21\u4EE5\u4E0A"
+  rewardDescription: "\u91D1\u9322 + 300\uFF1B\u91E3\u9B5A\u624B\u611F + 1"
+  questLogic: {fileID: 11400000, guid: 68d31666a6282a14880f19c45cebe535, type: 2}
+  isCompleted: 0
+  rewardClaimed: 0
