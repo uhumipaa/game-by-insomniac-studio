@@ -22,7 +22,7 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
     [SerializeField] private SpriteRenderer staff;
     public Image icon;
     bool isload;
-    [SerializeField] Inventory inventory;
+    [SerializeField] Slot_UI[] slot_UIs;
     void Start()
     {
         sword = GameObject.Find("sword").GetComponent<SpriteRenderer>();
@@ -35,8 +35,10 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
         {
             if (!isload)
             {
+
                 PlayerStatusManager.instance.diff_status(itemData);
                 InventoryManager.Instance.Add("Backpack", itemData, 1);
+                Debug.Log("4das5f4af");
             }
         }
         itemData = newitem;
@@ -53,6 +55,10 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
         else if (type == ItemType.staff)
         {
             staff.sprite = itemData.icon;
+        }
+        foreach (Slot_UI ui in slot_UIs)
+        {
+                    ui.Refresh();
         }
     }
 

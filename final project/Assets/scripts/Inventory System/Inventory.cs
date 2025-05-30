@@ -45,6 +45,7 @@ public class Inventory
 
         public void AddItem(ItemData data, int amount = 1)
         {
+            if (data == null) return;
             //如果格子是空的
             if (IsEmpty)
             {
@@ -147,7 +148,7 @@ public class Inventory
                 amount -= removeAmount;
             }
         }
-
+        
         return true;
     }
 

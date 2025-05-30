@@ -12,9 +12,11 @@ public class SaveData
     public List<SaveItem> storeboxItems = new List<SaveItem>();
     public List<SaveItem> toolbarItems = new List<SaveItem>();
     public List<SaveEquippment> equippmentItems = new List<SaveEquippment>();
+    public string currentscene;
     public SaveData()
     {
         playerStatusData = new PlayerStatusData();
+        
     }
 }
 public class SaveSystem : MonoBehaviour

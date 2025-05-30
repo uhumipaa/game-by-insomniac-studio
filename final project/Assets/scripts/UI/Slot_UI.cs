@@ -108,6 +108,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         if (Time.time - lastClickTime < doubleClickThreshold)
         {
             trytoequip();
+            Refresh();
         }
 
         lastClickTime = Time.time;
@@ -144,7 +145,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     public void Refresh()
     {
         var data = inventory.slots[slotID];
-        if (data.count > 0)
+        if (data!=null&&data.count > 0)
             SetItem(data);
         else
             SetEmpty();
