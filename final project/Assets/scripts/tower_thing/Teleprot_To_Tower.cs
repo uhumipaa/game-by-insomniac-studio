@@ -53,6 +53,9 @@ public class Teleprot_To_Tower : MonoBehaviour
         if (TowerManager.Instance.currentTowerFloor <5)
         {
             TowerManager.Instance.currentTowerFloor = 1;
+
+            FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
+            
             SceneManager.LoadScene("tower");
         }
         else
@@ -72,6 +75,9 @@ public class Teleprot_To_Tower : MonoBehaviour
     {
         TowerManager.Instance.currentTowerFloor= 1;
         TowerManager.Instance.backtotower = true;
+
+        FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
+
         SceneManager.LoadScene("tower");
     }
 
@@ -85,6 +91,7 @@ public class Teleprot_To_Tower : MonoBehaviour
             }
             TowerManager.Instance.currentTowerFloor--;
         }
+            FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
             SceneManager.LoadScene("tower");
     }
 

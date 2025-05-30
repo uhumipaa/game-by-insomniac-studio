@@ -214,7 +214,8 @@ PrefabInstance:
       propertyPath: currentTowerFloor
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6467870026012383743, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
     m_RemovedGameObjects:
     - {fileID: 804051561568559137, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
     m_AddedGameObjects: []

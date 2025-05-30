@@ -26,7 +26,7 @@ public class FarmManager : MonoBehaviour
 
     private void Start()
     {
-        LoadFarmTilesFromFile();
+        StartCoroutine(DelayedLoad());
         StartCoroutine(CheckGrowthPeriodically());
     }
 
@@ -37,6 +37,13 @@ public class FarmManager : MonoBehaviour
             AutoGrowAllTiles(); // 檢查是否成長
             yield return new WaitForSeconds(5f); // 每 10 秒跑一次
         }
+    }
+
+    private IEnumerator DelayedLoad()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("🌱 延遲一幀後載入農地資料");
+        LoadFarmTilesFromFile();
     }
 
     public void AddFarmTile(Vector3Int pos, CropData cropData)
@@ -52,6 +59,7 @@ public class FarmManager : MonoBehaviour
             if (tileData.progressUI != null)
             {
                 Destroy(tileData.progressUI.gameObject);
+                tileData.progressUI = null;
             }
             // 取得格子中心點
             Vector3 tileCenter = tileManager.cropTilemap.CellToWorld(pos) + new Vector3(0.5f, 0.5f, 0);
@@ -163,7 +171,11 @@ public class FarmManager : MonoBehaviour
             }
 
             //移除進度條
-            Destroy(tileData.progressUI);
+            if (tileData.progressUI != null)
+            {
+                Destroy(tileData.progressUI.gameObject);
+                tileData.progressUI = null;
+            }
 
             //清除 tile
             tileManager.ClearTile(pos);
@@ -242,6 +254,7 @@ public class FarmManager : MonoBehaviour
 
     public void LoadFarmTilesFromFile()
     {
+        Debug.Log("讀取農地資料中...");
         string path = Application.persistentDataPath + "/farm_save.json";
 
         if (!System.IO.File.Exists(path))
@@ -275,6 +288,7 @@ public class FarmManager : MonoBehaviour
                 if (farmTile.progressUI != null)
                 {
                     Destroy(farmTile.progressUI);
+                    farmTile.progressUI = null;
                 }
 
                 // 取得格子中心點

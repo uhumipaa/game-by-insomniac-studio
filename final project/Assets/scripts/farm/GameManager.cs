@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    //public static GameManager instance;
+    public static GameManager instance;
 
     [Header("玩家資料")]
     //public InventoryManager inventoryManager;
@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject); //把現在這個GameManager刪掉
             return;
-        }*/
+        }
 
-        //instance = this;
-        //DontDestroyOnLoad(gameObject);
+        instance = this;
+        DontDestroyOnLoad(gameObject);*/
 
         // 初始化不隨場景消失的資料
         //inventoryManager = new InventoryManager();
@@ -42,5 +42,29 @@ public class GameManager : MonoBehaviour
         tileManager = GetComponent<TileManager>();
         uiManager = GetComponent<UI_Manager>();
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "farm")
+        {
+            StartCoroutine(DelayedFarmRefresh());
+        }
+    }
+
+    private System.Collections.IEnumerator DelayedFarmRefresh()
+    {
+        yield return null; // 等一幀
+        if (FarmManager.instance != null)
+        {
+            FarmManager.instance.LoadFarmTilesFromFile();
+            Debug.Log("✅ 自動刷新農地完成");
+        }
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

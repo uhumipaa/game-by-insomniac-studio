@@ -9,6 +9,7 @@ public class ShopTrigger : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.Return)) // Enter鍵
         {
+            FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
             SceneManager.LoadScene("shop"); // 替換成你的商店場景名稱
         }
     }

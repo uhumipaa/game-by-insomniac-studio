@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 7813632383331753474}
+  farmTileProgressBarPrefab: {fileID: 0}
 --- !u!1 &804051561568559137
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 7813632383331753474}
+  farmTileProgressBarPrefab: {fileID: 0}
 --- !u!1 &1313660358877257958
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +268,7 @@ GameObject:
   - component: {fileID: 6023043036666393424}
   - component: {fileID: 8926896867482616276}
   - component: {fileID: 2161727825334077923}
+  - component: {fileID: 6467870026012383743}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -412,6 +415,7 @@ MonoBehaviour:
   backtotower: 0
   currentTowerFloor: 6
   finishfloorthistime: 1
+  currentfloorprefab: 0
 --- !u!114 &2161727825334077923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,3 +435,15 @@ MonoBehaviour:
     magic_power: 15
     speed: 3
     Luck: 10
+--- !u!114 &6467870026012383743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648091921307430071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23195a7c39ff2a542af2f8eb9cc81934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

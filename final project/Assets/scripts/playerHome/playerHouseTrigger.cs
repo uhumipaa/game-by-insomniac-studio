@@ -10,6 +10,7 @@ public class playerHouseTrigger : MonoBehaviour
         //主角進入範圍並按下enter
         if (playerInRange && Input.GetKeyDown(KeyCode.Return))
         {
+            FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
             SceneManager.LoadScene("playerHome"); //進入playerHome
         }
     }
