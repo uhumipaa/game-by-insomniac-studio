@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: wooden sowrd
   m_EditorClassIdentifier: 
+  ID: 
   itemName: Wooden Sword
   description: just a wooden sword
   icon: {fileID: -6270953770400647376, guid: 87560552285f36a4f8da616d51d66265, type: 3}
-  type: 25
-  maxAllowed: 99
+  type: 26
+  maxAllowed: 1
   isusable: 0
   isarmor: 1
   currentHP: 0

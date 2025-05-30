@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: NatuerSword
   m_EditorClassIdentifier: 
+  ID: 
   itemName: NatuerSword
   description: A sword with the power of nature, the user will be blessed by living
     beings
   icon: {fileID: -2276259661975475453, guid: 87b1faa9db5b0aa479e9bf359c63f781, type: 3}
-  type: 25
+  type: 26
   maxAllowed: 1
   isusable: 0
   isarmor: 1

@@ -9,8 +9,9 @@ public class SaveData
     public PlayerStatusData playerStatusData;
     public Vector3 playerposition;
     public List<SaveItem> backpackItems = new List<SaveItem>();
-    public List<SaveItem> equippedItems = new List<SaveItem>();
+    public List<SaveItem> storeboxItems = new List<SaveItem>();
     public List<SaveItem> toolbarItems = new List<SaveItem>();
+    public List<SaveEquippment> equippmentItems = new List<SaveEquippment>();
     public SaveData()
     {
         playerStatusData = new PlayerStatusData();

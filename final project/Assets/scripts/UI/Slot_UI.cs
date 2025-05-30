@@ -134,7 +134,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
                                 continue;
                             }
                         }
-                        equipmentSlot.equip(item, slotID);
+                        equipmentSlot.equip(item);
                     }
                 }
             }

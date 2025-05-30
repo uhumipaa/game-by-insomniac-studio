@@ -44739,7 +44739,6 @@ GameObject:
   m_Component:
   - component: {fileID: 757287026}
   - component: {fileID: 757287028}
-  - component: {fileID: 757287027}
   m_Layer: 0
   m_Name: ItemManager
   m_TagString: Untagged
@@ -44762,23 +44761,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1652634045}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &757287027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757287025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8d6fe5e72d83f944959c457ac6dc936, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemList:
-  - {fileID: 11400000, guid: 4683192dc95edb24cb4855ba7acade5f, type: 2}
-  - {fileID: 11400000, guid: 21221da7bac379f4ea82020db78c455a, type: 2}
-  - {fileID: 11400000, guid: 54595462cff842241a9f613ac2034f99, type: 2}
-  collectablePrefab: {fileID: 8121928996620562160, guid: e8c46797d6573604fa967cf8912fa7dd, type: 3}
 --- !u!50 &757287028
 Rigidbody2D:
   serializedVersion: 5
@@ -74362,7 +74344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4865259b419dd1a4a9e3315fc1d700e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemManager: {fileID: 757287027}
+  itemManager: {fileID: 0}
   tileManager: {fileID: 149843907}
   uiManager: {fileID: 1652634049}
   player: {fileID: 0}

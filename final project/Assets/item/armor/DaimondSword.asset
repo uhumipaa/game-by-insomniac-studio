@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: DaimondSword
   m_EditorClassIdentifier: 
+  ID: 
   itemName: DiamondSword
   description: just...DianmondSword,more powerful than Iron Sword
   icon: {fileID: 141893073332109768, guid: 57596ea5efe3cb4448d2d36c09aa56d9, type: 3}
-  type: 25
+  type: 26
   maxAllowed: 1
   isusable: 0
-  isarmor: 0
+  isarmor: 1
   currentHP: 0
   maxHP: 0
   buffATK: 40

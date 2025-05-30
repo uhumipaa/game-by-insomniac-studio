@@ -19,7 +19,6 @@ public class InventoryManager : MonoBehaviour, ISaveData
     public Inventory storagebox;
     public int storageboxSlotCount;
 
-    ItemManager itemManager;
 
     private void Awake()
     {
@@ -45,7 +44,6 @@ public class InventoryManager : MonoBehaviour, ISaveData
         inventoryByName.Add("Toolbar", toolbar);
         inventoryByName.Add("Storagebox", storagebox);
 
-        itemManager = FindAnyObjectByType<ItemManager>().GetComponent<ItemManager>();
     }
 
     public void Add(string inventoryName, ItemData data, int amount = 1)
@@ -96,7 +94,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
         {
             var saved = items[i];
             int quantity = items[i].quantity;
-            ItemData data = itemManager.GetItemDataByName(saved.Name);
+            ItemData data = ItemManager.instance.GetItemDataByName(saved.Name);
             if (data != null)
             {
                 var slot = new Inventory.Slot();
@@ -126,14 +124,14 @@ public class InventoryManager : MonoBehaviour, ISaveData
 
         saveData.backpackItems = ConvertItemsToSaveItems(backpack);
         saveData.toolbarItems = ConvertItemsToSaveItems(toolbar);
-        saveData.equippedItems = ConvertItemsToSaveItems(storagebox);
+        saveData.storeboxItems = ConvertItemsToSaveItems(storagebox);
     }
 
     public void LoadData(SaveData saveData)
     {
         LoadSaveItem(backpack, saveData.backpackItems, 0);
-        LoadSaveItem(toolbar, saveData.toolbarItems, 1);
-        LoadSaveItem(storagebox, saveData.equippedItems, 2);
+        LoadSaveItem(toolbar, saveData.toolbarItems, 2);
+        LoadSaveItem(storagebox, saveData.storeboxItems, 1);
     }
 
     //清空指定Inventory

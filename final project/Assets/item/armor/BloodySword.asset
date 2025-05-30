@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
   m_Name: BloodySword
   m_EditorClassIdentifier: 
+  ID: 
   itemName: BloodySword
   description: A sword that smears blood everywhere. It is said that its wielder
     is cursed.
   icon: {fileID: 8389134475083476877, guid: a0ae9e1844954ca498af2635c1afc6d7, type: 3}
-  type: 25
+  type: 26
   maxAllowed: 1
   isusable: 0
   isarmor: 1
