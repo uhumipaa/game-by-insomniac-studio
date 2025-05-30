@@ -9,9 +9,17 @@ public class FarmManager : MonoBehaviour
     public TileManager tileManager;
     private Dictionary<Vector3Int, FarmTileData> farmTiles = new Dictionary<Vector3Int, FarmTileData>();
     private GameManager gm;
+    public GameObject farmTileProgressBarPrefab;
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // 已經有了就刪除自己
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject); // 保留這份跨場景
         gm = FindFirstObjectByType<GameManager>();
         tileManager = gm.tileManager;
     }
@@ -26,7 +34,7 @@ public class FarmManager : MonoBehaviour
         while (true)
         {
             AutoGrowAllTiles(); // 檢查是否成長
-            yield return new WaitForSeconds(10f); // 每 10 秒跑一次
+            yield return new WaitForSeconds(5f); // 每 10 秒跑一次
         }
     }
 
@@ -34,8 +42,34 @@ public class FarmManager : MonoBehaviour
     {
         if (!farmTiles.ContainsKey(pos))
         {
-            farmTiles.Add(pos, new FarmTileData(pos, 0, cropData)); // 初始狀態是0(剛播種)
+            var tileData = new FarmTileData(pos, 0, cropData);
+            farmTiles.Add(pos, tileData); // 初始狀態是0(剛播種)
             UpdateTileVisual(farmTiles[pos]);
+
+            /*if (farmTileProgressBarPrefab == null)
+            {
+                Debug.LogError("❌ ProgressBar Prefab 尚未設定！");
+            }*/
+            
+            // 生成進度條
+            // 取得格子中心點
+            Vector3 tileCenter = tileManager.cropTilemap.CellToWorld(pos) + new Vector3(0.5f, 0.5f, 0);
+
+            // 偏移一點 Y 軸讓進度條浮在作物上方
+            Vector3 barPosition = tileCenter+ new Vector3(0, 0.6f, 0);
+
+            // 生成進度條並對齊旋轉
+            GameObject bar = Instantiate(farmTileProgressBarPrefab, barPosition, Quaternion.identity);
+            Debug.Log($"[DEBUG] 進度條生成位置: {barPosition}");
+            bar.transform.rotation = Quaternion.identity; // 保證面向攝影機
+
+
+            var progressScript = bar.GetComponentInChildren<GrowthProgressBar>();
+            if (progressScript != null)
+            {
+                progressScript.Setup(tileData);
+                tileData.progressUI = progressScript;
+            }
         }
     }
 
@@ -134,6 +168,9 @@ public class FarmManager : MonoBehaviour
             //移除田地資料
             farmTiles.Remove(pos);
 
+            //移除進度條
+            tileData.progressUI?.gameObject.SetActive(false);
+
             // Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
             return true;
 
@@ -154,12 +191,20 @@ public class FarmManager : MonoBehaviour
 
     public void AutoGrowAllTiles()
     {
+        //Debug.Log("🌿 自動檢查作物成長 at " + Time.time);
         List<Vector3Int> keys = new List<Vector3Int>(farmTiles.Keys);
 
         foreach (var pos in keys)
         {
             TryGrowTile(pos);
         }
+
+        //更新進度條
+        foreach (var tile in farmTiles.Values)
+        {
+            tile.progressUI?.UpdateProgress();
+        }
+
     }
 
 

@@ -29,7 +29,7 @@ public class player_trigger : MonoBehaviour
         }
 
         footOffsetY = tileManager.InteractableMap.cellSize.y / 2f;
-        
+
         gm.player = this;
     }
 
@@ -52,6 +52,11 @@ public class player_trigger : MonoBehaviour
                 string tileName = tileManager.GetTileName(gridPos);
                 var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
 
+                if (PlantManager.instance == null)
+                {
+                    Debug.LogWarning("⚠️ PlantManager 尚未初始化或已被刪除！");
+                    return;
+                }
                 //判斷這塊地能不能種田
                 if (PlantManager.instance.TryPlant(gridPos, tileName, selectedSlot))
                 {
@@ -92,7 +97,7 @@ public class player_trigger : MonoBehaviour
     //掉落一件物品
     public void DropItem(ItemType type)
     {
-        
+
         Vector3 playerPos = transform.position; // 主角位置
         Vector3 finalPosition = playerPos;
 

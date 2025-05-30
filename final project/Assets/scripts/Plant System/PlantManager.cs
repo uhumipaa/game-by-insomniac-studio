@@ -12,9 +12,18 @@ public class PlantManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // 防止重複產生
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject); // 如果你希望它跨場景存在
         gm = FindFirstObjectByType<GameManager>();
         tileManager = gm.tileManager;
+
+        Debug.Log("🟢 PlantManager 初始化成功：" + gameObject.name);
     }
 
     public bool TryPlant(Vector3Int position, string tileName, Inventory.Slot selectedSlot)
@@ -48,11 +57,25 @@ public class PlantManager : MonoBehaviour
         //格子裡的種子數減一
         selectedSlot.count--;
 
+        // ⏳ 延遲一幀再種田，避免使用時欄位尚未注入
+        StartCoroutine(DelayedPlant(position, cropToPlant));
+
         //種下種子後變成發芽狀態
         //tileManager.SetCropTile(position, cropToPlant.sproutTile);
 
-        // 記錄田地狀態
-        FarmManager.instance.AddFarmTile(position, cropToPlant);
+        /*// 記錄田地狀態
+        FarmManager.instance.AddFarmTile(position, cropToPlant);*/
         return true;
+    }
+
+    private IEnumerator DelayedPlant(Vector3Int pos, CropData crop)
+    {
+        yield return null; // 等一幀，確保 FarmManager 裡的 prefab 欄位已經準備好
+        if (FarmManager.instance.farmTileProgressBarPrefab == null)
+        {
+            Debug.LogError("❌ ProgressBar Prefab 尚未設定！");
+        }
+
+        FarmManager.instance.AddFarmTile(pos, crop);
     }
 }
