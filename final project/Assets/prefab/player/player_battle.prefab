@@ -1005,6 +1005,7 @@ GameObject:
   - component: {fileID: -5965494302200370046}
   - component: {fileID: 8925080331970643002}
   - component: {fileID: 7642814914908845885}
+  - component: {fileID: 3652099372795159171}
   m_Layer: 11
   m_Name: player_battle
   m_TagString: Player
@@ -1147,7 +1148,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.16446424}
+  m_Offset: {x: -0.008723259, y: -0.01617062}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1157,7 +1158,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0461073, y: 1.6710715}
+  m_Size: {x: 1.168231, y: 1.200021}
   m_EdgeRadius: 0
 --- !u!114 &1491123828614423226
 MonoBehaviour:
@@ -1209,9 +1210,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_health: 100
-  current_health: 0
-  atk: 40
-  magic_atk: 100
+  current_health: 50
+  atk: 1000
+  magic_atk: 20
   def: 5
   attack_range: 0.5
   attack_time: 0.2
@@ -1264,10 +1265,12 @@ MonoBehaviour:
   magic_list:
   - {fileID: 5858566192561528659}
   - {fileID: 4485444716359842910}
+  - {fileID: 3652099372795159171}
   magiccd:
   - 6
   - 4
-  canbecast: 0101
+  - 4
+  canbecast: 010101
   staffani: {fileID: 2025820835642854736}
 --- !u!114 &7355881515002450375
 MonoBehaviour:
@@ -1459,6 +1462,19 @@ MonoBehaviour:
   - {fileID: 8577020221194564616}
   - {fileID: -5965494302200370046}
   - {fileID: -5004281641115205624}
+--- !u!114 &3652099372795159171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440852206036009363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1b977cfa6e72b94daf660feed37a309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAreaPrefab: {fileID: 0}
 --- !u!1 &8066290499374552347
 GameObject:
   m_ObjectHideFlags: 0

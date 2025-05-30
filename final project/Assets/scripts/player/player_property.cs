@@ -149,6 +149,13 @@ public class Player_Property : MonoBehaviour
             die();
         }
     }
+    public void heal(int amount)
+    {
+        current_health = Mathf.Min(max_health, current_health + amount);
+        Debug.Log("玩家恢復了 HP，目前：" + current_health);
+    }
+
+
     void die()
     {
         Debug.Log("���`�G�G");

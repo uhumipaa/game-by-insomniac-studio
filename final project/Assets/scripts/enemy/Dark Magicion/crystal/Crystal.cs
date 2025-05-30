@@ -6,6 +6,8 @@ public class Crystal : MonoBehaviour
     public Dark_Magicion_Controller boss;
 
     private bool isDestroyed = false;
+    public Player_Property player_Property;
+    public enemy_property enemy_Property;
 
     private void OnDisable()//水晶被破壞後執行
     {
@@ -15,6 +17,14 @@ public class Crystal : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            player_Property = collision.GetComponent<Player_Property>();
+            player_Property.takedamage(enemy_Property.atk, transform.position);
+        }
+    }
     //  不處理傷害， 只通知 Boss
     private void OnCrystalDestroyed()
     {
