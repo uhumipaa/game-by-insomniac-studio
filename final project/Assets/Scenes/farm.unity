@@ -45794,7 +45794,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 6075917661979009678, guid: 6266a336a3a04be4f82bb79cb9d5c6bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -45814,7 +45814,7 @@ Transform:
   m_GameObject: {fileID: 989622783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.6, y: 13.76, z: 0}
+  m_LocalPosition: {x: -30.44, y: 17.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45854,17 +45854,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.05376053, y: -5.6984615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 7.43, y: 12.05}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.0214233, y: 1.8601456}
   m_EdgeRadius: 0
 --- !u!1 &989752802
 GameObject:
@@ -73029,7 +73029,6 @@ MonoBehaviour:
   itemDescriptionText: {fileID: 1915869679}
   fixedMessageText: {fileID: 309270460}
   fromTrigger: 0
-  fishingFeelItem: {fileID: 11400000, guid: 48cddc10cc2209842965ffac306cbfe7, type: 2}
   possibleItems:
   - {fileID: 11400000, guid: 261b75db322cedf4197916fe3ffd0a33, type: 2}
   - {fileID: 11400000, guid: bcc4a374754364f4f94f9b2bbd78a59c, type: 2}
