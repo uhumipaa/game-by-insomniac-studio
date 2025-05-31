@@ -7,11 +7,20 @@ public class ShopTrigger : MonoBehaviour
 
     void Update()
     {
+
+        if (playerInRange)
+        {
+            Debug.Log("Player is in range");
+        }
+
         if (playerInRange && Input.GetKeyDown(KeyCode.Return)) // Enter鍵
         {
+            Debug.Log("Enter pressed - Loading shop scene");
             FarmManager.instance.SaveFarmTilesToFile();//儲存田地狀態
-            SceneManager.LoadScene("shop"); // 替換成你的商店場景名稱
+            SceneManager.LoadScene("shop"); // 商店場景名稱
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +39,7 @@ public class ShopTrigger : MonoBehaviour
         }
     }
     public void BackToFarm()
-    { 
+    {
         SceneManager.LoadScene("farm");
     }
 }
