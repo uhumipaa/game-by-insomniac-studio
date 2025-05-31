@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+
 
 
 public class QuestManager : MonoBehaviour
@@ -32,12 +34,12 @@ public class QuestManager : MonoBehaviour
         {
             slot.nextButton.onClick.AddListener(OnNextClicked);
         }
+        LoadQuestProgress();  // ⭐ 載入 JSON 任務進度
 
     }
 
     public void RefreshQuests()
     {
-
         // ⭐ 保留：未完成任務 + 完成但未領獎的任務
         List<QuestData> filteredQuests = allQuests
             .Where(q =>
@@ -60,6 +62,51 @@ public class QuestManager : MonoBehaviour
         currentIndex = 0;
         UpdateQuestSlots();
     }
+
+
+    private string SavePath => Path.Combine(Application.persistentDataPath, "questdata.json");
+
+    public void SaveQuestProgress()
+    {
+        QuestSaveDataList dataList = new QuestSaveDataList();
+
+        foreach (var quest in allQuests)
+        {
+            dataList.quests.Add(new QuestSaveData
+            {
+                questName = quest.name,
+                rewardClaimed = quest.rewardClaimed
+            });
+        }
+
+        string json = JsonUtility.ToJson(dataList, true);
+        File.WriteAllText(SavePath, json);
+        Debug.Log($"✅ 儲存任務資料至：{SavePath}");
+    }
+
+    public void LoadQuestProgress()
+    {
+        if (!File.Exists(SavePath))
+        {
+            Debug.Log("🔍 任務存檔不存在，跳過載入");
+            return;
+        }
+
+        string json = File.ReadAllText(SavePath);
+        QuestSaveDataList dataList = JsonUtility.FromJson<QuestSaveDataList>(json);
+
+        foreach (var data in dataList.quests)
+        {
+            QuestData quest = allQuests.FirstOrDefault(q => q.name == data.questName);
+            if (quest != null)
+            {
+                quest.rewardClaimed = data.rewardClaimed;
+            }
+        }
+
+        Debug.Log("✅ 任務資料載入完畢");
+    }
+
 
 
 
@@ -91,6 +138,7 @@ public class QuestManager : MonoBehaviour
         {
             logic.GiveReward();             // 發獎
             quest.rewardClaimed = true;     // 標記為已領
+            SaveQuestProgress();            // ⭐ 儲存到 JSON
             RefreshQuests();                // 立即刷新畫面
         }
         else
@@ -147,3 +195,16 @@ public class QuestManager : MonoBehaviour
 
 
 }
+[System.Serializable]
+public class QuestSaveData
+{
+    public string questName;
+    public bool rewardClaimed;
+}
+
+[System.Serializable]
+public class QuestSaveDataList
+{
+    public List<QuestSaveData> quests = new List<QuestSaveData>();
+}
+
