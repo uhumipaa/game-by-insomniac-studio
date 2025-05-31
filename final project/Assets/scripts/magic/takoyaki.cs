@@ -20,6 +20,7 @@ public class takoyaki : MonoBehaviour,isMagic
         Vector2 direction = (mouse_position - (Vector2)transform.position).normalized;
         Vector2 spown_position = (Vector2)transform.position + direction * 0.5f;
         Instantiate(takoyaki_prefab, spown_position, Quaternion.identity).GetComponent<tako_control>().setdirection(direction);
-        TakoCD.SetTrigger("StartCD");
+        if(TakoCD!=null)
+            TakoCD.SetTrigger("StartCD");
     }
 }

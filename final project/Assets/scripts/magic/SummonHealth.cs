@@ -30,6 +30,7 @@ public class SummonHealth : MonoBehaviour, isMagic
         {
             CastHealArea(player.transform.position);
         }
-        HealthAreaCD.SetTrigger("StartCD");
+        if(HealthAreaCD!=null)
+            HealthAreaCD.SetTrigger("StartCD");
     }
 }

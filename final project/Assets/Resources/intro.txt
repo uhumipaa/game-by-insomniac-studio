@@ -17,3 +17,4 @@
 [remove,bg,spFadeOut_1000]
 [remove,bgm,audioTransit_0_1000]
 [hide]
+[load_scene,opening]

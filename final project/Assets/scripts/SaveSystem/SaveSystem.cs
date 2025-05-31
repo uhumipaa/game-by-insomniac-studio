@@ -75,7 +75,8 @@ public class SaveSystem : MonoBehaviour
     public void newgame()
     {
         savedata = new SaveData();
-        SceneManager.LoadScene(savedata.currentscene);
+        Audio_manager.Instance.Stop();
+        SceneManager.LoadScene("intro");
     }
     void OnApplicationQuit()
     {

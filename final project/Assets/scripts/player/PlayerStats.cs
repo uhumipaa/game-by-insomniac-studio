@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public int level = 1; // 經驗等級
@@ -17,7 +17,8 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
-        expAddUI = FindAnyObjectByType<ExpAddUI>();
+        if(SceneManager.GetActiveScene().name=="tower"&&expAddUI==null)
+            expAddUI = FindAnyObjectByType<ExpAddUI>();
     }
 
     //計算經驗和經驗等級
@@ -37,7 +38,8 @@ public class PlayerStats : MonoBehaviour
             level++;
             expToNextLevel = CalculateExpToNextLevel(level);
             Debug.Log($"升級了！目前等級：{level}");
-            expAddUI.addpoint();
+            if(expAddUI!=null)
+                expAddUI.addpoint();
             // expAddUI.point++;
         }
     }

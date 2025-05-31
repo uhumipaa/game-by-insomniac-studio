@@ -25,7 +25,7 @@ public class Enemy_close_controller : MonoBehaviour, IEnemyControllerInterface
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
         attack = scripts[0] as IEnemyAttackBehavior;
         animator = scripts[1] as IEnemyAnimatorBehavior;

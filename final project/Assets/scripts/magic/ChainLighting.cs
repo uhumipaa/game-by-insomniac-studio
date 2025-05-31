@@ -26,7 +26,8 @@ public class ChainLighting : MonoBehaviour,isMagic
     public void cast()
     {
         StartCoroutine(Lighting(transform.position, new List<GameObject>(), chainnumber));
-        ChainLightingCD.SetTrigger("StartCD");
+        if(ChainLightingCD!=null)
+            ChainLightingCD.SetTrigger("StartCD");
     }
     private IEnumerator Lighting(Vector3 postion,List<GameObject> hitenemy, int remainingJumps)
     {
