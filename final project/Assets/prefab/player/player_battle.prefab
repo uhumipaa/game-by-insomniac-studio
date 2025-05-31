@@ -1007,6 +1007,7 @@ GameObject:
   - component: {fileID: 7642814914908845885}
   - component: {fileID: 3652099372795159171}
   - component: {fileID: 6068512907735187856}
+  - component: {fileID: 3716422717590023327}
   m_Layer: 11
   m_Name: player_battle
   m_TagString: Player
@@ -1437,7 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c085998a644ce80499da32829a754934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemManager: {fileID: 0}
+  water: {fileID: 0}
   waterAmount: 0
 --- !u!114 &7642814914908845885
 MonoBehaviour:
@@ -1492,6 +1493,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f270862149a817941837ec0193aead0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3716422717590023327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440852206036009363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c536cf6428c6e5d4f9e8ef1c9a7b06ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atkeffect: {fileID: 5019468779805446932, guid: 92a35d20f36df314fbad90bb1d0be507, type: 3}
+  defeffect: {fileID: 2267233359210858131, guid: 3788cb0075302ac4c9a44538592869b9, type: 3}
+  hpeffect: {fileID: 8313448032217958330, guid: 771384238839edb4f87dd3abb76a6ecb, type: 3}
 --- !u!1 &8066290499374552347
 GameObject:
   m_ObjectHideFlags: 0

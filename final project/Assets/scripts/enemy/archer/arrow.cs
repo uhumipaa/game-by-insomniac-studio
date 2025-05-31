@@ -9,6 +9,8 @@ public class Arrow : MonoBehaviour
     private Player_Property player_Property;
     private enemy_property owner;
     private Rigidbody2D rb;
+    public Vector2 minBounds = new Vector2(-7.5f, -7.5f);
+    public Vector2 maxBounds = new Vector2(7.5f, 7.5f);
 
     void Awake()
     {
@@ -43,7 +45,13 @@ public class Arrow : MonoBehaviour
         BoxCollider2D col = GetComponent<BoxCollider2D>();
         if (col != null)
         {
-            col.offset = Vector2.zero; // ✅ 永遠強制歸零
+            col.offset = Vector2.zero; // 永遠強制歸零
+        }
+        Vector2 pos = transform.position;
+        if (pos.x < minBounds.x || pos.x > maxBounds.x ||
+            pos.y < minBounds.y || pos.y > maxBounds.y)
+        {
+            Destroy(gameObject);
         }
     }
 
