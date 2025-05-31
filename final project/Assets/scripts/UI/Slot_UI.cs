@@ -63,7 +63,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
+            //Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
             return;
         }
 
@@ -81,7 +81,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ info 為 null，SlotID: {slotID}, GameObject: {gameObject.name}");
+            //Debug.LogWarning($"⚠️ info 為 null，SlotID: {slotID}, GameObject: {gameObject.name}");
             return;
         }
         info.hideinfo();
@@ -90,7 +90,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     {
         if (info == null)
         {
-            Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
+            //Debug.LogWarning($"⚠️ SlotUI 的 info 為 null，來自物件：{gameObject.name}（slotID: {slotID}）");
             return;
         }
 

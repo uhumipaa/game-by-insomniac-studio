@@ -34,18 +34,21 @@ public class InventoryManager : MonoBehaviour, ISaveData
             return;
         }
 
+        regristall();
+    }
+
+    public void regristall() 
+    {
         //註冊格數
         backpack = new Inventory(backpackSlotCount);
         toolbar = new Inventory(toolbarSlotCount);
         storagebox = new Inventory(storageboxSlotCount);
-
         //註冊進inventoryByName的字典中
+        inventoryByName.Clear();
         inventoryByName.Add("Backpack", backpack);
         inventoryByName.Add("Toolbar", toolbar);
         inventoryByName.Add("Storagebox", storagebox);
-
     }
-
     public void Add(string inventoryName, ItemData data, int amount = 1)
     {
         if (inventoryByName.ContainsKey(inventoryName))
@@ -117,6 +120,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
                 Debug.LogWarning($"❌ 無法找到 itemID：{saved.Name}");
             }
         }
+        
     }
 
     public void SaveData(ref SaveData saveData)
@@ -127,11 +131,23 @@ public class InventoryManager : MonoBehaviour, ISaveData
         saveData.storeboxItems = ConvertItemsToSaveItems(storagebox);
     }
 
+    [System.Obsolete]
     public void LoadData(SaveData saveData)
     {
+        /*
+        backpack.slots.Clear();
+        toolbar.slots.Clear();
+        storagebox.slots.Clear();
+        */
+        regristall();
+        foreach (Inventory_UI ui in FindObjectsOfType<Inventory_UI>())
+        {
+            Debug.Log($"reconnect:{ui.name}");
+            ui.Reconnect();
+        }
         LoadSaveItem(backpack, saveData.backpackItems, 0);
-        LoadSaveItem(toolbar, saveData.toolbarItems, 2);
-        LoadSaveItem(storagebox, saveData.storeboxItems, 1);
+        LoadSaveItem(toolbar, saveData.toolbarItems, 1);
+        LoadSaveItem(storagebox, saveData.storeboxItems, 2);
     }
 
     //清空指定Inventory

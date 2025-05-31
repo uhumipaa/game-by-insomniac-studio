@@ -58,7 +58,7 @@ public class Inventory_UI : MonoBehaviour
             }
         }
         */
-        for (int i = 0; i < slots.Count&& i < inventory.slots.Count; i++)
+        for (int i = 0; i < slots.Count&&i<inventory.slots.Count; i++)
         {
             var sourceSlot = inventory.slots[i];
             if (sourceSlot.count > 0)
@@ -325,4 +325,6 @@ public class Inventory_UI : MonoBehaviour
         //backpack面板關閉
         gameObject.SetActive(false);
     }
+
+
 }
