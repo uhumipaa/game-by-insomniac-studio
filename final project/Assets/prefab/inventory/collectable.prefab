@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 9154548111287640352}
   - component: {fileID: 1701386566505584819}
   - component: {fileID: 2957417412206133853}
+  - component: {fileID: 7214101802970218414}
   m_Layer: 0
   m_Name: collectable
-  m_TagString: Untagged
+  m_TagString: DropItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb2D: {fileID: 1701386566505584819}
   item: {fileID: 2957417412206133853}
+  amount: 1
 --- !u!61 &9154548111287640352
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,3 +194,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 21221da7bac379f4ea82020db78c455a, type: 2}
   rb2D: {fileID: 0}
+--- !u!114 &7214101802970218414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4729813849559725114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55837ca55b28ba14398fbc25e9a1fb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 
+  amount: 0
+  itemData: {fileID: 0}

@@ -122,6 +122,9 @@ public class player_trigger : MonoBehaviour
 
         Collectable dropped = gm.itemManager.SpawnCollectable(type, finalPosition);
 
+        //存取當前場上物品狀態
+        DropManager.instance.SaveDroppedItems();
+
         if (dropped != null)
         {
             Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");

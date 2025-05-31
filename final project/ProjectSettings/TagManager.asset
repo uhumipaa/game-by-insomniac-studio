@@ -12,6 +12,7 @@ TagManager:
   - CropTilemap
   - Hint
   - exp
+  - DropItem
   layers:
   - Default
   - TransparentFX

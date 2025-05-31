@@ -21,9 +21,9 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isCollected) return; // 防止重複
-        
-
+    
         player_trigger player = collision.GetComponent<player_trigger>();
+         DropManager dropManager = FindFirstObjectByType<DropManager>();
 
         if (player)
         {
@@ -34,31 +34,29 @@ public class Collectable : MonoBehaviour
             {
                 Debug.LogError("⚠ 找不到 Inventory_UI");
             }
-            else
-            {
-                //Debug.Log("✅ 找到 Inventory_UI，開始刷新");
-                //Debug.Log("UI slot 數量：" + ui.slots.Count);  // ← 應該要是 28
-            }
-
+           
             if (item == null)
             {
                 Debug.LogError("【錯誤】Collectable 上沒有 Item 元件！");
             }
-            
+
             if (item != null)
             {
-                if (InventoryManager.Instance== null)
+                if (InventoryManager.Instance == null)
                 {
                     Debug.LogError("【錯誤】player.inventory 還是 null！");
                 }
                 isCollected = true;
 
-                //player.inventory.Add("Backpack", item.data, amount);
+                //東西加進背包
                 InventoryManager.Instance.Add("Backpack", item.data, amount);
+
+                // 儲存新的掉落物狀態
+                DropManager.instance.SaveDroppedItems();
 
                 Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
                 Destroy(this.gameObject);
-            }    
+            }
         }
     }
 

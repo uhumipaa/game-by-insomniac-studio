@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System.IO;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TileManager tileManager;
     public UI_Manager uiManager;
     public player_trigger player;
+    public ItemData PotatoSeeds;
 
     private void Awake()
     {
@@ -45,12 +47,19 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void Start()
+    {
+        //InventoryManager.Instance.Add("Backpack", PotatoSeeds, 3);
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "farm")
         {
             StartCoroutine(DelayedFarmRefresh());
         }
+
+        StartCoroutine(DelayedDropRefresh());
     }
 
     private System.Collections.IEnumerator DelayedFarmRefresh()
@@ -61,7 +70,20 @@ public class GameManager : MonoBehaviour
             FarmManager.instance.LoadFarmTilesFromFile();
             Debug.Log("✅ 自動刷新農地完成");
         }
+
     }
+
+    private System.Collections.IEnumerator DelayedDropRefresh()
+    {
+        yield return null; // 等一幀
+        if (DropManager.instance != null)
+        {
+            DropManager.instance.LoadDroppedItems();
+            Debug.Log("✅ 自動刷新場景物件完成");
+        }
+
+    }
+
 
     private void OnDestroy()
     {
