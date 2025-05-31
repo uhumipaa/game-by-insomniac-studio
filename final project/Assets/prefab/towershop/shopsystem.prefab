@@ -787,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: 'surprices.Array.data[0]'
@@ -824,6 +824,18 @@ PrefabInstance:
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopitems.Array.data[2].price
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopposions.Array.data[0].price
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopposions.Array.data[1].price
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopposions.Array.data[2].price
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopitems.Array.data[0].itemdata
@@ -884,9 +896,17 @@ PrefabInstance:
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[0].itemdata
       value: 
-      objectReference: {fileID: 11400000, guid: 21221da7bac379f4ea82020db78c455a, type: 2}
+      objectReference: {fileID: 11400000, guid: 4fb64d0684b5b8446ad9068bdc4f29d0, type: 2}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[1].itemdata
+      value: 
+      objectReference: {fileID: 11400000, guid: c048942ef65475946b77e84a76527b35, type: 2}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopposions.Array.data[2].itemdata
+      value: 
+      objectReference: {fileID: 11400000, guid: 03bba38327f572e4c829320e0ae43883, type: 2}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopposions.Array.data[3].itemdata
       value: 
       objectReference: {fileID: 11400000, guid: 54595462cff842241a9f613ac2034f99, type: 2}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
