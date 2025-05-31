@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
+  m_Name: shadow killer
+  m_EditorClassIdentifier: 
+  baseHP: 100
+  baseatk: 20
+  basedef: 20
+  enemyname: shadow killer
+  atkpara: 2
+  defpara: 2
+  HPpara: 2
+  enemyprefab: {fileID: 6496627083340646658, guid: a108bc741f12aca49bc13fa497999ee6, type: 3}

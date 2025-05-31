@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
+  m_Name: TNTgoblin
+  m_EditorClassIdentifier: 
+  baseHP: 15
+  baseatk: 20
+  basedef: 5
+  speed: 2
+  enemyname: TNT goblin
+  atkpara: 3.3
+  defpara: 1.6
+  HPpara: 2.4
+  enemyprefab: {fileID: 2333549978095426646, guid: c873439d696155a43a94fed86bc1a964, type: 3}

@@ -651,7 +651,7 @@ MonoBehaviour:
   def: 5
   atk: 20
   attack_range: 1.7
-  speed: 6
+  speed: 4
   stuncd: 2
   spriteRender: {fileID: 0}
   healthChanged:

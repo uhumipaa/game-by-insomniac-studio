@@ -21,6 +21,7 @@ public class Arrow : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("error");
         GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
         if (playerGO != null)
         {
@@ -73,9 +74,9 @@ public class Arrow : MonoBehaviour
 
             Destroy(gameObject); // 命中後消失
         }
-        else if (!other.isTrigger)
-        {
-            Destroy(gameObject);
-        }
+        // else if (!other.isTrigger)
+        // {
+        //     Destroy(gameObject);
+        // }
     }
 }

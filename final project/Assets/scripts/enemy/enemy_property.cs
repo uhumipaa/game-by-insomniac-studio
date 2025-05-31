@@ -148,7 +148,7 @@ public class enemy_property : MonoBehaviour
             }
         }
     }
-    void die()
+    public void die()
     {
         if (EnemyManager.instance != null)
         {

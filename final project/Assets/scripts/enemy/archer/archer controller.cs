@@ -26,6 +26,7 @@ public class ArcherEnemy : MonoBehaviour
         GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
         if (playerGO != null)
         {
+            player = playerGO.transform;
             player_Property = playerGO.GetComponent<Player_Property>();
         }
         else
@@ -86,7 +87,7 @@ public class ArcherEnemy : MonoBehaviour
             Debug.LogWarning("Arrow Prefab 或 FirePoint 未設定！");
             return;
         }
-
+        Debug.LogWarning("firearrow");
         GameObject arrowGO = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
         Arrow arrow = arrowGO.GetComponent<Arrow>();
 

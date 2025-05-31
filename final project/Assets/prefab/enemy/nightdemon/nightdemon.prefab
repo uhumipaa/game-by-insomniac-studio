@@ -758,8 +758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   detectionRange: 1.75
-  leftBoundary: {x: -8, y: -8}
-  rightBoundary: {x: 8, y: 8}
+  leftBoundary: {x: -7, y: -7}
+  rightBoundary: {x: 7, y: 7}
   attackHitbox: {fileID: 157306650142786583}
   DeathHitbox: {fileID: 2774130684407220529}
   healthBarUI: {fileID: 8218743907050863091}

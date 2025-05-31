@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 1~10 castle
   m_EditorClassIdentifier: 
   enemyprefab:
-  - {fileID: 11400000, guid: 2a285275dc0bbb24ebbc74cf17f69e9e, type: 2}
+  - {fileID: 11400000, guid: 41e2429b7f451af4da2e146e47f1e1b7, type: 2}
   - {fileID: 11400000, guid: 15e9e06f579d436418de1e439b7a63f6, type: 2}
   - {fileID: 11400000, guid: 5e7cfeffe612b9148b8d614da9e02739, type: 2}
-  - {fileID: 11400000, guid: 41e2429b7f451af4da2e146e47f1e1b7, type: 2}
+  - {fileID: 11400000, guid: 2a285275dc0bbb24ebbc74cf17f69e9e, type: 2}
   - {fileID: 11400000, guid: dbb6c054bf1b44e48b96c86cae041eb5, type: 2}
   enemycount: 6
   spwan_range_min: {x: -7, y: 5}

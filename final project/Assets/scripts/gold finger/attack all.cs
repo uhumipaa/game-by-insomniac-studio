@@ -10,9 +10,9 @@ public class attackall : MonoBehaviour
 
         foreach (enemy_property enemy in enemies)
         {
-            enemy.takedamage(5000, v);
+            enemy.die();
         }
 
-        Debug.Log("對 " + enemies.Length + " 名敵人造成了 5000 點傷害！");
+        // Debug.Log("對 " + enemies.Length + " 名敵人造成了 5000 點傷害！");
     }
 }
