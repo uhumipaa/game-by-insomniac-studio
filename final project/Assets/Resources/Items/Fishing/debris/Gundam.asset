@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: Golden Tench
+  m_Name: Gundam
   m_EditorClassIdentifier: 
-  itemName: "\u9EC3\u91D1\u9BFD\u9B5A"
-  description: "\u901A\u9AD4\u91D1\u9EC3\u7684\u7F55\u898B\u9BFD\u9B5A\uFF0C\u50B3\u8AAA\u91E3\u5230\u7260\u6703\u5E36\u4F86\u8CA1\u904B\u2026\u96D6\u7136\u76EE\u524D\u770B\u4F86\u9084\u662F\u4EE5\u89C0\u8CDE\u70BA\u4E3B\u3002"
-  icon: {fileID: 21300000, guid: 3b76b7944b17c1f40bbbf8b319f8a13c, type: 3}
-  type: 13
+  ID: 16
+  itemName: "\u92FC\u5F48"
+  description: "\u50B3\u805E\u4E2D\u6C89\u7761\u5728\u5BE7\u975C\u6E56\u5E95\u7684\u92FC\u5F48\uFF0C\u5230\u5E95\u54EA\u500B\u524D\u4EBA\u628A\u9019\u7A2E\u6771\u897F\u4E1F\u9032\u6C34\u88E1\uFF01"
+  icon: {fileID: -1104263485170690809, guid: 406dec0ff757ca842b5e1a4848feaf68, type: 3}
+  type: 17
   maxAllowed: 99
   isusable: 0
   isarmor: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

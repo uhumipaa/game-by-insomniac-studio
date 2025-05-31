@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 public class player_trigger : MonoBehaviour
 {
     //public InventoryManager inventory; //刪
@@ -122,16 +123,30 @@ public class player_trigger : MonoBehaviour
 
         Collectable dropped = gm.itemManager.SpawnCollectable(type, finalPosition);
 
-        //存取當前場上物品狀態
-        DropManager.instance.SaveDroppedItems();
-
         if (dropped != null)
         {
-            Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");
-        }
-        else
-        {
-            Debug.LogWarning("找不到對應 prefab：" + type);
+            var itemData = ItemDatabase.GetItemData(type);
+            if (itemData != null)
+            {
+                dropped.SetItemData(itemData, 1);
+            }
+            else
+            {
+                Debug.LogWarning($"❌ 找不到 ItemData：{type}");
+            }
+
+
+            //存取當前場上物品狀態
+            DropManager.instance.SaveDroppedItems();
+
+            if (dropped != null)
+            {
+                Debug.Log($"在主角附近丟出物品：{type} at {finalPosition}");
+            }
+            else
+            {
+                Debug.LogWarning("找不到對應 prefab：" + type);
+            }
         }
     }
 

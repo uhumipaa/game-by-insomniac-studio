@@ -311,6 +311,7 @@ MonoBehaviour:
   tileManager: {fileID: 7813632383331753474}
   uiManager: {fileID: 7667189415526095241}
   player: {fileID: 0}
+  PotatoSeeds: {fileID: 11400000, guid: 21221da7bac379f4ea82020db78c455a, type: 2}
 --- !u!114 &4609009657921270449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,8 +413,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backtotower: 0
-  currentTowerFloor: 1
-  finishfloorthistime: 1
+  currentTowerFloor: 10
+  finishfloorthistime: 10
   currentfloorprefab: 0
 --- !u!114 &2161727825334077923
 MonoBehaviour:

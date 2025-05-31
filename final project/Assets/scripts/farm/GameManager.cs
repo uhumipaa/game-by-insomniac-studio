@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        //InventoryManager.Instance.Add("Backpack", PotatoSeeds, 3);
+        InventoryManager.Instance.Add("Backpack", PotatoSeeds, 3);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

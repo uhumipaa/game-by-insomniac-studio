@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: Message In A Bottle
+  m_Name: turnip
   m_EditorClassIdentifier: 
-  itemName: "\u6F02\u6D41\u74F6"
-  description: "\u4E00\u500B\u6F02\u6D41\u7684\u6F02\u6D41\u74F6\uFF0C\u4E0A\u9762\u5BEB\u8457\uFF1A\u300E\u6551\u6551\u6211\uFF0C\u6211\u88AB\u56F0\u5728\u9019\u500B\u904A\u6232\u88E1\uFF01\u300F"
-  icon: {fileID: 21300000, guid: 20b3e52ab5368834793e069fdff3b6bb, type: 3}
-  type: 16
+  ID: 7
+  itemName: Turnip
+  description: 
+  icon: {fileID: -8883004822149364238, guid: 6074cdcb6c8b8c44fb5e0b8f032630e1, type: 3}
+  type: 6
   maxAllowed: 99
   isusable: 0
   isarmor: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: Coins
+  m_Name: Plastic Bag
   m_EditorClassIdentifier: 
-  itemName: "\u91D1\u5E63"
-  description: "\u7ADF\u7136\u91E3\u5230\u4E86\u91D1\u5E63 ! \u96E3\u9053\u9019\u5176\u5BE6\u662F\u500B\u8A31\u9858\u6C60?"
-  icon: {fileID: 8003260396191338441, guid: d4b75cb8ce695d443b7f961b96fbd013, type: 3}
-  type: 18
+  ID: 18
+  itemName: "\u5851\u81A0\u888B"
+  description: "\u96D6\u7136\u4E0D\u662F\u5BF6\u7269\uFF0C\u4F46\u9019\u6B21\u4F60\u78BA\u5BE6\u5E6B\u4E86\u5730\u7403\u4E00\u9EDE\u9EDE\u5C0F\u5FD9\u3002"
+  icon: {fileID: -4268808005231900133, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
+  type: 15
   maxAllowed: 99
   isusable: 0
   isarmor: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

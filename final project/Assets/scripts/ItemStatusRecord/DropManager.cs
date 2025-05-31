@@ -32,17 +32,22 @@ public class DropManager : MonoBehaviour
 
     public void SaveDroppedItems()
     {
+        //抓取路徑
+        savePath = Path.Combine(Application.persistentDataPath,
+        UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_drop_items.json"
+        );
+        
         var drops = new List<DropItemData>();
         foreach (var item in GameObject.FindGameObjectsWithTag("DropItem"))
         {
-            var pickup = item.GetComponent<PickupItem>();
-            if (pickup != null)
+            var collectable = item.GetComponent<Collectable>();
+            if (collectable != null && collectable.item.data != null)
             {
                 drops.Add(new DropItemData
                 {
-                    itemID = pickup.itemID,
+                    itemType = collectable.item.data.type,
                     position = item.transform.position,
-                    amount = pickup.amount
+                    amount = 1
                 });
             }
         }
@@ -55,7 +60,16 @@ public class DropManager : MonoBehaviour
 
     public void LoadDroppedItems()
     {
+        //抓取路徑
+        savePath = Path.Combine(Application.persistentDataPath,
+        UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_drop_items.json"
+        );
+
         Debug.Log($"🔁 嘗試載入掉落物：{savePath}");
+        foreach (var obj in GameObject.FindGameObjectsWithTag("DropItem"))
+        {
+            Destroy(obj);
+        }
 
         if (!File.Exists(savePath)) return;
 
@@ -63,11 +77,31 @@ public class DropManager : MonoBehaviour
         var saveData = JsonUtility.FromJson<DropItemSaveData>(json);
         foreach (var data in saveData.dropItems)
         {
+            // 避免生成預設 itemType（ItemType.None 或 0）
+            if ((int)data.itemType == 0)
+            {
+                Debug.LogWarning("⛔ 忽略無效掉落物（itemType 為 0）");
+                continue;
+            }
+
             GameObject item = Instantiate(dropItemPrefab, data.position, Quaternion.identity);
-            var pickup = item.GetComponent<PickupItem>();
-            pickup.itemID = data.itemID;
-            pickup.amount = data.amount;
-            pickup.itemData = ItemDatabase.GetItemData(data.itemID);
+            var collectable = item.GetComponent<Collectable>();
+            if (collectable != null)
+            {
+                var itemData = ItemDatabase.GetItemData(data.itemType);
+                if (itemData != null)
+                {
+                    collectable.SetItemData(itemData, data.amount);
+                }
+                else
+                {
+                    Debug.LogWarning($"❌ 無法找到 ItemData：{data.itemType}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("❌ 掉落物 prefab 上缺少 Collectable 腳本");
+            }
         }
     }
 

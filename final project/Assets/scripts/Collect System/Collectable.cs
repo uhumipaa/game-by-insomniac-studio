@@ -21,9 +21,9 @@ public class Collectable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isCollected) return; // 防止重複
-    
+
         player_trigger player = collision.GetComponent<player_trigger>();
-         DropManager dropManager = FindFirstObjectByType<DropManager>();
+        DropManager dropManager = FindFirstObjectByType<DropManager>();
 
         if (player)
         {
@@ -34,7 +34,7 @@ public class Collectable : MonoBehaviour
             {
                 Debug.LogError("⚠ 找不到 Inventory_UI");
             }
-           
+
             if (item == null)
             {
                 Debug.LogError("【錯誤】Collectable 上沒有 Item 元件！");
@@ -60,20 +60,22 @@ public class Collectable : MonoBehaviour
         }
     }
 
-    public void SetItemData(ItemData data)
+    public void SetItemData(ItemData data, int amt = 1)
     {
         if (item == null)
             item = GetComponent<Item>();
 
         item.data = data;
+        amount = amt;
 
-        //設置collectable圖片
         var spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null && data.icon != null)
+        if (spriteRenderer != null && data != null && data.icon != null)
         {
             spriteRenderer.sprite = data.icon;
         }
-
-        //Debug.Log($"✅ Collectable 動態指定 ItemData：{data.itemName}");
+        else
+        {
+            Debug.LogWarning("❌ 無法設定圖示：ItemData 或 icon 為 null");
+        }
     }
 }

@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: Starfish
+  m_Name: Golden Tench
   m_EditorClassIdentifier: 
-  itemName: "\u6D77\u661F"
-  description: "\u7260\u5805\u6301\u81EA\u5DF1\u662F\u661F\u661F\uFF0C\u4E0D\u662F\u6D77\u6D0B\u751F\u7269\uFF0C\u4E26\u4E14\u8981\u6C42\u4F60\u8CA0\u8CAC\u9001\u7260\u56DE\u5929\u4E0A\u3002"
-  icon: {fileID: -3350332027471553152, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
-  type: 10
+  ID: 10
+  itemName: "\u9EC3\u91D1\u9BFD\u9B5A"
+  description: "\u901A\u9AD4\u91D1\u9EC3\u7684\u7F55\u898B\u9BFD\u9B5A\uFF0C\u50B3\u8AAA\u91E3\u5230\u7260\u6703\u5E36\u4F86\u8CA1\u904B\u2026\u96D6\u7136\u76EE\u524D\u770B\u4F86\u9084\u662F\u4EE5\u89C0\u8CDE\u70BA\u4E3B\u3002"
+  icon: {fileID: 21300000, guid: 3b76b7944b17c1f40bbbf8b319f8a13c, type: 3}
+  type: 13
   maxAllowed: 99
   isusable: 0
   isarmor: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

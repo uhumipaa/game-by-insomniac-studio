@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: Plastic Bag
+  m_Name: Magikarp
   m_EditorClassIdentifier: 
-  itemName: "\u5851\u81A0\u888B"
-  description: "\u96D6\u7136\u4E0D\u662F\u5BF6\u7269\uFF0C\u4F46\u9019\u6B21\u4F60\u78BA\u5BE6\u5E6B\u4E86\u5730\u7403\u4E00\u9EDE\u9EDE\u5C0F\u5FD9\u3002"
-  icon: {fileID: -4268808005231900133, guid: 8b348b6a435478c45b0e731ae3c5b21a, type: 3}
-  type: 15
+  ID: 13
+  itemName: "\u9BC9\u9B5A\u738B"
+  description: "\u5446\u982D\u5446\u8166\u7684\u9BC9\u9B5A\u738B\uFF0C\u770B\u8D77\u4F86\u4EC0\u9EBC\u90FD\u4E0D\u6703\uFF0C\u4F46\u4F3C\u4E4E\u6F5B\u85CF\u8457\u4EC0\u9EBC\u53EF\u80FD\u6027\uFF1F"
+  icon: {fileID: 5457166598492366146, guid: 995740d82ce207346bbd28e453bd2ace, type: 3}
+  type: 9
   maxAllowed: 99
   isusable: 0
   isarmor: 0
@@ -25,4 +26,5 @@ MonoBehaviour:
   buffDEF: 0
   buffSP: 0
   buffMP: 0
+  buffLuck: 0
   duration: 0

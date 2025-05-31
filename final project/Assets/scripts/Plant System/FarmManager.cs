@@ -164,10 +164,15 @@ public class FarmManager : MonoBehaviour
             Vector3 worldPos = tileManager.cropTilemap.CellToWorld(pos) + new Vector3(0.5f, 0.5f); // 讓物品出現在 tile 中央
             GameObject harvestItem = GameObject.Instantiate(tileData.cropData.harvestPrefab, worldPos, Quaternion.identity);
 
+            //綁定pickup資料
             Collectable collectable = harvestItem.GetComponent<Collectable>();
             if (collectable != null)
             {
-                collectable.SetItemData(tileData.cropData.harvestItemData);
+                collectable.SetItemData(tileData.cropData.harvestItemData, 1);
+            }
+            else
+            {
+                Debug.LogWarning("❌ Harvest prefab 上找不到 Collectable 組件！");
             }
 
             //移除進度條

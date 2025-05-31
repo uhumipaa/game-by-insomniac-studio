@@ -10,9 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: spinach
+  m_Name: radish_seed
   m_EditorClassIdentifier: 
-  itemName: Spinach
-  icon: {fileID: 8616252762745753724, guid: 951712dfa17cf2748abad79b714d6479, type: 3}
-  type: 8
+  ID: 4
+  itemName: Radish seeds
+  description: 
+  icon: {fileID: -7275490403220872501, guid: a3625def2515c06429e311b9234e5ca4, type: 3}
+  type: 3
   maxAllowed: 99
+  isusable: 0
+  isarmor: 0
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 0
+  buffLuck: 0
+  duration: 0

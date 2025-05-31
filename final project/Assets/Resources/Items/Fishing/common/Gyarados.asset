@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
-  m_Name: water
+  m_Name: Gyarados
   m_EditorClassIdentifier: 
-  itemName: water
-  description: 
-  icon: {fileID: 7538570299787566214, guid: 967d27540d9cb274a8c011686820dce3, type: 3}
-  type: 19
+  ID: 12
+  itemName: "\u66B4\u9BC9\u9F8D"
+  description: "\u9019\u4E0D\u662F\u4F60\u8A72\u80FD\u91E3\u5230\u7684\u6771\u897F\u2026\u4F46\u4F60\u504F\u504F\u91E3\u5230\u4E86\uFF0C\u7260\u73FE\u5728\u4E5F\u5F88\u56F0\u60D1\u3002\r\n\u8A71\u8AAA\uFF0C\u80FD\u91E3\u8D77\u66B4\u9BC9\u9F8D\u9084\u6C92\u65B7\u6389\uFF0C\u9019\u9B5A\u7AFF\u662F\u4EC0\u9EBC\u505A\u7684...?"
+  icon: {fileID: -8151255446664493667, guid: e6ae29db567a89c41877472a0ff551cd, type: 3}
+  type: 11
   maxAllowed: 99
   isusable: 0
   isarmor: 0
