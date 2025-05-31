@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerInteract_farm : MonoBehaviour
 {
-    
-    public ItemManager itemManager;
+
+    public ItemData water;
     public int waterAmount = 0; // 玩家擁有的水
     private bool isNearWell = false; // 是否靠近井
 
@@ -35,11 +35,18 @@ public class PlayerInteract_farm : MonoBehaviour
 
     void GetWater()
     {
-        ItemData waterData = itemManager.GetItemData(ItemType.Water);
-
+        if (water == null)
+        {
+            water = Resources.Load<ItemData>("Items/water");
+            if (water == null)
+            {
+                Debug.LogError("❌ Resources/Items 資料夾中找不到名為 'water' 的 ItemData！");
+                return;
+            }
+        }
+        
         //每次獲得10滴水，並加入inventory
-        InventoryManager.Instance.Add("Backpack", waterData, 10);
-
+        InventoryManager.Instance.Add("Backpack", water, 10);
     }
 
 }

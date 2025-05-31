@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 8189718508047699276}
   - component: {fileID: 127835168158187283}
   - component: {fileID: 4033425359778167584}
+  - component: {fileID: 419202900990340473}
   m_Layer: 5
   m_Name: ToolBar
   m_TagString: Untagged
@@ -210,6 +211,7 @@ MonoBehaviour:
   - {fileID: 6747826320402747392}
   - {fileID: 5204787258666357840}
   - {fileID: 6326523420464695940}
+  canvasGroup: {fileID: 0}
 --- !u!114 &4033425359778167584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,8 +244,25 @@ MonoBehaviour:
   canvas: {fileID: 0}
   equipmentoffset: 0
   isequipment: 0
+  inventory:
+    slots: []
+    selectedSlot:
+      itemData: {fileID: 0}
+      count: 0
   isReady: 0
   slotOffset: 0
+--- !u!225 &419202900990340473
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5848024941873925367}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6710193778063506327
 GameObject:
   m_ObjectHideFlags: 0

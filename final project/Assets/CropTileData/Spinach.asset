@@ -18,3 +18,7 @@ MonoBehaviour:
   harvestTile: {fileID: 11400000, guid: 7662c256ecb716646a1a8e621deeb718, type: 2}
   harvestPrefab: {fileID: 4729813849559725114, guid: e8c46797d6573604fa967cf8912fa7dd, type: 3}
   harvestItemData: {fileID: 11400000, guid: 31982b9574e9eef498f1837418940dd4, type: 2}
+  sproutFloor: 6
+  growFloor: 12
+  matureFloor: 18
+  harvestFloor: 24

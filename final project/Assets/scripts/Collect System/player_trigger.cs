@@ -66,34 +66,6 @@ public class player_trigger : MonoBehaviour
                 }
             }
         }
-
-        /*// 左鍵點田地
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int gridPos = tileManager.cropTilemap.WorldToCell(mouseWorldPos);
-
-            if (FarmManager.instance.HasFarmTile(gridPos))
-            {
-                var farmTileData = FarmManager.instance.GetFarmTileData(gridPos);
-
-                if (farmTileData.state > 3)
-                {
-                    if (FarmManager.instance.TryHarvestTile(gridPos))
-                    {
-                        Debug.Log("收成完成！");
-                    }
-                }
-                else
-                {
-                    if (FarmManager.instance.TryGrowTile(gridPos))
-                    {
-                        Debug.Log("田地狀態推進！");
-                    }
-
-                }
-            }
-        }*/
     }
     //掉落一件物品
     public void DropItem(ItemType type)
@@ -158,19 +130,4 @@ public class player_trigger : MonoBehaviour
             DropItem(type);
         }
     }
-
-    /*private void OnDrawGizmos()
-    {
-        if (tileManager == null) return;
-
-        Vector3 footWorldPos = transform.position + new Vector3(0, -footOffsetY, 0);
-        Vector3Int gridPos = tileManager.InteractableMap.WorldToCell(footWorldPos);
-        Vector3 gridCenterPos = tileManager.InteractableMap.GetCellCenterWorld(gridPos);
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(footWorldPos, 0.1f); // 腳下
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(gridCenterPos, 0.1f); // 格子中心
-    }*/
 }

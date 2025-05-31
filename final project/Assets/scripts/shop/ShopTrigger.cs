@@ -10,7 +10,7 @@ public class ShopTrigger : MonoBehaviour
 
         if (playerInRange)
         {
-            Debug.Log("Player is in range");
+            //Debug.Log("Player is in range");
         }
 
         if (playerInRange && Input.GetKeyDown(KeyCode.Return)) // Enter鍵
@@ -41,5 +41,18 @@ public class ShopTrigger : MonoBehaviour
     public void BackToFarm()
     {
         SceneManager.LoadScene("farm");
+
+        SceneManager.sceneLoaded += (scene, mode) =>
+        {
+            if (scene.name == "farm")
+            {
+                var toolbar = FindFirstObjectByType<Toolbar_UI>();
+                if (toolbar != null)
+                {
+                    Debug.Log("🛠️ 回到農場，自動重新啟用 Toolbar！");
+                    toolbar.gameObject.SetActive(true);
+                }
+            }
+        };
     }
 }

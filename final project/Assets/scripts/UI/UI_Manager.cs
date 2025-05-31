@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 [System.Serializable]
 public class InventoryUIEntry
 {
@@ -12,6 +13,7 @@ public class InventoryUIEntry
 
 public class UI_Manager : MonoBehaviour
 {
+    public static UI_Manager Instance;
     public List<InventoryUIEntry> inventoryUIPrefabs;
     public Transform uiCanvas;
     //public GameObject inventoryPanel;

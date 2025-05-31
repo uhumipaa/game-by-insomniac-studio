@@ -33,7 +33,7 @@ public class PlantManager : MonoBehaviour
         //檢查是不是田地
         if (tileName != "interable_visible") return false;
 
-        //檢查是否有選到種子
+        //檢查是否有選到東西
         if (selectedSlot == null || string.IsNullOrEmpty(selectedSlot.itemData.itemName)) return false;
         if (selectedSlot.count <= 0) return false;
 
@@ -60,11 +60,6 @@ public class PlantManager : MonoBehaviour
         // ⏳ 延遲一幀再種田，避免使用時欄位尚未注入
         StartCoroutine(DelayedPlant(position, cropToPlant));
 
-        //種下種子後變成發芽狀態
-        //tileManager.SetCropTile(position, cropToPlant.sproutTile);
-
-        /*// 記錄田地狀態
-        FarmManager.instance.AddFarmTile(position, cropToPlant);*/
         return true;
     }
 

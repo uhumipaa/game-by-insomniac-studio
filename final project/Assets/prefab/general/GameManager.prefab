@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3862993237624051998}
   - component: {fileID: 2249138406920513167}
+  - component: {fileID: 4988254347655967102}
   m_Layer: 0
   m_Name: FarmManager
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileManager: {fileID: 7813632383331753474}
   farmTileProgressBarPrefab: {fileID: 3343047390830797808, guid: 926834234d6135c46a17c2cd000c19b1, type: 3}
+  waterIconPrefab: {fileID: 1818938536082897003, guid: e8cb4cbd812ac624aa46e57c894495ad, type: 3}
+--- !u!114 &4988254347655967102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161539029205592980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f270862149a817941837ec0193aead0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165822565488250411
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +282,7 @@ GameObject:
   - component: {fileID: 8926896867482616276}
   - component: {fileID: 2161727825334077923}
   - component: {fileID: 5244905657356034976}
+  - component: {fileID: 5746077327817016536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -450,3 +465,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basefilename: save
   useencryption: 0
+--- !u!114 &5746077327817016536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5648091921307430071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c085998a644ce80499da32829a754934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 11400000, guid: 54595462cff842241a9f613ac2034f99, type: 2}
+  waterAmount: 0

@@ -10,12 +10,13 @@ public class CropData : ScriptableObject
     public Tile harvestTile;
     public GameObject harvestPrefab;
     public ItemData harvestItemData;
+    
 
     [Header("每個階段所需通關層數")]
-    public int sproutFloor = 5;  // 發芽(0 -> 1)
-    public int growFloor = 10;    // 成長（狀態1 → 2）
-    public int matureFloor = 15;  // 成熟（狀態2 → 3）
-    public int harvestFloor = 20;
+    public int sproutFloor;  // 發芽(0 -> 1)
+    public int growFloor;    // 成長（狀態1 → 2）
+    public int matureFloor;  // 成熟（狀態2 → 3）
+    public int harvestFloor;
     //public int daysToMature;
     //public int daysToHarvest;
 }

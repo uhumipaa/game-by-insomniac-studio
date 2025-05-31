@@ -11,6 +11,7 @@ public class FarmManager : MonoBehaviour
     private GameManager gm;
     public GameObject farmTileProgressBarPrefab;
     private Coroutine growCheckRoutine;
+    public GameObject waterIconPrefab;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -23,6 +24,12 @@ public class FarmManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // 保留這份跨場景
         gm = FindFirstObjectByType<GameManager>();
         tileManager = gm.tileManager;
+
+        if (waterIconPrefab == null)
+        {
+            waterIconPrefab = Resources.Load<GameObject>("waterIcon");
+            Debug.Log("✅ 自動載入 waterIcon prefab");
+        }
     }
 
     private void Start()
@@ -30,6 +37,8 @@ public class FarmManager : MonoBehaviour
         StartCoroutine(DelayedLoad());
         //StartCoroutine(CheckGrowthPeriodically());
     }
+
+    
 
     private void OnEnable()
     {
@@ -95,6 +104,14 @@ public class FarmManager : MonoBehaviour
                 progressScript.Setup(tileData);
                 tileData.progressUI = progressScript;
             }
+
+            // 生成水滴圖示（初始為未澆水）
+            if (waterIconPrefab != null)
+            {
+                GameObject waterIcon = Instantiate(waterIconPrefab, barPosition + new Vector3(0, 0.3f, 0), Quaternion.identity);
+                waterIcon.SetActive(true); // 初始顯示水滴
+                tileData.waterIcon = waterIcon;
+            }
         }
     }
 
@@ -105,6 +122,13 @@ public class FarmManager : MonoBehaviour
             var tileData = farmTiles[pos];
             var crop = tileData.cropData;
             int floor = TowerManager.Instance.finishfloorthistime;
+
+            //要澆水才會繼續生長
+            if (!tileData.isWatered)
+            {
+                Debug.Log($"❌ 作物尚未澆水，無法生長 ({tileData.cropData.cropName})");
+                return false;
+            }
 
             switch (tileData.state)
             {
@@ -180,7 +204,7 @@ public class FarmManager : MonoBehaviour
             Vector3 worldPos = tileManager.cropTilemap.CellToWorld(pos) + new Vector3(0.5f, 0.5f); // 讓物品出現在 tile 中央
             GameObject harvestItem = GameObject.Instantiate(tileData.cropData.harvestPrefab, worldPos, Quaternion.identity);
 
-            //綁定pickup資料
+            //綁定collectable資料
             Collectable collectable = harvestItem.GetComponent<Collectable>();
             if (collectable != null)
             {
@@ -196,6 +220,13 @@ public class FarmManager : MonoBehaviour
             {
                 Destroy(tileData.progressUI.gameObject);
                 tileData.progressUI = null;
+            }
+
+            //移除水滴圖
+            if (tileData.waterIcon != null)
+            {
+                Destroy(tileData.waterIcon.gameObject);
+                tileData.waterIcon = null;
             }
 
             //清除 tile
@@ -334,6 +365,20 @@ public class FarmManager : MonoBehaviour
             {
                 Debug.LogWarning($"⚠ 找不到作物：{tile.cropName}");
             }
+        }
+    }
+
+    public void WaterTile(Vector3Int pos)
+    {
+        if (farmTiles.ContainsKey(pos))
+        {
+            var tileData = farmTiles[pos];
+            tileData.isWatered = true;
+            if (tileData.waterIcon != null)
+            {
+                tileData.waterIcon.SetActive(false); // 澆水後隱藏圖示
+            }
+            Debug.Log($"💧 {tileData.cropData.cropName} 已澆水！");
         }
     }
 }
