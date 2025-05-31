@@ -29,5 +29,11 @@ public class PlayerFeatureManager : MonoBehaviour
         {
             script.enabled = (sceneName == "playerHome" || sceneName == "VickyHome");
         }*/
+
+        if(sceneName == "farm")
+        {
+            Audio_manager.Instance.Play(21, "farm_bgm", true, 0);
+        }
+    
     }
 }

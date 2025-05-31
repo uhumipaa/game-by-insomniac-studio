@@ -9,6 +9,8 @@ public class teleporthint : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void yes()
     {
+        Audio_manager.Instance.Stop();
+        
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;
@@ -16,6 +18,7 @@ public class teleporthint : MonoBehaviour
     }
     public void no()
     {
+        Audio_manager.Instance.Stop();
         canvasGroup.alpha = 0;
         canvasGroup.interactable = false;
         canvasGroup.blocksRaycasts = false;

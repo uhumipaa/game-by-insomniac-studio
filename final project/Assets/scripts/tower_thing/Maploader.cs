@@ -19,10 +19,8 @@ public class Maploaders : MonoBehaviour
     public GameObject backteleport;
     private GameObject backteleport_instance;
     public GameObject shopsystem;
-    public GameObject audio_managerPrefab;
-    public Audio_manager audio_manager;
     string audioname;
-    int audioindex;
+    int audioindex=0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -118,7 +116,7 @@ public class Maploaders : MonoBehaviour
         int lastaudio = audioindex;
         audioname = findname();
         audioindex = findindex();
-        Debug.Log($"Clip Name: {audioname} | Index: {audioindex}");
+        Debug.Log($"Clip Name: {audioname} | Index: {audioindex} | lastaudio: {lastaudio}");
         Audio_manager.Instance.Play(audioindex, audioname, true,lastaudio);
         //audio_manager.Play(index, name, true);
     }
@@ -161,7 +159,7 @@ public class Maploaders : MonoBehaviour
                 return "finalboss_bgm";
 
             default:
-                return "initial_bgm";
+                return "farmbgm";
 
         }
     }

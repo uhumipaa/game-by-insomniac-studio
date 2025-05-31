@@ -22,6 +22,11 @@ public class Audio_manager : MonoBehaviour
     public AudioClip player_take_damaged;
     public AudioClip player_tako; //15
     public AudioClip player_lighting;
+    public AudioClip Boss_king_sword;
+    public AudioClip Boss_king_summon;
+    public AudioClip Boss_king_clean;
+    public AudioClip Boss_king_teleport; //20
+    public AudioClip farm_bgm;
 
     public static Audio_manager Instance;
 
@@ -39,12 +44,22 @@ public class Audio_manager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < 17; i++) // 看上面public有幾個
+        for (int i = 0; i < 22; i++) // 看上面public有幾個
         {
             Debug.Log($"Audio Count: {audios.Count}");
 
             var audio = this.gameObject.AddComponent<AudioSource>();
             audios.Add(audio);
+        }
+    }
+    public void Stop()
+    {
+        foreach(AudioSource audio in audios)
+        {
+            if (audio.isPlaying)
+            {
+                audio.Stop();
+            }
         }
     }
 
@@ -60,6 +75,7 @@ public class Audio_manager : MonoBehaviour
         var audio = audios[index];
         if (lastaudio.isPlaying)
         {
+            Debug.Log("Stopaudio");
             lastaudio.Stop(); // 確保停止
         }
         // 若已經正在播放該 Clip，則略過重複播放
@@ -78,7 +94,7 @@ public class Audio_manager : MonoBehaviour
             Debug.Log("stop2");
         }
         */
-        Debug.Log($"audio.isplaying: {audio.isPlaying} | audio.clip: {audio.clip}| clip: {clip}");
+        Debug.Log($"audio.isplaying: {audio.isPlaying} | audio.clip: {audio.clip} | audio.index{index}| lastaudio: {lastaudio.clip}");
         Debug.Log("22222");
         audio.clip = clip;
         audio.loop = isLoop;
@@ -129,6 +145,18 @@ public class Audio_manager : MonoBehaviour
                 return player_tako;
             case "player_lighting":
                 return player_lighting;
+
+            case "Boss_king_sword":
+                return Boss_king_sword;
+            case "Boss_king_summon":
+                return Boss_king_summon;
+            case "Boss_king_clean":
+                return Boss_king_clean;
+            case "Boss_king_teleport":
+                return Boss_king_teleport;
+
+            case "farm_bgm":
+                return farm_bgm;
 
             default:
                 return  initial_bgm;
