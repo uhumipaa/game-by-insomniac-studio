@@ -22,8 +22,17 @@ public class CoinManager : MonoBehaviour,ISaveData
         }
         instance = this;
         DontDestroyOnLoad(gameObject);//跨場景保存
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;       
+    }
+    void Update()
+    {
+        if (coinsText == null&&SceneManager.GetActiveScene().name!="Main Menu"&&SceneManager.GetActiveScene().name!="Boostrap")
+        {
+            TryFindCoinText();
+        }      
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -45,7 +54,7 @@ public class CoinManager : MonoBehaviour,ISaveData
             Debug.LogWarning("找不到場景中的 CoinText UI！");
         }
     }
-    private void Start()
+    public void Start()
     {
         //將runtime金額設為初始金額
         coins = initialCoins;

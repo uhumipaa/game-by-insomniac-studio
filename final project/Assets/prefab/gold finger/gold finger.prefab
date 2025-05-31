@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7555599332136660905}
   - component: {fileID: 6237040585820036117}
   m_Layer: 5
-  m_Name: DefBackground
+  m_Name: jfBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 3570283613205050177}
   - component: {fileID: 8213649250435264698}
   m_Layer: 5
-  m_Name: Def Botton
+  m_Name: jf Botton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 8799098267176192263}
   - component: {fileID: 4776145776337866827}
   m_Layer: 5
-  m_Name: Hp Botton
+  m_Name: exp Botton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 2291875506311442595}
   - component: {fileID: 6379103066206883576}
   m_Layer: 5
-  m_Name: DefImage
+  m_Name: jfImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -992,7 +992,7 @@ GameObject:
   - component: {fileID: 8727269389905792937}
   - component: {fileID: 8433674516972697888}
   m_Layer: 5
-  m_Name: HpBackground
+  m_Name: expBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 5815810405812890769}
   - component: {fileID: 8079686867080080023}
   m_Layer: 5
-  m_Name: HpImage
+  m_Name: expImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 2863193729926271680}
   - component: {fileID: 696107470612590863}
   m_Layer: 5
-  m_Name: add point text
+  m_Name: panel text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,7 +1507,7 @@ GameObject:
   - component: {fileID: 5523018417294859918}
   - component: {fileID: 6679922681513281915}
   m_Layer: 5
-  m_Name: HPText
+  m_Name: expText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1959,7 +1959,7 @@ GameObject:
   - component: {fileID: 2075495927673592768}
   - component: {fileID: 6010455646573950216}
   m_Layer: 5
-  m_Name: DefText
+  m_Name: jfText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

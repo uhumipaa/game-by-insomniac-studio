@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System.Linq;
 public class FishingUIManager : MonoBehaviour
 {
     // Singleton
@@ -24,6 +24,8 @@ public class FishingUIManager : MonoBehaviour
 
     private bool isShowing = false; // 釣魚結果
     public bool fromTrigger = false; // 從進入釣魚的途徑判定後續是否扣除手感
+    public float duration = 5f;
+    public bool fishingcheat = false;
 
 
 
@@ -80,6 +82,10 @@ public class FishingUIManager : MonoBehaviour
             fishingTrigger.isFishing = false;
         }
     }
+    public void Fishgoldfinger()
+    {
+        fishingcheat = true;
+    }
 
     public void OnClickYes()
     {
@@ -103,7 +109,7 @@ public class FishingUIManager : MonoBehaviour
         waitingFishPic.SetActive(true);
         waitingFishText.SetActive(true);
 
-        StartCoroutine(ShowFishingResultAfterDelay(5f));
+        StartCoroutine(ShowFishingResultAfterDelay(duration));
     }
 
     public void OnClickNo()
@@ -125,6 +131,31 @@ public class FishingUIManager : MonoBehaviour
         // 隨機選擇一個釣到的物品
         int index = Random.Range(0, possibleItems.Count);
         ItemData item = possibleItems[index];
+
+        // gold finger
+        if (fishingcheat)
+        {
+            // 只從這些選項中選一個
+            string[] forcedNames = new string[] { "鯉魚王", "暴鯉龍", "鋼彈" };
+
+            // 假設 itemName 對應是唯一的
+            var forcedItems = possibleItems.Where(i => forcedNames.Contains(i.itemName)).ToList();
+
+            if (forcedItems.Count > 0)
+            {
+                index = Random.Range(0, forcedItems.Count);
+                item = forcedItems[index];
+            }
+            else
+            {
+                Debug.LogWarning("❗ 強制釣魚找不到指定物品，改為正常隨機");
+                index = Random.Range(0, possibleItems.Count);
+                item = possibleItems[index];
+            }
+
+            // 釣到一次後自動關閉開關
+            fishingcheat = false;
+        }
 
         // 統計是否釣到汙染物
         if (item.itemName == "塑膠袋" || item.itemName == "漂流瓶" || item.itemName == "鋼彈" || item.itemName == "金幣")
