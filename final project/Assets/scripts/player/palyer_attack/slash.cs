@@ -15,32 +15,22 @@ public class slash : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Player_Property>();
         player_transform = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
-
-    public void enable_hitbox(float duration)
-    {
-        StartCoroutine(HitboxRoutine(duration));
-    }
     // Update is called once per frame
     public IEnumerator HitboxRoutine(float t)
     {
-        Debug.Log("開啟");
         col.enabled = true;
         yield return new WaitForSeconds(t);
         col.enabled = false;
         Destroy(gameObject);
-        Debug.Log("關閉");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("4sa5daf");
         if (collision.CompareTag("enemy"))
         {
-            Debug.Log("撞到的 Tag 是：" + collision.tag);
             enemy = collision.GetComponent<enemy_property>();
             if (enemy == null)
             {
-                Debug.Log("4sa5daf");
             }
             enemy.takedamage(player.atk, player_transform.position);
 

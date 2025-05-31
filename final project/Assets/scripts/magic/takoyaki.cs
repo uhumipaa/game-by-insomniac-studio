@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class takoyaki : MonoBehaviour,isMagic
 {
     public float speed;
@@ -7,8 +7,10 @@ public class takoyaki : MonoBehaviour,isMagic
     public Animator TakoCD; // 在 Inspector 連到 CooldownIcon 的 Animator
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnEnable()
     {
+        if(SceneManager.GetActiveScene().name=="tower")
+            TakoCD =GameObject.Find("TakoCD").GetComponent<Animator>(); 
     }
 
     // Update is called once per frame

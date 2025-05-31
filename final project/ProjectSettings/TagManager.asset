@@ -13,6 +13,7 @@ TagManager:
   - Hint
   - exp
   - DropItem
+  - cd
   layers:
   - Default
   - TransparentFX

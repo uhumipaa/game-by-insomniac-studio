@@ -47,7 +47,7 @@ public class dash : MonoBehaviour
         dashing = false;
         Debug.Log("����dash");
         last_dash_time = Time.time;
-        DashCD.SetTrigger("StartCD");
+        //DashCD.SetTrigger("StartCD");
     }
 
     void Start()

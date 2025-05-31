@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class ChainLighting : MonoBehaviour,isMagic
 {
     public int chainnumber;
@@ -16,6 +17,11 @@ public class ChainLighting : MonoBehaviour,isMagic
     void Awake()
     {
         property = GetComponent<Player_Property>();
+    }
+    void OnEnable()
+    {
+        if(SceneManager.GetActiveScene().name=="tower")
+            ChainLightingCD =GameObject.Find("ChainLightingCD").GetComponent<Animator>();       
     }
     public void cast()
     {

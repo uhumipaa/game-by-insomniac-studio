@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 532621836687274338}
   - component: {fileID: 1357763481010792877}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: magiccooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

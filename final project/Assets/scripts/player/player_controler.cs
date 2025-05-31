@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class player_controler : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -96,7 +95,8 @@ public class player_controler : MonoBehaviour
         attacking = true;
         lastattacktime = Time.time;
         sword.SetActive(true);
-        //Audio_manager.Instance.Play(12, "player_sword", false, 0);
+        if(Audio_manager.Instance!=null)
+            Audio_manager.Instance.Play(12, "player_sword", false, 0);
         switch (player_direaction)
         {
             case direction.up:

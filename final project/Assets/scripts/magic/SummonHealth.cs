@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SummonHealth : MonoBehaviour, isMagic
 {
     public GameObject healthAreaPrefab;
@@ -13,9 +13,14 @@ public class SummonHealth : MonoBehaviour, isMagic
             return;
         }
         Debug.LogWarning("summon succes");
-        HealthAreaCD.SetTrigger("StartCD");
         GameObject instance = Instantiate(healthAreaPrefab, targetPosition, Quaternion.identity);
         instance.SetActive(true); // 保險啟用
+    }
+    void OnEnable()
+    {
+        Debug.Log("trytofindcd");
+        if(SceneManager.GetActiveScene().name=="tower")
+            HealthAreaCD = GameObject.Find("HealthAreaCD").GetComponent<Animator>();        
     }
 
     public void cast()
