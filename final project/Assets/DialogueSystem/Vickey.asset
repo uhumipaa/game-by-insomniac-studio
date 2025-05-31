@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53bbbd3b62a7044696c33b6246cf23c, type: 3}
   m_Name: Vickey
   m_EditorClassIdentifier: 
-  npcName: Vickey
+  npcName: Vicky
   npcPortrait: {fileID: -3847345956899318814, guid: 0c4434b35b39488459fe31322f64d511, type: 3}
   firstTimeDialogue:
   - "\u4F60\u597D\u5440~ \u7B2C\u4E00\u6B21\u898B\u5230\u4F60\u5462\uFF01\u6211\u662F
-    Vickey^^ "
+    Vicky^^ "
   - "\u6211\u5728\u539F\u672C\u7684\u4E16\u754C\uFF0C\u88AB\u7A31\u70BA\u842C\u5E74\u4E00\u9047\u7684\u5076\u50CF\uFF0C\u662F\u8D85\u7D1A\u6709\u540D\u7684\u7F8E\u5C11\u5973\u2606"
   - "\u4F60\u4E5F\u662F\u5F9E\u9060\u65B9\u4F86\u7684\u5C0D\u5427\uFF1F"
   - "\u4F60\u4E5F\u6709\u4E00\u4E9B\uFF0C\u53EA\u6709\u4F60\u8A18\u5F97\u7684\u6545\u4E8B\u55CE\uFF1F"
@@ -40,6 +40,6 @@ MonoBehaviour:
     - "\u539F\u4F86\u6211\u9019\u9EBC\u6709\u5148\u898B\u4E4B\u660E\u55CE\uFF1F"
     - "\u7A81\u7136\u4E0B\u5927\u96E8\u9084\u80FD\u9806\u5229\u56DE\u5BB6\uFF0C\u5B8C\u5168\u662F
       Lucky Vicky\u2661"
-  autoProgressLines: 010101
+  autoProgressLines: 0101010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05

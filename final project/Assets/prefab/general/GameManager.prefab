@@ -312,6 +312,7 @@ MonoBehaviour:
   uiManager: {fileID: 7667189415526095241}
   player: {fileID: 0}
   PotatoSeeds: {fileID: 11400000, guid: 21221da7bac379f4ea82020db78c455a, type: 2}
+  fishingFeelItem: {fileID: 11400000, guid: 48cddc10cc2209842965ffac306cbfe7, type: 2}
 --- !u!114 &4609009657921270449
 MonoBehaviour:
   m_ObjectHideFlags: 0

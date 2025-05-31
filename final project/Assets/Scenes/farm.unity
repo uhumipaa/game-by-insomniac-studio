@@ -78856,10 +78856,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u5C0D\u8A71"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5eda903fd00eda7488b584ed1f002b3f, type: 2}
-  m_sharedMaterial: {fileID: 7435149891686443275, guid: 5eda903fd00eda7488b584ed1f002b3f, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07a7c516da11b244e901ccc26636fca3, type: 2}
+  m_sharedMaterial: {fileID: -5248903225627400674, guid: 7390526c902651b44a25cb80009d987a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -78924,7 +78924,7 @@ MonoBehaviour:
   m_margin: {x: -246.91377, y: -24.527822, z: -238.73882, w: -22.892529}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &3393210758501141353
@@ -79912,7 +79912,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.999268, y: 2}
+  m_AnchoredPosition: {x: -10.999512, y: 2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &5260254161468815399

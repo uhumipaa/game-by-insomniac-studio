@@ -28,7 +28,7 @@ public class FishingUIManager : MonoBehaviour
 
     private bool isShowing = false; // 釣魚結果
     public bool fromTrigger = false; // 從進入釣魚的途徑判定後續是否扣除手感
-    public ItemData fishingFeelItem; // 指向 Fishing_feel 的 itemdata
+    
 
 
     // 可釣物品清單（ItemData）
@@ -71,11 +71,7 @@ public class FishingUIManager : MonoBehaviour
         waitingFishText.SetActive(false);
         fishingResultPanel.SetActive(false);
 
-        // 初始贈送釣魚手感* 3
-        for (int i = 0; i < 3; i++)
-        {
-            InventoryManager.Instance.Add("Backpack", fishingFeelItem, 1);
-        }
+        
     }
 
     void Update()

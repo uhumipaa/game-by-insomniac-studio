@@ -10,6 +10,7 @@ public class FarmManager : MonoBehaviour
     private Dictionary<Vector3Int, FarmTileData> farmTiles = new Dictionary<Vector3Int, FarmTileData>();
     private GameManager gm;
     public GameObject farmTileProgressBarPrefab;
+    private Coroutine growCheckRoutine;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -27,15 +28,30 @@ public class FarmManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(DelayedLoad());
+        //StartCoroutine(CheckGrowthPeriodically());
+    }
+
+    private void OnEnable()
+    {
         StartCoroutine(CheckGrowthPeriodically());
     }
+
+    private void OnDisable()
+    {
+        if (growCheckRoutine != null)
+        {
+            StopCoroutine(growCheckRoutine);
+            growCheckRoutine = null;
+        }
+    }
+
 
     private IEnumerator CheckGrowthPeriodically()
     {
         while (true)
         {
             AutoGrowAllTiles(); // 檢查是否成長
-            yield return new WaitForSeconds(5f); // 每 10 秒跑一次
+            yield return new WaitForSeconds(5f); // 每 5 秒跑一次
         }
     }
 

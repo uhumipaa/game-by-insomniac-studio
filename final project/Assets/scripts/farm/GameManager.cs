@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public UI_Manager uiManager;
     public player_trigger player;
     public ItemData PotatoSeeds;
+    public ItemData fishingFeelItem; // 指向 Fishing_feel 的 itemdata
 
     private void Awake()
     {
@@ -49,7 +50,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //預設背包物品
         InventoryManager.Instance.Add("Backpack", PotatoSeeds, 3);
+        InventoryManager.Instance.Add("Backpack", fishingFeelItem, 3);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
