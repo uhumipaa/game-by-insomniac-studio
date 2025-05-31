@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
+  m_Name: leather_jacket
+  m_EditorClassIdentifier: 
+  ID: 
+  itemName: leather_jacket
+  description: just leather_jacket
+  icon: {fileID: 8959833438189786751, guid: af3dff770e56ad74c9ecbd20f1d541be, type: 3}
+  type: 21
+  maxAllowed: 1
+  isusable: 0
+  isarmor: 1
+  currentHP: 10
+  maxHP: 10
+  buffATK: 0
+  buffDEF: 10
+  buffSP: 0
+  buffMP: 0
+  buffLuck: 0
+  duration: 0

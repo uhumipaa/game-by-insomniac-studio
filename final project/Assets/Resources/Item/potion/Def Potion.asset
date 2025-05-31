@@ -23,8 +23,8 @@ MonoBehaviour:
   currentHP: 0
   maxHP: 0
   buffATK: 0
-  buffDEF: 10
+  buffDEF: 30
   buffSP: 0
   buffMP: 0
   buffLuck: 0
-  duration: 20
+  duration: 30

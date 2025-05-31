@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Golem
   m_EditorClassIdentifier: 
   baseHP: 30
-  baseatk: 10
-  basedef: 10
-  speed: 5
+  baseatk: 30
+  basedef: 30
   enemyname: Golem
   atkpara: 1
   defpara: 1

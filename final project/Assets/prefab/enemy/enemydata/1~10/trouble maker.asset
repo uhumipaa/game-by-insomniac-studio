@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHP: 50
   baseatk: 10
-  basedef: 20
-  speed: 6
+  basedef: 15
   enemyname: 
   atkpara: 2
   defpara: 2

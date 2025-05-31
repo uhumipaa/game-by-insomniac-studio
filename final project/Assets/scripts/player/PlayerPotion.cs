@@ -9,6 +9,7 @@ public class PlayerPotion : MonoBehaviour
     public GameObject atkeffect;
     public GameObject defeffect;
     public GameObject hpeffect;
+    public GameObject acceffect;
 
     void Start()
     {
@@ -75,6 +76,28 @@ public class PlayerPotion : MonoBehaviour
                 StartCoroutine(RevertColorAfterDuration(renderer, originalColor, item.duration));
             }
             Instantiate(defeffect, transform.position, Quaternion.identity);
+            StartCoroutine(potioneffect(item.duration, item));
+            var allSlots = FindObjectsOfType<Slot_UI>();
+            foreach (var slot in allSlots)
+            {
+                slot.Refresh();
+            }
+        }
+        if (item.type == ItemType.Accpotion)
+        {
+            var renderer = GetComponentInChildren<Renderer>();
+            if (renderer != null)
+            {
+                // ✅ 記住原始顏色
+                Color originalColor = renderer.material.color;
+
+                // ✅ 改變顏色為綠色
+                renderer.material.color = Color.green;
+
+                // ✅ 開始協程：過一段時間後再恢復
+                StartCoroutine(RevertColorAfterDuration(renderer, originalColor, item.duration));
+            }
+            Instantiate(acceffect, transform.position, Quaternion.identity);
             StartCoroutine(potioneffect(item.duration, item));
             var allSlots = FindObjectsOfType<Slot_UI>();
             foreach (var slot in allSlots)

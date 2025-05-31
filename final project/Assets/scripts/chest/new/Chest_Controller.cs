@@ -55,7 +55,9 @@ public class Chest_Controller : MonoBehaviour
     ItemRarity GetRandomRarity()
     {
         int rmd = Random.Range(0, 100);
+        int lucky = PlayerStatusManager.instance.playerStatusData.Luck / 3;
         ItemRarity rarity=ItemRarity.Common;
+        rmd += lucky;
         if (rmd < Rate_Common)
         {
             rarity = ItemRarity.Common;

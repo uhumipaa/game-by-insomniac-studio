@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
+  m_Name: NatuerSword
+  m_EditorClassIdentifier: 
+  ID: 
+  itemName: NatuerSword
+  description: A sword with the power of nature, the user will be blessed by living
+    beings
+  icon: {fileID: -2276259661975475453, guid: 87b1faa9db5b0aa479e9bf359c63f781, type: 3}
+  type: 26
+  maxAllowed: 1
+  isusable: 0
+  isarmor: 1
+  currentHP: 5
+  maxHP: 5
+  buffATK: 15
+  buffDEF: 5
+  buffSP: 0
+  buffMP: 5
+  buffLuck: 0
+  duration: 0

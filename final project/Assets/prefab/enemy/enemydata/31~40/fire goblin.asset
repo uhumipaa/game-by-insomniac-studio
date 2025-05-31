@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
   m_Name: fire goblin
   m_EditorClassIdentifier: 
-  baseHP: 30
-  baseatk: 17
-  basedef: 6
-  speed: 3
+  baseHP: 100
+  baseatk: 80
+  basedef: 40
   enemyname: fire goblin
   atkpara: 2.3
   defpara: 1

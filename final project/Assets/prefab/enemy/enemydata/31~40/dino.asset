@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
   m_Name: dino
   m_EditorClassIdentifier: 
-  baseHP: 50
-  baseatk: 10
-  basedef: 13
-  speed: 2
+  baseHP: 100
+  baseatk: 60
+  basedef: 60
   enemyname: dino
   atkpara: 1.5
   defpara: 1.5

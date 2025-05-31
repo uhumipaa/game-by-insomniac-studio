@@ -22,9 +22,9 @@ MonoBehaviour:
   isarmor: 0
   currentHP: 0
   maxHP: 0
-  buffATK: 20
+  buffATK: 30
   buffDEF: 0
   buffSP: 0
   buffMP: 0
   buffLuck: 0
-  duration: 20
+  duration: 30

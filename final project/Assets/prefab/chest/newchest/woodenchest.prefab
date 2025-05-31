@@ -116,6 +116,80 @@ MonoBehaviour:
     rarity: 0
   - itemData: {fileID: 11400000, guid: f2ed0f2b02c992e43a3d8226daaaf11d, type: 2}
     rarity: 2
+  - itemData: {fileID: 11400000, guid: 1163d8a6712390d4891ee0999cf9ca9e, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: ab09b9ef1e81f014ca6a33f70cc85001, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 788c46f1e236f944c8ff99943f44ed15, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 47304f0593a305d418603e3e5aecb45f, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 93ddaca97b0d53149974a6f6b50ec6cd, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: f369ed2edd5f64c44b33d1b8e5eaf827, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 4996cb2b0410a054e908be9d917b9aa9, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 26deb0d71b0c5b5449d80e587f6b6564, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: a54e32a62270aca4297eb1e8bcb9139e, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: e16afad66d74fd64494b3e62980a60f8, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 76a3c319da89979458e88913e01ae766, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: afc7546a565cd60498aa819056aa6ac9, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 74dc077adf4e33a45a34e47e2385ac2a, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: a3aef3393cbc46c478e6fbbd31d2a702, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 39471d3593ae3644f82ac1d2596c4964, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 4d447d71105d67a448fd4afb7dc38c37, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: c57acb6771632844ba36cd1448728a02, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 292b3d740dad48a4fa5576fb07b38221, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: b5333c022d89bda46b87c807670d259b, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 3b6bb2f0bc89fb844bcce4dba213a84a, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 2b3cb5e5c9b0ea04d811657ac9120091, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: c6a9d71d934cefc469bdbcfb6bc6f194, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 107aecf0b5631dd439644a4cbd601930, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 24bd5f7c27d30d74fba561755b639810, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 8eeaaf7d4bb4f2b4ea11f31319a33e94, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 4bd60b6adc4c3284a850752fd722e5ac, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 0de8501bf20cb034ba22179a13f1fca0, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 32d1ea1a678a79d4ebb39d132fcb6ee3, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: 5ab285ab276f54a4abce69f9fe353db3, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 0133a1e004c439545aeefe7a26045d67, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 01c645ed7fcfdb34ab5e8009a2f3d1c8, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: 02b0d4423cf695446b25342853510979, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: 6b1a0e9ddaf9e054d9b5507299c1761c, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 09374af4fa5de7f44a0448adb33688a2, type: 2}
+    rarity: 1
+  - itemData: {fileID: 11400000, guid: c4a25bc8d1b694240a73edbf39243ccd, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: d642e85a774d067479d31f9d2cce8f0d, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 52f8167567dc13349acc11bbedcfe213, type: 2}
+    rarity: 3
   presents_reward:
     itemData: {fileID: 0}
     rarity: 0

@@ -95,6 +95,9 @@ MonoBehaviour:
   nametext: {fileID: 1995986176596374349}
   pricetext: {fileID: 774220820081664708}
   icon: {fileID: 3720802247915650323}
+  canbuyhint: {fileID: 0}
+  shopmanager: {fileID: 0}
+  info: {fileID: 0}
 --- !u!1 &670286949672216854
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,8 +132,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.946, y: 4.4029}
-  m_SizeDelta: {x: 163.211, y: 70.625}
+  m_AnchoredPosition: {x: 1.147, y: 11.85}
+  m_SizeDelta: {x: 151.025, y: 55.731}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4840723032766181593
 CanvasRenderer:
@@ -162,8 +165,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: f629c6e43dba4bf38cb74d8860150664, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7390526c902651b44a25cb80009d987a, type: 2}
+  m_sharedMaterial: {fileID: -5248903225627400674, guid: 7390526c902651b44a25cb80009d987a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -187,7 +190,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.4
+  m_fontSize: 50.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

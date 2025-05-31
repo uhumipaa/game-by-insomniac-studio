@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: nightdemon
   m_EditorClassIdentifier: 
   baseHP: 30
-  baseatk: 17
-  basedef: 13
-  speed: 3
+  baseatk: 30
+  basedef: 30
   enemyname: nightdemon
   atkpara: 2
   defpara: 1.5

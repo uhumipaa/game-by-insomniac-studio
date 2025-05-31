@@ -34,7 +34,7 @@ public class RewardCards : MonoBehaviour,IPointerClickHandler
                 namebanner.color = Color.red;
                 break;
         }
-        coin = Random.Range(0, 40) * 10;
+        coin = Random.Range(1, 11) * 10;
         cointext.text = new("Coin x" + coin);
         List<string> stats = new List<string>();
         if (item.currentHP != 0) { stats.Add("Heal: " + item.currentHP); Debug.Log("→ 加入 Heal"); }

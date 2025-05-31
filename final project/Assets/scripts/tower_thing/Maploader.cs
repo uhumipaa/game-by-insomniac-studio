@@ -191,7 +191,7 @@ public class Maploaders : MonoBehaviour
                     continue;
                 }
             }
-            int level = Random.Range((TowerManager.Instance.currentTowerFloor % 3) + 4 - floorData.levelrange, (TowerManager.Instance.currentTowerFloor % 3) + 4 - floorData.levelrange);
+            int level = Random.Range((TowerManager.Instance.currentTowerFloor % 3) + 4 - floorData.levelrange, (TowerManager.Instance.currentTowerFloor % 3) + 4 + floorData.levelrange);
             if (count < floorData.enemycount - 2)
             {
                 if (count < floorData.enemycount - 3)

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: assassin
   m_EditorClassIdentifier: 
   baseHP: 10
-  baseatk: 30
+  baseatk: 55
   basedef: 0
-  speed: 2
   enemyname: assassin
   atkpara: 3
   defpara: 1

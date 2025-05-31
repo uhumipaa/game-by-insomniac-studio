@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
   m_Name: Boss Dark Magician
   m_EditorClassIdentifier: 
-  baseHP: 100
-  baseatk: 20
-  basedef: 20
-  speed: 1
+  baseHP: 240
+  baseatk: 70
+  basedef: 70
   enemyname: Dark Magician
   atkpara: 0
   defpara: 0

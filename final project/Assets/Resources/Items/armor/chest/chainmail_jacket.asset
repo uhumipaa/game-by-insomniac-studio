@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
+  m_Name: chainmail_jacket
+  m_EditorClassIdentifier: 
+  ID: 
+  itemName: chainmail_jacket
+  description: just chainmail_jacket
+  icon: {fileID: 5902405012352070023, guid: b373a584ab1d34a4093e28dc373b5825, type: 3}
+  type: 21
+  maxAllowed: 1
+  isusable: 0
+  isarmor: 1
+  currentHP: 10
+  maxHP: 10
+  buffATK: 0
+  buffDEF: 20
+  buffSP: 0
+  buffMP: 0
+  buffLuck: 0
+  duration: 0

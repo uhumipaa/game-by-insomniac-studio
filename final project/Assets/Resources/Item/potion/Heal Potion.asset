@@ -20,8 +20,8 @@ MonoBehaviour:
   maxAllowed: 1
   isusable: 1
   isarmor: 0
-  currentHP: 20
-  maxHP: 20
+  currentHP: 50
+  maxHP: 50
   buffATK: 0
   buffDEF: 0
   buffSP: 0

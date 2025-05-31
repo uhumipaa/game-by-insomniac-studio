@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: death bringer
   m_EditorClassIdentifier: 
   baseHP: 40
-  baseatk: 20
-  basedef: 5
-  speed: 0
+  baseatk: 40
+  basedef: 20
   enemyname: death bringer
   atkpara: 2
   defpara: 2

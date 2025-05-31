@@ -16,7 +16,7 @@ public enum ItemType
     Plastic_Bag, Message_In_A_Bottle,
     Gundam, Coins,
     Fishing_feel,
-    Water,armor,helmet,boots,pants,accesasor,sword,staff,Atkpotion,Defpotion,Hppotion,potion
+    Water,armor,helmet,boots,pants,accesasor,sword,staff,Atkpotion,Defpotion,Hppotion,Accpotion,potion
 }
 
 [CreateAssetMenu(fileName = "Item Data", menuName = "Item Data", order = 50)]

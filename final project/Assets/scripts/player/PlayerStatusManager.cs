@@ -10,11 +10,11 @@ public class PlayerStatusData
     public int Luck;
     public PlayerStatusData ()
     {
-        attack = 15;
-        defense = 15;
-        maxHP = 50;
-        magic_power = 15;
-        speed = 3;
+        attack = 30;
+        defense = 30;
+        maxHP = 100;
+        magic_power = 30;
+        speed = 4.5f;
         Luck = 10;
     }
 }
