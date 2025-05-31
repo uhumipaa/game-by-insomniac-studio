@@ -5367,12 +5367,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 6
   type: 21
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -6572,12 +6573,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 3
   type: 25
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -7596,12 +7598,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 2
   type: 26
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -8295,12 +8298,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 8
   type: 23
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -9969,12 +9973,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 4
   type: 25
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -10349,6 +10354,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 8507735885385965458}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -11564,12 +11570,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 5
   type: 25
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 7623946201002176255}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -14879,12 +14886,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e95460ec4306dd4b876b63e580a17e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotindex: 0
+  slotindex: 7
   type: 24
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}
@@ -15270,6 +15278,7 @@ MonoBehaviour:
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}
+  isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
   - {fileID: 8601504167575482654}

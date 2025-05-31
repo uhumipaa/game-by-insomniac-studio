@@ -30,7 +30,7 @@ public class SaveSystem : MonoBehaviour
     [SerializeField] private string basefilename = "save";
 
     SaveData savedata;
-    [SerializeField]List<ISaveData> saveDatasObject;
+    [SerializeField] List<ISaveData> saveDatasObject;
     private SaveFileHandler saveFileHandler;
     [SerializeField] private bool useencryption;
     private int currentSlot = 1;
@@ -51,7 +51,7 @@ public class SaveSystem : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L)) Savegame(1);    
+        if (Input.GetKeyDown(KeyCode.L)) Savegame(1);
     }
     public void Savegame(int slot)
     {
@@ -87,8 +87,9 @@ public class SaveSystem : MonoBehaviour
     //自動綁定所有需要儲存的程式
     private List<ISaveData> findallsavedata()
     {
-        IEnumerable<ISaveData> saveDatas = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
-                .OfType<ISaveData>();
+        IEnumerable<ISaveData> saveDatas =  FindAllInterfaceImplementations<ISaveData>();
+        //IEnumerable<ISaveData> saveDatas = Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+        ///.OfType<ISaveData>();
         return new List<ISaveData>(saveDatas);
     }
     //可以設定是第幾個存檔
@@ -104,9 +105,25 @@ public class SaveSystem : MonoBehaviour
     public bool HasSaveFile(int slot)
     {
         SetSaveSlot(slot);
-        
+
         return saveFileHandler != null && saveFileHandler.HasSaveFile();
-    } 
+    }
+    public static List<T> FindAllInterfaceImplementations<T>() where T : class
+    {
+    List<T> result = new List<T>();
+
+    var allMono = Resources.FindObjectsOfTypeAll<MonoBehaviour>();
+
+    foreach (var mono in allMono)
+    {
+        if (mono is T t)
+        {
+            result.Add(t);
+        }
+    }
+
+    return result;
+}
 }
 
  

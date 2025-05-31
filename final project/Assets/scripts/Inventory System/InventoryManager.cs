@@ -140,7 +140,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
         storagebox.slots.Clear();
         */
         regristall();
-        foreach (Inventory_UI ui in FindObjectsOfType<Inventory_UI>())
+        foreach (Inventory_UI ui in Resources.FindObjectsOfTypeAll<Inventory_UI>())
         {
             Debug.Log($"reconnect:{ui.name}");
             ui.Reconnect();

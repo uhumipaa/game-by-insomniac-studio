@@ -139,7 +139,16 @@ public class Inventory_UI : MonoBehaviour
             Debug.LogError($"❌ Slot ID {slot.slotID} 的 inventory 為 null，無法開始拖曳！");
             return;
         }
-
+        if (canvas == null || canvas.gameObject == null)
+        {
+        canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("❌ 找不到 Canvas，無法拖曳！");
+            return;
+        }
+        }
+        
         UI_Manager.draggedSlot = slot;
         UI_Manager.draggedIcon = Instantiate(slot.itemIcon);
         UI_Manager.draggedIcon.transform.SetParent(canvas.transform);

@@ -13,7 +13,7 @@ public class SaveEquippment
         slotindex = index;
     }
 }
-public class EquipmentSlot : MonoBehaviour, ISaveData
+public class EquipmentSlot : MonoBehaviour
 {
     [SerializeField] int slotindex;
     public ItemType type;
@@ -21,7 +21,7 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
     [SerializeField] private SpriteRenderer sword;
     [SerializeField] private SpriteRenderer staff;
     public Image icon;
-    bool isload;
+    public bool isload;
     [SerializeField] Slot_UI[] slot_UIs;
     void Start()
     {
@@ -35,7 +35,6 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
         {
             if (!isload)
             {
-
                 PlayerStatusManager.instance.diff_status(itemData);
                 InventoryManager.Instance.Add("Backpack", itemData, 1);
                 Debug.Log("4das5f4af");
@@ -47,13 +46,26 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
         {
             InventoryManager.Instance.TryRemove("Backpack", itemData, 1);
             PlayerStatusManager.instance.add_status(itemData);
+            EquipmentManager.instance.loadequip(itemData, slotindex);
+        }
+        else
+        {
+
         }
         if (type == ItemType.sword)
         {
+            if (sword == null)
+            {
+                sword = GameObject.Find("sword").GetComponent<SpriteRenderer>();
+            }
             sword.sprite = itemData.icon;
         }
         else if (type == ItemType.staff)
         {
+            if (staff == null)
+            {
+                staff = GameObject.Find("staff").GetComponent<SpriteRenderer>();
+            }
             staff.sprite = itemData.icon;
         }
         foreach (Slot_UI ui in slot_UIs)
@@ -64,7 +76,7 @@ public class EquipmentSlot : MonoBehaviour, ISaveData
 
     public void SaveData(ref SaveData saveData)
     {
-        Debug.Log("儲存裝備資料中");
+        Debug.Log($"儲存裝備資料中{type}");
         if (itemData != null)
         {
             Debug.Log("545fa");
