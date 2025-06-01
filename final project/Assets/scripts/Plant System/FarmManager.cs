@@ -234,6 +234,9 @@ public class FarmManager : MonoBehaviour
                 Debug.LogWarning("❌ Harvest prefab 上找不到 Collectable 組件！");
             }
 
+            //紀錄生成農作物
+            DropManager.instance.SaveDroppedItems();
+
             //移除進度條
             if (tileData.progressUI != null)
             {

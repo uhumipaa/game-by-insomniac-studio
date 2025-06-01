@@ -37,9 +37,10 @@ public class player_trigger : MonoBehaviour
 
     private void Update()
     {
+        //播種
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            
+
             if (tileManager != null)
             {
                 //取位順便解決偏移
@@ -67,7 +68,30 @@ public class player_trigger : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetMouseButtonDown(0)) // 左鍵澆水
+        {
+            Debug.Log("點擊澆水");
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int cellPos = FarmManager.instance.tileManager.cropTilemap.WorldToCell(mouseWorldPos);
+
+            var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
+
+            if (WaterTool.Instance.TryWater(cellPos, selectedSlot))
+            {
+                Debug.Log("澆水成功");
+                if (gm == null || gm.uiManager == null)
+                {
+                    Debug.LogWarning("⚠️ GameManager 或 UIManager 為 null，無法刷新 Toolbar");
+                }
+                else
+                {
+                    gm.uiManager.RefreshInventoryUI("Toolbar");
+                }
+            }
+        }
     }
+
     //掉落一件物品
     public void DropItem(ItemType type)
     {

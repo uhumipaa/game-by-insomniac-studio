@@ -3,7 +3,19 @@ using UnityEngine.SceneManagement;
 public class WaterTool : MonoBehaviour
 {
     private GameManager gm;
-    void Update()
+    public static WaterTool Instance { get; private set; }
+
+    private void Awake()
+{
+    if (Instance != null && Instance != this)
+    {
+        Destroy(gameObject);
+        return;
+    }
+    Instance = this;
+    DontDestroyOnLoad(this.gameObject); // 如果需要
+}
+    /*void Update()
     {
         if (Input.GetMouseButtonDown(0)&&SceneManager.GetActiveScene().name=="farm") // 左鍵澆水
         {
@@ -12,14 +24,22 @@ public class WaterTool : MonoBehaviour
             Vector3Int cellPos = FarmManager.instance.tileManager.cropTilemap.WorldToCell(mouseWorldPos);
 
             var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
+            
             if (TryWater(cellPos, selectedSlot))
             {
                 Debug.Log("澆水成功");
-                gm.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
+                if (gm == null || gm.uiManager == null)
+                {
+                    Debug.LogWarning("⚠️ GameManager 或 UIManager 為 null，無法刷新 Toolbar");
+                }
+                else
+                {
+                    gm.uiManager.RefreshInventoryUI("Toolbar");
+                }
             }
         }
-    }
-    
+    }*/
+
 
     public bool TryWater(Vector3Int position, Inventory.Slot selectedSlot)
     {

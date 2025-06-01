@@ -43,21 +43,6 @@ public class Inventory_UI : MonoBehaviour
 
     public void Refresh()
     {
-        //if (slots.Count == inventory.slots.Count)
-        //{
-        /*
-        if (isequipment)
-        {
-            for (int i = equipmentoffset; i < slots.Count; i++)
-            {
-                var sourceSlot = inventory.slots[i];
-                if (sourceSlot.count > 0)
-                    slots[i].SetItem(sourceSlot);
-                else
-                    slots[i].SetEmpty();
-            }
-        }
-        */
         for (int i = 0; i < slots.Count&&i<inventory.slots.Count; i++)
         {
             var sourceSlot = inventory.slots[i];
@@ -66,7 +51,7 @@ public class Inventory_UI : MonoBehaviour
             else
                 slots[i].SetEmpty();
         }
-        //}
+        Debug.Log("刷新成功");
     }
 
     public void Remove()
