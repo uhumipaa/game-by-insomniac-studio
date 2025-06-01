@@ -31,6 +31,8 @@ public class enemy_property : MonoBehaviour
     private bool isDarkMagicion = false;
     public float detect_range = 5f;
     private SmartShieldEnemy killershield;
+    [SerializeField] private Animator animator;
+
 
     [Header("是nightdemon才需要掛")]
     public nightdemoncontroller nightdemon;
@@ -163,6 +165,16 @@ public class enemy_property : MonoBehaviour
         {
             bossController.ClearSummonedKnights();  // Boss死時清掉所有召喚物
         }
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Dead"); // "dead" 必須存在於 Animator 的 Trigger 參數中
+        }
+        else
+        {
+            Debug.LogWarning("Animator is null on enemy_property!");
+        }
+        
         Debug.Log("GG");
         StartCoroutine(DelayedDestroy(0.5f));
 
@@ -173,6 +185,7 @@ public class enemy_property : MonoBehaviour
     }
     private IEnumerator DelayedDestroy(float delay)
     {
+
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }

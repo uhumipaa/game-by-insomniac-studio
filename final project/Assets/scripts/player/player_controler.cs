@@ -14,6 +14,8 @@ public class player_controler : MonoBehaviour
     private enum direction { up, down, left, right }
     private direction player_direaction;
     public Transform sliderCanvas;
+    public bool canControl = true; // ✅ 新增這個
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,7 +38,7 @@ public class player_controler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) return; //  防止擊退中還能操作
+        if (!canControl || !canMove) return; // ✅ 新增 canControl 判斷
         if (Time.time - lastattacktime > property.attack_time)
         {
             attacking = false;
@@ -56,7 +58,7 @@ public class player_controler : MonoBehaviour
     {
         if (!Dash.dashing)
         {
-            if (!canMove) return;//擊退時暫停
+            if (!canControl || !canMove) return; // ✅ 新增 canControl 判斷//擊退時暫停
             Move();
 
             // ➤ 這裡改為根據移動方向翻轉角色

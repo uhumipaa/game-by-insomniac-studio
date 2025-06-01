@@ -1177,6 +1177,7 @@ MonoBehaviour:
   sword: {fileID: 8066290499374552347}
   canMove: 1
   sliderCanvas: {fileID: 0}
+  canControl: 1
 --- !u!95 &134205185742865961
 Animator:
   serializedVersion: 7
@@ -1238,6 +1239,16 @@ MonoBehaviour:
         m_CallState: 2
   healthbar: {fileID: 0}
   expAddUI: {fileID: 0}
+  playerController: {fileID: 1491123828614423226}
+  blackScreenPanel: {fileID: 0}
+  deathAnimators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &5858566192561528659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1335,7 @@ MonoBehaviour:
   range: 5
   dmgpara: 0
   chiandelay: 0.5
-  lightingprefab: {fileID: 9105819828183486740, guid: b4dd7614ea14273499355df9f9970f4e, type: 3}
+  lightingprefab: {fileID: 9126000124638884126, guid: 1c10f611f1bc63440908a3acb725b5b1, type: 3}
   ChainLightingCD: {fileID: 0}
 --- !u!114 &3249337608617599248
 MonoBehaviour:
@@ -1479,7 +1490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b977cfa6e72b94daf660feed37a309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthAreaPrefab: {fileID: 7255113382851955653, guid: 6d462829d7a99d54b82b7bbc65e2a832, type: 3}
+  healthAreaPrefab: {fileID: 0}
   HealthAreaCD: {fileID: 0}
 --- !u!114 &6068512907735187856
 MonoBehaviour:

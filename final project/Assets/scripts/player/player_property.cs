@@ -3,6 +3,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+
+
 public class Player_Property : MonoBehaviour,ISaveData
 {
     
@@ -23,6 +27,11 @@ public class Player_Property : MonoBehaviour,ISaveData
     [SerializeField] private UnityEvent healthChanged;
     [SerializeField] private playerhealthbar healthbar;
     public ExpAddUI expAddUI;
+    [SerializeField] private player_controler playerController;
+    [SerializeField] private CanvasGroup blackScreenPanel;
+    [SerializeField] private List<Animator> deathAnimators; // 可拖入多個 Animator
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -55,6 +64,22 @@ public class Player_Property : MonoBehaviour,ISaveData
             healthbar.initial(); //血量條初始化
         }
         update_property();
+        //StartCoroutine(die());
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "tower")
+        {
+            blackScreenPanel = GameObject.Find("blackscreen").GetComponent<CanvasGroup>();
+            deathAnimators.Add(GameObject.Find("GameOver1").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver2").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver3").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver4").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver5").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver6").GetComponent<Animator>());
+            deathAnimators.Add(GameObject.Find("GameOver7").GetComponent<Animator>());
+        }
     }
 
     void Update()
@@ -129,7 +154,8 @@ public class Player_Property : MonoBehaviour,ISaveData
         int actual_def = UnityEngine.Random.Range(def - 5, def + 6);
         int actual_damage = Mathf.Max(damage - actual_def, 0);
         current_health -= actual_damage;
-        Audio_manager.Instance.Play(14, "player_take_damaged", false, 0);
+        if(Audio_manager.Instance!=null)
+            Audio_manager.Instance.Play(14, "player_take_damaged", false, 0);
         healthChanged.Invoke();
         if (healthbar != null)
         {
@@ -152,7 +178,7 @@ public class Player_Property : MonoBehaviour,ISaveData
 
         if (current_health < 0)
         {
-            die();
+            StartCoroutine(die());
         }
     }
     public void heal(int amount)
@@ -162,10 +188,31 @@ public class Player_Property : MonoBehaviour,ISaveData
     }
 
 
-    void die()
+    private IEnumerator die()
     {
-        Debug.Log("���`�G�G");
+        Debug.Log("玩家死亡！開始死亡流程");
+
+        if (playerController != null)
+            playerController.canControl = false; // 停止輸入
+
+        if (blackScreenPanel != null)
+            blackScreenPanel.alpha = 1f; // 立即變黑，不淡入
+
+        foreach (Animator anim in deathAnimators)
+        {
+            if (anim != null)
+            {
+                anim.SetTrigger("GameOver"); // 或 "Pop"、"FadeIn"，視你的動畫命名
+            }
+        }// 播放死亡動畫
+
+        //等待10秒
+         yield return new WaitForSeconds(5f);
+        //轉場景
+        SceneManager.LoadScene("playerHome");
+
     }
+
 
     public void SaveData(ref SaveData saveData)
     {

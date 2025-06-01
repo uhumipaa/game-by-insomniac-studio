@@ -536,6 +536,7 @@ MonoBehaviour:
   isBossKingPhase2: 0
   isnightdemon: 0
   detect_range: 5
+  animator: {fileID: 6671578029783136480}
   nightdemon: {fileID: 0}
   Dark_Magicion: {fileID: 0}
 --- !u!114 &7537738094362616373
