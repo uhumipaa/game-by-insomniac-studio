@@ -1,5 +1,6 @@
 [timestop,0]
 [show]
+[audio,bmg,shock-227481,true,0,audioTransit_0.7_1000]
 啊啊啊啊啊啊啊!!!!!![w]
 欸?我沒事...[lr]
 不對，這裡是哪裡啊啊啊[w]
@@ -12,4 +13,5 @@
 總而言之試試看吧[w]
 (溫馨提醒，左鍵攻擊、空格鍵施放魔法、R鍵切換魔法、shift滑行)[w]
 [hide]
+[remove,bmg,audioTransit_0_1000]
 [timestart]

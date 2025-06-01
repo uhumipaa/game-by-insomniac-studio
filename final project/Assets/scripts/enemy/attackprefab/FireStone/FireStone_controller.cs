@@ -1,8 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 public class FireStone_controller: MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created

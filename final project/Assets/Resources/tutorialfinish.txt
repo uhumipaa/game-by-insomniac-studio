@@ -1,4 +1,5 @@
 [show]
+[audio,bgm,bgm_sans_relax,true,0,audioTransit_0.7_1000]
 [timestop]
 呼~應該是打倒了[w]
 得虧我常看一些穿越作品，對這種東西比較熟悉[w]
@@ -15,3 +16,4 @@
 先這樣吧，也準備的差不多了，該進塔裡了[w]
 [hide]
 [load_scene,farm]
+[remove,bgm,audioTransit_0_1000]

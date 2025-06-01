@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.UIElements;
+
 public class DinoDash : MonoBehaviour,IEnemySpecilskillBehavior
 {
     [SerializeField] private AnimationCurve dashSpeedCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);

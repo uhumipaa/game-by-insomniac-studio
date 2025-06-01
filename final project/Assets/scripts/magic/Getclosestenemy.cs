@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using System.Collections;
+
 using UnityEngine;
-using UnityEngine.SocialPlatforms.GameCenter;
+
 
 public class Getclosestenemy : MonoBehaviour
 {
