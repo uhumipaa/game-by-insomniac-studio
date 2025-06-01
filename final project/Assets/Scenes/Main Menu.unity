@@ -4014,6 +4014,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035404217358709441, guid: e6f4c9714ecc53040bbaf96facf3327a, type: 3}
+      propertyPath: farm_bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: f4729ec173729e44dad2afd8d2d130de, type: 3}
     - target: {fileID: 6738941047817475457, guid: e6f4c9714ecc53040bbaf96facf3327a, type: 3}
       propertyPath: m_Name
       value: audio_manager

@@ -206,6 +206,18 @@ MonoBehaviour:
     rarity: 0
   - itemData: {fileID: 11400000, guid: 3a5b2284c2fce0c4aac94f8622abc973, type: 2}
     rarity: 0
+  - itemData: {fileID: 11400000, guid: 841b78a4f034a7443aa6a6efb2eeec81, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: f2246319084477c49b2d4769dd236bfb, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 15f1e3473f3514044872745cea0c7d08, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 6fa589b56b1bb9e43a297f79a1985107, type: 2}
+    rarity: 2
+  - itemData: {fileID: 11400000, guid: 4f4d1751aae722b4f886b495bdab13c1, type: 2}
+    rarity: 3
+  - itemData: {fileID: 11400000, guid: 92e8b2bd054942d4487777df3d235bdd, type: 2}
+    rarity: 0
   presents_reward:
     itemData: {fileID: 0}
     rarity: 0

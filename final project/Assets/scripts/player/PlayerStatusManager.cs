@@ -11,7 +11,7 @@ public class PlayerStatusData
     public PlayerStatusData ()
     {
         attack = 30;
-        defense = 30;
+        defense = 100;
         maxHP = 100;
         magic_power = 30;
         speed = 4.5f;
@@ -40,7 +40,7 @@ public class PlayerStatusManager : MonoBehaviour,ISaveData
     private void Initialize() 
     {
         playerStatusData.attack = 30;
-        playerStatusData.defense = 30;
+        playerStatusData.defense = 100;
         playerStatusData.maxHP = 100;
         playerStatusData.magic_power = 30;
         playerStatusData.speed = 4.5f;
