@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FarmManager : MonoBehaviour
 {
@@ -38,20 +39,38 @@ public class FarmManager : MonoBehaviour
         //StartCoroutine(CheckGrowthPeriodically());
     }
 
-    
+
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         StartCoroutine(CheckGrowthPeriodically());
     }
 
     private void OnDisable()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         if (growCheckRoutine != null)
         {
             StopCoroutine(growCheckRoutine);
             growCheckRoutine = null;
         }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "farm")
+        {
+            Debug.Log("🌾 進入農場場景，自動載入農地並檢查作物成長");
+            StartCoroutine(DelayedLoadAndGrow());
+        }
+    }
+
+    private IEnumerator DelayedLoadAndGrow()
+    {
+        yield return new WaitForSeconds(0.5f);
+        LoadFarmTilesFromFile();
+        AutoGrowAllTiles(); // 載入完資料後立即檢查一次
     }
 
 
@@ -75,7 +94,7 @@ public class FarmManager : MonoBehaviour
     {
         if (!farmTiles.ContainsKey(pos))
         {
-            var tileData = new FarmTileData(pos, 0, cropData);
+            var tileData = new FarmTileData(pos, 0, cropData, false);
             farmTiles.Add(pos, tileData); // 初始狀態是0(剛播種)
             UpdateTileVisual(farmTiles[pos]);
 
@@ -235,6 +254,8 @@ public class FarmManager : MonoBehaviour
             //移除田地資料
             farmTiles.Remove(pos);
             // Debug.Log($"收成 {tileData.cropData.cropName} 作物完成！");
+
+            SaveFarmTilesToFile();
             return true;
 
         }
@@ -285,7 +306,8 @@ public class FarmManager : MonoBehaviour
                 y = tile.position.y,
                 z = tile.position.z,
                 state = tile.state,
-                cropName = tile.cropData.cropName
+                cropName = tile.cropData.cropName,
+                isWatered = tile.isWatered
             });
         }
 
@@ -322,7 +344,24 @@ public class FarmManager : MonoBehaviour
 
     public void LoadFarmData(FarmSaveData data)
     {
+        //先清除場上所有殘留的水滴圖與進度條（防止重複產生）
+        foreach (var tile in farmTiles.Values)
+        {
+            if (tile.progressUI != null)
+            {
+                Destroy(tile.progressUI.gameObject);
+                tile.progressUI = null;
+            }
+
+            if (tile.waterIcon != null)
+            {
+                Destroy(tile.waterIcon.gameObject);
+                tile.waterIcon = null;
+            }
+        }
+
         farmTiles.Clear();
+
 
         foreach (var tile in data.allTiles)
         {
@@ -331,7 +370,7 @@ public class FarmManager : MonoBehaviour
 
             if (crop != null)
             {
-                var farmTile = new FarmTileData(pos, tile.state, crop);
+                var farmTile = new FarmTileData(pos, tile.state, crop, tile.isWatered);
                 farmTiles[pos] = farmTile;
                 UpdateTileVisual(farmTile);
 
@@ -359,6 +398,14 @@ public class FarmManager : MonoBehaviour
                 {
                     progressScript.Setup(farmTile);
                     farmTile.progressUI = progressScript;
+                }
+
+                //還沒澆水 重新生成水滴圖示
+                if (waterIconPrefab != null)
+                {
+                    GameObject waterIcon = Instantiate(waterIconPrefab, barPosition + new Vector3(0, 0.3f, 0), Quaternion.identity);
+                    waterIcon.SetActive(!farmTile.isWatered); // true 顯示、false 隱藏
+                    farmTile.waterIcon = waterIcon;
                 }
             }
             else

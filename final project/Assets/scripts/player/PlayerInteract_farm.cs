@@ -9,7 +9,7 @@ public class PlayerInteract_farm : MonoBehaviour
 
     void Update()
     {
-        if (isNearWell && Input.GetKeyDown(KeyCode.G))
+        if (isNearWell && Input.GetKeyDown(KeyCode.T)) //按T鍵拿水
         {
             GetWater();
         }
@@ -20,7 +20,7 @@ public class PlayerInteract_farm : MonoBehaviour
         if (other.CompareTag("Well"))
         {
             isNearWell = true;
-            Debug.Log("靠近井了，可以按 G 取水");
+            //Debug.Log("靠近井了，可以按 G 取水");
         }
     }
 
@@ -29,7 +29,7 @@ public class PlayerInteract_farm : MonoBehaviour
         if (other.CompareTag("Well"))
         {
             isNearWell = false;
-            Debug.Log("離開井了");
+           // Debug.Log("離開井了");
         }
     }
 
@@ -40,7 +40,7 @@ public class PlayerInteract_farm : MonoBehaviour
             water = Resources.Load<ItemData>("Items/water");
             if (water == null)
             {
-                Debug.LogError("❌ Resources/Items 資料夾中找不到名為 'water' 的 ItemData！");
+                //Debug.LogError("❌ Resources/Items 資料夾中找不到名為 'water' 的 ItemData！");
                 return;
             }
         }

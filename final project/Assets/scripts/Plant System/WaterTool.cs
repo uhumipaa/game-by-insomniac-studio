@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WaterTool : MonoBehaviour
 {
+    private GameManager gm;
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // 左鍵澆水
@@ -13,8 +14,8 @@ public class WaterTool : MonoBehaviour
             var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
             if (TryWater(cellPos, selectedSlot))
             {
-                
                 Debug.Log("澆水成功");
+                gm.uiManager.RefreshInventoryUI("Toolbar"); // 更新UI
             }
         }
     }
@@ -40,8 +41,6 @@ public class WaterTool : MonoBehaviour
 
         // 扣除水的數量
         selectedSlot.count--;
-        //UI_Manager.Instance.RefreshInventoryUI("Toolbar");
-
 
         // 執行澆水
         FarmManager.instance.WaterTile(position);

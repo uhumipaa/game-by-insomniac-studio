@@ -16,10 +16,8 @@ public class GrowthProgressBar : MonoBehaviour
     {
         if (tileData == null || tileData.cropData == null) return;
 
-        float floor = TowerManager.Instance.finishfloorthistime;
-        var crop = tileData.cropData;
 
-        float progress = (floor - 1)/ (crop.harvestFloor - 1); //判斷總進度
+        float progress = tileData.state /  4f; //判斷總進度
         fillBar.fillAmount = Mathf.Clamp01(progress);
     }
 }

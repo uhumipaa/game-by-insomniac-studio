@@ -11,12 +11,12 @@ public class FarmTileData
     public bool isWatered = false;//澆水狀態
     public GameObject waterIcon; // 顯示水滴的圖示
 
-    public FarmTileData(Vector3Int pos, int initialState, CropData crop)
+    public FarmTileData(Vector3Int pos, int initialState, CropData crop, bool water)
     {
         position = pos;
         state = initialState;
         cropData = crop;
-
+        isWatered = water;
     }
 }
 
@@ -28,6 +28,7 @@ public class FarmTileSaveData
     public int z;
     public int state;
     public string cropName;
+    public bool isWatered;
     
 }
 

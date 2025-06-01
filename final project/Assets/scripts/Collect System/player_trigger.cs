@@ -39,6 +39,7 @@ public class player_trigger : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
+            
             if (tileManager != null)
             {
                 //取位順便解決偏移
