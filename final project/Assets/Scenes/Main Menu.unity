@@ -918,6 +918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileManager: {fileID: 0}
   farmTileProgressBarPrefab: {fileID: 3343047390830797808, guid: 926834234d6135c46a17c2cd000c19b1, type: 3}
+  waterIconPrefab: {fileID: 0}
 --- !u!1 &235658089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1246,7 @@ GameObject:
   - component: {fileID: 464156811}
   - component: {fileID: 464156810}
   - component: {fileID: 464156809}
+  - component: {fileID: 464156814}
   m_Layer: 5
   m_Name: escmenu
   m_TagString: Untagged
@@ -1360,6 +1362,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &464156814
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464156808}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &553670467
 GameObject:
   m_ObjectHideFlags: 0

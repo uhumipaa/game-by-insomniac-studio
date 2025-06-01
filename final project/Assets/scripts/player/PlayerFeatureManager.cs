@@ -32,6 +32,7 @@ public class PlayerFeatureManager : MonoBehaviour
 
         if(sceneName == "farm")
         {
+            Debug.Log("djaisd");
             Audio_manager.Instance.Play(21, "farm_bgm", true, 0);
         }
     

@@ -44,7 +44,7 @@ public class Audio_manager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < 22; i++) // ¬Ý¤W­±public¦³´X­Ó
+        for (int i = 0; i < 22; i++) // ï¿½Ý¤Wï¿½ï¿½publicï¿½ï¿½ï¿½Xï¿½ï¿½
         {
             Debug.Log($"Audio Count: {audios.Count}");
 
@@ -66,9 +66,10 @@ public class Audio_manager : MonoBehaviour
     public void Play(int index, string name, bool isLoop,int lastindex)
     {
         var clip = GetAudioClip(name);
+        
         if (clip == null)
         {
-            Debug.LogWarning("­µ®Ä¤£¦s¦b¡G" + name);
+            Debug.LogWarning("123" + name);
             return;
         }
         var lastaudio = audios[lastindex];
@@ -76,17 +77,17 @@ public class Audio_manager : MonoBehaviour
         if (lastaudio.isPlaying)
         {
             Debug.Log("Stopaudio");
-            lastaudio.Stop(); // ½T«O°±¤î
+            lastaudio.Stop(); // ï¿½Tï¿½Oï¿½ï¿½ï¿½ï¿½
         }
-        // ­Y¤w¸g¥¿¦b¼½©ñ¸Ó Clip¡A«h²¤¹L­«½Æ¼½©ñ
+        // ï¿½Yï¿½wï¿½gï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ Clipï¿½Aï¿½hï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½
         /*
         if (audio.clip == clip)
         {
-            Debug.Log("¥¿¦b¼½©ñ¬Û¦P­µ¼Ö¡A²¤¹L¼½©ñ");
+            Debug.Log("ï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½Û¦Pï¿½ï¿½ï¿½Ö¡Aï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½");
             return;
         }
         audio.Stop();
-        // ­Y¼½©ñªº¬O¤£¦Pªº­µ¼Ö¡A­n¥ý Stop ­ì¥»ªº
+        // ï¿½Yï¿½ï¿½ï¿½ñªº¬Oï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½Ö¡Aï¿½nï¿½ï¿½ Stop ï¿½ì¥»ï¿½ï¿½
         if (audio.clip != clip)
         {
             Debug.Log("stop");

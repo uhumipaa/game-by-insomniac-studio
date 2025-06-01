@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 [System.Serializable]
 public class SaveData
 {
@@ -28,8 +29,9 @@ public class SaveSystem : MonoBehaviour
 {
     [Header("儲存資料的東東")]
     [SerializeField] private string basefilename = "save";
-
+    public bool jumpstory;
     SaveData savedata;
+    public bool firststoryfinish;
     [SerializeField] List<ISaveData> saveDatasObject;
     private SaveFileHandler saveFileHandler;
     [SerializeField] private bool useencryption;
@@ -76,7 +78,14 @@ public class SaveSystem : MonoBehaviour
     {
         savedata = new SaveData();
         Audio_manager.Instance.Stop();
-        SceneManager.LoadScene("intro");
+        if (jumpstory)
+        {
+            SceneManager.LoadScene("farm");
+        }
+        else
+        {
+            SceneManager.LoadScene("intro");
+        }
     }
     void OnApplicationQuit()
     {

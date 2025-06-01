@@ -6277,6 +6277,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6645b327088c4f6408d9561791c57b84, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -6376,6 +6380,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -6415,7 +6435,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 5862268127791427741}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -6446,6 +6466,17 @@ MonoBehaviour:
   - {fileID: 4056862137693664414}
   - {fileID: 8862990817183821474}
   - {fileID: 5889315658526323115}
+--- !u!114 &5862268127791427741 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 975460984592711806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &7375496062424612375 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -7483,6 +7514,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 51a96ead678afb145b8fbf5af7b0ce01, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -7582,6 +7617,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -7621,7 +7672,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 5673221850358824176}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -7652,6 +7703,17 @@ MonoBehaviour:
   - {fileID: 4056862137693664414}
   - {fileID: 8862990817183821474}
   - {fileID: 5889315658526323115}
+--- !u!114 &5673221850358824176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 1326354494105308179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8771506211584045690 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -8508,6 +8570,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f742aa32737423346b5593e68ef83d2a, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -8607,6 +8673,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -8646,7 +8728,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 5153002985932983331}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -8677,6 +8759,17 @@ MonoBehaviour:
   - {fileID: 4056862137693664414}
   - {fileID: 8862990817183821474}
   - {fileID: 5889315658526323115}
+--- !u!114 &5153002985932983331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 1968171702876437696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8107279447231972009 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -9208,6 +9301,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 083237d4baf78d143b4251ca612f18dd, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -9307,6 +9404,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -9346,7 +9459,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 4623915269214862421}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -9377,6 +9490,17 @@ MonoBehaviour:
   - {fileID: 4056862137693664414}
   - {fileID: 8862990817183821474}
   - {fileID: 5889315658526323115}
+--- !u!114 &4623915269214862421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 2087435082178661558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8586817658417591007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -10883,6 +11007,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fbaf3a08e2661b8499bc18b1ebd10f34, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -10982,6 +11110,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -11021,7 +11165,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 8536000319435374057}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -11057,6 +11201,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
   m_PrefabInstance: {fileID: 3073295824875949322}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8536000319435374057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 3073295824875949322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3081291055199088497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11258,8 +11413,16 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e23ab9dad9cbcaf49bdfd0c122621f40, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7294118
       objectReference: {fileID: 0}
     - target: {fileID: 7601963680993287657, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11356,6 +11519,22 @@ PrefabInstance:
     - target: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
       objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
@@ -12480,6 +12659,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0f8c5ead26c61f548b23167bd8f92253, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -12578,6 +12761,22 @@ PrefabInstance:
     - target: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
       objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
@@ -15791,6 +15990,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 35c07f10acd0e8c4abc678a3c08c8331, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -15890,6 +16093,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
+      objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info
       value: 
@@ -15912,6 +16131,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
   m_PrefabInstance: {fileID: 8567918126423931250}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3041092420681599377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+  m_PrefabInstance: {fileID: 8567918126423931250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5238049504341413919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -15934,7 +16164,7 @@ MonoBehaviour:
   itemData: {fileID: 0}
   sword: {fileID: 0}
   staff: {fileID: 0}
-  icon: {fileID: 2688492345322972736}
+  icon: {fileID: 3041092420681599377}
   isload: 0
   slot_UIs:
   - {fileID: 5581110128675335911}
@@ -16166,6 +16396,10 @@ PrefabInstance:
       value: -3.699997
       objectReference: {fileID: 0}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a9500c26a7c49542a1e04f0e9f95f64, type: 3}
+    - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -16264,6 +16498,22 @@ PrefabInstance:
     - target: {fileID: 7769428504893636201, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.026833398
+      objectReference: {fileID: 0}
+    - target: {fileID: 8381780216621883709, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.084905684
       objectReference: {fileID: 0}
     - target: {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: info

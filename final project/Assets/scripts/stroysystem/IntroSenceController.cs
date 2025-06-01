@@ -30,7 +30,10 @@ public class IntroSenceController : MonoBehaviour
     }
     private void settoplaystory()
     {
-        GameObject.Find("player_battle").GetComponent<SpriteRenderer>().enabled=false;
+        GameObject.Find("player_battle").GetComponent<SpriteRenderer>().enabled = false;
+        GameObject.Find("escmenu").GetComponent<CanvasGroup>().alpha=0;
+        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha=0;
+
     }
     
     

@@ -14,7 +14,7 @@ public class tutorial : MonoBehaviour
         fs.ReadTextFromResource("tutorialstart");
         fs.RegisterCommand("timestart", timestart);
         fs.RegisterCommand("timestop", timestop);
-        
+        fs.RegisterCommand("setfarm", farmsetting);
     }
 
 
@@ -48,12 +48,17 @@ public class tutorial : MonoBehaviour
             enemy.speed = 0;
         }
     }
+    void farmsetting(List<string> strings)
+    {
+        GameObject player = GameObject.Find("player_battle");
+        player.transform.position = Vector2.zero;
+    }
     private void asettoplaytutorial()
     {
         GameObject player = GameObject.Find("player_battle");
-        GameObject.Find("ToolBar(Clone)")?.SetActive(true);
+        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha=1;
         player.GetComponent<SpriteRenderer>().enabled=true;
-        player.GetComponent<PlayerStats>().enabled = false;
+        GameObject.Find("escmenu").GetComponent<CanvasGroup>().alpha=1;
         player.transform.position = Vector2.zero;
     }
 }

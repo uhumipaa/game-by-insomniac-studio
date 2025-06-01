@@ -1,11 +1,11 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class WaterTool : MonoBehaviour
 {
     private GameManager gm;
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 左鍵澆水
+        if (Input.GetMouseButtonDown(0)&&SceneManager.GetActiveScene().name=="farm") // 左鍵澆水
         {
             Debug.Log("點擊澆水");
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -23,6 +23,7 @@ public class WaterTool : MonoBehaviour
 
     public bool TryWater(Vector3Int position, Inventory.Slot selectedSlot)
     {
+        if (selectedSlot.itemData == null) return false;
         Debug.Log($"🎯 當前物品: {selectedSlot.itemData.itemName}, 類型: {selectedSlot.itemData.type}, 數量: {selectedSlot.count}");
         // 檢查該格是否已經種田
         if (!FarmManager.instance.HasFarmTile(position)) return false;

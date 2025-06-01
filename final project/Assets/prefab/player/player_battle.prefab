@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_health: 100
   current_health: 50
-  atk: 1000
+  atk: 41
   magic_atk: 20
   def: 5
   attack_range: 0.5
@@ -1508,6 +1508,7 @@ MonoBehaviour:
   atkeffect: {fileID: 5019468779805446932, guid: 92a35d20f36df314fbad90bb1d0be507, type: 3}
   defeffect: {fileID: 2267233359210858131, guid: 3788cb0075302ac4c9a44538592869b9, type: 3}
   hpeffect: {fileID: 8313448032217958330, guid: 771384238839edb4f87dd3abb76a6ecb, type: 3}
+  acceffect: {fileID: 0}
 --- !u!1 &8066290499374552347
 GameObject:
   m_ObjectHideFlags: 0

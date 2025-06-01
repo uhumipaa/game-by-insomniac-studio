@@ -1,0 +1,6 @@
+[lock]
+[show]
+
+[release]
+[bgm]
+[hide]

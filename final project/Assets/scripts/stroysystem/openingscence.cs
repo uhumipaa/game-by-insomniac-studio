@@ -11,6 +11,7 @@ public class openingscence : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha=0;
         fs = FlowerManager.Instance.GetFlowerSystem("default");
         fs.RegisterCommand("stopdirect", stopplay);
         fs.RegisterCommand("playdirect", play);
@@ -49,8 +50,9 @@ public class openingscence : MonoBehaviour
     private void settoplaytutorial(List<string> ya)
     {
         GameObject player = GameObject.Find("player_battle");
-        GameObject.Find("ToolBar(Clone)").SetActive(true);
+        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha=0;
         player.GetComponent<SpriteRenderer>().enabled=true;
+        GameObject.Find("escmenu").GetComponent<CanvasGroup>().alpha=0;
         player.transform.position = Vector2.zero;
     }
 }
