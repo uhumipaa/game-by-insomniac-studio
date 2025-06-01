@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 30
   basedef: 30
   enemyname: nightdemon
-  atkpara: 2
-  defpara: 1.5
-  HPpara: 1.5
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 7223888808878050180, guid: b08c71930f7ca0544a5088146794cd38, type: 3}

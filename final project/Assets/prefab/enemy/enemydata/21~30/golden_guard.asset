@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 20
   basedef: 55
   enemyname: golden_guard
-  atkpara: 0.5
-  defpara: 1.5
-  HPpara: 2
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 3643312648362050986, guid: 2f9ee0b4171e71745b585a43cb0aa517, type: 3}

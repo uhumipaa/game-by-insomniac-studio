@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 15
   basedef: 15
   enemyname: 
-  atkpara: 1.5
-  defpara: 2.5
-  HPpara: 1.5
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 3988075967407811646, guid: 9b50ad0d7e2595c44a50768bc7201bc9, type: 3}

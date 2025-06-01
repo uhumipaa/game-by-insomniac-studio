@@ -18,7 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300008, guid: ddf8838d0a06d8d4c9dec9e3bed69260, type: 3}
   type: 29
   maxAllowed: 1
-  isusable: 0
+  isusable: 1
   isarmor: 0
   currentHP: 0
   maxHP: 0

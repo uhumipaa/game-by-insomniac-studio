@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c319d0a1c9204daa3922e80ccc7cd, type: 3}
   m_Name: archer
   m_EditorClassIdentifier: 
-  baseHP: 30
-  baseatk: 30
-  basedef: 10
-  speed: 1
+  baseHP: 120
+  baseatk: 70
+  basedef: 50
   enemyname: archer
   atkpara: 1
   defpara: 1

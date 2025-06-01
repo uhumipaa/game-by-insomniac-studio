@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: horned_helmet
   description: Only for fight
-  icon: {fileID: 0}
+  icon: {fileID: -7446950790120097943, guid: def7804fc836bc9438e8f1fc01978895, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

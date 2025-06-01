@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 80
   basedef: 40
   enemyname: fire goblin
-  atkpara: 2.3
+  atkpara: 1
   defpara: 1
-  HPpara: 1.4
+  HPpara: 1
   enemyprefab: {fileID: 4131749637687193133, guid: 73019f3c6b8f9d44fa6515cfd829d591, type: 3}

@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: platemail_helmet
   description: Defense is the best attack
-  icon: {fileID: 0}
+  icon: {fileID: 449016594002928606, guid: 5c56245775f68a54281c7fb59ecfb658, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 55
   basedef: 20
   enemyname: blue_guard
-  atkpara: 1.5
-  defpara: 0.5
-  HPpara: 2
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 2908453167517723878, guid: f8cffa77dc7bd8e49a1c138c0e61ee7e, type: 3}

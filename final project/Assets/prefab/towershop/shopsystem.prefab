@@ -827,35 +827,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[0].price
-      value: 20
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[1].price
-      value: 20
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[2].price
-      value: 20
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[3].price
-      value: 20
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[4].price
-      value: 20
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[5].price
-      value: 20
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[6].price
-      value: 20
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopposions.Array.data[7].price
-      value: 20
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopitems.Array.data[0].itemdata

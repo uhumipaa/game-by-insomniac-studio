@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: Heavysowrd
   description: Huge but heavy
   icon: {fileID: 4349915267927364619, guid: 8cbaa8a5076ee4b4fa505ef9b2a1c20c, type: 3}
-  type: 27
+  type: 26
   maxAllowed: 1
   isusable: 0
   isarmor: 1

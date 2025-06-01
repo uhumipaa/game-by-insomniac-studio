@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 60
   basedef: 60
   enemyname: dino
-  atkpara: 1.5
-  defpara: 1.5
-  HPpara: 3
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 7549431525977102465, guid: 0b2ed8781b80ba74583c0da7126a1988, type: 3}

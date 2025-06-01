@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: chainmail_coif
   description: General and pratical
-  icon: {fileID: 0}
+  icon: {fileID: 3717917196831577675, guid: cd1c15bc0317a2b47bcf6a69dd92ec07, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

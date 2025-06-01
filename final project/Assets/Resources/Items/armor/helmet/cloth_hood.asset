@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: cloth_hood
   description: A wizard's clothing
-  icon: {fileID: 0}
+  icon: {fileID: 5791464669868468729, guid: 051d98602bca3c747b1e253e4316f491, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 40
   basedef: 20
   enemyname: death bringer
-  atkpara: 2
-  defpara: 2
-  HPpara: 2
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 1430895899414693780, guid: 308f912d130ccac4dbfc0600b1d96580, type: 3}

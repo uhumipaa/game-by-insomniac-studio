@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: close_helmet
   description: Defend for my treasure
-  icon: {fileID: 0}
+  icon: {fileID: -6478668806821301545, guid: 18cd6954b318dfb45b4bf18f1fecda3c, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 
   itemName: studded_helmet
   description: Attack equals defense
-  icon: {fileID: 0}
+  icon: {fileID: 8709922221500311363, guid: 8c48c2347ebc7804a9693990537fa226, type: 3}
   type: 22
   maxAllowed: 1
   isusable: 0

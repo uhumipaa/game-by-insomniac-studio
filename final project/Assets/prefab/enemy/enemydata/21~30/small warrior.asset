@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 40
   basedef: 40
   enemyname: small warrior
-  atkpara: 3
-  defpara: 3
-  HPpara: 3
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 5731704819749461294, guid: 7586989035d4f2e498fa1db0d76569e9, type: 3}

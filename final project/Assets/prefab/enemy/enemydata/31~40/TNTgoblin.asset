@@ -16,7 +16,7 @@ MonoBehaviour:
   baseatk: 96
   basedef: 24
   enemyname: TNT goblin
-  atkpara: 3.3
-  defpara: 1.6
-  HPpara: 2.4
+  atkpara: 1
+  defpara: 1
+  HPpara: 1
   enemyprefab: {fileID: 2333549978095426646, guid: c873439d696155a43a94fed86bc1a964, type: 3}

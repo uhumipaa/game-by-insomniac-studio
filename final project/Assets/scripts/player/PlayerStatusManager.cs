@@ -39,11 +39,11 @@ public class PlayerStatusManager : MonoBehaviour,ISaveData
     }
     private void Initialize() 
     {
-        playerStatusData.attack = 15;
-        playerStatusData.defense = 15;
-        playerStatusData.maxHP = 50;
-        playerStatusData.magic_power = 15;
-        playerStatusData.speed = 3;
+        playerStatusData.attack = 30;
+        playerStatusData.defense = 30;
+        playerStatusData.maxHP = 100;
+        playerStatusData.magic_power = 30;
+        playerStatusData.speed = 4.5f;
         playerStatusData.Luck = 10;
     }
 
