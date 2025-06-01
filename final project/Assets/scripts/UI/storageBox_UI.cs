@@ -52,6 +52,7 @@ public class storageBox_UI : MonoBehaviour
         }
 
         Refresh();
+        panelObject.SetActive(false);
     }
 
 
