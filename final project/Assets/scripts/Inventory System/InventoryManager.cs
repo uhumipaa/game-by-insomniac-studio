@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
         regristall();
     }
 
-    public void regristall() 
+    public void regristall()
     {
         //註冊格數
         backpack = new Inventory(backpackSlotCount);
@@ -120,7 +120,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
                 Debug.LogWarning($"❌ 無法找到 itemID：{saved.Name}");
             }
         }
-        
+
     }
 
     public void SaveData(ref SaveData saveData)
@@ -201,6 +201,28 @@ public class InventoryManager : MonoBehaviour, ISaveData
         }
         Debug.LogWarning($"❌ 無法移除，找不到名為 {inventoryName} 的 Inventory");
         return false;
+    }
+    
+    /// 清除 Backpack 和 Toolbar 中的所有物品（不影響 Storagebox）
+    public void ClearBackpackAndToolbar()
+    {
+        if (backpack != null)
+        {
+            backpack.ClearInventory();
+            Debug.Log("Backpack 已清空");
+        }
+
+        if (toolbar != null)
+        {
+            toolbar.ClearInventory();
+            Debug.Log("Toolbar 已清空");
+        }
+
+        // 若 UI 需同步刷新
+        foreach (Inventory_UI ui in Resources.FindObjectsOfTypeAll<Inventory_UI>())
+        {
+            ui.Reconnect(); // 讓 UI 顯示最新內容
+        }
     }
 
 

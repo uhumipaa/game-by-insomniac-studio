@@ -11,6 +11,11 @@ public class goldfingerUI : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            InventoryManager.Instance.ClearBackpackAndToolbar();
+        }
+
         if (Input.GetKeyDown(KeyCode.G))
         {
             isInventoryVisible = true;
