@@ -20,6 +20,15 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         if (info == null)
             info = FindAnyObjectByType<InventoryInfo>();
     }
+
+    void Update()
+    {   
+        //按右鍵觸發側邊面板
+        if (Input.GetMouseButtonDown(1))
+        {
+           InventorySidePanelController.Instance?.ToggleSidePanel();
+        }
+    }
     public void SetItem(Inventory.Slot slot)
     {
         if (slot != null && slot.count > 0)
@@ -145,7 +154,7 @@ public class Slot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     public void Refresh()
     {
         var data = inventory.slots[slotID];
-        if (data!=null&&data.count > 0)
+        if (data != null && data.count > 0)
             SetItem(data);
         else
             SetEmpty();

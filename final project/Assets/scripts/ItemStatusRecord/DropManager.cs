@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using System.IO;
 
 public class DropManager : MonoBehaviour
@@ -30,24 +31,38 @@ public class DropManager : MonoBehaviour
         SaveDroppedItems();
     }
 
+    public void SaveDroppedItemsNextFrame()
+    {
+        StartCoroutine(SaveAfterFrame());
+    }
+
+    private IEnumerator SaveAfterFrame()
+    {
+        Debug.Log("🕒 SaveAfterFrame 啟動");  // 加這行
+        yield return null; // 等待一幀
+        Debug.Log("💾 SaveAfterFrame 正式呼叫 SaveDroppedItems()");
+        // 儲存新的掉落物狀態
+        DropManager.instance.SaveDroppedItems();
+    }
     public void SaveDroppedItems()
     {
         //抓取路徑
         savePath = Path.Combine(Application.persistentDataPath,
         UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_drop_items.json"
         );
-        
+
         var drops = new List<DropItemData>();
         foreach (var item in GameObject.FindGameObjectsWithTag("DropItem"))
         {
             var collectable = item.GetComponent<Collectable>();
             if (collectable != null && collectable.item.data != null)
             {
+                Debug.Log($"💾 正在存檔：{collectable.item.data.type}, amount: {1}");
                 drops.Add(new DropItemData
                 {
                     itemType = collectable.item.data.type,
                     position = item.transform.position,
-                    amount = 1
+                    amount = 1//
                 });
             }
         }
@@ -66,6 +81,7 @@ public class DropManager : MonoBehaviour
         );
 
         Debug.Log($"🔁 嘗試載入掉落物：{savePath}");
+
         foreach (var obj in GameObject.FindGameObjectsWithTag("DropItem"))
         {
             Destroy(obj);

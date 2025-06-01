@@ -4,7 +4,7 @@ public class WaterTool : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetMouseButtonDown(1)) // 右鍵澆水
+        if (Input.GetMouseButtonDown(0)) // 左鍵澆水
         {
             Debug.Log("點擊澆水");
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

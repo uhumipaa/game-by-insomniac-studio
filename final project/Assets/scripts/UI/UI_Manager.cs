@@ -86,11 +86,6 @@ public class UI_Manager : MonoBehaviour
         // 按下 Tab 切換背包視窗
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            /*//如果視窗是關著且遊戲暫停
-            if (!inventoryPanel.activeSelf && PauseController.IsGamePaused)
-            {
-                return;
-            }*/
 
             ToggleInventoryUI();
             //PauseController.SetPause(inventoryPanel.activeSelf); //視窗開啟時暫停

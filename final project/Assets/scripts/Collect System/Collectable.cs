@@ -50,11 +50,9 @@ public class Collectable : MonoBehaviour
 
                 //東西加進背包
                 InventoryManager.Instance.Add("Backpack", item.data, amount);
-
-                // 儲存新的掉落物狀態
-                DropManager.instance.SaveDroppedItems();
-
                 Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
+
+                DropManager.instance.SaveDroppedItemsNextFrame();
                 Destroy(this.gameObject);
             }
         }
@@ -78,4 +76,6 @@ public class Collectable : MonoBehaviour
             Debug.LogWarning("❌ 無法設定圖示：ItemData 或 icon 為 null");
         }
     }
+
+    
 }
