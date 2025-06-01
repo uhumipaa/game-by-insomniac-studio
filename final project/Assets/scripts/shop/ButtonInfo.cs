@@ -9,6 +9,7 @@ public class ButtonInfo : MonoBehaviour
     public int ItemID;
     public Text PriceTxt;
     public Text QuantityTxt;
+
     //public GameObject ShopManager;
     private ShopManagerScript shopManager;
 
@@ -31,13 +32,15 @@ public class ButtonInfo : MonoBehaviour
     public void UpdateButtonUI()
     {
         //Debug.Log($"[ButtonInfo] 目前綁的 ShopManager 是 {shopManager.name}");
-        
+
         if (shopManager != null)
         {
             if (shopManager != null && shopManager.itemDataByID.TryGetValue(ItemID, out ShopItemData itemData))
             {
                 PriceTxt.text = "Price: $" + itemData.price;
                 QuantityTxt.text = " " + itemData.quantity;
+
+                
             }
             else
             {
