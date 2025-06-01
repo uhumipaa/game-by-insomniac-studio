@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         //預設背包物品
         InventoryManager.Instance.Add("Backpack", PotatoSeeds, 3);
-        InventoryManager.Instance.Add("Backpack", fishingFeelItem, 3);
+        InventoryManager.Instance.Add("Backpack", fishingFeelItem, 1);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
