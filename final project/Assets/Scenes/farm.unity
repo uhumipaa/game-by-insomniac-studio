@@ -44658,11 +44658,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46be4bb2550ea30469de5e63a9e929a2, type: 2}
   - {fileID: 11400000, guid: 41bb66b6dc7c6cb49893418d163d1f5f, type: 2}
   - {fileID: 11400000, guid: 9b121f79d895d284bbd74ff08375071b, type: 2}
+  - {fileID: 11400000, guid: a00793976a566684590a049bede600c8, type: 2}
   - {fileID: 11400000, guid: 06ce37d3093b5ed4f99d067af939a51e, type: 2}
   - {fileID: 11400000, guid: 50af006fc07ff2a42bdff4cec4f58d33, type: 2}
   - {fileID: 11400000, guid: df96d072e36957e46a53b2c9311a292c, type: 2}
   - {fileID: 11400000, guid: 7d28788531892774f9a37f667ab8dd66, type: 2}
   - {fileID: 11400000, guid: 82ec144772000d641bea79656a511cfc, type: 2}
+  - {fileID: 11400000, guid: c9d0f07e53f87334dbb91f9558dd43c3, type: 2}
   completedRewardIcon: {fileID: -8669422879547106764, guid: 3569d3d58eea89f4dae4c3172503889b, type: 3}
 --- !u!4 &651835636
 Transform:
@@ -81570,3 +81572,4 @@ SceneRoots:
   - {fileID: 210936589}
   - {fileID: 290910679}
   - {fileID: 623973013}
+  - {fileID: 4209651700046281219}

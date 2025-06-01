@@ -26,6 +26,8 @@ public class NPC : MonoBehaviour, interactable
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
     private string[] currentDialogue;
+    // 統計用變數
+    public int DialogueCount => FishingStats.DialogueCount;
 
     void Start()
     {
@@ -61,12 +63,15 @@ public class NPC : MonoBehaviour, interactable
             //Debug.Log($"首次對話: {npcID}");
             currentDialogue = dialogueData.firstTimeDialogue;
             SetTalked();
+            FishingStats.DialogueCount++;
+
         }
         else
         {
             //Debug.Log($"隨機對話: {npcID}");
             int rand = Random.Range(0, dialogueData.randomDialogues.Count);
             currentDialogue = dialogueData.randomDialogues[rand].lines;
+            FishingStats.DialogueCount++ ;
         }
 
         isDialogueActive = true;

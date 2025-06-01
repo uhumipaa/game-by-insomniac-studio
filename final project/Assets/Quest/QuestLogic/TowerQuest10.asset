@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8272a46660065274da3b66140545a619, type: 3}
   m_Name: TowerQuest10
   m_EditorClassIdentifier: 
-  requiredFloor: 20
-  coinReward: 300
+  requiredFloor: 10
+  coinReward: 200

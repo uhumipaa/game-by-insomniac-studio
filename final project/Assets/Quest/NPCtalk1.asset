@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 163ac63730815dc4283a1b40c3d70c75, type: 3}
+  m_Name: NPCtalk1
+  m_EditorClassIdentifier: 
+  rewardIcon: {fileID: 1256183628584393390, guid: 0d1e0e5d8d24d1f4b9e6c80f3daa9195, type: 3}
+  goalText: "\u4F60\u4ECA\u5929Lucky Vicky\u4E86\u55CE\uFF1A\u8207Vicky\u5C0D\u8A711\u6B21\u4EE5\u4E0A"
+  rewardDescription: "\u91D1\u9322 + 173"
+  questLogic: {fileID: 11400000, guid: f561005bf4e9def4f9a9bd3d7ee33a81, type: 2}
+  isCompleted: 0
+  rewardClaimed: 0

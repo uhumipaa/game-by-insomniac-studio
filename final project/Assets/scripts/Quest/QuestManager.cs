@@ -34,13 +34,24 @@ public class QuestManager : MonoBehaviour
         {
             slot.nextButton.onClick.AddListener(OnNextClicked);
         }
-        LoadQuestProgress();  // ⭐ 載入 JSON 任務進度
+        LoadQuestProgress();  //  載入 JSON 任務進度
 
     }
 
     public void RefreshQuests()
     {
-        // ⭐ 保留：未完成任務 + 完成但未領獎的任務
+        LoadQuestProgress(); // 每次刷新都先載入進度
+
+        foreach (var quest in allQuests)
+        {
+            bool complete = (quest.questLogic is IQuestLogic logic) && logic.IsComplete();
+            Debug.Log($"🧩 任務 [{quest.name}] - 完成: {complete} - 已領: {quest.rewardClaimed}");
+        }
+
+
+
+
+        //  保留：未完成任務 + 完成但未領獎的任務
         List<QuestData> filteredQuests = allQuests
             .Where(q =>
             {
