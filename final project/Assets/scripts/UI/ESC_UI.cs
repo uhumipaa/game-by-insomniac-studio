@@ -9,7 +9,8 @@ public class ESC_UI : MonoBehaviour
     [SerializeField] Button loadbutton;
     [SerializeField] Button loadbuttoninesc;
     [SerializeField] Animator loadani;
-    [SerializeField] Button escentry;
+    [SerializeField] Animator saveani;
+    [SerializeField] CanvasGroup savemenu;
     [SerializeField] Button[] loadsavebutton;
     bool isopen;
     static public ESC_UI instance;
@@ -37,24 +38,14 @@ public class ESC_UI : MonoBehaviour
     }
     void Update()
     {
-        if (!isopen && Input.GetKeyDown(KeyCode.Escape))
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (!isopen && Input.GetKeyDown(KeyCode.Escape) && sceneIndex<=4&&sceneIndex>=2)
         {
             openmenu();
         }
         else if (isopen && Input.GetKeyDown(KeyCode.Escape))
         {
             closemenu();
-        }
-    }
-    void OnEnable()
-    {
-        if (SceneManager.GetActiveScene().name == "Main Manu")
-        {
-            escentry.interactable = false;
-        }
-        else
-        {
-            escentry.interactable = true;
         }
     }
     public void openmenu()
@@ -78,6 +69,13 @@ public class ESC_UI : MonoBehaviour
         escpanel.alpha = 0;
         escpanel.interactable = false;
         escpanel.blocksRaycasts = false;
+    }
+    public void opensavemenu()
+    {
+        saveani.SetTrigger("open");
+        savemenu.alpha = 1;
+        savemenu.interactable = true;
+        savemenu.blocksRaycasts = true;
     }
     public void Openloadmenu()
     {
