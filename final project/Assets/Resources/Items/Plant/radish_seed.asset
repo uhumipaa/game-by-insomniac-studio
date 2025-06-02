@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 4
   itemName: Radish seeds
-  description: 
+  description: "\u863F\u8514\u7A2E\u5B50"
   icon: {fileID: -7275490403220872501, guid: a3625def2515c06429e311b9234e5ca4, type: 3}
   type: 3
   maxAllowed: 99

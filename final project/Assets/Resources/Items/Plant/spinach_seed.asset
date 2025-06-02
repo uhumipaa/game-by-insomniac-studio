@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 6
   itemName: Spinach seeds
-  description: 
+  description: "\u83E0\u83DC\u7A2E\u5B50"
   icon: {fileID: 5241472154375911458, guid: 951712dfa17cf2748abad79b714d6479, type: 3}
   type: 7
   maxAllowed: 99

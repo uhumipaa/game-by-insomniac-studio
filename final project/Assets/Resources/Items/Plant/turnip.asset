@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 7
   itemName: Turnip
-  description: 
+  description: "\u856A\u83C1\uFF0C\u4E0D\u53EA\u662F\u9577\u5F97\u50CF\u767D\u863F\u8514\u7684\u53EF\u611B\u50A2\u4F19"
   icon: {fileID: -8883004822149364238, guid: 6074cdcb6c8b8c44fb5e0b8f032630e1, type: 3}
   type: 6
   maxAllowed: 99

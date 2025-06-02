@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   itemName: water
-  description: 
+  description: "\u6F86\u6C34\u5C08\u7528\uFF0C\u4F46\u641E\u4E0D\u597D\u9084\u80FD\u559D...?"
   icon: {fileID: 7538570299787566214, guid: 967d27540d9cb274a8c011686820dce3, type: 3}
   type: 20
   maxAllowed: 99

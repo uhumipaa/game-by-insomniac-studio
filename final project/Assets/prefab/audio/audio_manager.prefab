@@ -82,6 +82,7 @@ MonoBehaviour:
   Boss_king_summon: {fileID: 8300000, guid: ace13a81100c5664c97d3af754752bf7, type: 3}
   Boss_king_clean: {fileID: 8300000, guid: 49a42a98b1075bc428853ec6d5f99d13, type: 3}
   Boss_king_teleport: {fileID: 8300000, guid: e6435d3d9fabf5242809f3dc8a945d3c, type: 3}
+  farm_bgm: {fileID: 8300000, guid: f4729ec173729e44dad2afd8d2d130de, type: 3}
 --- !u!82 &5756007614206184300
 AudioSource:
   m_ObjectHideFlags: 0

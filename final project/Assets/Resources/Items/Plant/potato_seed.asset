@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   itemName: Potato seeds
-  description: 
+  description: "\u99AC\u9234\u85AF\u7A2E\u5B50"
   icon: {fileID: 5720276103968338487, guid: 11507b1b5ec96e6499f955197508811a, type: 3}
   type: 1
   maxAllowed: 99

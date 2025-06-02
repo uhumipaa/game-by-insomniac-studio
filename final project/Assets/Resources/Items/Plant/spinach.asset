@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 5
   itemName: Spinach
-  description: 
+  description: "\u83E0\u83DC\uFF0C\u5927\u529B\u6C34\u624B\u7684\u6700\u611B"
   icon: {fileID: 8616252762745753724, guid: 951712dfa17cf2748abad79b714d6479, type: 3}
   type: 8
   maxAllowed: 99

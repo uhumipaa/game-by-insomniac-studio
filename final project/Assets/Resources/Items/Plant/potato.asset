@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   itemName: potato
-  description: 
+  description: "\u99AC\u9234\u85AF\uFF0C\u6C99\u767C\u99AC\u9234\u85AF\u7684\u9748\u611F\u4F86\u6E90"
   icon: {fileID: -6089227499023532014, guid: 11507b1b5ec96e6499f955197508811a, type: 3}
   type: 2
   maxAllowed: 99

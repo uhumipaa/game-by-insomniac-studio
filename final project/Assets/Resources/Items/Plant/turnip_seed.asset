@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 8
   itemName: Turnip seeds
-  description: 
+  description: "\u856A\u83C1\u7A2E\u5B50"
   icon: {fileID: 7170971811639361743, guid: 6074cdcb6c8b8c44fb5e0b8f032630e1, type: 3}
   type: 5
   maxAllowed: 99

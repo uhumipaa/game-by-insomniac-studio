@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 
   itemName: Bluenecklace
-  description: Bluenecklace
+  description: Blue
   icon: {fileID: 8342082678549914487, guid: 8f37b1f98a31cc34ba3dbce1aec904b0, type: 3}
   type: 25
   maxAllowed: 1

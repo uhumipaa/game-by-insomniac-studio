@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   itemName: Radish
-  description: 
+  description: "\u863F\u8514\uFF0C\u5EDA\u623F\u88E1\u7684\u842C\u7528\u5C0F\u5E6B\u624B"
   icon: {fileID: 5665540987343289238, guid: a3625def2515c06429e311b9234e5ca4, type: 3}
   type: 4
   maxAllowed: 99
