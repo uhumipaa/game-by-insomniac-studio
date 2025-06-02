@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4406680164136308826}
   - component: {fileID: 4277879486176039384}
   - component: {fileID: 8811906891153095440}
+  - component: {fileID: 4505040699179184638}
+  - component: {fileID: 7687354497184840507}
   m_Layer: 0
   m_Name: Thunderstrike w blur_0
   m_TagString: Untagged
@@ -125,6 +127,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitbox: {fileID: 3506178166256641662}
+--- !u!114 &4505040699179184638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617906140777762105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8a6e7dbc3f03b4a9b3ab23fcedd319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  max_health: 0
+  current_health: 0
+  def: 0
+  atk: 10
+  attack_range: 0
+  speed: 0
+  stuncd: 0
+  spriteRender: {fileID: 0}
+  healthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  healthbarinitial:
+    m_PersistentCalls:
+      m_Calls: []
+  stats: {fileID: 7687354497184840507}
+  isBossKingPhase2: 0
+  isnightdemon: 0
+  detect_range: 5
+  animator: {fileID: 0}
+  nightdemon: {fileID: 0}
+  Dark_Magicion: {fileID: 0}
+--- !u!114 &7687354497184840507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617906140777762105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab18ceeafac29e4d8b968edf34616fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expReward: 30
 --- !u!1 &3506178166256641662
 GameObject:
   m_ObjectHideFlags: 0

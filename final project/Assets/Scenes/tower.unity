@@ -131,42 +131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: magiccooldown
       objectReference: {fileID: 0}
-    - target: {fileID: 3987190216074505157, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618296744511254606, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 344
-      objectReference: {fileID: 0}
-    - target: {fileID: 4618296744511254606, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -185
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825152611000707801, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 244
-      objectReference: {fileID: 0}
-    - target: {fileID: 5825152611000707801, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -185
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830923741872064255, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 294
-      objectReference: {fileID: 0}
-    - target: {fileID: 5830923741872064255, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -185
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482630462493544372, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 394
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482630462493544372, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -185
-      objectReference: {fileID: 0}
     - target: {fileID: 8711031729176805794, guid: f0b99282dcf5fd7488f7c8ff32a27085, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -343,6 +307,10 @@ PrefabInstance:
     - target: {fileID: 4525236537080401076, guid: be92c6a712b53c440859293f65f5ea09, type: 3}
       propertyPath: m_Name
       value: ExpAddUI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4525236537080401076, guid: be92c6a712b53c440859293f65f5ea09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5882871161357485908, guid: be92c6a712b53c440859293f65f5ea09, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -867,7 +835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6114839129224876229, guid: 9c9022002b9b2f94f8de84fb667d8ffd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2612,6 +2580,10 @@ PrefabInstance:
     - target: {fileID: 1474616358571664703, guid: 6285be21d79f0f64fa8d2c5733af4162, type: 3}
       propertyPath: m_Name
       value: exp and Hp UI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474616358571664703, guid: 6285be21d79f0f64fa8d2c5733af4162, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1942206477001704750, guid: 6285be21d79f0f64fa8d2c5733af4162, type: 3}
       propertyPath: expSlider

@@ -29,7 +29,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
     [Header("召喚小怪設定")]
     public List<GameObject> summonPrefabs;             // 可召喚的小怪 prefab 列表
     public List<Transform> summonPoints;               // 可能的生成點
-    public int summonCount = 3;                        // 要召喚幾次
+    public int summonCount = 2;                        // 要召喚幾次
     public float summonDelay = 0.5f;                   // 每次召喚的間隔
     public float summonOffsetRange = 0.5f;              // 生成時隨機偏移距離
 
@@ -197,6 +197,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
 
                 GameObject spark = Instantiate(darkSparkPrefab, magicSpawnPoint.position, Quaternion.identity);
                 spark.SetActive(true);
+                Destroy(spark, 10f);
                 spark.GetComponent<Dark_Spark_Controller>().SetDirection(dir);
             }
 
@@ -266,6 +267,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
                 GameObject selectedPrefab = ThunderPrefab;
                 GameObject obj = Instantiate(selectedPrefab, randomPos, Quaternion.identity);
                 obj.SetActive(true); // 確保啟用
+                Destroy(obj, 2.5f); // ⏱️ 自動銷毀
 
                 Debug.Log($"Pattern3 第 {round + 1} 輪：生成 {selectedPrefab.name} 於 {randomPos}");
             }
