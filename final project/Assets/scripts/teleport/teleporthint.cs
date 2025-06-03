@@ -38,10 +38,12 @@ public class teleporthint : MonoBehaviour
         TowerManager.Instance.currentTowerFloor++;
         TowerManager.Instance.finishfloorthistime++;
         Debug.Log("floor:" + TowerManager.Instance.currentTowerFloor);
-        if (TowerManager.Instance.currentTowerFloor % 10 == 0)//boss
+        if (TowerManager.Instance.currentTowerFloor == 50)
         {
-            judge = TowerManager.Instance.currentTowerFloor / 10;
-            maploader.loadBossmap(judge);
+            SceneManager.LoadScene("final");
+        }else if (TowerManager.Instance.currentTowerFloor % 10 == 0)//boss
+        {
+            maploader.loadBossmap(TowerManager.Instance.currentfloorprefab);
         }
         else if (TowerManager.Instance.currentTowerFloor % 10 == 5)//rest
         {
@@ -52,6 +54,6 @@ public class teleporthint : MonoBehaviour
             int roomVariant = UnityEngine.Random.Range(0, 4);
             maploader.LoadMaps(roomVariant);
         }
-        maploader.playbgm();
+            maploader.playbgm();
     }
 }
