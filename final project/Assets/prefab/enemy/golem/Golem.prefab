@@ -399,7 +399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2466559003660295297
 Transform:
   m_ObjectHideFlags: 0
@@ -704,6 +704,7 @@ MonoBehaviour:
   isBossKingPhase2: 0
   isnightdemon: 0
   detect_range: 5
+  animator: {fileID: 0}
   nightdemon: {fileID: 0}
   Dark_Magicion: {fileID: 0}
 --- !u!114 &476887064327017265

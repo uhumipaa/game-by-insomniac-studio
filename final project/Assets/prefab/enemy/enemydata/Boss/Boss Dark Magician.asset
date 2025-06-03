@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHP: 240
   baseatk: 70
-  basedef: 70
+  basedef: 0
   enemyname: Dark Magician
   atkpara: 0
   defpara: 0

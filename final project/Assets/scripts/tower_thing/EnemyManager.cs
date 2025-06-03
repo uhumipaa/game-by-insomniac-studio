@@ -41,7 +41,7 @@ public class EnemyManager : MonoBehaviour
         }
         
     }
-    private void check()
+    public void check()
     {
         if (now_enemy.Count <= 0)
         {
@@ -49,7 +49,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void finishlayer()
+    public void finishlayer()
     {
         Debug.Log("yayaya");
         maploader.GetComponent<Maploaders>().generate_tele();

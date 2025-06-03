@@ -57,6 +57,8 @@ public class Dark_Magicion_Controller : MonoBehaviour
     private float stuncd;
     private GameObject darkSparkPrefab;
     private GameObject ThunderPrefab;
+    private List<GameObject> summonedEnemies = new List<GameObject>();
+
 
     private void Start()
     {
@@ -209,44 +211,40 @@ public class Dark_Magicion_Controller : MonoBehaviour
     }
 
 
-    private IEnumerator CastPattern2()
+private IEnumerator CastPattern2()
+{
+    for (int i = 0; i < summonCount; i++)
     {
-        for (int i = 0; i < summonCount; i++)
+        Transform basePoint = summonPoints[Random.Range(0, summonPoints.Count)];
+        Vector3 offset = new Vector3(
+            Random.Range(-summonOffsetRange, summonOffsetRange),
+            Random.Range(-summonOffsetRange, summonOffsetRange),
+            0f
+        );
+        Vector3 spawnPosition = basePoint.position + offset;
+
+        if (summonPrefabs.Count == 0)
         {
-            // 隨機選擇一個生成點
-            Transform basePoint = summonPoints[Random.Range(0, summonPoints.Count)];
-
-            // 隨機偏移位置
-            Vector3 offset = new Vector3(
-                Random.Range(-summonOffsetRange, summonOffsetRange),
-                Random.Range(-summonOffsetRange, summonOffsetRange),
-                0f
-            );
-
-            Vector3 spawnPosition = basePoint.position + offset;
-
-            // 隨機選一種小怪 prefab
-            if (summonPrefabs.Count == 0)
-            {
-                Debug.LogWarning("沒有設定任何可召喚的小怪 prefab！");
-                yield break;
-            }
-
-            GameObject chosenEnemy = summonPrefabs[Random.Range(0, summonPrefabs.Count)];
-
-            Instantiate(chosenEnemy, spawnPosition, Quaternion.identity);
-
-            GameObject enemy = Instantiate(chosenEnemy, spawnPosition, Quaternion.identity);
-            enemy.SetActive(true); // 強制啟用
-
-            Debug.Log($"Dark Magicion 召喚小怪：{chosenEnemy.name}，位置：{spawnPosition}");
-
-            yield return new WaitForSeconds(summonDelay);
+            Debug.LogWarning("沒有設定任何可召喚的小怪 prefab！");
+            yield break;
         }
-        Debug.Log("Dark Magicion 叫出小怪 Pattern 1！");
-        yield return new WaitForSeconds(8f);
 
+        GameObject chosenEnemy = summonPrefabs[Random.Range(0, summonPrefabs.Count)];
+
+        GameObject enemy = Instantiate(chosenEnemy, spawnPosition, Quaternion.identity);
+        enemy.SetActive(true);
+
+        summonedEnemies.Add(enemy); // ✅ 加入 List
+
+        Debug.Log($"Dark Magicion 召喚小怪：{chosenEnemy.name}，位置：{spawnPosition}");
+
+        yield return new WaitForSeconds(summonDelay);
     }
+
+    Debug.Log("Dark Magicion 叫出小怪 Pattern 1！");
+    yield return new WaitForSeconds(8f);
+}
+
 
     private IEnumerator CastPattern3()
     {
@@ -284,13 +282,12 @@ public class Dark_Magicion_Controller : MonoBehaviour
     {
 
         crystalsRemaining--;
-        int damage = Mathf.CeilToInt((float)enemyStats.max_health / totalCrystals) + 5;
-        damage++;
+        int damage = Mathf.CeilToInt((float)enemyStats.max_health / 4) ;
         enemyStats.takedamage(damage, transform.position);
 
         Debug.Log($"水晶被破壞，Dark Magicion 扣 {damage} HP，目前剩餘 {enemyStats.current_health}");
 
-        if (enemyStats.current_health <= 0)
+        if (enemyStats.current_health <= 5)
         {
             Die();
         }
@@ -306,28 +303,39 @@ public class Dark_Magicion_Controller : MonoBehaviour
         // 先處理要關閉的物件
         DisableObjectsOnDeath();
 
+        //召喚傳送門
+        if (EnemyManager.instance != null)
+        {
+            EnemyManager.instance.finishlayer();
+        }
+
         if (animator != null)
         {
             animator.SetTrigger("DarkMagicionDie");
         }
-        StartCoroutine(DieAfterAnimation(2.2f));
+        StartCoroutine(DieAfterAnimation(2.3f));
     }
 
     IEnumerator DieAfterAnimation(float delay)
     {
         yield return new WaitForSeconds(delay);
         enemyStats.ForceDie();
+        EnemyManager.instance.now_enemy.Clear();
+
     }
 
     private void DisableObjectsOnDeath()
     {
-        foreach (GameObject obj in objectsToDisableOnDeath)
+        foreach (GameObject enemy in summonedEnemies)
         {
-            if (obj != null)
+            if (enemy != null)
             {
-                obj.SetActive(false);
+                Destroy(enemy);
             }
         }
+        summonedEnemies.Clear(); // 清空 list
+
+        Debug.Log("所有物件已清除！");
     }
     
     private void ClearAllOtherEnemies()
@@ -336,7 +344,7 @@ public class Dark_Magicion_Controller : MonoBehaviour
         foreach (GameObject enemy in allEnemies)
         {
             // 避免自殺，跳過自己
-            if (enemy != this.gameObject)
+            if (enemy != this.gameObject&&enemy!=null)
             {
                 Destroy(enemy);
             }

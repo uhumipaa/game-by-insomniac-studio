@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class player_trigger : MonoBehaviour
 {
     //public InventoryManager inventory; //刪
@@ -37,6 +38,7 @@ public class player_trigger : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name != "farm") return;
         //播種
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
