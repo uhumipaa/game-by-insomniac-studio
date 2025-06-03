@@ -55,7 +55,7 @@ public class Chest_Controller : MonoBehaviour
     ItemRarity GetRandomRarity()
     {
         int rmd = Random.Range(0, 100);
-        int lucky = PlayerStatusManager.instance.playerStatusData.Luck / 3;
+        int lucky = PlayerStatusManager.instance.playerStatusData.Luck / 6;
         ItemRarity rarity=ItemRarity.Common;
         rmd += lucky;
         if (rmd < Rate_Common)
@@ -70,7 +70,7 @@ public class Chest_Controller : MonoBehaviour
         {
             rarity =ItemRarity.Epic;
         }
-        else if (Rate_Common + Rate_Rare + Rate_Epic <= rmd && rmd < Rate_Common + Rate_Rare + Rate_Epic + Rate_Lengendary)
+        else if (Rate_Common + Rate_Rare + Rate_Epic <= rmd)
         {
             rarity =ItemRarity.Legendary;
         }

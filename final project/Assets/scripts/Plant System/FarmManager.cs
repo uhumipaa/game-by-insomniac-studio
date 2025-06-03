@@ -347,6 +347,7 @@ public class FarmManager : MonoBehaviour
 
     public void LoadFarmData(FarmSaveData data)
     {
+        if (SceneManager.GetActiveScene().name != "farm") return;
         //先清除場上所有殘留的水滴圖與進度條（防止重複產生）
         foreach (var tile in farmTiles.Values)
         {

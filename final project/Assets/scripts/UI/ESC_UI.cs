@@ -27,6 +27,9 @@ public class ESC_UI : MonoBehaviour
         loadmenu.alpha = 0;
         loadmenu.interactable = false;
         loadmenu.blocksRaycasts = false;
+        savemenu.alpha = 0;
+        savemenu.interactable = false;
+        savemenu.blocksRaycasts = false;
         if (!SaveSystem.instance.HasSaveFile(0))
         {
             loadbutton.interactable = false;
@@ -54,6 +57,12 @@ public class ESC_UI : MonoBehaviour
         escpanel.alpha = 1;
         escpanel.interactable = true;
         escpanel.blocksRaycasts = true;
+        loadmenu.alpha = 0;
+        loadmenu.interactable = false;
+        loadmenu.blocksRaycasts = false;
+        savemenu.alpha = 0;
+        savemenu.interactable = false;
+        savemenu.blocksRaycasts = false;
         if (!SaveSystem.instance.HasSaveFile(0))
         {
             loadbuttoninesc.interactable = false;
@@ -69,6 +78,8 @@ public class ESC_UI : MonoBehaviour
         escpanel.alpha = 0;
         escpanel.interactable = false;
         escpanel.blocksRaycasts = false;
+        closesavemenu();
+        closeloadmenu();
     }
     public void opensavemenu()
     {
@@ -76,6 +87,7 @@ public class ESC_UI : MonoBehaviour
         savemenu.alpha = 1;
         savemenu.interactable = true;
         savemenu.blocksRaycasts = true;
+        closeloadmenu();
     }
     public void Openloadmenu()
     {
@@ -83,7 +95,7 @@ public class ESC_UI : MonoBehaviour
         loadmenu.alpha = 1;
         loadmenu.interactable = true;
         loadmenu.blocksRaycasts = true;
-
+        closesavemenu();
         for (int i = 0; i < loadsavebutton.Length; i++)
         {
             if (!SaveSystem.instance.HasSaveFile(i))
@@ -103,7 +115,14 @@ public class ESC_UI : MonoBehaviour
         loadmenu.interactable = false;
         loadmenu.blocksRaycasts = false;
     }
-    public void backtomainmenu(){
+    public void closesavemenu()
+    {
+        savemenu.alpha = 0;
+        savemenu.interactable = false;
+        savemenu.blocksRaycasts = false;
+    }
+    public void backtomainmenu()
+    {
         closemenu();
         SaveSystem.instance.Savegame(0);
         SceneManager.LoadScene("Main Menu");

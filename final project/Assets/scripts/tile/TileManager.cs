@@ -47,7 +47,8 @@ public class TileManager : MonoBehaviour
 
     public void SetCropTile(Vector3Int position, TileBase tile)
     {
-        cropTilemap.SetTile(position, tile);
+        if(SceneManager.GetActiveScene().name=="farm")
+            cropTilemap.SetTile(position, tile);
     }
 
     public string GetTileName(Vector3Int position)
