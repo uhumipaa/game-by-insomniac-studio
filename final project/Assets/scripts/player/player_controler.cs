@@ -13,7 +13,7 @@ public class player_controler : MonoBehaviour
     bool attacking; 
     private enum direction { up, down, left, right }
     private direction player_direaction;
-    public Transform sliderCanvas;
+    public Transform sliderCanva;
     public bool canControl = true; // ✅ 新增這個
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,11 +22,11 @@ public class player_controler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         property = GetComponent<Player_Property>();
         ani = GetComponent<Animator>();
-        sliderCanvas = FindAnyObjectByType<playerhealthbar>()?.transform;
-        if (sliderCanvas == null)
-        {
-            sliderCanvas = transform;
-        }
+        // sliderCanvas = FindAnyObjectByType<playerhealthbar>()?.transform;
+        // if (sliderCanvas == null)
+        // {
+        //     sliderCanvas = transform;
+        // }
         // 確保 Animator 不會影響 Scale
         if (GetComponent<Animator>() != null)
         {
@@ -131,12 +131,12 @@ public class player_controler : MonoBehaviour
             if (movehorizontal > 0)
             {
                 player_direaction = direction.right;
-                sliderCanvas.localScale = new Vector3(1, 1f, 1f);//控制血條方向
+                // sliderCanvas.localScale = new Vector3(1, 1f, 1f);//控制血條方向
             }
             else if (movehorizontal < 0)
             {
                 player_direaction = direction.left;
-                sliderCanvas.localScale = new Vector3(-1, 1f, 1f);//控制血條方向
+                // sliderCanvas.localScale = new Vector3(-1, 1f, 1f);//控制血條方向
             }
             ani.SetFloat("vertical", movevetical);
             if (movevetical > 0)

@@ -19,6 +19,7 @@ public class Maploaders : MonoBehaviour
     public GameObject backteleport;
     private GameObject backteleport_instance;
     public GameObject shopsystem;
+    private PlayerStats PlayerStats;
     string audioname;
     int audioindex=0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,6 +61,7 @@ public class Maploaders : MonoBehaviour
         }
 
         player_instance.transform.position = playerspawn.position;
+
     }
     // Update is called once per frame
     public void LoadMaps(int room)
@@ -96,6 +98,12 @@ public class Maploaders : MonoBehaviour
         Generate_player();
         SpawnMonsters(floorDatas[nowfloor]);
         playbgm();
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            PlayerStats = playerGO.GetComponent<PlayerStats>();
+            PlayerStats.initial();
+        }
     }
 
     Vector2 getrandomposition(FloorData floorData)

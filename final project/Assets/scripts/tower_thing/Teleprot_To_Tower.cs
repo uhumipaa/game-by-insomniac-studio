@@ -7,6 +7,7 @@ public class Teleprot_To_Tower : MonoBehaviour
     public GameObject towerEnterPanel;
     public GameObject floorChoicePanel;
     public TMP_Text currentFloorText;
+    private Player_Property player_Property;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] bool playerInRange = false;
 
@@ -50,7 +51,13 @@ public class Teleprot_To_Tower : MonoBehaviour
     public void OnClickEnterYes()
     {
         towerEnterPanel.SetActive(false);
-        if (TowerManager.Instance.currentTowerFloor <5)
+        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            player_Property = playerGO.GetComponent<Player_Property>();
+            player_Property.current_health = player_Property.max_health;
+        }
+        if (TowerManager.Instance.currentTowerFloor < 5)
         {
             TowerManager.Instance.currentTowerFloor = 1;
 
