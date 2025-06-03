@@ -1703,12 +1703,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 902e98c812189284eb64298be94e1b6d, type: 2}
   restdata: {fileID: 11400000, guid: 56b76ef5d4a87334e9f2ad3f78b1934d, type: 2}
   boosfloordata:
-  - {fileID: 0}
   - {fileID: 11400000, guid: f85c5e11789a08b4f8b1dd0bfc9016e5, type: 2}
   - {fileID: 11400000, guid: 255b61848234b254aba7503884c8ec85, type: 2}
   - {fileID: 11400000, guid: 3bb4e2d332309584bb298b5941866fc8, type: 2}
   - {fileID: 11400000, guid: fe99ac87d99e43e4a8c99577ff5320aa, type: 2}
-  - {fileID: 0}
   backteleport: {fileID: 3837532041447484547, guid: 6a00236467664304aab8035b792ea137, type: 3}
   shopsystem: {fileID: 844709439}
 --- !u!4 &1490032417
