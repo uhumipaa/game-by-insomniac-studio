@@ -100,8 +100,8 @@ public class Player_Property : MonoBehaviour,ISaveData
     {
         if (expAddUI.minuspoint() >= 0)
         {
-            PlayerStatusManager.instance.playerStatusData.attack += 1;
-            PlayerStatusManager.instance.playerStatusData.magic_power += 1;
+            PlayerStatusManager.instance.playerStatusData.attack += 5;
+            PlayerStatusManager.instance.playerStatusData.magic_power += 5;
             update_property();
         }
     }
@@ -116,7 +116,7 @@ public class Player_Property : MonoBehaviour,ISaveData
     public void HPAdd()
     {
         if(expAddUI.minuspoint() >= 0) {
-            PlayerStatusManager.instance.playerStatusData.maxHP += 1;
+            PlayerStatusManager.instance.playerStatusData.maxHP += 10;
             update_property();
         }
     }

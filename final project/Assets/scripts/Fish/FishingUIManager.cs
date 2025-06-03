@@ -138,7 +138,7 @@ public class FishingUIManager : MonoBehaviour
             // 只從這些選項中選一個
             string[] forcedNames = new string[] { "鯉魚王", "暴鯉龍", "鋼彈" };
 
-            // 假設 itemName 對應是唯一的
+            //itemName 對應是唯一的
             var forcedItems = possibleItems.Where(i => forcedNames.Contains(i.itemName)).ToList();
 
             if (forcedItems.Count > 0)
@@ -152,9 +152,6 @@ public class FishingUIManager : MonoBehaviour
                 index = Random.Range(0, possibleItems.Count);
                 item = possibleItems[index];
             }
-
-            // 釣到一次後自動關閉開關
-            fishingcheat = false;
         }
 
         // 統計是否釣到汙染物

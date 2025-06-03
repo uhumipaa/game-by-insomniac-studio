@@ -135,7 +135,7 @@ public class enemy_property : MonoBehaviour
                     stats.kill();
                     bossController.StartPhase2Death(); //  呼叫Boss死亡動畫流程
                 }
-                if (Dark_Magicion != null)
+                else if (Dark_Magicion != null)
                 {
                     stats.kill();
                     // 交給 Dark Magicion 自己決定什麼時候死亡（播放動畫等等）
@@ -192,8 +192,8 @@ public class enemy_property : MonoBehaviour
 
     public void ForceDie()
     {
-        if (isBossKingDead) return;
-        isBossKingDead = true;
+        // if (isBossKingDead) return;
+        // isBossKingDead = true;
 
         if (EnemyManager.instance != null)
         {

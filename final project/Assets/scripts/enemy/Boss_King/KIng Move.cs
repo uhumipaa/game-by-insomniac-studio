@@ -134,23 +134,33 @@ public class BossController : MonoBehaviour
         var player = FindFirstObjectByType<Player_Property>();
         if (player != null)
         {
-            // 傳Boss位置過去給玩家（比如擊退方向），如果不需要可以傳 Vector2.zero
+            // 傳Boss位置過去給玩家
             player.takedamage(phase2ExplosionDamage, transform.position);
             Debug.Log("Phase2 爆氣攻擊命中玩家");
         }
     }
 
     public void ClearSummonedKnights()
+{
+    foreach (GameObject knight in summonedKnights)
     {
-        foreach (GameObject knight in summonedKnights)
+        if (knight != null)
         {
-            if (knight != null)
+            enemy_property ep = knight.GetComponent<enemy_property>();
+            if (ep != null)
             {
+                ep.die(); // 執行死亡處理
+            }
+            else
+            {
+                // 如果沒這個腳本，就直接銷毀
                 Destroy(knight);
             }
         }
-        summonedKnights.Clear();
     }
+
+    summonedKnights.Clear();
+}
     void FacePlayer()
     {
         Vector3 toPlayer = player.position - transform.position;
@@ -445,21 +455,20 @@ public class BossController : MonoBehaviour
         isTransforming = true; // 全部鎖住
 
         // 停止所有攻擊動作、清空協程、關閉Hitbox
-        StopAllCoroutines();
+        // StopAllCoroutines();
         DisableAllAttackHitbox();
         animator.ResetTrigger(attack1TriggerName);
         animator.ResetTrigger(attack2TriggerName);
         animator.ResetTrigger(attack3TriggerName);
         animator.ResetTrigger(summonTriggerName);
-        animator.Play("Idle", 1, 0f);
+        animator.Play("idle");
 
         if (animator != null)
         {
             animator.SetTrigger(deathTriggerName);
         }
-
         // 等待死亡動畫播完
-        yield return new WaitForSeconds(deathAnimationDuration);
+        yield return new WaitForSeconds(2);
 
         // 清除召喚物
         ClearSummonedKnights();
