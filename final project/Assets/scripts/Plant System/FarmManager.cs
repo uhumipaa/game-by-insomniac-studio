@@ -76,8 +76,10 @@ public class FarmManager : MonoBehaviour
 
     private IEnumerator CheckGrowthPeriodically()
     {
+        
         while (true)
         {
+            if (SceneManager.GetActiveScene().name != "farm") continue;
             AutoGrowAllTiles(); // 檢查是否成長
             yield return new WaitForSeconds(5f); // 每 5 秒跑一次
         }
