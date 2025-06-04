@@ -218,6 +218,10 @@ MonoBehaviour:
     rarity: 3
   - itemData: {fileID: 11400000, guid: 92e8b2bd054942d4487777df3d235bdd, type: 2}
     rarity: 0
+  - itemData: {fileID: 11400000, guid: 82811e115f69bcb4db75ed46143ed9e9, type: 2}
+    rarity: 0
+  - itemData: {fileID: 11400000, guid: 2e5f881560f4c084991cfc33885ddba1, type: 2}
+    rarity: 2
   presents_reward:
     itemData: {fileID: 0}
     rarity: 0

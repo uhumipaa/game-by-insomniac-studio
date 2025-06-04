@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb13b3122ad907c4ba3013b2889e14a3, type: 3}
+  m_Name: Gplden pencil
+  m_EditorClassIdentifier: 
+  ID: 
+  itemName: Golden pencil
+  description: Ultimate staff
+  icon: {fileID: 270620359856467167, guid: 74a7dc57465a2234586a96b6a9a3a61a, type: 3}
+  type: 27
+  maxAllowed: 1
+  isusable: 0
+  isarmor: 1
+  currentHP: 0
+  maxHP: 0
+  buffATK: 0
+  buffDEF: 0
+  buffSP: 0
+  buffMP: 200
+  buffLuck: 0
+  duration: 0

@@ -811,7 +811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopsurprisepool.Array.size
-      value: 47
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopitems.Array.data[0].price
@@ -1178,6 +1178,14 @@ PrefabInstance:
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopsurprisepool.Array.data[47].price
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopsurprisepool.Array.data[48].price
+      value: 29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: shopsurprisepool.Array.data[0].itemdata
       value: 
       objectReference: {fileID: 11400000, guid: 8126b09ff1057b54a878e02ec0d8079b, type: 2}
@@ -1365,6 +1373,14 @@ PrefabInstance:
       propertyPath: shopsurprisepool.Array.data[46].itemdata
       value: 
       objectReference: {fileID: 11400000, guid: 92e8b2bd054942d4487777df3d235bdd, type: 2}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopsurprisepool.Array.data[47].itemdata
+      value: 
+      objectReference: {fileID: 11400000, guid: 82811e115f69bcb4db75ed46143ed9e9, type: 2}
+    - target: {fileID: 1730899264300790159, guid: ee58519b154f54e4380b213325365bf5, type: 3}
+      propertyPath: shopsurprisepool.Array.data[48].itemdata
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e5f881560f4c084991cfc33885ddba1, type: 2}
     - target: {fileID: 2390573637995347232, guid: ee58519b154f54e4380b213325365bf5, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
