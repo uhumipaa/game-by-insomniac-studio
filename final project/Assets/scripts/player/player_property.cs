@@ -191,10 +191,6 @@ public class Player_Property : MonoBehaviour,ISaveData
     private IEnumerator die()
     {
         Debug.Log("玩家死亡！開始死亡流程");
-
-        if (playerController != null)
-            playerController.canControl = false; // 停止輸入
-
         if (blackScreenPanel != null)
             blackScreenPanel.alpha = 1f; // 立即變黑，不淡入
 

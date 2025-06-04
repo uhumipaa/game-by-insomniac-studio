@@ -89,10 +89,16 @@ public class Maploaders : MonoBehaviour
         {
             Destroy(transcircle_instance);
         }
+        transcircle_instance = FindAnyObjectByType<General_teleport>()?.gameObject;
+        if(transcircle_instance!=null)
+            Destroy(transcircle_instance);
         if (chest_instance != null)
-        {
+            {
+                Destroy(chest_instance);
+            }
+        chest_instance = FindAnyObjectByType<Chest_Controller>()?.gameObject;
+        if(chest_instance!=null)
             Destroy(chest_instance);
-        }
         currentMap = Instantiate(mapPrefabs[room], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
         SpawnMonsters(floorDatas[nowfloor]);
