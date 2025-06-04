@@ -941,10 +941,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5244905657356034976, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: jumpstory
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5244905657356034976, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
-      propertyPath: useencryption
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648091921307430071, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
