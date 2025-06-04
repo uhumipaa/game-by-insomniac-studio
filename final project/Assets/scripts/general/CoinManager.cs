@@ -27,23 +27,24 @@ public class CoinManager : MonoBehaviour,ISaveData
     {
         SceneManager.sceneLoaded += OnSceneLoaded;       
     }
-    void Update()
-    {
-        if (coinsText == null&&SceneManager.GetActiveScene().name!="Main Menu"&&SceneManager.GetActiveScene().name!="Boostrap")
-        {
-            TryFindCoinText();
-        }      
-    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         TryFindCoinText(); // 每次進新場景自動找一次
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void TryFindCoinText()
     {
         // 嘗試找場景中名為 CoinText 的物件
         GameObject textObj = GameObject.Find("CoinText");
+        if (SceneManager.GetActiveScene().name == "shop")
+        {
+            textObj = GameObject.Find("CoinTextShop");
+        }
         if (textObj != null)
         {
             coinsText = textObj.GetComponent<Text>();

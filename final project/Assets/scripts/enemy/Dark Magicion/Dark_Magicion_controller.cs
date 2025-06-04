@@ -287,7 +287,7 @@ private IEnumerator CastPattern2()
 
         Debug.Log($"水晶被破壞，Dark Magicion 扣 {damage} HP，目前剩餘 {enemyStats.current_health}");
 
-        if (enemyStats.current_health <= 5)
+        if (enemyStats.current_health <= 10)
         {
             Die();
         }

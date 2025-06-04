@@ -92,6 +92,7 @@ public class FarmManager : MonoBehaviour
 
     public void AddFarmTile(Vector3Int pos, CropData cropData)
     {
+        if (SceneManager.GetActiveScene().name != "farm") return;
         if (!farmTiles.ContainsKey(pos))
         {
             var tileData = new FarmTileData(pos, 0, cropData, false);

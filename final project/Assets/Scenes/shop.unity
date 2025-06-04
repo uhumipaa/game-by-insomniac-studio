@@ -3380,7 +3380,7 @@ GameObject:
   - component: {fileID: 1793668894}
   - component: {fileID: 1793668893}
   m_Layer: 5
-  m_Name: CoinText
+  m_Name: CoinTextShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
