@@ -8,8 +8,7 @@ public class TowerManager : MonoBehaviour,ISaveData
     public int currentTowerFloor = 1;
     public int finishfloorthistime = 1;
     public int currentfloorprefab=0;
-    private Maploaders loader;
-    private PlayerStats PlayerStats;
+    private Maploaders loaders;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -26,12 +25,6 @@ public class TowerManager : MonoBehaviour,ISaveData
     // Update is called once per frame
     public void retrun_to_town()
     {
-        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
-        if (playerGO != null)
-        {
-            PlayerStats = playerGO.GetComponent<PlayerStats>();
-            PlayerStats.initial();
-        }
         SceneManager.LoadScene("farm");
 
         FarmManager.instance?.AutoGrowAllTiles(); // 自動成長

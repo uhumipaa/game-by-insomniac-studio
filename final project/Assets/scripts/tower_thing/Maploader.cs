@@ -19,9 +19,8 @@ public class Maploaders : MonoBehaviour
     public GameObject backteleport;
     private GameObject backteleport_instance;
     public GameObject shopsystem;
-    private PlayerStats PlayerStats;
     string audioname;
-    int audioindex=0;
+    int audioindex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public void generate_tele()
@@ -90,40 +89,14 @@ public class Maploaders : MonoBehaviour
         {
             Destroy(transcircle_instance);
         }
-        else
-        {
-            transcircle_instance = FindAnyObjectByType<General_teleport>()?.gameObject;
-            if (transcircle_instance != null)
-        {
-            Destroy(transcircle_instance);
-        }
-        }
         if (chest_instance != null)
         {
             Destroy(chest_instance);
-        }
-        else
-        {
-            chest_instance = FindAnyObjectByType<Chest_Controller>()?.gameObject;
-            if (chest_instance != null)
-        {
-            Destroy(chest_instance);
-        }
-        }
-        if (backteleport_instance != null)
-        {
-            Destroy(backteleport_instance);
         }
         currentMap = Instantiate(mapPrefabs[room], Vector3.zero, Quaternion.identity, mapParen);
         Generate_player();
         SpawnMonsters(floorDatas[nowfloor]);
         playbgm();
-        GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
-        if (playerGO != null)
-        {
-            PlayerStats = playerGO.GetComponent<PlayerStats>();
-            PlayerStats.initial();
-        }
     }
 
     Vector2 getrandomposition(FloorData floorData)

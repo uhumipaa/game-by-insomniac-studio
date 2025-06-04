@@ -14,18 +14,18 @@ public class PlayerStats : MonoBehaviour
     {
         expToNextLevel = CalculateExpToNextLevel(level);
     }
-    public void initial()
-    {
-        level = 1;
-        currentExp = 0;
-        expToNextLevel = CalculateExpToNextLevel(level);
-        GameObject exp = GameObject.FindGameObjectWithTag("exp");
-        if (exp != null)
-        {
-            expAddUI = exp.GetComponent<ExpAddUI>();
-            expAddUI.point = 10;
-        }
-    }
+    // public void initial()
+    // {
+    //     level = 1;
+    //     currentExp = 0;
+    //     expToNextLevel = CalculateExpToNextLevel(level);
+    //     GameObject exp = GameObject.FindGameObjectWithTag("exp");
+    //     if (exp != null)
+    //     {
+    //         expAddUI = exp.GetComponent<ExpAddUI>();
+    //         expAddUI.point = 10;
+    //     }
+    // }
 
     void Update()
     {
