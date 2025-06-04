@@ -80,6 +80,12 @@ public class Player_Property : MonoBehaviour,ISaveData
             deathAnimators.Add(GameObject.Find("GameOver6").GetComponent<Animator>());
             deathAnimators.Add(GameObject.Find("GameOver7").GetComponent<Animator>());
         }
+
+        if (scene.name == "playerHome")
+        {
+            transform.position = SceneLoadPosition.spawnPosition; //進入新場景後定位
+            Debug.Log($"玩家已定位到 {SceneLoadPosition.spawnPosition}");
+        }
     }
 
     void Update()
@@ -205,7 +211,7 @@ public class Player_Property : MonoBehaviour,ISaveData
         //等待10秒
          yield return new WaitForSeconds(5f);
         //轉場景
-        transform.position = Vector2.zero;
+        SceneLoadPosition.spawnPosition = new Vector3(-3f, -2f, 0f); // ✅ 你想要在新場景的出生座標
         SceneManager.LoadScene("playerHome");
 
     }
