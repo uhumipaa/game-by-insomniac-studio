@@ -1,5 +1,7 @@
 [stopfinal]
+[stopbgm,1]
 [show]
+[audio,bgm,cinematic-soundtrack-epic-ending-12439,false,0,audioTransit_0.7_1000]
 大喵喵：呼~終於是爬到了第50層了[w]
 大喵喵：從外觀來看，這座塔應該也到盡頭了[w]
 大喵喵：啊呀，按照我的經驗[r]
@@ -9,6 +11,7 @@
 好，來吧[w]
 大喵喵：欸...?[w]
 [playfinal]
+
 [wait,6000]
 [stopfinal]
 大喵喵：你......[l]
@@ -22,3 +25,4 @@
 [c]
 [hide]
 [die]
+[remove,bgm,audioTransit_0_1000]

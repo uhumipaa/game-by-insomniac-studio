@@ -3,6 +3,7 @@ using Flower;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 public class final : MonoBehaviour
 {
     FlowerSystem fs;
@@ -33,6 +34,7 @@ public class final : MonoBehaviour
         fs.RegisterCommand("showweapon", showweapon);
         fs.RegisterCommand("die", diedie);
         fs.RegisterCommand("attack", attack);
+        fs.RegisterCommand("stopbgm", stopbgm);
             fs.ReadTextFromResource("final");
     }
 
@@ -60,6 +62,8 @@ public class final : MonoBehaviour
     void attack(List<string> strings)
     {
         weapon.GetComponent<Animator>().SetTrigger("attack");
+        if(Audio_manager.Instance!=null)
+            Audio_manager.Instance.Play(12, "player_sword", false, 0);
     }
 
     void diedie(List<string> strings)
@@ -71,11 +75,21 @@ public class final : MonoBehaviour
         }
         StartCoroutine(tobecontinue());
     }
+    void stopbgm(List<string> strings)
+    {
+        if (Audio_manager.Instance != null)
+        {
+            Audio_manager.Instance.Stop();
+        }
+    }
     IEnumerator tobecontinue()
     {
         yield return new WaitForSecondsRealtime(4f);
         tobecontinuepanel.GetComponent<CanvasGroup>().alpha = 1;
-        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha=1;
+        GameObject.Find("ToolBar(Clone)").GetComponent<CanvasGroup>().alpha = 1;
         tobecontinuepanel.GetComponent<Animator>().SetTrigger("continue");
+        yield return new WaitForSecondsRealtime(5f);
+        FindAnyObjectByType<Player_Property>().transform.position = Vector2.zero;
+        SceneManager.LoadScene("farm");
     }
 }

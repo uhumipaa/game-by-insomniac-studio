@@ -6406,7 +6406,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -7643,7 +7644,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -8572,7 +8574,7 @@ PrefabInstance:
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f742aa32737423346b5593e68ef83d2a, type: 3}
+      objectReference: {fileID: -6270953770400647376, guid: 87560552285f36a4f8da616d51d66265, type: 3}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -8699,7 +8701,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -8725,7 +8728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotindex: 2
   type: 26
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 1163d8a6712390d4891ee0999cf9ca9e, type: 2}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 5153002985932983331}
@@ -9430,7 +9433,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -11136,7 +11140,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -11546,7 +11551,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -12788,7 +12794,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -16119,7 +16126,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -16398,7 +16406,7 @@ PrefabInstance:
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8a9500c26a7c49542a1e04f0e9f95f64, type: 3}
+      objectReference: {fileID: 5565827395184367216, guid: b3c6c1e54c5a1a9409f4feecda269c25, type: 3}
     - target: {fileID: 6688827678050283747, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -16525,7 +16533,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8696682244451514341, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8333360969140596860, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4491802287170038125, guid: b6c5a930b5b9b274da1bdf0875aa98f7, type: 3}
@@ -16567,7 +16576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotindex: 1
   type: 27
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 82811e115f69bcb4db75ed46143ed9e9, type: 2}
   sword: {fileID: 0}
   staff: {fileID: 0}
   icon: {fileID: 2688492345322972736}

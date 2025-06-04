@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4609009657921270449, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: itemList.Array.size
-      value: 75
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 4609009657921270449, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: 'itemList.Array.data[19]'
@@ -923,6 +923,14 @@ PrefabInstance:
       propertyPath: 'itemList.Array.data[74]'
       value: 
       objectReference: {fileID: 11400000, guid: 48cddc10cc2209842965ffac306cbfe7, type: 2}
+    - target: {fileID: 4609009657921270449, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: 'itemList.Array.data[75]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 82811e115f69bcb4db75ed46143ed9e9, type: 2}
+    - target: {fileID: 4609009657921270449, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: 'itemList.Array.data[76]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e5f881560f4c084991cfc33885ddba1, type: 2}
     - target: {fileID: 4852028589495920087, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: farmManager
       value: 
@@ -938,6 +946,14 @@ PrefabInstance:
     - target: {fileID: 5648091921307430071, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926896867482616276, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: currentTowerFloor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8926896867482616276, guid: 5461401df32fa3748801bf8e3329dd77, type: 3}
+      propertyPath: finishfloorthistime
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3685,6 +3701,10 @@ PrefabInstance:
       propertyPath: lightingprefab
       value: 
       objectReference: {fileID: 9126000124638884126, guid: 1c10f611f1bc63440908a3acb725b5b1, type: 3}
+    - target: {fileID: 5817346203161651107, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5565827395184367216, guid: b3c6c1e54c5a1a9409f4feecda269c25, type: 3}
     - target: {fileID: 7440852206036009363, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
       propertyPath: m_Name
       value: player_battle
@@ -3697,6 +3717,10 @@ PrefabInstance:
       propertyPath: 'towerscript.Array.data[9]'
       value: 
       objectReference: {fileID: 1396202258}
+    - target: {fileID: 8829269630297432949, guid: 265e76cb9d291524586d4d62c3c6f8be, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6270953770400647376, guid: 87560552285f36a4f8da616d51d66265, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

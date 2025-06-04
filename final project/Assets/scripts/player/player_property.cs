@@ -205,6 +205,7 @@ public class Player_Property : MonoBehaviour,ISaveData
         //等待10秒
          yield return new WaitForSeconds(5f);
         //轉場景
+        transform.position = Vector2.zero;
         SceneManager.LoadScene("playerHome");
 
     }
