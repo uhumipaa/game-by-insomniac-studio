@@ -20,9 +20,12 @@ public class DropManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        //以場景決定當前存檔、讀檔路徑
         savePath = Path.Combine(Application.persistentDataPath,
                                 UnityEngine.SceneManagement.SceneManager.GetActiveScene().name + "_drop_items.json"
                                 );
+
+        //讀取場上物品狀態
         LoadDroppedItems();
     }
 
@@ -41,9 +44,12 @@ public class DropManager : MonoBehaviour
         Debug.Log("🕒 SaveAfterFrame 啟動");  // 加這行
         yield return null; // 等待一幀
         Debug.Log("💾 SaveAfterFrame 正式呼叫 SaveDroppedItems()");
+
         // 儲存新的掉落物狀態
         DropManager.instance.SaveDroppedItems();
     }
+
+    //掉落物存檔
     public void SaveDroppedItems()
     {
         //抓取路徑
@@ -58,11 +64,12 @@ public class DropManager : MonoBehaviour
             if (collectable != null && collectable.item.data != null)
             {
                 Debug.Log($"💾 正在存檔：{collectable.item.data.type}, amount: {1}");
+                //新增資料
                 drops.Add(new DropItemData
                 {
                     itemType = collectable.item.data.type,
                     position = item.transform.position,
-                    amount = 1//
+                    amount = 1
                 });
             }
         }
@@ -73,6 +80,7 @@ public class DropManager : MonoBehaviour
         Debug.Log("場上物件寫入成功");
     }
 
+    //讀取掉落物紀錄
     public void LoadDroppedItems()
     {
         //抓取路徑

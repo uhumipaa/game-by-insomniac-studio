@@ -38,9 +38,10 @@ public class player_trigger : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != "farm") return;
+        if (SceneManager.GetActiveScene().name != "farm") return; //只有農場場景才啟用
+
         //播種
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace)) //按下Backspace播種
         {
 
             if (tileManager != null)
@@ -79,6 +80,7 @@ public class player_trigger : MonoBehaviour
 
             var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
 
+            //判斷並執行澆水
             if (WaterTool.Instance.TryWater(cellPos, selectedSlot))
             {
                 Debug.Log("澆水成功");
@@ -120,7 +122,7 @@ public class player_trigger : MonoBehaviour
             }
         }
 
-        Collectable dropped = gm.itemManager.SpawnCollectable(type, finalPosition);
+        Collectable dropped = gm.itemManager.SpawnCollectable(type, finalPosition);//生成掉落物
 
         if (dropped != null)
         {

@@ -21,17 +21,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        /*if (instance != null && instance != this) //如果有其他GameManager存在
-        {
-            Destroy(this.gameObject); //把現在這個GameManager刪掉
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);*/
-
-        // 初始化不隨場景消失的資料
-        //inventoryManager = new InventoryManager();
         Debug.Log($"🟢 GameManager 啟動，場景名為：{gameObject.scene.name}");
 
         if (transform.root.name == "DontDestroyOnLoad")
@@ -59,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene.name == "farm")
         {
-            StartCoroutine(DelayedFarmRefresh());
+            StartCoroutine(DelayedFarmRefresh()); //延遲刷新
         }
 
         StartCoroutine(DelayedDropRefresh());

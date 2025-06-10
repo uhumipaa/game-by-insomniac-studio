@@ -175,14 +175,6 @@ public class Inventory_UI : MonoBehaviour
             UI_Manager.draggedSlot.inventory.MoveSlot(UI_Manager.draggedSlot.slotID, slot.slotID, slot.inventory,
                 UI_Manager.draggedSlot.inventory.slots[UI_Manager.draggedSlot.slotID].count);
 
-        //立即刷新拖曳來源與目標 slot
-        //fromSlot.Refresh();
-        //toSlot.Refresh();
-
-        /*FindFirstObjectByType<GameManager>().uiManager.RefreshAll();*/
-
-        //UI_Manager.draggedSlot = null;
-        //UI_Manager.draggedIcon = null;
 
         //先刪除拖曳圖示，避免殘影
         if (UI_Manager.draggedIcon != null)

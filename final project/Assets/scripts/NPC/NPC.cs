@@ -57,18 +57,14 @@ public class NPC : MonoBehaviour, interactable
 
     void StartDialogue()
     {
-        //Debug.Log($"HasTalkedBefore = {HasTalkedBefore()}");
         if (!HasTalkedBefore() && dialogueData.firstTimeDialogue.Length > 0)
         {
-            //Debug.Log($"首次對話: {npcID}");
             currentDialogue = dialogueData.firstTimeDialogue;
             SetTalked();
             FishingStats.DialogueCount++;
-
         }
         else
         {
-            //Debug.Log($"隨機對話: {npcID}");
             int rand = Random.Range(0, dialogueData.randomDialogues.Count);
             currentDialogue = dialogueData.randomDialogues[rand].lines;
             FishingStats.DialogueCount++ ;
@@ -133,11 +129,13 @@ public class NPC : MonoBehaviour, interactable
         PauseController.SetPause(false);
     }
 
+    //紀錄是否曾經對話過
     private bool HasTalkedBefore()
     {
         return PlayerPrefs.GetInt("TalkedTo_" + npcID, 0) == 1;
     }
 
+    //設置對話資料
     private void SetTalked()
     {
         PlayerPrefs.SetInt("TalkedTo_" + npcID, 1);

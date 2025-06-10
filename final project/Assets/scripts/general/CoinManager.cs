@@ -37,9 +37,9 @@ public class CoinManager : MonoBehaviour,ISaveData
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    //尋找場景上顯示金額的物件
     private void TryFindCoinText()
     {
-        // 嘗試找場景中名為 CoinText 的物件
         GameObject textObj = GameObject.Find("CoinText");
         if (SceneManager.GetActiveScene().name == "shop")
         {
@@ -63,17 +63,20 @@ public class CoinManager : MonoBehaviour,ISaveData
         UpdateCoinText();
     }
 
+    //取得金額數
     public float GetCoins()
     {
         return coins;
     }
 
+    //增加金額
     public void AddCoins(float amount)
     {
         coins += amount;
         UpdateCoinText();
     }
 
+    //花錢時減少金額
     public bool SpendCoins(float amount)
     {
         if (coins >= amount)
@@ -85,6 +88,7 @@ public class CoinManager : MonoBehaviour,ISaveData
         return false;
     }
 
+    //金額刷新
     private void UpdateCoinText()
     {
         if (coinsText != null)
@@ -98,11 +102,13 @@ public class CoinManager : MonoBehaviour,ISaveData
         UpdateCoinText();
     }
 
+    //金額存檔
     public void SaveData(ref SaveData saveData)
     {
         saveData.coin = coins;
     }
 
+    //金額讀檔
     public void LoadData(SaveData saveData)
     {
         coins = saveData.coin;

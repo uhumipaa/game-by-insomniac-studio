@@ -12,12 +12,14 @@ public class Collectable : MonoBehaviour
     public Item item;
 
     public int amount = 1; // 新增數量屬性
-    private bool isCollected = false;
+    private bool isCollected = false; //確認是否重複收集
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
         item = GetComponent<Item>();
     }
+
+    //碰到物品
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isCollected) return; // 防止重複
@@ -52,12 +54,16 @@ public class Collectable : MonoBehaviour
                 InventoryManager.Instance.Add("Backpack", item.data, amount);
                 Debug.Log($"實際撿起 {item.data.itemName}，數量: {amount}");
 
+                //將場上狀態存檔
                 DropManager.instance.SaveDroppedItemsNextFrame();
+
+                //銷毀撿起物件
                 Destroy(this.gameObject);
             }
         }
     }
 
+    //設定掉落物圖示、數量
     public void SetItemData(ItemData data, int amt = 1)
     {
         if (item == null)
@@ -76,6 +82,4 @@ public class Collectable : MonoBehaviour
             Debug.LogWarning("❌ 無法設定圖示：ItemData 或 icon 為 null");
         }
     }
-
-    
 }

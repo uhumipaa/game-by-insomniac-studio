@@ -8,41 +8,18 @@ public class Inventory
     [System.Serializable]
     public class Slot
     {
-        //public string itemName;
+        
         public ItemData itemData;
         public int count;
         public bool IsEmpty => itemData == null || count <= 0;
-        //public int maxAllowed;
-        //public Sprite icon;
-        //public ItemType type;
-        //public Vector3 originalDropPosition; //原始掉落位置
-
-        /*public Slot()
-        {
-            itemName = "";
-            count = 0;
-            maxAllowed = 99;
-        }*/
-
-        /*//判斷格子是否為空
-        public bool IsEmpty
-        {
-            get
-            {
-                if(itemName == "" && count == 0)
-                {
-                    return true;
-                }
-                
-                return false;
-            }
-        }*/
-
+    
+        //判斷能不能在格子裡加物品
         public bool CanAddItem(ItemData data)
         {
             return itemData == data && count < data.maxAllowed;
         }
 
+        //在格子裡加物品
         public void AddItem(ItemData data, int amount = 1)
         {
             if (data == null) return;
@@ -59,17 +36,7 @@ public class Inventory
             }
         }
 
-        /*public void AddItem(string itemName, Sprite icon, ItemType type, int maxAllowed)
-        {
-            this.itemName = itemName;
-            this.icon = icon;
-            this.type = type;
-            //this.originalDropPosition = item.transform.position; // 記住撿起前的位置
-            this.count++; 
-            this.maxAllowed = maxAllowed;
-        }*/
-
-
+        //減少格子裡的物品
         public void RemoveItem(int amount = 1)
         {
             if (!IsEmpty)
@@ -96,6 +63,7 @@ public class Inventory
         }
     }
 
+    //新增物品
     public void Add(ItemData data, int amount = 1)
     {
         //找格子裡相同data的

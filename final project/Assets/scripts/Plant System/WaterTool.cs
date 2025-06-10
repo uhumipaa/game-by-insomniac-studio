@@ -6,39 +6,15 @@ public class WaterTool : MonoBehaviour
     public static WaterTool Instance { get; private set; }
 
     private void Awake()
-{
-    if (Instance != null && Instance != this)
     {
-        Destroy(gameObject);
-        return;
-    }
-    Instance = this;
-    DontDestroyOnLoad(this.gameObject); // 如果需要
-}
-    /*void Update()
-    {
-        if (Input.GetMouseButtonDown(0)&&SceneManager.GetActiveScene().name=="farm") // 左鍵澆水
+        if (Instance != null && Instance != this)
         {
-            Debug.Log("點擊澆水");
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPos = FarmManager.instance.tileManager.cropTilemap.WorldToCell(mouseWorldPos);
-
-            var selectedSlot = InventoryManager.Instance.toolbar.selectedSlot;
-            
-            if (TryWater(cellPos, selectedSlot))
-            {
-                Debug.Log("澆水成功");
-                if (gm == null || gm.uiManager == null)
-                {
-                    Debug.LogWarning("⚠️ GameManager 或 UIManager 為 null，無法刷新 Toolbar");
-                }
-                else
-                {
-                    gm.uiManager.RefreshInventoryUI("Toolbar");
-                }
-            }
+            Destroy(gameObject);
+            return;
         }
-    }*/
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject); // 如果需要
+    }
 
 
     public bool TryWater(Vector3Int position, Inventory.Slot selectedSlot)

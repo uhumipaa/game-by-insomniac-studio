@@ -21,46 +21,22 @@ public class ShopManagerScript : MonoBehaviour
         //設定UI TEXT
         CoinManager.instance.RegisterCoinText(CoinsTXT);
 
-        /*//set items' id
-        shopItems[1, 1] = 1;
-        shopItems[1, 2] = 2;
-        shopItems[1, 3] = 3;
-        shopItems[1, 4] = 4;
-
-        //set items' price
-        shopItems[2, 1] = 10;
-        shopItems[2, 2] = 20;
-        shopItems[2, 3] = 30;
-        shopItems[2, 4] = 40;
-
-        //set items' quantity
-        shopItems[3, 1] = 0;
-        shopItems[3, 2] = 0;
-        shopItems[3, 3] = 0;
-        shopItems[3, 4] = 0;*/
-
-        //Debug.Log($"[ShopManagerScript] 我是 {gameObject.name}，Shop Item List 有 {shopItemList.Count} 個");
         InitShopData();
     }
 
     public void InitShopData()
     {
-        //Debug.Log("[InitShop] 進入");
         itemDataByID.Clear();
         foreach (var shopItem in shopItemList)
         {
             if (!itemDataByID.ContainsKey(shopItem.itemID))
             {
                 itemDataByID.Add(shopItem.itemID, shopItem);
-                //Debug.Log($"[ShopManager] 加入商品 {shopItem.itemID} {shopItem.itemData.itemName} $ {shopItem.price}");
             }
         }
     }
     public void Buy()
     {
-
-        //Debug.Log("按鈕被點擊了");
-
 
         if (itemDataByID == null || itemDataByID.Count == 0)
         {
@@ -70,12 +46,9 @@ public class ShopManagerScript : MonoBehaviour
 
         GameObject ButtonRef = EventSystem.current.currentSelectedGameObject;
 
-        //0510 mod by bai
         int itemID = ButtonRef.GetComponent<ButtonInfo>().ItemID;
-        //int price = shopItems[2, itemID];
-        //end
 
-        //0510 mod by bai
+
         if (itemDataByID.TryGetValue(itemID, out ShopItemData itemData))
         {
             if (CoinManager.instance.SpendCoins(itemData.price))
@@ -89,9 +62,7 @@ public class ShopManagerScript : MonoBehaviour
         }
         else
         {
-            //Debug.LogError($"ItemID {itemID} 不存在於商店資料中");
+          
         }
-        //end
-
     }
 }

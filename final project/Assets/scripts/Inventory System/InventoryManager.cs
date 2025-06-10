@@ -43,12 +43,15 @@ public class InventoryManager : MonoBehaviour, ISaveData
         backpack = new Inventory(backpackSlotCount);
         toolbar = new Inventory(toolbarSlotCount);
         storagebox = new Inventory(storageboxSlotCount);
+
         //註冊進inventoryByName的字典中
         inventoryByName.Clear();
         inventoryByName.Add("Backpack", backpack);
         inventoryByName.Add("Toolbar", toolbar);
         inventoryByName.Add("Storagebox", storagebox);
     }
+
+    //新增物品
     public void Add(string inventoryName, ItemData data, int amount = 1)
     {
         if (inventoryByName.ContainsKey(inventoryName))
@@ -134,11 +137,7 @@ public class InventoryManager : MonoBehaviour, ISaveData
     [System.Obsolete]
     public void LoadData(SaveData saveData)
     {
-        /*
-        backpack.slots.Clear();
-        toolbar.slots.Clear();
-        storagebox.slots.Clear();
-        */
+       
         regristall();
         foreach (Inventory_UI ui in Resources.FindObjectsOfTypeAll<Inventory_UI>())
         {
